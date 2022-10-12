@@ -2,10 +2,10 @@
 
   <main class="container-fluid">
     <section class="row Home">
-      <div class="col-2 bg-secondary ">
+      <div class="col-md-2 bg-secondary ">
         <Navbar />
       </div>
-      <div class="col-10">
+      <div class="col-md-10">
         <router-view />
       </div>
     </section>

@@ -8,8 +8,6 @@
           <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid rounded" />
         </div>
       </router-link>
-      <!-- LOGIN COMPONENT -->
-      <Login />
       <!-- CAMPAIGNS PAGE LINK -->
       <router-link :to="{ name: 'Campaigns' }">
         <div class="bg-danger p-3 rounded selectable text-light my-5">
@@ -23,13 +21,18 @@
         </div>
       </router-link>
     </div>
-    <!-- ABOUT PAGE LINK -->
-    <router-link :to="{ name: 'About' }"
-      class="text-center my-2 btn btn-light text-dark lighten-30 selectable text-uppercase">
-      <h6 class="p-0 text-center">
-        About
-      </h6>
-    </router-link>
+    <div class="text-center">
+
+      <!-- LOGIN COMPONENT -->
+      <Login />
+      <!-- ABOUT PAGE LINK -->
+      <router-link :to="{ name: 'About' }"
+        class="text-center my-2 btn btn-light text-dark lighten-30 selectable text-uppercase">
+        <h6 class="p-0 text-center">
+          About
+        </h6>
+      </router-link>
+    </div>
   </div>
 
 </template>
