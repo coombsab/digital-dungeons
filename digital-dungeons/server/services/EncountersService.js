@@ -1,7 +1,31 @@
 import { dbContext } from "../db/DbContext";
-import { BadRequest } from "../utils/Errors.js";
+import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class EncountersService {
+  async editEncounter(encounterData) {
+    const encounter = await this.getEncounterById(encounterData.id);
+    // @ts-ignore
+    if (encounter.creatorId.toString() !== encounterData.creatorId) {
+      throw new Forbidden("This is not your encounter; you may not edit it.");
+    }
+
+    encounter.name = encounterData.name || encounter.name;
+    encounter.desc = encounterData.desc || encounter.desc;
+    encounter.type = encounterData.type || encounter.type;
+    encounter.isCompleted = encounterData.isCompleted || encounter.isCompleted;
+    encounter.musicUrl = encounterData.musicUrl || encounter.musicUrl;
+    encounter.coverImg = encounterData.coverImg || encounter.coverImg;
+
+    await encounter.save();
+    return encounter;
+  }
+  async getEncounterById(encounterId) {
+    const encounter = await dbContext.Encounter.findById(encounterId);
+    if (!encounter) {
+      throw new BadRequest("Could not get Encounter due to invalid Id");
+    }
+    return encounter;
+  }
   async removeEncounter(encounterId, userId) {
     const encounter = await dbContext.Encounter.findById(encounterId);
 
