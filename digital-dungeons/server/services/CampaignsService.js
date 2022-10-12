@@ -2,6 +2,21 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class CampaignService {
+  async editCampaign(campaignData) {
+    const campaign = await this.getCampaignById(campaignData.id)
+    // @ts-ignore
+    if (campaign.creatorId.toString() !== campaignData.creatorId) {
+      throw new Forbidden("This is not your campaign; you may not edit it.")
+    }
+
+    campaign.name = campaignData.name || campaign.name
+    campaign.desc = campaignData.desc || campaign.desc
+    campaign.coverImg = campaignData.coverImg || campaign.coverImg
+
+    await campaign.save()
+    return campaign
+
+  }
 
   async getCampaigns(query) {
     const campaigns = await dbContext.Campaign.find({ ...query })
