@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { campaignsService } from "../services/CampaignsService.js";
+import { encountersService } from "../services/EncountersService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class CampaignsController extends BaseController {
@@ -12,7 +13,7 @@ export class CampaignsController extends BaseController {
       .post("", this.addCampaign);
   }
 
-  async getCampaigns(res, req, next) {
+  async getCampaigns(req, res, next) {
     try {
       const campaigns = await campaignsService.getCampaigns(req.query)
       res.send(campaigns)
@@ -20,14 +21,15 @@ export class CampaignsController extends BaseController {
       next(error);
     }
   }
-  async getEncountersByCampaignId(res, req, next) {
+  async getEncountersByCampaignId(req, res, next) {
     try {
-
+      const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId)
+      res.send(encounters)
     } catch (error) {
       next(error);
     }
   }
-  async addCampaign(res, req, next) {
+  async addCampaign(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
       const campaign = await campaignsService.addCampaign(req.body)
