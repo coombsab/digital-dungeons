@@ -12,6 +12,7 @@ export class CampaignsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.addCampaign)
       .delete("/:campaignId", this.deleteCampaign)
+      .put("/:campaignId", this.editCampaign)
   }
 
   async getCampaigns(req, res, next) {
@@ -40,7 +41,17 @@ export class CampaignsController extends BaseController {
     }
   }
 
-
+  async editCampaign(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      req.body.id = req.params.campaignId
+      const campaign = await campaignsService.editCampaign(req.body)
+      res.send(campaign)
+    }
+    catch(error) {
+      next(error)
+    }
+  }
 
 
   async deleteCampaign(req, res, next) {
