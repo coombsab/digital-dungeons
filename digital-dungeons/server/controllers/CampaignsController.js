@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { campaignsService } from "../services/CampaignsService.js";
+import { encountersService } from "../services/EncountersService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class CampaignsController extends BaseController {
@@ -22,7 +23,7 @@ export class CampaignsController extends BaseController {
   }
   async getEncountersByCampaignId(req, res, next) {
     try {
-
+      const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId)
     } catch (error) {
       next(error);
     }
