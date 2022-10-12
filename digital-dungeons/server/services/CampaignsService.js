@@ -4,10 +4,13 @@ class CampaignService {
 
   }
 
-  async addCampaing() {
+  async addCampaign() {
 
   }
 
+  async getEncountersByCampaignId() {
+
+  }
 
 
   //TODO - This is a future goal

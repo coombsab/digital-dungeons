@@ -1,4 +1,16 @@
 class MonstersService {
+  async getMonsters() {
+
+
+
+  }
+  async addMonsters() {
+
+  }
+
+
+
+
 
 }
 
