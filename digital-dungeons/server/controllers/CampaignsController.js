@@ -12,30 +12,32 @@ export class CampaignsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.addCampaign)
       .delete("/:campaignId", this.deleteCampaign)
-      .put("/:campaignId", this.editCampaign)
+      .put("/:campaignId", this.editCampaign);
   }
 
   async getCampaigns(req, res, next) {
     try {
-      const campaigns = await campaignsService.getCampaigns(req.query)
-      res.send(campaigns)
+      const campaigns = await campaignsService.getCampaigns(req.query);
+      res.send(campaigns);
     } catch (error) {
       next(error);
     }
   }
   async getEncountersByCampaignId(req, res, next) {
     try {
-      const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId)
-      res.send(encounters)
+      const encounters = await encountersService.getEncountersByCampaignId(
+        req.params.campaignId
+      );
+      res.send(encounters);
     } catch (error) {
       next(error);
     }
   }
   async addCampaign(req, res, next) {
     try {
-      req.body.creatorId = req.userInfo.id
-      const campaign = await campaignsService.addCampaign(req.body)
-      res.send(campaign)
+      req.body.creatorId = req.userInfo.id;
+      const campaign = await campaignsService.addCampaign(req.body);
+      res.send(campaign);
     } catch (error) {
       next(error);
     }
@@ -43,22 +45,24 @@ export class CampaignsController extends BaseController {
 
   async editCampaign(req, res, next) {
     try {
-      req.body.creatorId = req.userInfo.id
-      req.body.id = req.params.campaignId
-      const campaign = await campaignsService.editCampaign(req.body)
-      res.send(campaign)
-    }
-    catch (error) {
-      next(error)
+      req.body.creatorId = req.userInfo.id;
+      req.body.id = req.params.campaignId;
+      const campaign = await campaignsService.editCampaign(req.body);
+      res.send(campaign);
+    } catch (error) {
+      next(error);
     }
   }
 
   async deleteCampaign(req, res, next) {
     try {
-      const campaign = await campaignsService.deleteCampaign(req.params.campaignId, req.userInfo.id)
-      res.send(campaign)
+      const campaign = await campaignsService.deleteCampaign(
+        req.params.campaignId,
+        req.userInfo.id
+      );
+      res.send(campaign);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 
@@ -66,6 +70,4 @@ export class CampaignsController extends BaseController {
   // async getCharactersByCampaignId() {
 
   // }
-
-
 }

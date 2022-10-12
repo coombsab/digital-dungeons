@@ -14,7 +14,7 @@ class EncountersService {
     }
 
     await encounter.remove();
-    return "Encounter Has Been Deleted!";
+    return encounter;
   }
 
   async getEncountersByCampaignId(campaignId) {
