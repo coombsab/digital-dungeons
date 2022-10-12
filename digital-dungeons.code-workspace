@@ -34,6 +34,9 @@
     "eslint.codeActionsOnSave.mode": "all",
     "editor.codeActionsOnSave": {
       "source.fixAll": true
+<<<<<<< HEAD
+    }
+=======
     },
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#186573",
@@ -57,5 +60,6 @@
       "tab.activeBorder": "#186573"
     },
     "peacock.color": "#0f4049"
+>>>>>>> 21c0f894417761ed6370cb5e0654db01164ba5f3
   }
 }
