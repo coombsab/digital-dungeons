@@ -8,6 +8,9 @@ class MonstersService {
 
   }
 
+  getMonstersByEncounterId() {
+
+  }
 
 
 

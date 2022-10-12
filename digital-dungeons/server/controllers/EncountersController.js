@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { encountersService } from "../services/EncountersService";
+import { monstersService } from "../services/MonstersService";
 import BaseController from "../utils/BaseController";
 
 export class EncountersController extends BaseController {
@@ -14,7 +15,8 @@ export class EncountersController extends BaseController {
 
   async getMonstersByEncounterId(req, res, next) {
     try {
-
+      const monsters = await monstersService.getMonstersByEncounterId(req.params.id)
+      res.send(monsters)
     }
     catch (error) {
       next(error)
@@ -23,7 +25,9 @@ export class EncountersController extends BaseController {
 
   async addEncounter(req, res, next) {
     try {
-
+      req.body.creatorId = req.userInfo.id
+      const encounter = await encountersService.addEncounter(req.body)
+      res.send(encounter)
     }
     catch (error) {
       next(error)
