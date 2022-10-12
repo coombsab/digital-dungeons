@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <div class="row">
       <div class="text-center col-12 my-5 text-light">
-        <h3>WELCOME TO DIGITAL DONKEYHEADS</h3>
+        <h3>WELCOME TO DIGITAL DUNGEONS</h3>
       </div>
     </div>
     <div class="row justify-content-around align-items-center mt-5">
