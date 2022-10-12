@@ -33,11 +33,21 @@ export class EncountersController extends BaseController {
       next(error);
     }
   }
+
+  async editEncounter(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id;
+      const encounter = await encountersService.addEncounter(req.body);
+      res.send(encounter);
+    } catch (error) {
+      next(error);
+    }
+  }
   async removeEncounter(req, res, next) {
     try {
       const encounter = await encountersService.removeEncounter(
-        req.params.id,
-        req.userInfo
+        req.params.encounterId,
+        req.userInfo.id
       );
       res.send(encounter);
     } catch (error) {
