@@ -1,18 +1,18 @@
 import { Schema } from 'mongoose'
 import { OBJECT_ID, SCHEMA_OPTIONS } from "../db/DbUtils"
 
-export const MonsterSchema = new Schema ({
-  name: { type: String },
+export const MonsterSchema = new Schema({
+  name: { type: String, required: true },
   image: { type: String },
-  index: { type: String },
-  desc: { type: String },
-  encounterId: { type: OBJECT_ID },
-  hit_points: { type: Number },
-  type: { type: String },
-  size: { type: String },
+  index: { type: String, required: true },
+  desc: { type: String, maxlength: 500 },
+  encounterId: { type: OBJECT_ID, required: true },
+  hit_points: { type: Number, required: true },
+  type: { type: String, required: true },
+  size: { type: String, required: true },
   alignment: { type: String },
-  icon: { type: String },
-  initiative: {type: Number, min: 1 }
+  icon: { type: String, required: true },
+  initiative: { type: Number, min: 1 }
 
 }, SCHEMA_OPTIONS)
 
