@@ -1,9 +1,9 @@
 class EncountersService {
 
-  getEncounters(){
+  getEncountersByCampaignId() {
 
   }
-  getMonstersByEncounterId(){
+  getMonstersByEncounterId() {
 
   }
   addEncounter() {
