@@ -1,8 +1,14 @@
 <template>
 
-  <main>
-    <Navbar />
-    <router-view />
+  <main class="container-fluid">
+    <section class="row Home">
+      <div class="col-2 bg-secondary">
+        <Navbar />
+      </div>
+      <div class="col-10">
+        <router-view />
+      </div>
+    </section>
   </main>
 
 </template>
@@ -22,5 +28,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.Home {
+  height: 100vh
+}
+
 @import "./assets/scss/main.scss";
 </style>
