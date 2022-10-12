@@ -10,7 +10,8 @@ export class CampaignsController extends BaseController {
       .get("", this.getCampaigns)
       .get("/:campaignId/encounters", this.getEncountersByCampaignId)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post("", this.addCampaign);
+      .post("", this.addCampaign)
+      .delete("/:campaignId", this.deleteCampaign)
   }
 
   async getCampaigns(req, res, next) {
@@ -38,4 +39,24 @@ export class CampaignsController extends BaseController {
       next(error);
     }
   }
+
+
+
+
+  async deleteCampaign(req, res, next) {
+    try {
+      const campaign = await campaignsService.deleteCampaign(req.params.campaignId, req.userId)
+      res.send(campaign, "Campaign Deleted")
+    } catch (error) {
+      next(error)
+    }
+
+
+
+
+  }
+
+
+
+
 }
