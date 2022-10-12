@@ -4,7 +4,7 @@
     <!-- HOME PAGE LINK -->
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" height="45" />
+        <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid" />
       </div>
     </router-link>
     <!-- LOGIN COMPONENT -->

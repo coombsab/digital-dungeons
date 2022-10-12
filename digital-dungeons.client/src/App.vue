@@ -29,7 +29,7 @@ export default {
 </script>
 <style lang="scss">
 .Home {
-  height: 100vh
+  height: 100vh;
 }
 
 @import "./assets/scss/main.scss";
