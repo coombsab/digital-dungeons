@@ -6,7 +6,7 @@ export class CampaignsController extends BaseController {
     super("api/campaigns");
     this.router
       .get("", this.getCampaigns)
-      .get("/:id/encounters", this.getEncountersByCampaignId)
+      .get("/:campaignId/encounters", this.getEncountersByCampaignId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.addCampaign);
   }

@@ -8,33 +8,33 @@ export class EncountersController extends BaseController {
       .get("", this.getEncounters)
       .get("/:encounterId/monsters", this.getMonstersByEncounterId)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post("", this.addEncounter
+      .post("", this.addEncounter)
   }
 
   async getEncounters(req, res, next) {
     try {
-    
+
     }
-    catch(error) {
+    catch (error) {
       next(error)
     }
   }
 
   async getMonstersByEncounterId(req, res, next) {
     try {
-    
+
     }
-    catch(error) {
+    catch (error) {
       next(error)
     }
   }
 
-  async addMonster(req, res, next) {
+  async addEncounter(req, res, next) {
     try {
-    
+
     }
-    catch(error) {
+    catch (error) {
       next(error)
     }
-  } 
+  }
 }
