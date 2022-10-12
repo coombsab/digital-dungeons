@@ -1,15 +1,29 @@
 <template>
 
-  <div class="bg-secondary d-flex flex-column align-items-center">
-    <!-- HOME PAGE LINK -->
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid" />
-      </div>
-    </router-link>
-    <!-- LOGIN COMPONENT -->
-    <Login />
-    <!-- ABOUT PAGE -->
+  <div class="bg-secondary h-100 d-flex flex-column align-items-center justify-content-between">
+    <div class="d-flex flex-column align-items-center">
+      <!-- HOME PAGE LINK -->
+      <router-link class="navbar-brand d-flex my-4" :to="{ name: 'Home' }">
+        <div class="d-flex flex-column align-items-center">
+          <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid rounded" />
+        </div>
+      </router-link>
+      <!-- LOGIN COMPONENT -->
+      <Login />
+      <!-- CAMPAIGNS PAGE LINK -->
+      <router-link :to="{ name: 'Campaigns' }">
+        <div class="bg-danger p-3 rounded selectable text-light my-5">
+          Campaigns Page
+        </div>
+      </router-link>
+      <!-- INFORMATION PAGE LINK -->
+      <router-link :to="{ name: 'Information' }">
+        <div class="bg-success p-3 rounded selectable">
+          Information Page
+        </div>
+      </router-link>
+    </div>
+    <!-- ABOUT PAGE LINK -->
     <router-link :to="{ name: 'About' }"
       class="text-center my-2 btn btn-light text-dark lighten-30 selectable text-uppercase">
       <h6 class="p-0 text-center">
