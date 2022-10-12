@@ -53,7 +53,6 @@ export class CampaignsController extends BaseController {
     }
   }
 
-
   async deleteCampaign(req, res, next) {
     try {
       const campaign = await campaignsService.deleteCampaign(req.params.campaignId, req.userInfo.id)
@@ -61,13 +60,12 @@ export class CampaignsController extends BaseController {
     } catch (error) {
       next(error)
     }
-
-
-
-
   }
 
+  //TODO - This is a future goal
+  // async getCharactersByCampaignId() {
 
+  // }
 
 
 }
