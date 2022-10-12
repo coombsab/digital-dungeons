@@ -10,7 +10,7 @@ class CampaignsService {
     // const res = await
   }
 
-  async CampaignEncounter() {
+  async addCampaignEncounter() {
     // const res = await
   }
 }
