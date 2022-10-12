@@ -1,11 +1,17 @@
+import { dbContext } from "../db/DbContext.js"
+
 class CampaignService {
 
-  async getCampaigns() {
-
+  async getCampaigns(query) {
+    const campaigns = await dbContext.Campaign.find({ query })
+      .populate('creator', 'name picture')
+    return campaigns
   }
 
-  async addCampaign() {
-
+  async addCampaign(campaignData) {
+    const campaign = await dbContext.Campaign.create(campaignData)
+    campaign.populate('creator', 'name picture')
+    return campaign
   }
 
   async getEncountersByCampaignId() {

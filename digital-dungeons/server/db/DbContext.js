@@ -1,5 +1,5 @@
 
-// @ts-ignore
+
 import mongoose from 'mongoose'
 import { AccountSchema } from '../models/Account'
 import { CampaignSchema } from "../models/Campaign.js";
