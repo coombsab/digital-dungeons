@@ -12,5 +12,6 @@ export class Monster {
     this.alignment = data.alignment
     this.icon = data.icon
     this.initiative = data.initiative
+    this.image = data.image
   }
 }
