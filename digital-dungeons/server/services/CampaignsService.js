@@ -26,6 +26,7 @@ class CampaignService {
 
   async deleteCampaign(campaignId, userId) {
     const campaign = await this.getCampaignById(campaignId)
+
     // @ts-ignore
     if (campaign.creatorId.toString() != userId) {
       throw new Forbidden('Campaign is not owned by you')

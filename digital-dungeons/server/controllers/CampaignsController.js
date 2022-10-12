@@ -45,8 +45,8 @@ export class CampaignsController extends BaseController {
 
   async deleteCampaign(req, res, next) {
     try {
-      const campaign = await campaignsService.deleteCampaign(req.params.campaignId, req.userId)
-      res.send(campaign, "Campaign Deleted")
+      const campaign = await campaignsService.deleteCampaign(req.params.campaignId, req.userInfo.id)
+      res.send(campaign)
     } catch (error) {
       next(error)
     }
