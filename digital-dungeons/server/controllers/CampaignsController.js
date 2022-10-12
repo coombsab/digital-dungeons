@@ -22,12 +22,16 @@ export class CampaignsController extends BaseController {
   }
   async getEncountersByCampaignId(res, req, next) {
     try {
+
     } catch (error) {
       next(error);
     }
   }
   async addCampaign(res, req, next) {
     try {
+      req.body.creatorId = req.userInfo.id
+      const campaign = await campaignsService.addCampaign(req.body)
+      res.send(campaign)
     } catch (error) {
       next(error);
     }

@@ -8,8 +8,10 @@ class CampaignService {
     return campaigns
   }
 
-  async addCampaign() {
-
+  async addCampaign(campaignData) {
+    const campaign = await dbContext.Campaign.create(campaignData)
+    campaign.populate('creator', 'name picture')
+    return campaign
   }
 
   async getEncountersByCampaignId() {
