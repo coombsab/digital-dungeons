@@ -1,6 +1,6 @@
 import BaseController from "../utils/BaseController.js";
 
-export class MonstersContoller extends BaseController {
+export class MonstersController extends BaseController {
   constructor() {
     super('api/monsters'),
       this.router
