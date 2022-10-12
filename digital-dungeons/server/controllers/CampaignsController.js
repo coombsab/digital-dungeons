@@ -48,7 +48,7 @@ export class CampaignsController extends BaseController {
       const campaign = await campaignsService.editCampaign(req.body)
       res.send(campaign)
     }
-    catch(error) {
+    catch (error) {
       next(error)
     }
   }
@@ -61,10 +61,6 @@ export class CampaignsController extends BaseController {
     } catch (error) {
       next(error)
     }
-
-
-
-
   }
 
 

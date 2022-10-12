@@ -13,5 +13,6 @@ export class Monster {
     this.icon = data.icon
     this.initiative = data.initiative
     this.image = data.image
+    this.nickName = data.nickName
   }
 }
