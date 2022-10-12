@@ -12,7 +12,8 @@ export const MonsterSchema = new Schema({
   size: { type: String, required: true },
   alignment: { type: String },
   icon: { type: String, required: true },
-  initiative: { type: Number, min: 1 }
+  initiative: { type: Number, min: 1 },
+  nickName: { type: String, maxlength: 50, minlength: 1 }
 
 }, SCHEMA_OPTIONS)
 
