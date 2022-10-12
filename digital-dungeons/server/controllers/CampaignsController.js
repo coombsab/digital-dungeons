@@ -24,6 +24,7 @@ export class CampaignsController extends BaseController {
   async getEncountersByCampaignId(req, res, next) {
     try {
       const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId)
+      res.send(encounters)
     } catch (error) {
       next(error);
     }
