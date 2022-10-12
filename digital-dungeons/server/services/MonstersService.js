@@ -1,20 +1,8 @@
 class MonstersService {
-  async getMonsters() {
+  async getMonsters() {}
+  async addMonsters() {}
 
-
-
-  }
-  async addMonsters() {
-
-  }
-
-  getMonstersByEncounterId() {
-
-  }
-
-
-
-
+  getMonstersByEncounterId(encounterId) {}
 }
 
-export const monstersService = new MonstersService
+export const monstersService = new MonstersService();
