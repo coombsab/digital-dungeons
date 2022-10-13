@@ -1,5 +1,5 @@
 <template>
-  <div class="monster-card p-3 m-2 rounded elevation-2 text-light w-100 selectable" title="See Monster Details" data-bs-toggle="modal"
+  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details" data-bs-toggle="modal"
     data-bs-target="#monsterModal" @click="setActiveMonster()">
     <span>{{monster.name}}</span>
   </div>
@@ -12,7 +12,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" v-if="activeMonster">
-          <img :src="activeMonster.image" class="img-fluid pb-2 rounded">
+          <img :src="activeMonster?.image" class="img-fluid pb-2 rounded">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -82,6 +82,7 @@ export default {
 .monster-card {
   background-color: green;
   height: fit-content;
+  margin-top: 2rem;
 }
 
 p {

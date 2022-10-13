@@ -12,7 +12,7 @@ export class Monster {
     this.alignment = data.alignment
     this.icon = data.icon
     this.initiative = data.initiative
-    this.image = "https://www.dnd5eapi.co" + data.image
+    this.image = data.image ? "https://www.dnd5eapi.co" + data.image : "https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png"
     this.nickName = data.nickName
   }
 }

@@ -23,14 +23,14 @@
               <form class="w-100">
                 <div class="form-floating">
                   <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable"
-                    @click="handleSubmit()">
+                    @submit.prevent="handleSubmit()">
                   <label for="floatingSearch">Search</label>
                 </div>
               </form>
             </div>
           </div>
           <div class="col-12">
-            <div class="info-content d-flex flex-wrap gap-3 justify-content-around scrollable">
+            <div class="info-content px-3 scrollable">
               <MonsterCard v-for="m of monsters" :monster="m" />
             </div>
           </div>
