@@ -1,20 +1,32 @@
 <template>
   <div class="campaign-details-page">
-    <div>{{ campaign }}</div>
+    <div class="text-light">{{ campaign }}</div>
   </div>
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
-import CampaignCard from "../components/CampaignCard.vue";
+import { campaignsService } from "../services/CampaignsService.js";
+import Pop from "../utils/Pop.js";
 export default {
   setup() {
+    const route = useRoute();
+    async function getCampaignById() {
+      try {
+        await campaignsService.getCampaignById(route.params.id);
+      } catch (error) {
+        Pop.error(error);
+      }
+    }
+    onMounted(() => {
+      getCampaignById();
+    });
     return {
       campaign: computed(() => AppState.activeCampaign),
     };
   },
-  components: { CampaignCard },
 };
 </script>
 
