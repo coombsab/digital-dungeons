@@ -10,5 +10,7 @@ export const AppState = reactive({
   /** @type {import('./models/Campaign.js').Campaign || null} */
   activeCampaign: null,
   /** @type {import('./models/Monster.js').Monster[]} */
-  monsters: [{ name: "dragon" }, { name: "fel"}]
+  monsters: [{ name: "dragon" }, { name: "fel" }],
+  /** @type {import('./models/Monster.js').Monster || null} */
+  activeCampaign: null,
 })
