@@ -21,7 +21,7 @@
           <div class="d-flex p-2">
             <form class="w-100">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
+                <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable" @click="handleSubmit()">
                 <label for="floatingSearch">Search</label>
               </div>
             </form>
@@ -38,17 +38,42 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import MonsterCard from "../components/MonsterCard.vue";
+import { logger } from "../utils/Logger";
+import Pop from "../utils/Pop";
+import { monstersService } from "../services/MonstersService";
 export default {
-    setup() {
-      const editable = ref("")
-        return {
-          editable,
-          monsters: computed(() => AppState.monsters.filter(monster => monster.name.includes(editable.value)))
-        };
-    },
-    components: { MonsterCard }
+  setup() {
+    async function getApiMonsters() {
+      try {
+        await monstersService.getApiMonsters()
+      }
+      catch(error) {
+        logger.log('[getApiMonsters]', error)
+        Pop.error(error.message)
+      }
+    }
+
+    onMounted(() => {
+      getApiMonsters()
+    })
+    const editable = ref("")
+      return {
+        editable,
+        monsters: computed(() => AppState.monsters.filter(monster => monster.name.includes(editable.value))),
+        async handleSubmit() {
+          try {
+            // await this.getApiMonsters(editable.value)  //might need?
+          }
+          catch(error) {
+            logger.log('[handleSubmit]', error)
+            Pop.error(error.message)
+          }
+        }
+      };
+  },
+  components: { MonsterCard }
 };
 </script>
 
