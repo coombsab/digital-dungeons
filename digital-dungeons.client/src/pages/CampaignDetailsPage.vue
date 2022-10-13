@@ -15,7 +15,7 @@ export default {
     const route = useRoute();
     async function getCampaignById() {
       try {
-        await campaignsService.getCampaignById(route.params.id);
+        await campaignsService.getCampaignById(route.params.campaignId);
       } catch (error) {
         Pop.error(error);
       }
