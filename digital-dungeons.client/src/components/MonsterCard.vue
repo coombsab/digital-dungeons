@@ -1,19 +1,24 @@
 <template>
-  <div class="monster-card">
-    <div class="card">
-      <div class="card-header"></div>
-      <div class="card-body"></div>
-      <div class="card-footer"></div>
-    </div>
+  <div class="monster-card p-3 m-2 rounded elevation-2 text-light w-100">
+    <span>{{monster.name}}</span>
   </div>
 </template>
 
 <script>
 export default {
-  setup() {
+  props: {
+    monster: { type: Object }
+  },
+  setup(props) {
     return {};
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .monster-card {
+    background-color: green;
+    // backdrop-filter: blur(5px);  //paginate if using blur on each card as 300 cards lags
+    width: fit-content;
+  }
+</style>

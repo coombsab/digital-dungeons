@@ -8,5 +8,7 @@ export const AppState = reactive({
   /** @type {import('./models/Campaign.js').Campaign} */
   campaigns: [],
   /** @type {import('./models/Campaign.js').Campaign || null} */
-  activeCampaign: null
+  activeCampaign: null,
+  /** @type {import('./models/Monster.js').Monster[]} */
+  monsters: [{ name: "dragon" }, { name: "fel"}]
 })
