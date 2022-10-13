@@ -2,7 +2,7 @@
 
   <main class="container-fluid">
     <section class="row Home">
-      <div class="col-md-2 bg-secondary ">
+      <div class="col-md-2 navbarbg rounded">
         <Navbar />
       </div>
       <div class="col-md-10 scrollin p-0">
@@ -33,11 +33,19 @@ export default {
 }
 
 main {
-  background-image: url('https://lifeineorzea.com/wp-content/gallery/matoyas-relict-dungeon/ffxiv_08122020_115618_203.jpg');
+  background-image: url('https://giffiles.alphacoders.com/215/215595.gif');
   background-position: center;
   background-size: cover;
   max-height: fit-content;
 }
+
+.navbarbg {
+  background-color: rgba(81, 60, 100, 0.7);
+  background-position: center;
+  background-size: cover;
+}
+
+
 
 .scrollin {
   max-height: 100vh;
