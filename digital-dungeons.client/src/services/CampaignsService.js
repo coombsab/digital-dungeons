@@ -8,9 +8,8 @@ class CampaignsService {
     const res = await baseApi.get("/api/campaigns");
     AppState.campaigns = res.data.map((p) => new Campaign(p));
   }
-  async getCampaignById(campaignId) {
-    const res = await baseApi.get(`api/campaigns/${campaignId}`);
-    console.log("Trying to get");
+  async getCampaignById(id) {
+    const res = await baseApi.get(`api/campaigns/${id}`);
     AppState.activeCampaign = new Campaign(res.data);
   }
 
