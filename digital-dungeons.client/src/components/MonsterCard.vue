@@ -12,7 +12,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" v-if="activeMonster">
-          <img :src="activeMonster.image">
+          <img :src="activeMonster.image" class="img-fluid pb-2 rounded">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -81,8 +81,7 @@ export default {
 <style lang="scss" scoped>
 .monster-card {
   background-color: green;
-  // backdrop-filter: blur(5px);  //paginate if using blur on each card as 300 cards lags
-  width: fit-content;
+  height: fit-content;
 }
 
 p {
