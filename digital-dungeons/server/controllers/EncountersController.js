@@ -17,7 +17,7 @@ export class EncountersController extends BaseController {
   async getMonstersByEncounterId(req, res, next) {
     try {
       const monsters = await monstersService.getMonstersByEncounterId(
-        req.params.id
+        req.params.encounterId
       );
       res.send(monsters);
     } catch (error) {
