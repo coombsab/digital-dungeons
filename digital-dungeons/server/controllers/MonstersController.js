@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { monstersService } from "../services/MonstersService.js";
 import BaseController from "../utils/BaseController.js";
 
@@ -5,6 +6,7 @@ export class MonstersController extends BaseController {
   constructor() {
     super('api/monsters'),
       this.router
+        .use(Auth0Provider.getAuthorizedUserInfo)
         .post('', this.addMonster)
         .put('/:monsterId', this.editMonster)
         .delete('/:monsterId', this.deleteMonster)
