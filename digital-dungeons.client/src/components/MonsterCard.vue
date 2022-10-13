@@ -1,10 +1,10 @@
 <template>
-  <div class="monster-card p-3 m-2 rounded elevation-2 text-light w-100" data-bs-toggle="modal"
+  <div class="monster-card p-3 m-2 rounded elevation-2 text-light w-100 selectable" title="See Monster Details" data-bs-toggle="modal"
     data-bs-target="#monsterModal" @click="setActiveMonster()">
     <span>{{monster.name}}</span>
   </div>
 
-  <div class="modal fade modalZ" id="monsterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="monsterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -13,23 +13,25 @@
         </div>
         <div class="modal-body" v-if="activeMonster">
           <img :src="activeMonster.image">
-          <div class="d-flex flex-wrap justify-content-around">
-            <p>Type</p>
-            <p>Size</p>
-            <p>Alignment</p>
-            <p>Health</p>
+          <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div>
+              <h6 class="statistics">Type</h6>
+              <p>{{activeMonster.type}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Size</h6>
+              <p>{{activeMonster.size}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Alignment</h6>
+              <p>{{activeMonster.alignment}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Health</h6>
+              <p>{{activeMonster.hit_points}}</p>
+            </div>
           </div>
-          <div class="d-flex flex-wrap justify-content-around">
-            <p>{{activeMonster.type}}</p>
-            <p>{{activeMonster.size}}</p>
-            <p>{{activeMonster.alignment}}</p>
-            <p>HP: {{activeMonster.hit_points}}</p>
-          </div>
-
-
-
-
-          <h6>{{activeMonster.desc}}</h6>
+          <p>{{activeMonster.desc}}</p>
 
         </div>
         <div class="modal-body" v-else>
@@ -41,7 +43,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 
@@ -84,7 +85,15 @@ export default {
   width: fit-content;
 }
 
-.modalZ {
-  z-index: 10000;
+p {
+  margin: 0;
+}
+
+.statistics {
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

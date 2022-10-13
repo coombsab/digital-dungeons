@@ -18,17 +18,21 @@
           <span class="text-light fs-5"><strong>DROPDOWN</strong></span>
         </div>
         <div class="col-8 bg-transparent">
-          <div class="d-flex p-2">
-            <form class="w-100">
-              <div class="form-floating">
-                <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable"
-                  @click="handleSubmit()">
-                <label for="floatingSearch">Search</label>
-              </div>
-            </form>
+          <div class="col-12">
+            <div class="d-flex p-2">
+              <form class="w-100">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable"
+                    @click="handleSubmit()">
+                  <label for="floatingSearch">Search</label>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="info-content d-flex flex-wrap gap-3 justify-content-around">
-            <MonsterCard v-for="m of monsters" :monster="m" />
+          <div class="col-12">
+            <div class="info-content d-flex flex-wrap gap-3 justify-content-around scrollable">
+              <MonsterCard v-for="m of monsters" :monster="m" />
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +100,10 @@ button {
 .bg-transparent {
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(7px);
+}
+
+.scrollable {
   overflow-y: auto;
-  height: 87.3vh;
+  height: 80.3vh;
 }
 </style>
