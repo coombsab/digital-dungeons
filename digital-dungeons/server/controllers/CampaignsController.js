@@ -8,11 +8,20 @@ export class CampaignsController extends BaseController {
     super("api/campaigns");
     this.router
       .get("", this.getCampaigns)
+      .get("/:campaignId", this.getCampaignByCampaignId)
       .get("/:campaignId/encounters", this.getEncountersByCampaignId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.addCampaign)
       .delete("/:campaignId", this.deleteCampaign)
       .put("/:campaignId", this.editCampaign);
+  }
+  async getCampaignByCampaignId(rq, rs, nx) {
+    try {
+      const campaign = await campaignsService.getCampaignById(rq.params.campaignId)
+      rs.send(campaign)
+    } catch (error) {
+      nx(error)
+    }
   }
 
   async getCampaigns(req, res, next) {
