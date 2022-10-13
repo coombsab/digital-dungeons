@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="card col-3 m-3 cards elevation-3">
-      <img src="https://thiscatdoesnotexist.com" alt="">
+      <img src="../assets/img/me.jpg" alt="">
       <h4 class="text-shadow2">Jake Neitzell</h4>
       <div class="card-body rounded text-shadow ">
         <p>Description</p>
@@ -75,13 +75,13 @@ export default {
   background-image: url('https://wallpaperforu.com/wp-content/uploads/2020/10/amoled-wallpaper-20101513342433.jpg');
   background-position: center;
   background-size: cover;
-
-
 }
 
+
+
 .text-shadow2 {
-  color: rgba(29, 34, 39, 0.622);
-  text-shadow: 1px 1px rgba(4, 4, 4, 0.856), 0px 0px 5px rgb(16, 31, 86);
+  color: rgba(206, 157, 219, 0.888);
+  text-shadow: 1px 1px rgba(51, 48, 48, 0.856), 0px 0px 5px rgb(12, 28, 85);
   font-weight: bold;
   letter-spacing: 0.08rem
 }
