@@ -92,5 +92,7 @@ export default {
   .bg-transparent {
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(7px);
+    overflow-y: auto;
+    max-height: 87.3vh;
   }
 </style>
