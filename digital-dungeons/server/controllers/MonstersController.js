@@ -1,30 +1,41 @@
+import { monstersService } from "../services/MonstersService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class MonstersController extends BaseController {
   constructor() {
     super('api/monsters'),
       this.router
-        .get('', this.getMonsters)
-
-
+        .post('', this.addMonster)
+        .put('/:monsterId', this.editMonster)
+        .delete('/:monsterId', this.deleteMonster)
   }
-
-
-  async getMonsters(req, res, next) {
+  async deleteMonster(req, res, next) {
     try {
 
+      const monster = await monstersService.deleteMonster(req.params.monsterId, req.userInfo.id)
+      res.send(monster)
     } catch (error) {
-
+      next(error)
+    }
+  }
+  async editMonster(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      req.body.id = req.params.monsterId
+      const monster = await monstersService.editMonster(req.body)
+      res.send(monster)
+    } catch (error) {
+      next(error)
     }
   }
 
-
-
-  addMonster(req, res, next) {
+  async addMonster(req, res, next) {
     try {
-
+      req.body.creatorId = req.userInfo.id
+      const monster = await monstersService.addMonster(req.body)
+      res.send(monster)
     } catch (error) {
-
+      next(error)
     }
   }
 
