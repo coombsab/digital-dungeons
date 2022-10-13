@@ -10,13 +10,13 @@
       </router-link>
       <!-- CAMPAIGNS PAGE LINK -->
       <router-link :to="{ name: 'Campaigns' }">
-        <div class="bg-danger p-3 rounded selectable text-light my-5">
+        <div class="bg-danger p-3 rounded selectable my-5 text-shadow">
           Campaigns Page
         </div>
       </router-link>
       <!-- INFORMATION PAGE LINK -->
       <router-link :to="{ name: 'Information' }">
-        <div class="bg-success p-3 rounded selectable">
+        <div class="bg-success p-3 rounded selectable text-shadow2">
           Information Page
         </div>
       </router-link>
@@ -54,6 +54,20 @@ export default {
 
 a:hover {
   text-decoration: none;
+}
+
+.text-shadow {
+  color: rgb(222, 222, 222);
+  text-shadow: 1px 1px rgba(178, 30, 94, 0.755), 0px 0px 5px rgba(170, 40, 70, 0.716);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.text-shadow2 {
+  color: rgb(201, 202, 189);
+  text-shadow: 1px 1px rgba(40, 95, 10, 0.685), 0px 0px 5px rgba(72, 242, 15, 0.603);
+  font-weight: bold;
+  letter-spacing: 0.08rem
 }
 
 .nav-link {
