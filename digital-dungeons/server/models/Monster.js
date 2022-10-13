@@ -3,6 +3,7 @@ import { OBJECT_ID, SCHEMA_OPTIONS } from "../db/DbUtils"
 
 export const MonsterSchema = new Schema({
   index: { type: String, required: true },
+  creatorId: { type: OBJECT_ID, required: true },
   encounterId: { type: OBJECT_ID, required: true },
   name: { type: String, required: true },
   type: { type: String, required: true },
