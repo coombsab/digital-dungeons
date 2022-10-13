@@ -1,12 +1,7 @@
 <template>
   <div class="campaigns-page text-danger">
     <!-- ADD CAMPAIGN BUTTON -->
-    <button
-      class="btn btn-danger"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#campaignModal"
-    >
+    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#campaignModal">
       Create Campaign
     </button>
     <!-- MY CAMPAIGNS -->
@@ -21,73 +16,36 @@
     <CampaignCard v-for="c in campaigns" :key="c.id" :campaign="c" />
   </div>
   <!-- MODAL close this if its driving you crazy -->
-  <div
-    class="modal fade"
-    id="campaignModal"
-    tabindex="-1"
-    aria-labelledby="campaignModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="campaignModal" tabindex="-1" aria-labelledby="campaignModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="campaignModalLabel">New Event</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <h5 class="modal-title" id="campaignModalLabel">New Campaign</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="submit" class="card" @submit.prevent="addCampaign()">
             <div class="card-body text-start">
               <div>
                 <label for="name">Name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="editable.name"
-                  required
-                  name="name"
-                />
+                <input type="text" class="form-control" v-model="editable.name" required name="name" />
               </div>
               <div>
                 <label for="coverImg">Cover Image:</label>
-                <input
-                  type="url"
-                  class="form-control"
-                  v-model="editable.coverImg"
-                  required
-                  name="coverImg"
-                  placeholder="coverImg"
-                />
+                <input type="url" class="form-control" v-model="editable.coverImg" required name="coverImg"
+                  placeholder="coverImg" />
               </div>
               <div>
                 <label for="description">Description:</label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  v-model="editable.desc"
-                  name="description"
-                  rows="8"
-                  style="resize: none"
-                ></textarea>
+                <textarea type="text" class="form-control" v-model="editable.desc" name="description" rows="8"
+                  style="resize: none"></textarea>
               </div>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 Close
               </button>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
                 Start Your Adventure!
               </button>
             </div>
@@ -110,7 +68,6 @@ import { AuthService } from "../services/AuthService.js";
 export default {
   setup() {
     let editable = ref({});
-
     onMounted(() => {
       getCampaigns();
     });
@@ -151,4 +108,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
