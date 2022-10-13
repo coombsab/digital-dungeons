@@ -49,10 +49,11 @@ export default {
 
 .text-shadow {
   color: rgb(121, 129, 34);
-  text-shadow: 1px 1px rgb(52, 25, 25), 0px 0px 5px rgb(25, 6, 28);
+  text-shadow: 1px 1px rgb(88, 27, 27), 0px 0px 5px rgb(105, 41, 115);
   font-weight: bold;
   letter-spacing: 0.08rem
 }
+
 
 .home-img {
   max-height: 60vh;
