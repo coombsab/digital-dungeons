@@ -64,7 +64,8 @@ export default {
 }
 
 .DD-border {
-  border-style: groove;
+  border-top: 6px solid;
+  border-bottom: 6px solid;
   border-color: rgba(130, 129, 25, 0.749);
 }
 </style>
