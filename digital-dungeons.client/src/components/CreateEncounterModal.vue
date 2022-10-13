@@ -44,16 +44,22 @@
 
 <script>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { encountersService } from '../services/EncountersService.js';
 import Pop from '../utils/Pop.js';
 
 export default {
   setup() {
+    const route = useRoute()
     let editable = ref({})
     return {
       editable,
       async addEncounter() {
         try {
-          // await
+          let encounter = editable.value
+          encounter.campaignId = route.params.campaignId
+          await encountersService.addEncounterToCampaign(encounter)
+          editable.value = {}
         } catch (error) {
           Pop.error(error)
         }
