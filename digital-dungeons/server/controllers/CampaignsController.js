@@ -15,12 +15,12 @@ export class CampaignsController extends BaseController {
       .delete("/:campaignId", this.deleteCampaign)
       .put("/:campaignId", this.editCampaign);
   }
-  async getCampaignByCampaignId(req, res, next) {
+  async getCampaignByCampaignId(rq, rs, nx) {
     try {
-      const campaign = await campaignsService.getCampaignById(req.params.campaignId)
-      res.send(campaign)
+      const campaign = await campaignsService.getCampaignById(rq.params.campaignId)
+      rs.send(campaign)
     } catch (error) {
-      next(error)
+      nx(error)
     }
   }
 
