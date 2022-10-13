@@ -5,7 +5,7 @@
       <!-- HOME PAGE LINK -->
       <router-link class="navbar-brand d-flex my-4" :to="{ name: 'Home' }">
         <div class="d-flex flex-column align-items-center">
-          <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid rounded" />
+          <img alt="logo" src="../assets/img/Digital_Dungeon_Logo.png" class="img-fluid rounded" title="Home Page" />
         </div>
       </router-link>
       <!-- CAMPAIGNS PAGE LINK -->
@@ -21,13 +21,13 @@
         </div>
       </router-link>
     </div>
-    <div class="text-center">
+    <div class="text-center d-flex flex-column">
 
       <!-- LOGIN COMPONENT -->
       <Login />
       <!-- ABOUT PAGE LINK -->
       <router-link :to="{ name: 'About' }"
-        class="text-center my-2 btn btn-light text-dark lighten-30 selectable text-uppercase">
+        class="text-center m-2 btn btn-light text-dark lighten-30 selectable text-uppercase">
         <h6 class="p-0 text-center">
           About
         </h6>

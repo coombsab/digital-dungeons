@@ -6,7 +6,7 @@
     </button>
 
     <div class="dropdown my-lg-0" v-else>
-      <div class="dropdown-toggle selectable rounded my-5" data-bs-toggle="dropdown" aria-expanded="false"
+      <div class="dropdown-toggle selectable rounded my-3" data-bs-toggle="dropdown" aria-expanded="false"
         id="authDropdown">
         <div v-if="account.picture || user.picture">
           <img :src="account.picture || user.picture" alt="account photo" class="rounded ye img-fluid"
@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .ye {
-  max-width: 10vw;
+  max-width: 6vw;
 }
 
 .dropdown-menu {
