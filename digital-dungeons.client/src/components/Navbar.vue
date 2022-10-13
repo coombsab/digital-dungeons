@@ -64,8 +64,8 @@ a:hover {
 }
 
 .text-shadow2 {
-  color: rgb(201, 202, 189);
-  text-shadow: 1px 1px rgba(40, 95, 10, 0.685), 0px 0px 5px rgba(72, 242, 15, 0.603);
+  color: rgb(255, 255, 253);
+  text-shadow: 1px 1px rgba(71, 169, 18, 0.752), 0px 0px 5px rgba(50, 134, 23, 0.653);
   font-weight: bold;
   letter-spacing: 0.08rem
 }
