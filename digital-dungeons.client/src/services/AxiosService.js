@@ -6,6 +6,6 @@ export const baseApi = Axios.create({
 })
 
 export const dndApi = Axios.create({
-  baseURL: "https://www.dnd5eapi.co/",
+  baseURL: "https://www.dnd5eapi.co",
   timeout: 4000
 })

@@ -64,7 +64,7 @@ export default {
     const editable = ref("")
     return {
       editable,
-      monsters: computed(() => AppState.monsters.filter(monster => monster.name.includes(editable.value))),
+      monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
       async handleSubmit() {
         try {
           // await this.getApiMonsters(editable.value)  //might need?
@@ -97,6 +97,6 @@ button {
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(7px);
   overflow-y: auto;
-  max-height: 87.3vh;
+  height: 87.3vh;
 }
 </style>
