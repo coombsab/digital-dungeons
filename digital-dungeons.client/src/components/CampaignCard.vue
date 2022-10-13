@@ -1,7 +1,8 @@
 <template>
   <div class="campaign-card my-2">
     <div class="card">
-      <div class="card-header">{{campaign.name}}</div>
+      <div class="card-header d-flex justify-content-between"><span>{{campaign.name}}</span><i
+          v-if="account.id == campaign.creatorId" class="mdi mdi-delete mx-3 selectable rounded fs-4"></i></div>
       <div class="card-body">{{campaign.desc}}</div>
       <div class="card-footer"></div>
     </div>
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity';
+import { AppState } from '../AppState.js';
 import { Campaign } from '../models/Campaign.js';
 
 export default {
@@ -16,7 +19,10 @@ export default {
     campaign: { type: Campaign, required: true }
   },
   setup() {
-    return {};
+
+    return {
+      account: computed(() => AppState.account)
+    };
   },
 };
 </script>
