@@ -15,12 +15,12 @@ export class CampaignsController extends BaseController {
       .delete("/:campaignId", this.deleteCampaign)
       .put("/:campaignId", this.editCampaign);
   }
-  async getCampaignByCampaignId(rq, rs, nx) {
+  async getCampaignByCampaignId(req, res, next) {
     try {
-      const campaign = await campaignsService.getCampaignById(rq.params.campaignId)
-      rs.send(campaign)
+      const campaign = await campaignsService.getCampaignById(req.params.campaignId)
+      res.send(campaign)
     } catch (error) {
-      nx(error)
+      next(error)
     }
   }
 
@@ -34,9 +34,7 @@ export class CampaignsController extends BaseController {
   }
   async getEncountersByCampaignId(req, res, next) {
     try {
-      const encounters = await encountersService.getEncountersByCampaignId(
-        req.params.campaignId
-      );
+      const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId);
       res.send(encounters);
     } catch (error) {
       next(error);

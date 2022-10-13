@@ -21,13 +21,14 @@
           <div class="d-flex p-2">
             <form class="w-100">
               <div class="form-floating">
-                <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable" @click="handleSubmit()">
+                <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable"
+                  @click="handleSubmit()">
                 <label for="floatingSearch">Search</label>
               </div>
             </form>
           </div>
           <div class="info-content d-flex flex-wrap gap-3 justify-content-around">
-            <MonsterCard v-for="m of monsters" :monster="m"/>
+            <MonsterCard v-for="m of monsters" :monster="m" />
           </div>
         </div>
       </div>
@@ -49,7 +50,7 @@ export default {
       try {
         await monstersService.getApiMonsters()
       }
-      catch(error) {
+      catch (error) {
         logger.log('[getApiMonsters]', error)
         Pop.error(error.message)
       }
@@ -59,40 +60,41 @@ export default {
       getApiMonsters()
     })
     const editable = ref("")
-      return {
-        editable,
-        monsters: computed(() => AppState.monsters.filter(monster => monster.name.includes(editable.value))),
-        async handleSubmit() {
-          try {
-            // await this.getApiMonsters(editable.value)  //might need?
-          }
-          catch(error) {
-            logger.log('[handleSubmit]', error)
-            Pop.error(error.message)
-          }
+    return {
+      editable,
+      monsters: computed(() => AppState.monsters.filter(monster => monster.name.includes(editable.value))),
+      async handleSubmit() {
+        try {
+          // await this.getApiMonsters(editable.value)  //might need?
         }
-      };
+        catch (error) {
+          logger.log('[handleSubmit]', error)
+          Pop.error(error.message)
+        }
+      }
+    };
   },
   components: { MonsterCard }
 };
 </script>
 
 <style lang="scss" scoped>
-  .information-page {
-    height: 100vh;
-  }
-  button {
-    font-weight: 800;
-    font-size: 64px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border-radius: 2rem;
-  }
+.information-page {
+  height: 100vh;
+}
 
-  .bg-transparent {
-    background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(7px);
-    overflow-y: auto;
-    max-height: 87.3vh;
-  }
+button {
+  font-weight: 800;
+  font-size: 64px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 2rem;
+}
+
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(7px);
+  overflow-y: auto;
+  max-height: 87.3vh;
+}
 </style>
