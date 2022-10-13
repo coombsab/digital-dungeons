@@ -1,9 +1,6 @@
 <template>
   <div class="encounter-card">
-    <div
-      class="card glass"
-      :style="{ backgroundImage: `url(${encounter.coverImg})` }"
-    >
+    <div class="card glass" :style="{ backgroundImage: `url(${encounter.coverImg})` }">
       <div class="card-header">
         <h3>{{ encounter.name }}</h3>
       </div>
@@ -19,11 +16,10 @@
 </template>
 
 <script>
-import { Encounter } from "../models/Encounter.js";
 
 export default {
   props: {
-    encounter: { type: Encounter, required: true },
+    encounter: { type: Array, required: true },
   },
   setup() {
     return {};

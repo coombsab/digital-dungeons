@@ -44,9 +44,9 @@
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
                 <h4 class="border-bottom border-3 border-danger text-danger">Completed Encounters</h4>
-                <EncounterCard />
+                <EncounterCard :encounter="completedEncounters" />
                 <h4 class="border-bottom border-3 border-danger text-danger">Encounters</h4>
-                <EncounterCard />
+                <EncounterCard :encounter="uncompletedEncounters" />
               </div>
             </div>
           </div>
@@ -87,7 +87,9 @@ export default {
     });
     return {
       campaign: computed(() => AppState.activeCampaign),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      completedEncounters: computed(() => AppState.encounters.filter(e => e.isCompleted)),
+      uncompletedEncounters: computed(() => AppState.encounters.filter(e => !e.isCompleted))
     };
   },
   components: { CreateEncounterModal, EncounterCard }
