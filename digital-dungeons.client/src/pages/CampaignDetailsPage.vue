@@ -7,7 +7,7 @@
           <div class="col-3"></div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2">
-            <button v-if="campaign." class="btn btn-danger" type="button" data-bs-toggle="modal"
+            <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
               data-bs-target="#CreateEncounterModal">
               Create Encounter
             </button>
