@@ -1,8 +1,19 @@
 <template>
   <div class="information-page">
-    <h1 class="text-danger text-center py-3">
-      Welcome to the Information Page... You filthy Animal 🐒
-    </h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <button class="btn">RULES</button>
+        </div>
+        <div class="col-6">
+          <button class="btn">GAME MECHANICS</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-8"></div>
+      </div>
+    </div>
   </div>
 </template>
 
