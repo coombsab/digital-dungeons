@@ -1,7 +1,5 @@
 <template>
-  <div class="campaign-details-page">
-
-  </div>
+  <div class="campaign-details-page"></div>
 </template>
 
 <script>
@@ -12,6 +10,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
