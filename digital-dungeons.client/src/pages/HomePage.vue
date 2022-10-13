@@ -8,14 +8,14 @@
     <div class="row justify-content-around align-items-center mt-5">
       <div class="col-5 text-center">
         <router-link :to="{ name: 'Campaigns' }">
-          <img class="home-img col-5 border border-danger border-4 rounded"
+          <img class="home-img col-5 border border-danger border-4 rounded elevation-4"
             src="https://preview.redd.it/nme1k9p45eo21.jpg?auto=webp&s=e7beecea363fa0a547ce09b0cca2872a2019447e"
             alt="Campaign">
         </router-link>
       </div>
       <div class="col-5 text-center">
         <router-link :to="{ name: 'Information' }">
-          <img class="home-img col-5 border border-success border-4 rounded"
+          <img class="home-img col-5 border border-success border-4 rounded elevation-4"
             src="https://i.pinimg.com/originals/da/72/e6/da72e6588befda673cc0fcdf64a49e40.jpg" alt="Info">
         </router-link>
       </div>
