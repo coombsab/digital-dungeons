@@ -3,7 +3,21 @@ import { BadRequest, Forbidden } from "../utils/Errors";
 
 class MonstersService {
   async editMonster(monsterData) {
+    const monster = await this.getMonsterById(monsterData.id)
+    // @ts-ignore
+    if (monster.creatorId.toString() !== monsterData.creatorId) {
+      throw new Forbidden("This is not your monster; you cannot edit it.")
+    }
 
+    monster.nickName = monsterData.nickName || monster.nickName
+    monster.desc = monsterData.desc || monster.desc
+    monster.image = monsterData.image || monster.image
+    monster.icon = monsterData.icon || monster.icon
+    monster.hit_points = monsterData.hit_points || monster.hit_points
+    monster.initiative = monsterData.initiative || monster.initiative
+
+    await monster.save()
+    return monster
   }
 
   async deleteMonster(monsterId, userId) {

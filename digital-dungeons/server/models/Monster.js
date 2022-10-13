@@ -9,7 +9,6 @@ export const MonsterSchema = new Schema({
   type: { type: String, required: true },
   size: { type: String, required: true },
   alignment: { type: String },
-  initiative: { type: Number, min: 1 },
   
   //EDITABLE FIELDS
   hit_points: { type: Number, required: true },
@@ -17,6 +16,7 @@ export const MonsterSchema = new Schema({
   desc: { type: String, maxlength: 500 },
   image: { type: String },
   icon: { type: String, required: true },
+  initiative: { type: Number, min: 1 },
 
 }, SCHEMA_OPTIONS)
 
