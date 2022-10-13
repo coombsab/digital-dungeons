@@ -5,7 +5,7 @@
       <div class="col-md-2 bg-secondary ">
         <Navbar />
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 scrollin">
         <router-view />
       </div>
     </section>
@@ -30,6 +30,11 @@ export default {
 <style lang="scss">
 .Home {
   height: 100vh;
+}
+
+.scrollin {
+  max-height: 100vh;
+  overflow: auto;
 }
 
 @import "./assets/scss/main.scss";
