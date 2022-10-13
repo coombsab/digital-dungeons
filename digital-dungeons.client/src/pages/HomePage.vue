@@ -1,8 +1,8 @@
 <template>
   <section class="container-fluid">
     <div class="row">
-      <div class="text-center col-12 my-5 text-light">
-        <h3>WELCOME TO DIGITAL DUNGEONS</h3>
+      <div class="text-center col-12 my-5">
+        <h1 class="DD-title text-shadow">WELCOME TO DIGITAL DUNGEONS</h1>
       </div>
     </div>
     <div class="row justify-content-around align-items-center mt-5">
@@ -40,6 +40,18 @@ export default {
   user-select: none;
 
 
+}
+
+.DD-title {
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+.text-shadow {
+  color: rgb(121, 129, 34);
+  text-shadow: 1px 1px rgba(39, 27, 27, 0.841), 0px 0px 5px rgb(82, 11, 92);
+  font-weight: bold;
+  letter-spacing: 0.08rem
 }
 
 .home-img {
