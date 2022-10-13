@@ -12,11 +12,11 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
 
-  Monster = mongoose.model('Monster', MonsterSchema)
+  Monsters = mongoose.model('Monster', MonsterSchema)
 
-  Encounter = mongoose.model('Encounter', EncounterSchema)
+  Encounters = mongoose.model('Encounter', EncounterSchema)
 
-  Campaign = mongoose.model('Campaign', CampaignSchema)
+  Campaigns = mongoose.model('Campaign', CampaignSchema)
 
   CampaignEncounter = mongoose.model('CampaignEncounter', CampEncounterSchema)
 

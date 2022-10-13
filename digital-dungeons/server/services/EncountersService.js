@@ -20,14 +20,14 @@ class EncountersService {
     return encounter;
   }
   async getEncounterById(encounterId) {
-    const encounter = await dbContext.Encounter.findById(encounterId);
+    const encounter = await dbContext.Encounters.findById(encounterId);
     if (!encounter) {
       throw new BadRequest("Could not get Encounter due to invalid Id");
     }
     return encounter;
   }
   async removeEncounter(encounterId, userId) {
-    const encounter = await dbContext.Encounter.findById(encounterId);
+    const encounter = await dbContext.Encounters.findById(encounterId);
 
     // @ts-ignore
     if (encounter.creatorId.toString() != userId) {
@@ -42,14 +42,14 @@ class EncountersService {
   }
 
   async getEncountersByCampaignId(campaignId) {
-    const encounters = await dbContext.Encounter.find({ campaignId }).populate(
+    const encounters = await dbContext.Encounters.find({ campaignId }).populate(
       "campaign"
     );
     return encounters;
   }
 
   async addEncounter(encounterData) {
-    const encounter = await dbContext.Encounter.create(encounterData);
+    const encounter = await dbContext.Encounters.create(encounterData);
     await encounter.populate("campaign");
     return encounter;
   }

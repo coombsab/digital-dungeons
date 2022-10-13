@@ -13,7 +13,6 @@ export class MonstersController extends BaseController {
   }
   async deleteMonster(req, res, next) {
     try {
-
       const monster = await monstersService.deleteMonster(req.params.monsterId, req.userInfo.id)
       res.send(monster)
     } catch (error) {

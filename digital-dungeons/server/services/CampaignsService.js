@@ -19,19 +19,19 @@ class CampaignService {
   }
 
   async getCampaigns(query) {
-    const campaigns = await dbContext.Campaign.find({ ...query })
+    const campaigns = await dbContext.Campaigns.find({ ...query })
       .populate('creator', 'name picture')
     return campaigns
   }
 
   async addCampaign(campaignData) {
-    const campaign = await dbContext.Campaign.create(campaignData)
+    const campaign = await dbContext.Campaigns.create(campaignData)
     await campaign.populate('creator', 'name picture')
     return campaign
   }
 
   async getCampaignById(campaignId) {
-    const campaign = await dbContext.Campaign.findById(campaignId).populate('creator', 'name picture')
+    const campaign = await dbContext.Campaigns.findById(campaignId).populate('creator', 'name picture')
     if (!campaign) {
       throw new BadRequest('Could not get Campaign due to invalid Id')
     }
