@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <div class="row">
       <div class="text-center col-12 my-5">
-        <h1 class="DD-title text-shadow">WELCOME TO DIGITAL DUNGEONS</h1>
+        <h1 class="DD-title text-shadow"><span class="DD-border">WELCOME TO DIGITAL DUNGEONS</span></h1>
       </div>
     </div>
     <div class="row justify-content-around align-items-center mt-5">
@@ -49,7 +49,7 @@ export default {
 
 .text-shadow {
   color: rgb(121, 129, 34);
-  text-shadow: 1px 1px rgba(39, 27, 27, 0.841), 0px 0px 5px rgb(82, 11, 92);
+  text-shadow: 1px 1px rgb(52, 25, 25), 0px 0px 5px rgb(25, 6, 28);
   font-weight: bold;
   letter-spacing: 0.08rem
 }
@@ -60,5 +60,10 @@ export default {
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.DD-border {
+  border-style: groove;
+  border-color: rgba(130, 129, 25, 0.749);
 }
 </style>
