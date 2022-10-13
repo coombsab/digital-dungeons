@@ -1,5 +1,6 @@
 import { AppState } from "../AppState"
 import { Monster } from "../models/Monster"
+import { logger } from "../utils/Logger"
 import { dndApi } from "./AxiosService"
 
 class MonstersService {
@@ -21,5 +22,5 @@ class MonstersService {
 
   }
 }
- 
+
 export const monstersService = new MonstersService()

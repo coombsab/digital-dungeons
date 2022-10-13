@@ -52,5 +52,9 @@ main {
   overflow: auto;
 }
 
+.modal-backdrop {
+  position: relative !important;
+}
+
 @import "./assets/scss/main.scss";
 </style>
