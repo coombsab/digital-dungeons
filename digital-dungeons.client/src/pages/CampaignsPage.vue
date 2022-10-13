@@ -42,7 +42,7 @@ export default {
       }
     }
     return {
-      campaigns: computed(() => AppState.campaigns),
+      campaigns: computed(() => AppState.campaigns.filter(c => c.creatorId != AppState.account.id)),
       userCampaigns: computed(() => AppState.campaigns.filter(c => c.creatorId == AppState.account.id))
     };
   },
