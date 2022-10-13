@@ -19,7 +19,8 @@
       </div>
       <div class="card-text">
         <a href="https://github.com/coombsab" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-        <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/coombsab"></a>
+        <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
+          href="https://www.linkedin.com/in/abraham-coombs-33408ab8/"></a>
       </div>
     </div>
     <div class="card col-3 m-3 cards elevation-3">
