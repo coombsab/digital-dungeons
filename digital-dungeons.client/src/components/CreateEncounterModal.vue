@@ -53,7 +53,7 @@ export default {
       editable,
       async addEncounter() {
         try {
-          await
+          // await
         } catch (error) {
           Pop.error(error)
         }
