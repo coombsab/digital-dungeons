@@ -5,7 +5,7 @@
       <div class="col-md-2 bg-secondary ">
         <Navbar />
       </div>
-      <div class="col-md-10 scrollin">
+      <div class="col-md-10 scrollin p-0">
         <router-view />
       </div>
     </section>
@@ -30,6 +30,13 @@ export default {
 <style lang="scss">
 .Home {
   height: 100vh;
+}
+
+main {
+  background-image: url('https://lifeineorzea.com/wp-content/gallery/matoyas-relict-dungeon/ffxiv_08122020_115618_203.jpg');
+  background-position: center;
+  background-size: cover;
+  max-height: fit-content;
 }
 
 .scrollin {
