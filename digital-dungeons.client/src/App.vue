@@ -32,6 +32,12 @@ export default {
   height: 100vh;
 }
 
+main {
+  background-image: url('https://lifeineorzea.com/wp-content/gallery/matoyas-relict-dungeon/ffxiv_08122020_115618_203.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
 .scrollin {
   max-height: 100vh;
   overflow: auto;
