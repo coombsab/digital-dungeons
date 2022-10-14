@@ -23,6 +23,7 @@
                   type="button"
                   data-bs-toggle="modal"
                   :data-bs-target="'#encounterModal' + encounter.id"
+                  @click.stop="populateForm(encounter.id)"
                   >Edit Encounter</a
                 >
               </li>
@@ -82,6 +83,12 @@ export default {
             return;
           }
           await encountersService.removeEncounter(id);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+      async populateForm(id) {
+        try {
         } catch (error) {
           Pop.error(error);
         }
