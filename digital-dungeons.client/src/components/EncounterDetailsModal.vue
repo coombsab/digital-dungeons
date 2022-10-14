@@ -28,7 +28,12 @@
 
 
 <script>
+import { Encounter } from '../models/Encounter.js';
+
 export default {
+  props: {
+    encounter: { type: Encounter, required: true }
+  },
   setup() {
     return {}
   }
