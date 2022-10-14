@@ -1,19 +1,19 @@
 <template>
   <section class="campaigns-wrapper">
-    <div class="campaigns-page text-visible p-4">
+    <div class="campaigns-page text-visible py-4 ">
       <!-- ADD CAMPAIGN BUTTON -->
       <button class="btn text-visible create-button elevation-2" type="button" data-bs-toggle="modal" data-bs-target="#campaignModal">
         Create Campaign
       </button>
       <!-- MY CAMPAIGNS -->
-      <div class="border-bottom border-3 border-color my-3 mb-4" v-if="userCampaigns.length > 0">
+      <div class="border-bottom border-3 border-color my-3 mb-4 ps-2" v-if="userCampaigns.length > 0">
         <h3>My Campaigns</h3>
       </div>
       <div class="d-flex flex-wrap justify-content-around">
         <CampaignCard v-for="c in userCampaigns" :key="c.id" :campaign="c" />
       </div>
       <!-- ALL CAMPAIGNS -->
-      <div class="border-bottom border-3 border-color my-3">
+      <div class="border-bottom border-3 border-color my-3 ps-2">
         <h3>All Campaigns</h3>
       </div>
       <div class="d-flex flex-wrap justify-content-around">

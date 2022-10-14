@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid about-page">
     <div class="row justify-content-around ">
-      <div class="col-3 p-3">
+      <div class="col-md-3 p-md-3 p-2">
       <div class="card cards elevation-3">
         <img src="https://thiscatdoesnotexist.com" alt="">
         <h4 class="text-shadow2">Thomas Daily</h4>
@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 p-3">
+    <div class="col-md-3 p-md-3 p-2">
       <div class="card cards elevation-3">
         <img src="https://thiscatdoesnotexist.com" alt="">
         <h4 class="text-shadow2">Abraham Coombs</h4>
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 p-3">
+    <div class="col-md-3 p-md-3 p-2">
       <div class="card cards elevation-3">
         <img src="../assets/img/me.jpg" alt="">
         <h4 class="text-shadow2">Jake Neitzell</h4>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 p-3">
+    <div class="col-md-3 p-md-3 p-2">
       <div class="card cards elevation-3">
         <img src="https://thiscatdoesnotexist.com" alt="">
         <h4 class="text-shadow2">Talor Montandon</h4>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 p-3">
+    <div class="col-md-3 p-md-3 p-2">
       <div class="card cards elevation-3">
         <img src="https://thiscatdoesnotexist.com" alt="">
         <h4 class="text-shadow2">Jake Paulin</h4>
@@ -85,7 +85,7 @@ export default {
 .about-page {
   height: 100vh;
   overflow-y: auto;
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 3.5rem 1rem 3.5rem;
 }
 .cards {
   background-image: url('https://wallpaperforu.com/wp-content/uploads/2020/10/amoled-wallpaper-20101513342433.jpg');
@@ -117,5 +117,13 @@ a {
 
 .card-body {
   background-color: rgba(138, 75, 149, 0.464);
+}
+
+@media (min-width: 768px) {
+  .about-page {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 1rem 5rem 1rem 5rem;
+  }
 }
 </style>
