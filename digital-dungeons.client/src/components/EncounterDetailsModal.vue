@@ -1,5 +1,4 @@
 <template>
-
   <div class="modal fade" id="encounterModal" tabindex="-1" aria-labelledby="encounterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-secondary">
@@ -29,20 +28,18 @@
   </div>
 </template>
 
-
 <script>
-import { Encounter } from '../models/Encounter.js';
+import { Encounter } from "../models/Encounter.js";
 
 export default {
   props: {
-    encounter: { type: Encounter, required: true }
+    encounter: { type: Encounter, required: true },
   },
   setup() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 

@@ -2,7 +2,7 @@
   <div class="component">
     <div
       class="modal fade"
-      id="encounterModal"
+      :id="'encounterModal' + encounter.id"
       tabindex="-1"
       aria-labelledby="encounterModalLabel"
       aria-hidden="true"
@@ -10,7 +10,9 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content bg-secondary">
           <div class="modal-header">
-            <h5 class="modal-title" id="encounterModalLabel">Edit Encounter</h5>
+            <h5 class="modal-title" id="encounterModalLabel">
+              Edit {{ encounter.name }}
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -22,7 +24,7 @@
             <form
               action="submit"
               class="card text-secondary"
-              @submit.prevent="editEncounter()"
+              @submit.prevent="editEncounter(encounter.id)"
             >
               <div class="card-body text-start">
                 <div class="form-floating mb-3">
@@ -99,7 +101,7 @@ export default {
   props: {
     encounter: { type: Object, required: true },
   },
-  setup() {
+  setup(props) {
     let editable = ref({});
 
     watchEffect(() => {
@@ -108,9 +110,10 @@ export default {
 
     return {
       editable,
-      async editEncounter() {
+      async editEncounter(id) {
         try {
-          await encountersService.editEncounter(editable.value, encounter.id);
+          console.log(props.encounter.id, id);
+          await encountersService.editEncounter(editable.value, id);
         } catch (error) {
           Pop.error(error);
         }

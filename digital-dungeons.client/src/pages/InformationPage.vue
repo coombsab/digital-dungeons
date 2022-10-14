@@ -74,37 +74,16 @@ export default {
     const editable = ref("")
     return {
       editable,
-      nextPage: computed(() => AppState.nextPage),
-      previousPage: computed(() => AppState.previousPage),
-      // monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
-      monsters: computed(() => AppState.monsters),
+      monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
       async handleSubmit() {
         try {
-          console.log("hi im here")
-          await monstersService.searchMonster()
-
           // await this.getApiMonsters(editable.value)  //might need?
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
           Pop.error(error.message)
-
         }
-      },
-
-      async changePage(pageUrl) {
-        try {
-          await monstersService.getApiMonsters(pageUrl)
-        } catch (error) {
-          Pop.error(error, '[handlechange]')
-        }
-
       }
-
-
-
-
-
     };
   },
   components: { MonsterCard }

@@ -1,7 +1,9 @@
 <template>
   <section class="home d-flex flex-column">
-    <div class="title-container text-center">
-      <h1 class="DD-title text-shadow"><span class="DD-border">WELCOME TO DIGITAL DUNGEONS</span></h1>
+    <div class="title-container d-flex justify-content-center">
+      <div class="DD-border text-center pt-1">
+        <h1 class="DD-title text-shadow"><span class="">WELCOME TO DIGITAL DUNGEONS</span></h1>
+      </div>
     </div>
     <div class="cards-container justify-content-around align-items-center d-flex flex-wrap flex-grow-1">
       <router-link :to="{ name: 'Campaigns' }">
@@ -94,6 +96,7 @@ export default {
   border-top: 6px solid;
   border-bottom: 6px solid;
   border-color: rgba(130, 129, 25, 0.749);
+  width: fit-content;
 }
 
 @media (min-width: 768px) {
@@ -117,6 +120,20 @@ export default {
   *:hover > .on-md-hover {
     opacity: 1;
     pointer-events: all;
+  }
+}
+
+@media (min-width: 1200px) {
+  .theme-card {
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    height: 48rem;
+    width: 32rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
