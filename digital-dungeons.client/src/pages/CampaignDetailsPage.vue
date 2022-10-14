@@ -19,7 +19,7 @@
             </div>
           </div> -->
           <!-- ADD ENCOUNTER -->
-          <div class="col-2">
+          <div class="col-2 pt-2">
             <button
               v-if="campaign.creatorId == account.id"
               class="btn btn-danger"

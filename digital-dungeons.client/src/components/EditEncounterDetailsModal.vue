@@ -105,7 +105,7 @@ export default {
     let editable = ref({});
 
     watchEffect(() => {
-      editable.value = { ...AppState.encounter };
+      editable.value = { ...props.encounter };
     });
 
     return {
