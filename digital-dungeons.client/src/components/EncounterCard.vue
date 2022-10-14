@@ -27,9 +27,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
               v-if="account.id == campaign.creatorId"
-            >
-              ...
-            </button>
+            ></button>
             <ul class="dropdown-menu">
               <li>
                 <a
@@ -63,7 +61,7 @@
   </div>
 
   <EditEncounterDetailsModal :encounter="encounter" />
-  <EncounterDetailsModal :encounter="encounter" />
+  <EncounterDetailsModal :encounter="encounter" class="selectable" />
 </template>
 
 <script>
@@ -110,6 +108,6 @@ export default {
   background-position: center;
 }
 .back {
-  background-color: rgba(240, 248, 255, 0.139);
+  background-color: rgba(240, 248, 255, 0);
 }
 </style>
