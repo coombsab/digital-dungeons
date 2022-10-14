@@ -27,13 +27,11 @@
                   >Edit Encounter</a
                 >
               </li>
-              <li>
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  @click.stop="removeEncounter(encounter.id)"
-                  >Delete Encounter</a
-                >
+              <li
+                class="dropdown-item"
+                @click.stop="removeEncounter(encounter.id)"
+              >
+                Delete Encounter
               </li>
             </ul>
           </div>
