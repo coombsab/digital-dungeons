@@ -2,11 +2,11 @@ import { AppState } from "../AppState"
 import { Monster } from "../models/Monster"
 import { ShortMonster } from "../models/ShortMonster"
 import { logger } from "../utils/Logger"
-import { dndApi } from "./AxiosService"
+import { dndApi, openDndApi } from "./AxiosService"
 
 class MonstersService {
   async getApiMonsters(params = "") {
-    const res = await dndApi.get("api/monsters", params)
+    const res = await openDndApi.get("/monsters", params)
     logger.log(res.data)
     AppState.monsters = res.data.results.map(data => new ShortMonster(data))
   }
