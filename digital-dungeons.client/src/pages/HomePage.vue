@@ -49,8 +49,8 @@ export default {
 }
 
 .theme-card {
-  height: 30rem;
-  width: 22rem;
+  height: 25rem;
+  width: 18rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
