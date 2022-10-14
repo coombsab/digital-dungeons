@@ -6,7 +6,6 @@ import { CampaignSchema } from "../models/Campaign.js";
 import { CampEncounterSchema } from "../models/CampaignEncounterSchema.js";
 import { EncounterSchema } from "../models/Encounter.js";
 import { MonsterSchema } from "../models/Monster.js";
-import { ValueSchema } from '../models/Value'
 
 class DbContext {
   Account = mongoose.model('Account', AccountSchema);
