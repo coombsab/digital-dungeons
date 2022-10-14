@@ -16,6 +16,9 @@
     <Login />
     <router-view />
   </main>
+  
+  <nav>
+  </nav>
 
 </template>
 
@@ -38,8 +41,14 @@ export default {
   height: 100vh;
 }
 
-main {
+nav {
   position: relative;
+
+}
+
+main {
+  height: 100vh;
+  overflow-y: auto;
 }
 
 main {
