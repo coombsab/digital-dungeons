@@ -14,6 +14,24 @@
         <div class="modal-body" v-if="activeMonster">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
+              <h6 class="statistics">Hit Dice</h6>
+              <p>{{activeMonster.hit_dice}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Size</h6>
+              <p>{{activeMonster.size}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Alignment</h6>
+              <p>{{activeMonster.alignment}}</p>
+            </div>
+            <div>
+              <h6 class="statistics">Health</h6>
+              <p>{{activeMonster.hit_points}}</p>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div>
               <h6 class="statistics">Type</h6>
               <p>{{activeMonster.type}}</p>
             </div>
@@ -30,8 +48,6 @@
               <p>{{activeMonster.hit_points}}</p>
             </div>
           </div>
-          <p>{{activeMonster.desc}}</p>
-
         </div>
         <div class="modal-body" v-else>
           <p>Sorry, there is no monster data available :(</p>
