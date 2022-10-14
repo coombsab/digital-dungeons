@@ -18,6 +18,7 @@
         <router-link :to="{ name: 'About' }">
           <button class="btn rounded text-visible fs-3" data-bs-dismiss="offcanvas"><i class="mdi mdi-information"></i> About</button>
         </router-link>
+        <Login />
       </div>
     </div>
   </div>
@@ -45,7 +46,7 @@ export default {
 
 .offcanvas {
   background-color: rgba(81, 60, 100, 0.7);
-  height: 35vh;
+  height: fit-content;
   border-radius: none;
   backdrop-filter: blur(7px);
 }

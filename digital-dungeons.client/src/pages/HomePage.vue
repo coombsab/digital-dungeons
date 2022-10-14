@@ -1,6 +1,6 @@
 <template>
   <section class="home d-flex flex-column">
-    <div class="title-container d-flex justify-content-center">
+    <div class="title-container d-flex justify-content-center px-5">
       <div class="DD-border text-center pt-1">
         <h1 class="DD-title text-shadow"><span class="">WELCOME TO DIGITAL DUNGEONS</span></h1>
       </div>

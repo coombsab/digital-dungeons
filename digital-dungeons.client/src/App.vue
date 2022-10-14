@@ -13,7 +13,7 @@
 
   <main>
     <Navbar />
-    <Login />
+    <!-- <Login /> -->
     <router-view />
   </main>
   
