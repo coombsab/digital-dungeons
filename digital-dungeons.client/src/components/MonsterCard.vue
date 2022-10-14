@@ -1,6 +1,6 @@
 <template>
-  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details" data-bs-toggle="modal"
-    data-bs-target="#monsterModal" @click="setActiveMonster()">
+  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
+    data-bs-toggle="modal" data-bs-target="#monsterModal" @click="setActiveMonster()">
     <span>{{monster.name}}</span>
   </div>
 
@@ -67,7 +67,7 @@ export default {
       async setActiveMonster() {
         try {
           console.log(props.monster)
-          await monstersService.setActiveMonster(props.monster.url)
+          await monstersService.setActiveMonster(props.monster.slug)
         } catch (error) {
           Pop.error(error)
           logger.log(error)
