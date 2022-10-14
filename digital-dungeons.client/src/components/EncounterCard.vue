@@ -10,18 +10,31 @@
           class="mdi mdi-delete selectable rounded fs-6 delete-icon text-visible text-end"
           @click.stop="removeEncounter(encounter.id)"
         ></i>
-        <!-- Modal link -->
-        <div class="card-header">
-          <h5>{{ encounter?.name }}</h5>
+
+        <div
+          class="selectable"
+          type="button"
+          data-bs-toggle="modal"
+          :data-bs-target="'#encounterModal' + encounter.id"
+        >
+          <div class="card-header">
+            <h5>{{ encounter?.name }}</h5>
+          </div>
+          <div class="card-body">
+            <p>{{ encounter?.desc }}</p>
+            <p>{{ encounter?.type }}</p>
+          </div>
+          <div class="card-footer"></div>
         </div>
-        <div class="card-body">
-          <p>{{ encounter?.desc }}</p>
-          <p>{{ encounter?.type }}</p>
-        </div>
-        <div class="card-footer"></div>
       </div>
     </div>
   </div>
+
+  <EditEncounterDetailsModal
+    :encounter="encounter"
+    v-if="account.id == campaign.creatorId"
+  />
+  <EncounterDetailsModal :encounter="encounter" v-else />
 </template>
 
 <script>
@@ -29,6 +42,7 @@ import { computed } from "vue";
 import { AppState } from "../AppState.js";
 import { encountersService } from "../services/EncountersService.js";
 import Pop from "../utils/Pop.js";
+import EncounterDetailsModal from "./EncounterDetailsModal.vue";
 
 export default {
   props: {
@@ -41,7 +55,7 @@ export default {
       async removeEncounter(id) {
         try {
           const yes = await Pop.confirm(
-            "Are you sure you want to delete this Campaign?"
+            "Are you sure you want to delete this Encounter?"
           );
           if (!yes) {
             return;
@@ -53,13 +67,15 @@ export default {
       },
     };
   },
+  components: { EncounterDetailsModal },
 };
 </script>
 
 <style lang="scss" scoped>
 .glass {
-  background-color: rgba(38, 37, 37, 0.469);
+  background-color: rgba(85, 3, 3, 0.739);
 }
+
 .card {
   background-size: cover;
   background-position: center;

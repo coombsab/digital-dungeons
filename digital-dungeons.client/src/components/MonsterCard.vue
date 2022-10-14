@@ -64,11 +64,10 @@ export default {
     return {
       activeMonster: computed(() => AppState.activeMonster),
 
-      async setActiveMonster() {
+      setActiveMonster() {
         try {
-          console.log(props.monster)
           const monsterSlug = props.monster.slug
-          await monstersService.setActiveMonster(monsterSlug)
+          monstersService.setActiveMonster(monsterSlug)
         } catch (error) {
           Pop.error(error)
           logger.log(error)

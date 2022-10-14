@@ -24,6 +24,14 @@ class EncountersService {
     await baseApi.delete(`api/encounters/${id}`);
     AppState.encounters = AppState.encounters.filter((e) => e.id != id);
   }
+
+  async editEncounter(encounterData, id) {
+    const res = await baseApi.put(`api/encounters/${id}`, encounterData);
+    console.log(encounterData);
+    const updatedEncounter = new Encounter(res.data);
+    const index = AppState.encounters.findIndex((e) => e.id == id);
+    AppState.encounters.splice(index, 1, updatedEncounter);
+  }
 }
 
 export const encountersService = new EncountersService();
