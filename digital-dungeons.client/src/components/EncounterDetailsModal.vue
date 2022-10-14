@@ -1,39 +1,27 @@
 <template>
-  <div
-    class="modal fade"
-    id="encounterModal"
-    tabindex="-1"
-    aria-labelledby="encounterModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="encounterModal" tabindex="-1" aria-labelledby="encounterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content bg-secondary">
         <div class="modal-header">
-          <h5 class="modal-title" id="encounterModalLabel">New Encounter</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <h5 class="modal-title" id="encounterModalLabel">{{encounter.name}}</h5>
+          <button type="button" class="btn text-white py-1" data-bs-dismiss="modal" aria-label="Close"><i
+              class="mdi mdi-close fs-3"></i></button>
         </div>
-        <div class="modal-body">
-          <div class="card text-start">
-            <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+        <div class="modal-body container-fluid text-secondary">
+          <div class="card text-start row">
             <div class="card-body">
-              <h4 class="card-title">Title</h4>
-              <p class="card-text">Body</p>
+
+              <p class="card-text">{{encounter.desc}}</p>
             </div>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
+          <!-- <div class="modal-footer">
+            <div class="d-flex justify-content-between">
+              <span>{{encounter.musicUrl}}</span>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -53,4 +41,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

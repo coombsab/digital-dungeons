@@ -2,7 +2,7 @@ import { AppState } from "../AppState"
 import { Monster } from "../models/Monster"
 import { ShortMonster } from "../models/ShortMonster"
 import { logger } from "../utils/Logger"
-import { dndApi, openDndApi, openDndMons } from "./AxiosService"
+import { dndApi, openDndApi } from "./AxiosService"
 
 class MonstersService {
   async getApiMonsters(pageUrl = "/monsters", params = "") {
@@ -27,11 +27,18 @@ class MonstersService {
     console.log(AppState.activeMonster)
   }
 
-  async searchMonster() {
-    const res = await openDndMons('/?search="term"')
+  async searchMonster(term) {
+    const res = await openDndApi('/monsters/', {
+      params:
+      {
+        search: term
+      }
+    })
     AppState.monsters = res.data.results.map(data => new Monster(data))
-
   }
+
+
+
 
   async getApiMonsterByIndex(monsterIndex) {
 

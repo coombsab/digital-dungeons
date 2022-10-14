@@ -20,14 +20,12 @@
         <div class="col-8 bg-transparent">
           <div class="col-12">
             <div class="d-flex p-2">
-              <form class="w-100">
+              <form class="w-100" @submit.prevent="handleSubmit()">
                 <div class="form-floating">
-                  <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable"
-                    @submit.prevent="handleSubmit()">
+                  <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
                   <label for="floatingSearch">Search</label>
-
                 </div>
-                <button type="submit" class="form-control btn-success btn">Submit</button>
+                <button type="submit" class="form-control  "><i class="mdi mdi-magnify"></i></button>
               </form>
               <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
                 :class="{'disabled' : !previousPage}">Previous</button>
@@ -74,16 +72,32 @@ export default {
     const editable = ref("")
     return {
       editable,
-      monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
+      // monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
+      monsters: computed(() => AppState.monsters),
+      nextPage: computed(() => AppState.nextPage),
+      previousPage: computed(() => AppState.previousPage),
       async handleSubmit() {
         try {
+          await monstersService.searchMonster(editable.value)
           // await this.getApiMonsters(editable.value)  //might need?
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
           Pop.error(error.message)
         }
+      },
+
+      async changePage(pageUrl) {
+        try {
+          await monstersService.getApiMonsters(pageUrl)
+        } catch (error) {
+          Pop.error(error, '[changingPage]')
+        }
       }
+
+
+
+
     };
   },
   components: { MonsterCard }
