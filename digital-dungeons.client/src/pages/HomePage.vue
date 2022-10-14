@@ -51,7 +51,7 @@ export default {
 }
 
 .theme-card {
-  height: 25rem;
+  height: 30vh;
   width: 18rem;
   border-radius: 1rem;
   display: flex;
