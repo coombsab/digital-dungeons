@@ -59,7 +59,7 @@ export default {
 
 .navbar-text-auth {
   position: absolute;
-  left: 0.5rem;
+  left: 1rem;
   top: 50rem;
   z-index: 1;
 }
