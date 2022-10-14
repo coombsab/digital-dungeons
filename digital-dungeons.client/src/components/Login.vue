@@ -68,7 +68,7 @@ export default {
   background-color: rgb(26, 21, 31);
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 1rem;
-  transform: rotate(-90deg);
+  // transform: rotate(-90deg);
   letter-spacing: 0.25rem;
 }
 
