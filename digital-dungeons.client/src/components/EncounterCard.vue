@@ -5,19 +5,6 @@
       :style="{ backgroundImage: `url(${encounter?.coverImg})` }"
     >
       <div class="glass rounded">
-        <!-- This is delete button -->
-        <!-- <i
-          v-if="account.id == campaign.creatorId"
-          class="mdi mdi-delete selectable rounded fs-6 delete-icon text-visible text-end"
-          @click.stop="removeEncounter(encounter.id)"
-        ></i> -->
-        <!-- This is toggle to edit  -->
-        <!-- <div
-          class="selectable"
-          type="button"
-          data-bs-toggle="modal"
-          :data-bs-target="'#encounterModal' + encounter.id"
-        > -->
         <div class="card-header d-flex justify-content-between">
           <h5>{{ encounter?.name }}</h5>
           <div class="dropdown">
