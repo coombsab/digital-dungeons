@@ -15,7 +15,7 @@
           class="selectable"
           type="button"
           data-bs-toggle="modal"
-          data-bs-target="#encounterModal"
+          :data-bs-target="'#encounterModal' + encounter.id"
         >
           <div class="card-header">
             <h5>{{ encounter?.name }}</h5>
@@ -30,7 +30,10 @@
     </div>
   </div>
 
-  <EditEncounterDetailsModal :encounter="encounter" v-if="account.id == campaign.creatorId" />
+  <EditEncounterDetailsModal
+    :encounter="encounter"
+    v-if="account.id == campaign.creatorId"
+  />
   <EncounterDetailsModal :encounter="encounter" v-else />
 </template>
 

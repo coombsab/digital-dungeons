@@ -26,9 +26,11 @@ class EncountersService {
   }
 
   async editEncounter(encounterData, id) {
-    console.log(id);
     const res = await baseApi.put(`api/encounters/${id}`, encounterData);
-    console.log(res.data);
+    console.log(encounterData);
+    const updatedEncounter = new Encounter(res.data);
+    const index = AppState.encounters.findIndex((e) => e.id == id);
+    AppState.encounters.splice(index, 1, updatedEncounter);
   }
 }
 
