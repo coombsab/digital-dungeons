@@ -23,5 +23,13 @@ export class Monster {
     this.hit_points = data.hit_points
     this.hit_dice = data.hit_dice
     this.languages = data.languages
+    this.size = data.size
+    this.strength = data.strength
+    this.intelligence = data.intelligence
+    this.challenge_rating = data.challenge_rating
+    this.wisdom = data.wisdom
+    this.dexterity = data.dexterity
+    this.charisma = data.charisma
+    this.constitution = data.constitution
   }
 }
