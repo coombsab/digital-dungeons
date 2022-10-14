@@ -54,7 +54,7 @@ export default {
   position: absolute;
   left: 1rem;
   top: 8rem;
-  // z-index: 1;
+  z-index: 1;
 }
 .account-photo {
   height: 3rem;
