@@ -9,7 +9,6 @@ import { MonsterSchema } from "../models/Monster.js";
 import { ValueSchema } from '../models/Value'
 
 class DbContext {
-  Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
 
   Monsters = mongoose.model('Monster', MonsterSchema)
