@@ -9,7 +9,7 @@
       <div class="dropdown-toggle selectable rounded my-3" data-bs-toggle="dropdown" aria-expanded="false"
         id="authDropdown">
         <div v-if="account.picture || user.picture">
-          <img :src="account.picture || user.picture" alt="account photo" class="rounded ye img-fluid"
+          <img :src="account.picture || user.picture" alt="account photo" class="account-photo"
             :title="account.name || user.name" />
           <!-- <span class="mx-3 text-success lighten-30">{{ account.name || user.name }}</span> -->
         </div>
@@ -50,8 +50,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ye {
-  max-width: 6vw;
+.navbar-text {
+  position: absolute;
+  left: 1rem;
+  top: 8rem;
+  // z-index: 1;
+}
+.account-photo {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
 }
 
 .dropdown-menu {

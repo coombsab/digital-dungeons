@@ -1,6 +1,6 @@
 <template>
 
-  <main class="container-fluid">
+  <!-- <main class="container-fluid">
     <section class="row Home">
       <div class="col-md-2 navbarbg rounded">
         <Navbar />
@@ -9,6 +9,12 @@
         <router-view />
       </div>
     </section>
+  </main> -->
+
+  <main>
+    <Navbar />
+    <Login />
+    <router-view />
   </main>
 
 </template>
@@ -33,6 +39,10 @@ export default {
 }
 
 main {
+  position: relative;
+}
+
+main {
   background-image: url('https://giffiles.alphacoders.com/215/215595.gif');
   background-position: center;
   background-size: cover;
@@ -54,6 +64,14 @@ main {
 
 .modal-backdrop {
   position: relative !important;
+}
+
+.navbar {
+  position: absolute;
+  left: 0.25rem;
+  top: -0.75rem;
+  z-index: 1;
+  // width: fit-content;
 }
 
 @import "./assets/scss/main.scss";
