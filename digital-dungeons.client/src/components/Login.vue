@@ -1,6 +1,6 @@
 <template>
-  <span :class="user.isAuthenticated ? 'navbar-text-auth' : 'navbar-text'">
-    <button class="text-visible btn-login text-uppercase my-2 my-lg-0 fs-4" @click="login"
+  <span :class="user.isAuthenticated ? 'navbar-text-auth' : 'navbar-text'" class="mb-3">
+    <button class="btn text-visible btn-login text-uppercase my-2 my-lg-0 fs-4" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
@@ -9,7 +9,7 @@
       <div class="dropdown-toggle selectable rounded my-3" data-bs-toggle="dropdown" aria-expanded="false"
         id="authDropdown">
         <div v-if="account.picture || user.picture">
-          <img :src="account.picture || user.picture" alt="account photo" class="account-photo mb-3"
+          <img :src="account.picture || user.picture" alt="account photo" class="account-photo"
             :title="account.name || user.name" />
           <!-- <span class="mx-3 text-success lighten-30">{{ account.name || user.name }}</span> -->
         </div>
@@ -64,18 +64,18 @@ export default {
 //   z-index: 1;
 // }
 
-.btn-login {
-  background-color: rgb(26, 21, 31);
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 1rem;
-  transform: rotate(-90deg);
-  letter-spacing: 0.25rem;
-}
+// .btn-login {
+//   background-color: rgb(26, 21, 31);
+//   padding: 0.5rem 1rem 0.5rem 1rem;
+//   border-radius: 1rem;
+//   transform: rotate(-90deg);
+//   letter-spacing: 0.25rem;
+// }
 
-.btn-login:hover {
-  background-color: rgba(26, 21, 31, 0.705);
-  letter-spacing: 0.25rem; 
-}
+// .btn-login:hover {
+//   background-color: rgba(26, 21, 31, 0.705);
+//   letter-spacing: 0.25rem; 
+// }
 .account-photo {
   height: 3rem;
   width: 3rem;
