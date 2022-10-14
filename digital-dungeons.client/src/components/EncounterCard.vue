@@ -37,11 +37,18 @@
             </ul>
           </div>
         </div>
-        <div class="card-body">
-          <p>{{ encounter?.desc }}</p>
-          <p>{{ encounter?.type }}</p>
+        <div
+          class="selectable"
+          type="button"
+          data-bs-toggle="modal"
+          :data-bs-target="'#encounterDetailsModal' + encounter.id"
+        >
+          <div class="card-body">
+            <p>{{ encounter?.desc }}</p>
+            <p>{{ encounter?.type }}</p>
+          </div>
+          <div class="card-footer"></div>
         </div>
-        <div class="card-footer"></div>
       </div>
     </div>
     <!-- </div> -->
