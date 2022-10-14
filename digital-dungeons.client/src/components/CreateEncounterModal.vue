@@ -12,18 +12,21 @@
         <div class="modal-body">
           <form action="submit" class="card" @submit.prevent="addEncounter()">
             <div class="card-body text-start">
-              <div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" v-model="editable.name" required name="name" placeholder="Name:" maxlength="50" />
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" v-model="editable.name" required name="name" />
               </div>
-              <div>
+              <div class="form-floating mb-3">
+                <input type="url" class="form-control" v-model="editable.coverImg" name="coverImg" placeholder="Cover Image:" maxlength="10000" />
                 <label for="coverImg">Cover Image:</label>
-                <input type="url" class="form-control" v-model="editable.coverImg" name="coverImg" />
               </div>
-              <div>
+              <div class="form-floating">
+                <textarea type="text" class="form-control textarea-height" v-model="editable.desc" name="description" style="resize: none" placeholder="Description:" maxlength="500"></textarea>
                 <label for="description">Description:</label>
-                <textarea type="text" class="form-control" v-model="editable.desc" name="description" rows="8"
-                  style="resize: none"></textarea>
+              </div>
+              <div class="text-end">
+                <span>{{editable.desc ? editable.desc.length : 0}}</span>
+                <span>/ 500</span>
               </div>
             </div>
             <div class="modal-footer">
@@ -71,5 +74,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.textarea-height {
+  height: 10.8rem;
+}
 </style>
