@@ -13,7 +13,11 @@ class MonstersService {
 
   async setActiveMonster(monsterSlug) {
     AppState.activeMonster = null
-    const res = await openDndApi.get(monsterSlug)
+    const res = await openDndApi.get("/monsters", {
+      params: {
+        slug: monsterSlug
+      }
+    })
     AppState.activeMonster = new Monster(res.data)
   }
   async getApiMonsterByIndex(monsterIndex) {

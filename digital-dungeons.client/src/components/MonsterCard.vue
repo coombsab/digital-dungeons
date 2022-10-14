@@ -67,7 +67,8 @@ export default {
       async setActiveMonster() {
         try {
           console.log(props.monster)
-          await monstersService.setActiveMonster(props.monster.slug)
+          const monsterSlug = props.monster.slug
+          await monstersService.setActiveMonster(monsterSlug)
         } catch (error) {
           Pop.error(error)
           logger.log(error)

@@ -2,7 +2,7 @@ export class Monster {
 
   constructor(data) {
     this.id = data.id
-    this.index = data.index
+    this.slug = data.slug
     this.desc = data.desc
     this.name = data.name
     this.encounterId = data.encounterId
