@@ -42,38 +42,6 @@ export default {
   top: 5rem;
   z-index: 1;
 }
-.sidebar {
-  background-color: #dc1a22;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-
-.text-shadow {
-  color: rgb(222, 222, 222);
-  text-shadow: 1px 1px rgba(178, 30, 94, 0.755), 0px 0px 5px rgba(170, 40, 70, 0.716);
-  font-weight: bold;
-  letter-spacing: 0.08rem
-}
-
-.text-shadow2 {
-  color: rgb(201, 202, 189);
-  text-shadow: 1px 1px rgba(71, 169, 18, 0.752), 0px 0px 5px rgba(50, 134, 23, 0.653);
-  font-weight: bold;
-  letter-spacing: 0.08rem
-}
-
-.nav-link {
-  text-transform: uppercase;
-}
-
-.navbar-nav .router-link-exact-active {
-  border-bottom: 2px solid var(--bs-success);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
 
 .offcanvas {
   background-color: rgba(81, 60, 100, 0.7);
@@ -85,8 +53,6 @@ a:hover {
 @media (min-width: 500px) {
   .offcanvas {
     border-radius: 0 0 10% 0;
-
-
   }
 }
 

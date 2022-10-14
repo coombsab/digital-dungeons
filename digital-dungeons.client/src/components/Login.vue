@@ -1,6 +1,6 @@
 <template>
-  <span class="navbar-text">
-    <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
+  <span :class="user.isAuthenticated ? 'navbar-text-auth' : 'navbar-text'">
+    <button class="text-visible btn-login text-uppercase my-2 my-lg-0 fs-4" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
@@ -52,9 +52,29 @@ export default {
 <style lang="scss" scoped>
 .navbar-text {
   position: absolute;
-  left: 1rem;
-  top: 8rem;
+  left: -1.5rem;
+  top: 50rem;
   z-index: 1;
+}
+
+.navbar-text-auth {
+  position: absolute;
+  left: 0.5rem;
+  top: 50rem;
+  z-index: 1;
+}
+
+.btn-login {
+  background-color: rgb(26, 21, 31);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transform: rotate(-90deg);
+  letter-spacing: 0.25rem;
+}
+
+.btn-login:hover {
+  background-color: rgba(26, 21, 31, 0.705);
+  letter-spacing: 0.25rem; 
 }
 .account-photo {
   height: 3rem;
