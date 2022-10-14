@@ -30,8 +30,8 @@
     </div>
   </div>
 
-  <EditEncounterDetailsModal v-if="account.id == campaign.creatorId" />
-  <EncounterDetailsModal v-else />
+  <EditEncounterDetailsModal :encounter="encounter" v-if="account.id == campaign.creatorId" />
+  <EncounterDetailsModal :encounter="encounter" v-else />
 </template>
 
 <script>
