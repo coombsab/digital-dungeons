@@ -51,7 +51,7 @@ export default {
 }
 
 .theme-card {
-  height: 30vh;
+  height: 40vh;
   width: 18rem;
   border-radius: 1rem;
   display: flex;
@@ -104,7 +104,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-color: black;
-    height: 32rem;
+    height: 50vh;
     width: 24rem;
     border-radius: 1rem;
     display: flex;
@@ -128,7 +128,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-color: black;
-    height: 48rem;
+    height: 60vh;
     width: 32rem;
     border-radius: 1rem;
     display: flex;
