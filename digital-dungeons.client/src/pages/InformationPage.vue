@@ -16,33 +16,34 @@
             <button class="btn back dropdown-toggle text-light m-2" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">AHH</button>
             <ul class="dropdown-menu">
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('monsters')">
                 Monsters
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('spells')">
                 Spells
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('races')">
                 Races
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('classes')">
                 Classes
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('magicitems')">
                 Magic Items
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('weapons')">
                 Weapons
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('armor')">
                 Armor
               </li>
-              <li class="dropdown-item">
+              <!-- TODO add these searches -->
+              <!-- <li class="dropdown-item" @click="changeCategory('')">
                 Campaigns
               </li>
-              <li class="dropdown-item">
+              <li class="dropdown-item" @click="changeCategory('')">
                 Encounters
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -91,14 +92,15 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
 import SpellCard from "../components/SpellCard.vue";
+
 export default {
   setup() {
     async function getApiMonsters() {
       try {
-        await informationService.getApiMonsters()
+        await informationService.getApiInfo("monsters")
       }
       catch (error) {
-        logger.log('[getApiMonsters]', error)
+        logger.log('[getApiInfo]', error)
         Pop.error(error.message)
       }
     }
@@ -114,7 +116,7 @@ export default {
       previousPage: computed(() => AppState.previousPage),
       async handleSubmit() {
         try {
-          await informationService.getApiMonsters("", { search: editable.value })
+          await informationService.getApiInfo("monsters", { search: editable.value })
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
@@ -124,14 +126,21 @@ export default {
 
       async changePage(pageUrl) {
         try {
-          await informationService.getApiMonsters(pageUrl)
+          await informationService.getApiInfo(pageUrl)
         } catch (error) {
           Pop.error(error, '[changingPage]')
         }
       },
 
       async changeCategory(category) {
-
+        try {
+          await informationService.getApiInfo(category)
+          informationService.setActiveCategory(category)
+        }
+        catch(error) {
+          logger.log("[changeCategory]", error)
+          Pop.error(error.message)
+        }
       }
 
     };
