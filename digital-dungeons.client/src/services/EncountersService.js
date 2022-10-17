@@ -3,7 +3,7 @@ import { Encounter } from "../models/Encounter.js";
 import { baseApi } from "./AxiosService.js";
 
 class EncountersService {
-  async getEncounters(params) {}
+  async getEncounters(params) { }
 
   async getEncountersByCampaignId(campaignId) {
     const res = await baseApi.get(`api/campaigns/${campaignId}/encounters`);
@@ -37,7 +37,7 @@ class EncountersService {
     const res = await baseApi.get(
       `api/campaigns/${campaignId}/encounter/${encounterId}`
     );
-    AppState.encounters = new Encounter(res.data);
+    AppState.activeEncounter = new Encounter(res.data);
     console.log(res.data);
     console.log("Getting Encounters Round 2");
     console.log(AppState.encounters);

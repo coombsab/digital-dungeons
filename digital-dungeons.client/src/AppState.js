@@ -12,7 +12,7 @@ export const AppState = reactive({
   /** @type {import('./models/Encounter.js').Encounter} */
   encounters: [],
   /** @type {import('./models/Encounter.js').Encounter || null} */
-  activeEncounter: {},
+  activeEncounter: null,
   /** @type {import('./models/Monster.js').Monster[]} */
   monsters: [],
   nextPage: null,
