@@ -72,7 +72,7 @@
           <div class="col-12">
             <div class="info-content px-3 scrollable">
               <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
-              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
+              <SpellCard v-for="s in spells" :spell="s" />
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
 import { onMounted, ref } from "vue";
-import MonsterCard from "../components/MonsterCard.vue";
+import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
