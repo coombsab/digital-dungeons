@@ -16,23 +16,18 @@
           </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
-            <button
-              v-if="campaign.creatorId == account.id"
-              class="btn btn-danger"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#CreateEncounterModal"
-            >
+            <button v-if="campaign.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
+              data-bs-toggle="modal" data-bs-target="#CreateEncounterModal">
               Create Monster
             </button>
           </div>
         </section>
         <section class="row">
           <div class="col-6">
-            <img :src="campaign.coverImg" alt="" class="img-fluid" />
+            <img :src="activeEncounter.coverImg" alt="" class="img-fluid" />
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <p>{{ campaign.desc }}</p>
+                <p>{{ activeEncounter.desc }}</p>
               </div>
             </div>
           </div>
@@ -84,6 +79,7 @@ export default {
       campaign: computed(() => AppState.activeCampaign),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
+      activeEncounter: computed(() => AppState.activeEncounter)
     };
   },
   components: { CreateEncounterModal, EncounterCard },
@@ -95,6 +91,10 @@ export default {
   height: 96vh;
   background-size: cover;
   background-position: center;
+}
+
+.MonsterC:hover {
+  transform: scale(1.2);
 }
 
 .glass {

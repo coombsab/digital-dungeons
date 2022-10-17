@@ -12,7 +12,7 @@
           <h5 class="modal-title" id="encounterModalLabel">
             {{ encounter.name }}
           </h5>
-          <button>
+          <button class="btn btn-light-outline">
             <router-link
               :to="{
                 name: 'EncounterDetails',
@@ -34,7 +34,12 @@
         <div class="modal-body container-fluid text-secondary">
           <div class="card text-start row">
             <div class="card-body">
-              <p class="card-text">{{ encounter.desc }}</p>
+              <img :src="encounter.coverImg" alt="" class="img-fluid" />
+              <ul class="py-2">
+                <li>
+                  <p class="card-text">{{ encounter.desc }}</p>
+                </li>
+              </ul>
             </div>
           </div>
           <!-- <div class="modal-footer">
@@ -60,7 +65,6 @@ import { Encounter } from "../models/Encounter.js";
 export default {
   props: {
     encounter: { type: Encounter, required: true },
-    campaign: { type: Campaign, required: true },
   },
   setup() {
     return {};

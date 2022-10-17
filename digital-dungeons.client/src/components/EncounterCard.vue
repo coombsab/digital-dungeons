@@ -1,29 +1,50 @@
 <template>
   <div class="encounter-card text-white my-2" v-if="encounter">
-    <div class="card" :style="{ backgroundImage: `url(${encounter?.coverImg})` }">
-      <div class="glass rounded">
-        <div class="card-header d-flex justify-content-between">
-          <h5>{{ encounter?.name }}</h5>
-          <div class="dropdown">
-            <button class="btn back dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-              v-if="account.id == campaign.creatorId"></button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
-                  :data-bs-target="'#encounterModal' + encounter.id" @click.stop="populateForm(encounter.id)">Edit
-                  Encounter</a>
-              </li>
-              <li class="dropdown-item" @click.stop="removeEncounter(encounter.id)">
-                Delete Encounter
-              </li>
-            </ul>
+    <div
+      class="selectable"
+      type="button"
+      data-bs-toggle="modal"
+      :data-bs-target="'#encounterDetailsModal' + encounter.id"
+    >
+      <div
+        class="card border border-light"
+        :style="{ backgroundImage: `url(${encounter?.coverImg})` }"
+      >
+        <div class="glass rounded">
+          <div class="card-header d-flex justify-content-between">
+            <h5>{{ encounter?.name }}</h5>
+            <div class="dropdown">
+              <button
+                class="btn back dropdown-toggle text-light"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                v-if="account.id == campaign.creatorId"
+              ></button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    type="button"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#encounterModal' + encounter.id"
+                    >Edit Encounter</a
+                  >
+                </li>
+                <li
+                  class="dropdown-item"
+                  @click.stop="removeEncounter(encounter.id)"
+                >
+                  Delete Encounter
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="selectable" type="button" data-bs-toggle="modal"
-          :data-bs-target="'#encounterDetailsModal' + encounter.id">
+
           <div class="card-body">
-            <p>{{ encounter?.desc }}</p>
-            <p>{{ encounter?.type }}</p>
+            <!-- <p>{{ encounter?.desc }}</p>
+            <p>{{ encounter?.type }}</p> -->
           </div>
           <div class="card-footer"></div>
         </div>
@@ -60,12 +81,6 @@ export default {
             return;
           }
           await encountersService.removeEncounter(id);
-        } catch (error) {
-          Pop.error(error);
-        }
-      },
-      async populateForm(id) {
-        try {
         } catch (error) {
           Pop.error(error);
         }
