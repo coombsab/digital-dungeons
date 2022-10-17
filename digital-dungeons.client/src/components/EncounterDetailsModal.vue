@@ -1,13 +1,33 @@
 <template>
-  <div class="modal fade" :id="'encounterDetailsModal' + encounter.id" tabindex="-1"
-    aria-labelledby="encounterModalLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    :id="'encounterDetailsModal' + encounter.id"
+    tabindex="-1"
+    aria-labelledby="encounterModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-secondary">
         <div class="modal-header">
           <h5 class="modal-title" id="encounterModalLabel">
             {{ encounter.name }}
           </h5>
-          <button type="button" class="btn text-white py-1" data-bs-dismiss="modal" aria-label="Close">
+          <button>
+            <router-link
+              :to="{
+                name: 'EncounterDetails',
+                params: { encounterId: encounter.id },
+              }"
+            >
+              <i class="mdi mdi-arrow-right-bold-outline"> Details</i>
+            </router-link>
+          </button>
+          <button
+            type="button"
+            class="btn text-white py-1"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
             <i class="mdi mdi-close fs-3"></i>
           </button>
         </div>
@@ -32,11 +52,15 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
+import { Campaign } from "../models/Campaign.js";
 import { Encounter } from "../models/Encounter.js";
 
 export default {
   props: {
     encounter: { type: Encounter, required: true },
+    campaign: { type: Campaign, required: true },
   },
   setup() {
     return {};
@@ -44,6 +68,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

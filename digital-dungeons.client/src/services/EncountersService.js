@@ -32,6 +32,16 @@ class EncountersService {
     const index = AppState.encounters.findIndex((e) => e.id == id);
     AppState.encounters.splice(index, 1, updatedEncounter);
   }
+
+  async getEncounterById(campaignId, encounterId) {
+    const res = await baseApi.get(
+      `api/campaigns/${campaignId}/encounter/${encounterId}`
+    );
+    AppState.encounters = new Encounter(res.data);
+    console.log(res.data);
+    console.log("Getting Encounters Round 2");
+    console.log(AppState.encounters);
+  }
 }
 
 export const encountersService = new EncountersService();

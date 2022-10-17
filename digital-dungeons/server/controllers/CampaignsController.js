@@ -10,6 +10,7 @@ export class CampaignsController extends BaseController {
       .get("", this.getCampaigns)
       .get("/:campaignId", this.getCampaignByCampaignId)
       .get("/:campaignId/encounters", this.getEncountersByCampaignId)
+      .get("/:campaignId/encounter/:encounterId", this.getEncounterById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.addCampaign)
       .delete("/:campaignId", this.deleteCampaign)
@@ -17,10 +18,22 @@ export class CampaignsController extends BaseController {
   }
   async getCampaignByCampaignId(rq, rs, nx) {
     try {
-      const campaign = await campaignsService.getCampaignById(rq.params.campaignId)
-      rs.send(campaign)
+      const campaign = await campaignsService.getCampaignById(
+        rq.params.campaignId
+      );
+      rs.send(campaign);
     } catch (error) {
-      nx(error)
+      nx(error);
+    }
+  }
+  async getEncounterById(rq, rs, nx) {
+    try {
+      const encounter = await encountersService.getEncounterById(
+        rq.params.encounterId
+      );
+      rs.send(encounter);
+    } catch (error) {
+      nx(error);
     }
   }
 
@@ -34,7 +47,9 @@ export class CampaignsController extends BaseController {
   }
   async getEncountersByCampaignId(req, res, next) {
     try {
-      const encounters = await encountersService.getEncountersByCampaignId(req.params.campaignId);
+      const encounters = await encountersService.getEncountersByCampaignId(
+        req.params.campaignId
+      );
       res.send(encounters);
     } catch (error) {
       next(error);

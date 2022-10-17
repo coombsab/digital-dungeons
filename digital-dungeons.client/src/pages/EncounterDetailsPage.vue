@@ -5,7 +5,7 @@
         <section class="row justify-content-between">
           <div class="col-7 bg-dark p-2 text-center">
             <div class="bg-secondary text-white">
-              <h2>{{ campaign.name }}</h2>
+              <h2>{{ encounter.name }}</h2>
             </div>
           </div>
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
@@ -23,18 +23,9 @@
               data-bs-toggle="modal"
               data-bs-target="#CreateEncounterModal"
             >
-              Create Encounter
+              Create Monster
             </button>
           </div>
-          <!-- BUTTONS - IDEAL
-          LEAVE BUTTON
-          <div>
-            <button></button>
-          </div>
-          JOIN BUTTON
-          <div class="col-2">
-          <button></button>
-          </div> -->
         </section>
         <section class="row">
           <div class="col-6">
@@ -85,7 +76,6 @@
 import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
-import { campaignsService } from "../services/CampaignsService.js";
 import Pop from "../utils/Pop.js";
 import CreateEncounterModal from "../components/CreateEncounterModal.vue";
 import EncounterCard from "../components/EncounterCard.vue";
@@ -93,32 +83,36 @@ import { encountersService } from "../services/EncountersService.js";
 export default {
   setup() {
     const route = useRoute();
-    async function getCampaignById() {
+    async function getEncounterById() {
       try {
-        await campaignsService.getCampaignById(route.params.campaignId);
-      } catch (error) {
-        Pop.error(error);
-      }
-    }
-    async function getEncountersByCampaignId() {
-      try {
-        await encountersService.getEncountersByCampaignId(
-          route.params.campaignId
+        await encountersService.getEncounterById(
+          route.params.campaignId,
+          route.params.encounterId
         );
-        console.log("Getting Encounters");
       } catch (error) {
         Pop.error(error);
       }
     }
+    // async function getMonstersByEncounterId() {
+    //   try {
+    //     await encountersService.getMonstersByEncounterId(
+    //       route.params.encounterId
+    //     );
+    //     console.log("Getting Monsters");
+    //   } catch (error) {
+    //     Pop.error(error);
+    //   }
+    // }
     onMounted(() => {
-      getCampaignById();
-      getEncountersByCampaignId();
+      getEncounterById();
+      // getMonstersByEncounterId();
     });
     return {
       campaign: computed(() => AppState.activeCampaign),
       account: computed(() => AppState.account),
+      encounter: computed(() => AppState.encounters),
       completedEncounters: computed(() =>
-        AppState.encounters.filter((encounters) => encounters.isCompleted)
+        AppStrate.encounters.filter((encounters) => encounters.isCompleted)
       ),
       uncompletedEncounters: computed(() =>
         AppState.encounters.filter((encounters) => !encounters.isCompleted)
