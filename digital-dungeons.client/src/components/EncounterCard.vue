@@ -45,6 +45,7 @@
           <div class="card-body">
             <!-- <p>{{ encounter?.desc }}</p>
             <p>{{ encounter?.type }}</p> -->
+            <div></div>
           </div>
         </div>
       </div>
