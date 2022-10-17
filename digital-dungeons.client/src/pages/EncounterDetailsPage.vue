@@ -24,10 +24,10 @@
         </section>
         <section class="row">
           <div class="col-6">
-            <img :src="campaign.coverImg" alt="" class="img-fluid" />
+            <img :src="activeEncounter.coverImg" alt="" class="img-fluid" />
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <p>{{ campaign.desc }}</p>
+                <p>{{ activeEncounter.desc }}</p>
               </div>
             </div>
           </div>
@@ -79,6 +79,7 @@ export default {
       campaign: computed(() => AppState.activeCampaign),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
+      activeEncounter: computed(() => AppState.activeEncounter)
     };
   },
   components: { CreateEncounterModal, EncounterCard },
