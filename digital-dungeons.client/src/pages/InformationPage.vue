@@ -2,33 +2,66 @@
   <div class="information-page">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6 p-3">
+        <div class="col-4 text-center pt-5">
           <div class="text-center">
             <a href="https://www.dndbeyond.com/sources/basic-rules"><button
-                class="btn btn-success elevation-2">RULES</button></a>
+                class="btn btn-success elevation-2 m-2">RULES</button></a>
           </div>
-        </div>
-        <div class="col-6 p-3">
           <div class="text-center">
             <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/"><button
-                class="btn btn-success elevation-2">GAME MECHANICS</button></a>
+                class="btn btn-success elevation-2 m-2">GAME
+                MECHANICS</button></a>
+          </div>
+          <div class="dropdown">
+            <button class="btn back dropdown-toggle text-light m-2" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">AHH</button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                Monsters
+              </li>
+              <li class="dropdown-item">
+                Spells
+              </li>
+              <li class="dropdown-item">
+                Races
+              </li>
+              <li class="dropdown-item">
+                Classes
+              </li>
+              <li class="dropdown-item">
+                Magic Items
+              </li>
+              <li class="dropdown-item">
+                Weapons
+              </li>
+              <li class="dropdown-item">
+                Armor
+              </li>
+              <li class="dropdown-item">
+                Campaigns
+              </li>
+              <li class="dropdown-item">
+                Encounters
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-4 text-center pt-5">
-          <span class="text-light fs-5"><strong>DROPDOWN</strong></span>
-        </div>
+
         <div class="col-8 bg-transparent">
-          <div class="col-12">
+          <div class="col-12 h-30">
             <div class="d-flex p-2">
               <form class="w-100" @submit.prevent="handleSubmit()">
-                <div class="form-floating">
-                  <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
-                  <label for="floatingSearch">Search</label>
+                <div class="input-group">
+                  <div class="form-floating input-width">
+                    <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
+                    <label for="floatingSearch">Search</label>
+                  </div>
+                  <button type="submit" class="form-control  "><i class="mdi mdi-magnify"></i></button>
                 </div>
-                <button type="submit" class="form-control  "><i class="mdi mdi-magnify"></i></button>
               </form>
+            </div>
+            <!-- NOTE Buttons -->
+            <div class="d-flex justify-content-between">
               <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
                 :class="{'disabled' : !previousPage}">Previous</button>
               <button @click="changePage(nextPage)" :disabled="!nextPage"
@@ -37,7 +70,8 @@
           </div>
           <div class="col-12">
             <div class="info-content px-3 scrollable">
-              <MonsterCard v-for="m of monsters" :monster="m" />
+              <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
+              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
             </div>
           </div>
         </div>
@@ -55,12 +89,13 @@ import { onMounted, ref } from "vue";
 import MonsterCard from "../components/MonsterCard.vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
-import { monstersService } from "../services/MonstersService";
+import { informationService } from "../services/InformationService";
+import SpellCard from "../components/SpellCard.vue";
 export default {
   setup() {
     async function getApiMonsters() {
       try {
-        await monstersService.getApiMonsters()
+        await informationService.getApiMonsters()
       }
       catch (error) {
         logger.log('[getApiMonsters]', error)
@@ -74,13 +109,12 @@ export default {
     const editable = ref("")
     return {
       editable,
-      // monsters: computed(() => AppState.monsters.filter(monster => monster.name.toUpperCase().includes(editable.value.toUpperCase()))),
       monsters: computed(() => AppState.monsters),
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
       async handleSubmit() {
         try {
-          await monstersService.getApiMonsters("", { search: editable.value })
+          await informationService.getApiMonsters("", { search: editable.value })
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
@@ -90,18 +124,19 @@ export default {
 
       async changePage(pageUrl) {
         try {
-          await monstersService.getApiMonsters(pageUrl)
+          await informationService.getApiMonsters(pageUrl)
         } catch (error) {
           Pop.error(error, '[changingPage]')
         }
+      },
+
+      async changeCategory(category) {
+
       }
-
-
-
 
     };
   },
-  components: { MonsterCard }
+  components: { MonsterCard, SpellCard }
 };
 </script>
 
@@ -111,8 +146,8 @@ export default {
 }
 
 button {
-  font-weight: 800;
-  font-size: 64px;
+
+
   padding-left: 2rem;
   padding-right: 2rem;
   border-radius: 2rem;
@@ -125,6 +160,14 @@ button {
 
 .scrollable {
   overflow-y: auto;
-  height: 80.3vh;
+  height: 85vh;
+}
+
+.h-30 {
+  height: 15vh;
+}
+
+.input-width {
+  width: 70%;
 }
 </style>
