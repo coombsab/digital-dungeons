@@ -14,7 +14,7 @@
           </div>
           <div class="dropdown">
             <button class="btn back dropdown-toggle text-light m-2" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">AHH</button>
+              aria-expanded="false">{{category ? category.toUpperCase() : 'Select Category'}}</button>
             <ul class="dropdown-menu">
               <li class="dropdown-item" @click="changeCategory('monsters')">
                 Monsters
@@ -72,7 +72,7 @@
           <div class="col-12">
             <div class="info-content px-3 scrollable">
               <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
-              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
+              <SpellCard v-for="s in spells" :spell="s" />
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
 import { onMounted, ref } from "vue";
-import MonsterCard from "../components/MonsterCard.vue";
+import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
@@ -98,6 +98,7 @@ export default {
     async function getApiMonsters() {
       try {
         await informationService.getApiInfo("monsters")
+        informationService.setActiveCategory("monsters")
       }
       catch (error) {
         logger.log('[getApiInfo]', error)
@@ -114,9 +115,12 @@ export default {
       monsters: computed(() => AppState.monsters),
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
+      category: computed(() => AppState.activeCategory),
       async handleSubmit() {
         try {
-          await informationService.getApiInfo("monsters", { search: editable.value })
+          // STUB change to active category
+          await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
+          editable.value = ""
         }
         catch (error) {
           logger.log('[handleSubmit]', error)

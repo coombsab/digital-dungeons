@@ -12,7 +12,7 @@
           <h5 class="modal-title" id="encounterModalLabel">
             {{ encounter.name }}
           </h5>
-          <button class="btn btn-light-outline">
+          <button class="btn">
             <router-link
               :to="{
                 name: 'EncounterDetails',
