@@ -91,7 +91,7 @@ import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
-import SpellCard from "../components/SpellCard.vue";
+import SpellCard from "../components/InformationCards/SpellCard.vue";
 
 export default {
   setup() {
@@ -141,7 +141,7 @@ export default {
           await informationService.getApiInfo(category)
           informationService.setActiveCategory(category)
         }
-        catch(error) {
+        catch (error) {
           logger.log("[changeCategory]", error)
           Pop.error(error.message)
         }
