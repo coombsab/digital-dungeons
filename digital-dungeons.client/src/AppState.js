@@ -15,12 +15,10 @@ export const AppState = reactive({
   activeEncounter: {},
   /** @type {import('./models/Monster.js').Monster[]} */
   monsters: [],
-  /** @type {import('./models/Monster.js').Monster || null} */
-  // activeMonster: null,
   /** @type {import('./models/Spell.js').Spell} */
   spells: [],
+  
   /** @type {import('./models/Spell.js').Spell} */
-  // activeSpell: null,
   activeCategory: null,
 
 
