@@ -1,10 +1,6 @@
 <template>
   <div class="p-3">
-    <div
-      v-if="campaign"
-      class="h00 elevated rounded"
-      :style="{ backgroundImage: `url(${campaign.coverImg})` }"
-    >
+    <div v-if="campaign" class="h00 elevated rounded" :style="{ backgroundImage: `url(${campaign.coverImg})` }">
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
           <div class="col-7 bg-dark p-2 text-center">
@@ -13,20 +9,15 @@
             </div>
           </div>
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
-          <!-- <div class="col-3 bg-dark p-2">
+          <div class="col-3 bg-dark p-2">
             <div class="bg-secondary p-1">
-              {{campaign.}}
+              {{campaign.creator.name}}
             </div>
-          </div> -->
+          </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
-            <button
-              v-if="campaign.creatorId == account.id"
-              class="btn btn-danger"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#CreateEncounterModal"
-            >
+            <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
+              data-bs-target="#CreateEncounterModal">
               Create Encounter
             </button>
           </div>
@@ -52,27 +43,14 @@
           <div class="col-6">
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <h4
-                  class="border-bottom border-3 border-danger text-danger"
-                  v-if="completedEncounters.length > 0"
-                >
+                <h4 class="border-bottom border-3 border-danger text-danger" v-if="completedEncounters.length > 0">
                   Completed Encounters
                 </h4>
-                <EncounterCard
-                  v-for="e in completedEncounters"
-                  :encounter="e"
-                  :key="e?.id"
-                  :campaign="campaign"
-                />
+                <EncounterCard v-for="e in completedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
                 <h4 class="border-bottom border-3 border-danger text-danger">
                   Encounters
                 </h4>
-                <EncounterCard
-                  v-for="e in uncompletedEncounters"
-                  :encounter="e"
-                  :key="e?.id"
-                  :campaign="campaign"
-                />
+                <EncounterCard v-for="e in uncompletedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
               </div>
             </div>
           </div>
