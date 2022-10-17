@@ -19,6 +19,7 @@ export const AppState = reactive({
   activeMonster: null,
   /** @type {import('./models/Spell.js').Spell} */
   spells: [],
+  /** @type {import('./models/Spell.js').Spell} */
   activeSpell: null,
 
 

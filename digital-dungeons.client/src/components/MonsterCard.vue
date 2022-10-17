@@ -1,51 +1,52 @@
 <template>
   <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
-    data-bs-toggle="modal" data-bs-target="#monsterModal" @click="setActiveMonster()">
+    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
     <span>{{monster.name}}</span>
   </div>
 
-  <div class="modal fade" id="monsterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">{{activeMonster?.name}}</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{monster?.name}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" v-if="activeMonster">
+        <div class="modal-body" v-if="monster">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Hit Dice</h6>
-              <p>{{activeMonster.hit_dice}}</p>
+              <p>{{monster.hit_dice}}</p>
             </div>
             <div>
               <h6 class="statistics">Size</h6>
-              <p>{{activeMonster.size}}</p>
+              <p>{{monster.size}}</p>
             </div>
             <div>
               <h6 class="statistics">Alignment</h6>
-              <p>{{activeMonster.alignment}}</p>
+              <p>{{monster.alignment}}</p>
             </div>
             <div>
               <h6 class="statistics">Health</h6>
-              <p>{{activeMonster.hit_points}}</p>
+              <p>{{monster.hit_points}}</p>
             </div>
           </div>
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
-              <p>{{activeMonster.type}}</p>
+              <p>{{monster.type}}</p>
             </div>
             <div>
               <h6 class="statistics">Size</h6>
-              <p>{{activeMonster.size}}</p>
+              <p>{{monster.size}}</p>
             </div>
             <div>
               <h6 class="statistics">Alignment</h6>
-              <p>{{activeMonster.alignment}}</p>
+              <p>{{monster.alignment}}</p>
             </div>
             <div>
               <h6 class="statistics">Health</h6>
-              <p>{{activeMonster.hit_points}}</p>
+              <p>{{monster.hit_points}}</p>
             </div>
           </div>
         </div>
@@ -64,30 +65,21 @@
 
 
 <script>
+import { Monster } from '../models/Monster.js';
 import { computed } from '@vue/reactivity';
 import { AppState } from '../AppState';
-import { monstersService } from '../services/MonstersService';
+import { informationService } from '../services/InformationService';
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
 
 
 export default {
   props: {
-    monster: { type: Object, required: true }
+    monster: { type: Monster, required: true }
   },
   setup(props) {
     return {
-      activeMonster: computed(() => AppState.activeMonster),
 
-      setActiveMonster() {
-        try {
-          const monsterSlug = props.monster.slug
-          monstersService.setActiveMonster(monsterSlug)
-        } catch (error) {
-          Pop.error(error)
-          logger.log(error)
-        }
-      }
     };
   },
 };
