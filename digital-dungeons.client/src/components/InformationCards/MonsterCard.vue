@@ -65,12 +65,8 @@
 
 
 <script>
-import { Monster } from '../models/Monster.js';
-import { computed } from '@vue/reactivity';
-import { AppState } from '../AppState';
-import { informationService } from '../services/InformationService';
-import { logger } from '../utils/Logger';
-import Pop from '../utils/Pop';
+import { Monster } from '../../models/Monster.js';
+
 
 
 export default {
