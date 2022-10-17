@@ -1,47 +1,26 @@
 <template>
   <div class="encounter-card text-white my-2" v-if="encounter">
-    <div
-      class="card"
-      :style="{ backgroundImage: `url(${encounter?.coverImg})` }"
-    >
+    <div class="card" :style="{ backgroundImage: `url(${encounter?.coverImg})` }">
       <div class="glass rounded">
         <div class="card-header d-flex justify-content-between">
           <h5>{{ encounter?.name }}</h5>
           <div class="dropdown">
-            <button
-              class="btn back dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              v-if="account.id == campaign.creatorId"
-            ></button>
+            <button class="btn back dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+              v-if="account.id == campaign.creatorId"></button>
             <ul class="dropdown-menu">
               <li>
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  type="button"
-                  data-bs-toggle="modal"
-                  :data-bs-target="'#encounterModal' + encounter.id"
-                  @click.stop="populateForm(encounter.id)"
-                  >Edit Encounter</a
-                >
+                <a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
+                  :data-bs-target="'#encounterModal' + encounter.id" @click.stop="populateForm(encounter.id)">Edit
+                  Encounter</a>
               </li>
-              <li
-                class="dropdown-item"
-                @click.stop="removeEncounter(encounter.id)"
-              >
+              <li class="dropdown-item" @click.stop="removeEncounter(encounter.id)">
                 Delete Encounter
               </li>
             </ul>
           </div>
         </div>
-        <div
-          class="selectable"
-          type="button"
-          data-bs-toggle="modal"
-          :data-bs-target="'#encounterDetailsModal' + encounter.id"
-        >
+        <div class="selectable" type="button" data-bs-toggle="modal"
+          :data-bs-target="'#encounterDetailsModal' + encounter.id">
           <div class="card-body">
             <p>{{ encounter?.desc }}</p>
             <p>{{ encounter?.type }}</p>
@@ -106,6 +85,7 @@ export default {
   background-size: cover;
   background-position: center;
 }
+
 .back {
   background-color: rgba(240, 248, 255, 0);
 }
