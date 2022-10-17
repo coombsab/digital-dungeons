@@ -111,12 +111,6 @@ export default {
       campaign: computed(() => AppState.activeCampaign),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
-      completedEncounters: computed(() =>
-        AppStrate.encounters.filter((encounters) => encounters.isCompleted)
-      ),
-      uncompletedEncounters: computed(() =>
-        AppState.encounters.filter((encounters) => !encounters.isCompleted)
-      ),
     };
   },
   components: { CreateEncounterModal, EncounterCard },
