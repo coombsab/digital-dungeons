@@ -23,8 +23,6 @@ export const AppState = reactive({
   // activeSpell: null,
   activeCategory: null,
 
-
-
   nextPage: null,
   previousPage: null,
   count: null,
