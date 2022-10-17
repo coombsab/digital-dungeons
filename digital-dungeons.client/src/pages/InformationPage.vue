@@ -4,12 +4,14 @@
       <div class="row">
         <div class="col-6 p-3">
           <div class="text-center">
-            <button class="btn btn-success elevation-2">RULES</button>
+            <a href="https://www.dndbeyond.com/sources/basic-rules"><button
+                class="btn btn-success elevation-2">RULES</button></a>
           </div>
         </div>
         <div class="col-6 p-3">
           <div class="text-center">
-            <button class="btn btn-success elevation-2">GAME MECHANICS</button>
+            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/"><button
+                class="btn btn-success elevation-2">GAME MECHANICS</button></a>
           </div>
         </div>
       </div>
