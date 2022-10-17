@@ -5,11 +5,20 @@ import { logger } from "../utils/Logger"
 import { dndApi, openDndApi } from "./AxiosService"
 
 class MonstersService {
-  async getApiMonsters(pageUrl = "/monsters", params = "") {
-    const res = await openDndApi.get(pageUrl, params)
+  async getApiMonsters(pageUrl = "", term = "") {
+    let res
+    let params = ""
+    if (term !== "") {
+      params = { params: { search: term }}
+    }
+    console.log("params", params)
+    if (pageUrl === "") {
+      res = await openDndApi.get("/monsters/", params)
+    } else {
+      res = await openDndApi.get(pageUrl, params)
+    }
     logger.log(res.data)
     AppState.monsters = res.data.results.map(data => new Monster(data))
-    AppState.monsters = res.data.results
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
   }
@@ -26,20 +35,6 @@ class MonstersService {
     //AppState.activeMonster = new Monster(res.data)
     console.log(AppState.activeMonster)
   }
-
-  async searchMonster(term) {
-    const res = await openDndApi('/monsters/', {
-      params:
-      {
-        search: term
-      }
-    })
-    AppState.monsters = res.data.results.map(data => new Monster(data))
-  }
-
-
-
-
   async getApiMonsterByIndex(monsterIndex) {
 
   }
