@@ -11,7 +11,7 @@ export const dndApi = Axios.create({
 })
 
 export const openDndApi = Axios.create({
-  baseURL: "https://api-beta.open5e.com",
+  baseURL: "https://api-beta.open5e.com/",
   timeout: 4000
 })
 
