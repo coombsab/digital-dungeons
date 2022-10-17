@@ -16,13 +16,8 @@
           </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
-            <button
-              v-if="campaign.creatorId == account.id"
-              class="btn btn-danger"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#CreateEncounterModal"
-            >
+            <button v-if="campaign.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
+              data-bs-toggle="modal" data-bs-target="#CreateEncounterModal">
               Create Monster
             </button>
           </div>
@@ -95,6 +90,10 @@ export default {
   height: 96vh;
   background-size: cover;
   background-position: center;
+}
+
+.MonsterC:hover {
+  transform: scale(1.2);
 }
 
 .glass {

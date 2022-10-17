@@ -70,7 +70,8 @@
           </div>
           <div class="col-12">
             <div class="info-content px-3 scrollable">
-              <MonsterCard v-for="m of monsters" :monster="m" />
+              <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
+              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
             </div>
           </div>
         </div>
@@ -88,12 +89,13 @@ import { onMounted, ref } from "vue";
 import MonsterCard from "../components/MonsterCard.vue";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
-import { monstersService } from "../services/MonstersService";
+import { informationService } from "../services/InformationService";
+import SpellCard from "../components/SpellCard.vue";
 export default {
   setup() {
     async function getApiMonsters() {
       try {
-        await monstersService.getApiMonsters()
+        await informationService.getApiMonsters()
       }
       catch (error) {
         logger.log('[getApiMonsters]', error)
@@ -112,7 +114,7 @@ export default {
       previousPage: computed(() => AppState.previousPage),
       async handleSubmit() {
         try {
-          await monstersService.getApiMonsters("", { search: editable.value })
+          await informationService.getApiMonsters("", { search: editable.value })
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
@@ -122,7 +124,7 @@ export default {
 
       async changePage(pageUrl) {
         try {
-          await monstersService.getApiMonsters(pageUrl)
+          await informationService.getApiMonsters(pageUrl)
         } catch (error) {
           Pop.error(error, '[changingPage]')
         }
@@ -134,7 +136,7 @@ export default {
 
     };
   },
-  components: { MonsterCard }
+  components: { MonsterCard, SpellCard }
 };
 </script>
 
