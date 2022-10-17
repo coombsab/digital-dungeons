@@ -33,6 +33,13 @@ class CampaignsService {
     const res = await baseApi.delete(`api/campaigns/${campaignId}`);
     AppState.campaigns = AppState.campaigns.filter((c) => c.id != campaignId);
   }
+  async editCampaign(campaignData, id) {
+    const res = await baseApi.put(`api/campaigns/${id}`, campaignData);
+    console.log(campaignData);
+    const updatedCampaign = new Campaign(res.data);
+    const index = AppState.campaigns.findIndex((c) => c.id == id);
+    AppState.campaigns.splice(index, 1, updatedCampaign);
+  }
 }
 
 export const campaignsService = new CampaignsService();

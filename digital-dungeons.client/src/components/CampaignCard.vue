@@ -1,24 +1,56 @@
 <template>
+  <div
+    class="rounded-3 theme-card my-4 elevation-3"
+    :style="{ backgroundImage: `url(${campaign.coverImg})` }"
+  >
+    <div class="muted-layer rounded-3 text-end">
+      <div class="dropdown">
+        <button
+          class="btn back dropdown-toggle text-light px-2"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          v-if="account.id == campaign.creatorId"
+        >
+          Options
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              data-bs-toggle="modal"
+              :data-bs-target="'#campaignModalEdit' + campaign.id"
+              >Edit Campaign</a
+            >
+          </li>
+          <li class="dropdown-item" @click.stop="removeCampaign(campaign.id)">
+            Delete Campaign
+          </li>
+        </ul>
+      </div>
 
-  <div class="rounded-3 theme-card my-4 elevation-3" :style="{ backgroundImage: `url(${campaign.coverImg})` }">
-    <div class="muted-layer rounded-3 ">
-      <i v-if="account.id == campaign.creatorId"
-        class="mdi mdi-delete selectable rounded fs-6 delete-icon on-hover text-visible mt-4"
-        @click.stop="removeCampaign(campaign.id)"></i>
-      <i v-if="account.id == campaign.creatorId"
-        class="mdi mdi-cog selectable rounded fs-6 delete-icon on-hover text-visible"
-        @click.stop="editCampaign(campaign.id)"></i>
-      <router-link :to="{ name: 'CampaignDetails', params: { campaignId: campaign.id } }">
-        <div class="card-content d-flex flex-column flex-wrap justify-content-around text-center color-shift">
+      <router-link
+        :to="{ name: 'CampaignDetails', params: { campaignId: campaign.id } }"
+      >
+        <div
+          class="card-content d-flex flex-column flex-wrap justify-content-around text-center color-shift"
+        >
           <span class="pb-5 fs-4 text-visible">{{ campaign.name }}</span>
-          <span class="flex-grow-1 mt-5 desc fs-6" :class="campaign.desc.length > 120 ? 'text-truncate' : ''">{{
-          campaign.desc }}</span>
-          <span class="" v-if="campaign.desc.length > 120"><em>Truncated desc as it was too long (> 120
-              chars)</em></span>
+          <span
+            class="flex-grow-1 mt-5 desc fs-6"
+            :class="campaign.desc.length > 120 ? 'text-truncate' : ''"
+            >{{ campaign.desc }}</span
+          >
+          <span class="" v-if="campaign.desc.length > 120"
+            ><em>Truncated desc as it was too long (> 120 chars)</em></span
+          >
         </div>
       </router-link>
     </div>
   </div>
+
+  <EditCampaignDetailsModal :campaign="campaign" />
 </template>
 
 <script>
@@ -95,18 +127,17 @@ export default {
 
 .desc {
   max-width: 100%;
-
 }
 
 .color-shift {
   color: rgba(96, 190, 234, 0.505);
   text-shadow: none;
-
 }
 
 .color-shift:hover {
   color: rgb(96, 190, 234);
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(189, 234, 30, 0.678);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
+    0px 0px 5px rgba(189, 234, 30, 0.678);
 }
 
 .theme-card:hover {
