@@ -11,13 +11,13 @@ class MonstersService {
     if (term !== "") {
       params = { params: { search: term }}
     }
-    console.log("params", params)
+    // console.log("params", params)
     if (pageUrl === "") {
       res = await openDndApi.get("/monsters/", params)
     } else {
       res = await openDndApi.get(pageUrl, params)
     }
-    logger.log(res.data)
+    // logger.log(res.data)
     AppState.monsters = res.data.results.map(data => new Monster(data))
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
@@ -33,7 +33,7 @@ class MonstersService {
     // })
     AppState.activeMonster = AppState.monsters.find(m => m.slug == monsterSlug)
     //AppState.activeMonster = new Monster(res.data)
-    console.log(AppState.activeMonster)
+    // console.log(AppState.activeMonster)
   }
   async getApiMonsterByIndex(monsterIndex) {
 
