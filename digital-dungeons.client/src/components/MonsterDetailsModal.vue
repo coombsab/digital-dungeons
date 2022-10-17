@@ -3,7 +3,7 @@
     class="monster-card p-3 rounded elevation-2 text-light selectable"
     title="See Monster Details"
     data-bs-toggle="modal"
-    :data-bs-target="'#monsterModal' + monster.slug"
+    :data-bs-target="'#monsterDetailModal' + monster.slug"
     @click=""
   >
     <span>{{ monster.name }}</span>
@@ -11,15 +11,15 @@
 
   <div
     class="modal fade"
-    :id="'monsterModal' + monster.slug"
+    :id="'monsterDetailModal' + monster.slug"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="monsterDetailModal"
     aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <h1 class="modal-title fs-5" id="monsterDetailModal">
             {{ monster?.name }}
           </h1>
           <button
@@ -78,6 +78,9 @@
           >
             Close
           </button>
+          <button class="btn btn-dark" @click.stop="addMonster()">
+            Add Monster
+          </button>
         </div>
       </div>
     </div>
@@ -91,13 +94,23 @@ import { AppState } from "../AppState";
 import { informationService } from "../services/InformationService";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { monstersService } from "../services/MonstersService.js";
 
 export default {
   props: {
     monster: { type: Monster, required: true },
   },
   setup(props) {
-    return {};
+    return {
+      async addMonster() {
+        try {
+          let monster = AppState.activeMonster;
+          await monstersService.addMonsterToEncounter(monster);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+    };
   },
 };
 </script>
