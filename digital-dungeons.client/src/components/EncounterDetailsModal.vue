@@ -12,7 +12,7 @@
           <h5 class="modal-title" id="encounterModalLabel">
             {{ encounter.name }}
           </h5>
-          <button class="btn btn-light-outline">
+          <button class="btn">
             <router-link
               :to="{
                 name: 'EncounterDetails',
@@ -65,7 +65,6 @@ import { Encounter } from "../models/Encounter.js";
 export default {
   props: {
     encounter: { type: Encounter, required: true },
-    campaign: { type: Campaign, required: true },
   },
   setup() {
     return {};
