@@ -80,7 +80,7 @@ export default {
       previousPage: computed(() => AppState.previousPage),
       async handleSubmit() {
         try {
-          await monstersService.getApiMonsters("", editable.value)
+          await monstersService.getApiMonsters("", { search: editable.value })
         }
         catch (error) {
           logger.log('[handleSubmit]', error)

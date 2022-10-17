@@ -5,11 +5,11 @@ import { logger } from "../utils/Logger"
 import { dndApi, openDndApi } from "./AxiosService"
 
 class MonstersService {
-  async getApiMonsters(pageUrl = "", term = "") {
+  async getApiMonsters(pageUrl = "", terms = "") {
     let res
     let params = ""
-    if (term !== "") {
-      params = { params: { search: term }}
+    if (terms !== "") {
+      params = { params: terms}
     }
     // console.log("params", params)
     if (pageUrl === "") {
