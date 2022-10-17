@@ -5,7 +5,7 @@
         <section class="row justify-content-between">
           <div class="col-7 bg-dark p-2 text-center">
             <div class="bg-secondary text-white">
-              <h2>{{ campaign.name }}</h2>
+              <h2 class="morphfont">{{ campaign.name }}</h2>
             </div>
           </div>
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
@@ -116,6 +116,11 @@ export default {
   height: 96vh;
   background-size: cover;
   background-position: center;
+}
+
+.morphfont {
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
 }
 
 .glass {
