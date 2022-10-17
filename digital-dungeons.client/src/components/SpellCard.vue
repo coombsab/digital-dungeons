@@ -73,7 +73,7 @@ import Pop from '../utils/Pop';
 
 export default {
   props: {
-    monster: { type: Object, required: true }
+    spell: { type: Object, required: true }
   },
   setup(props) {
     return {

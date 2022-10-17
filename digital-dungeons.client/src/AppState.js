@@ -15,8 +15,16 @@ export const AppState = reactive({
   activeEncounter: {},
   /** @type {import('./models/Monster.js').Monster[]} */
   monsters: [],
-  nextPage: null,
-  previousPage: null,
   /** @type {import('./models/Monster.js').Monster || null} */
   activeMonster: null,
+  /** @type {import('./models/Spell.js').Spell} */
+  spells: [],
+  activeSpell: null,
+
+
+
+
+  nextPage: null,
+  previousPage: null,
+  count: null,
 });
