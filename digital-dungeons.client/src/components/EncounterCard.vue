@@ -45,8 +45,8 @@
           <div class="card-body">
             <!-- <p>{{ encounter?.desc }}</p>
             <p>{{ encounter?.type }}</p> -->
-            <div></div>
           </div>
+          <div class="card-footer"></div>
         </div>
       </div>
     </div>
