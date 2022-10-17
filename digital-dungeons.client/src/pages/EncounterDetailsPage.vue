@@ -1,33 +1,33 @@
 <template>
   <div class="p-3">
-    <div v-if="campaign" class="h00 elevated rounded">
+    <div v-if="activeEncounter" class="h00 elevated rounded">
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
           <div class="col-7 bg-dark p-2 text-center">
             <div class="bg-secondary text-white">
-              <h2>{{ encounter.name }}</h2>
+              <h2>{{ activeEncounter?.name }}</h2>
             </div>
           </div>
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
           <div class="col-3 bg-dark p-2">
             <div class="bg-secondary p-1">
-              {{ campaign.creator.name }}
+              {{ activeEncounter.creator?.name }}
             </div>
           </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
-            <button v-if="campaign.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
-              data-bs-toggle="modal" data-bs-target="#CreateEncounterModal">
+            <button class="btn btn-danger MonsterC" type="button" data-bs-toggle="modal"
+              data-bs-target="#CreateEncounterModal">
               Create Monster
             </button>
           </div>
         </section>
         <section class="row">
           <div class="col-6">
-            <img :src="activeEncounter.coverImg" alt="" class="img-fluid" />
+            <img :src="activeEncounter?.coverImg" alt="" class="img-fluid" />
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <p>{{ activeEncounter.desc }}</p>
+                <p>{{ activeEncounter?.desc }}</p>
               </div>
             </div>
           </div>
@@ -76,10 +76,11 @@ export default {
       // getMonstersByEncounterId();
     });
     return {
-      campaign: computed(() => AppState.activeCampaign),
+      campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
-      activeEncounter: computed(() => AppState.activeEncounter)
+      activeEncounter: computed(() => AppState.activeEncounter),
+      activeCampaign: computed(() => AppState.activeCampaign)
     };
   },
   components: { CreateEncounterModal, EncounterCard },

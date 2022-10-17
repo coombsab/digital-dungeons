@@ -40,7 +40,7 @@ class EncountersService {
     AppState.activeEncounter = new Encounter(res.data);
     console.log(res.data);
     console.log("Getting Encounters Round 2");
-    console.log(AppState.encounters);
+    console.log(AppState.activeEncounter);
   }
 }
 
