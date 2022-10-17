@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div v-if="campaign" class="h00 elevated rounded" :style="{ backgroundImage: `url(${campaign.coverImg})` }">
+    <div v-if="campaign" class="h00 elevated rounded">
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
           <div class="col-7 bg-dark p-2 text-center">
