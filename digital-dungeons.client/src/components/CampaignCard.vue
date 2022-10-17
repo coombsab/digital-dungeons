@@ -3,7 +3,7 @@
   <div class="rounded-3 theme-card my-4 elevation-3" :style="{ backgroundImage: `url(${campaign.coverImg})` }">
     <div class="muted-layer rounded-3 ">
       <i v-if="account.id == campaign.creatorId"
-        class="mdi mdi-delete selectable rounded fs-6 delete-icon on-hover text-visible"
+        class="mdi mdi-delete selectable rounded fs-6 delete-icon on-hover text-visible mt-4"
         @click.stop="removeCampaign(campaign.id)"></i>
       <i v-if="account.id == campaign.creatorId"
         class="mdi mdi-cog selectable rounded fs-6 delete-icon on-hover text-visible"
