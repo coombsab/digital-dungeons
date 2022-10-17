@@ -15,8 +15,20 @@ export const AppState = reactive({
   activeEncounter: {},
   /** @type {import('./models/Monster.js').Monster[]} */
   monsters: [],
-  /** @type {import('./models/Spell.js').Spell} */
+  /** @type {import('./models/Monster.js').Monster} */
+  activeMonster: null,
+  /** @type {import('./models/Spell.js').Spell[]} */
   spells: [],
+  /** @type {import('./models/Race.js').Race[]} */
+  races: [],
+  /** @type {import('./models/DndClass.js').DndClass[]} */
+  classes: [],
+  /** @type {import('./models/MagicItem.js').MagicItem[]} */
+  magicitems: [],
+  /** @type {import('./models/Weapon.js').Weapon[]} */
+  weapons: [],
+  /** @type {import('./models/Armor.js').Armor[]} */
+  armor: [],
   
   /** @type {import('./models/Spell.js').Spell} */
   activeCategory: null,
