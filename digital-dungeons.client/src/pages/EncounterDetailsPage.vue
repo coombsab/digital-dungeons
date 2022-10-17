@@ -8,12 +8,12 @@
               <h2>{{ activeEncounter?.name }}</h2>
             </div>
           </div>
-          <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
+          <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
           <div class="col-3 bg-dark p-2">
             <div class="bg-secondary p-1">
-              {{ activeEncounter.creator?.name }}
+              {{ activeEncounter }}
             </div>
-          </div>
+          </div> -->
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
             <button v-if="activeEncounter.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
