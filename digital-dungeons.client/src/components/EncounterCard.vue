@@ -1,45 +1,21 @@
 <template>
   <div class="encounter-card text-white my-2" v-if="encounter">
-    <div
-      class="selectable"
-      type="button"
-      data-bs-toggle="modal"
-      :data-bs-target="'#encounterDetailsModal' + encounter.id"
-    >
-      <div
-        class="card border border-light"
-        :style="{ backgroundImage: `url(${encounter?.coverImg})` }"
-      >
+    <div class="dropdown options">
+      <button class="btn back dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false" v-if="account.id == campaign.creatorId"></button>
+      <ul class="dropdown-menu">
+        <li class="dropdown-item">
+          <button class="btn" data-bs-toggle="modal" :data-bs-target="'#encounterModal' + encounter.id">Edit Encounter</button>
+        </li>
+        <li class="dropdown-item">
+          <button class="btn" @click.stop="removeEncounter(encounter.id)">Delete Encounter</button>
+        </li>
+      </ul>
+    </div>
+    <div class="selectable" type="button" data-bs-toggle="modal" :data-bs-target="'#encounterDetailsModal' + encounter.id">
+      <div class="card border border-light" :style="{ backgroundImage: `url(${encounter?.coverImg})` }">
         <div class="glass rounded">
           <div class="card-header d-flex justify-content-between">
             <h5>{{ encounter?.name }}</h5>
-            <div class="dropdown">
-              <button
-                class="btn back dropdown-toggle text-light"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                v-if="account.id == campaign.creatorId"
-              ></button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    type="button"
-                    data-bs-toggle="modal"
-                    :data-bs-target="'#encounterModal' + encounter.id"
-                    >Edit Encounter</a
-                  >
-                </li>
-                <li
-                  class="dropdown-item"
-                  @click.stop="removeEncounter(encounter.id)"
-                >
-                  Delete Encounter
-                </li>
-              </ul>
-            </div>
           </div>
 
           <div class="card-body">
@@ -50,7 +26,6 @@
         </div>
       </div>
     </div>
-    <!-- </div> -->
   </div>
 
   <EditEncounterDetailsModal :encounter="encounter" />
@@ -92,6 +67,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.encounter-card {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  z-index: 1;
+}
 .glass {
   background-color: rgba(85, 3, 3, 0.739);
 }

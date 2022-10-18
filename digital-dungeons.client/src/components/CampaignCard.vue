@@ -7,8 +7,8 @@
           <li class="dropdown-item">
             <button class="btn" data-bs-toggle="modal" :data-bs-target="'#campaignModalEdit' + campaign.id">Edit Campaign</button>
           </li>
-          <li class="dropdown-item" @click.stop="removeCampaign(campaign.id)">
-            <button class="btn">Delete Campaign</button>
+          <li class="dropdown-item">
+            <button class="btn" @click.stop="removeCampaign(campaign.id)">Delete Campaign</button>
           </li>
         </ul>
       </div>
