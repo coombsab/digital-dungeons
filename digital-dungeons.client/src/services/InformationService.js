@@ -1,6 +1,5 @@
 import { AppState } from "../AppState"
 import { Monster } from "../models/Monster"
-
 import { openDndApi } from "./AxiosService"
 
 class InformationService {
@@ -10,13 +9,9 @@ class InformationService {
     if (terms !== "") {
       params = { params: terms }
     }
-    // if (pageUrl === "") {
-    // } else {
-    //   res = await openDndApi.get(pageUrl, params)
-    // }
 
     res = await openDndApi.get(pageUrl, params)
-    
+
     AppState.monsters = res.data.results.map(data => new Monster(data))
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous

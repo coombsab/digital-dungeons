@@ -13,47 +13,17 @@
                 class="btn btn-success elevation-2 m-2">GAME
                 MECHANICS</button></a>
           </div>
-          <div class="dropdown">
-            <button class="btn back dropdown-toggle text-light m-2" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">{{category ? category.toUpperCase() : 'Select Category'}}</button>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item" @click="changeCategory('monsters')">
-                Monsters
-              </li>
-              <li class="dropdown-item" @click="changeCategory('spells')">
-                Spells
-              </li>
-              <li class="dropdown-item" @click="changeCategory('races')">
-                Races
-              </li>
-              <li class="dropdown-item" @click="changeCategory('classes')">
-                Classes
-              </li>
-              <li class="dropdown-item" @click="changeCategory('magicitems')">
-                Magic Items
-              </li>
-              <li class="dropdown-item" @click="changeCategory('weapons')">
-                Weapons
-              </li>
-              <li class="dropdown-item" @click="changeCategory('armor')">
-                Armor
-              </li>
-              <!-- TODO add these searches -->
-              <!-- <li class="dropdown-item" @click="changeCategory('')">
-                Campaigns
-              </li>
-              <li class="dropdown-item" @click="changeCategory('')">
-                Encounters
-              </li> -->
-            </ul>
-          </div>
+          <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
           <!-- NOTE Search Functionality -->
           <SearchPagination />
           <div class="col-12">
+            <div v-if="!category" class="scrollable fs-1 text-visible text-center pt-5">
+              Please select a category
+            </div>
             <!-- NOTE Info Cards -->
-            <div class="info-content px-3 scrollable">
+            <div v-else class="info-content px-3 scrollable">
               <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
               <SpellCard v-for="s in spells" :spell="s" />
             </div>
@@ -74,6 +44,7 @@ import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
 import SpellCard from "../components/InformationCards/SpellCard.vue";
 import SearchPagination from "../components/SearchPagination.vue";
+import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
 
 export default {
   setup() {
@@ -88,28 +59,18 @@ export default {
       }
     }
 
-    onMounted(() => {
-      getApiMonsters()
-    })
+    // onMounted(() => {
+    //   getApiMonsters()
+    // })
     const editable = ref("")
     return {
       editable,
       monsters: computed(() => AppState.monsters),
       category: computed(() => AppState.activeCategory),
-      async changeCategory(category) {
-        try {
-          await informationService.getApiInfo(category)
-          informationService.setActiveCategory(category)
-        }
-        catch (error) {
-          logger.log("[changeCategory]", error)
-          Pop.error(error.message)
-        }
-      }
 
     };
   },
-  components: { MonsterCard, SpellCard, SearchPagination }
+  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown }
 };
 </script>
 
