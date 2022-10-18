@@ -95,7 +95,6 @@
 
 <script>
 import { onMounted, ref, watchEffect } from "vue";
-import { AppState } from "../AppState.js";
 import { encountersService } from "../services/EncountersService.js";
 import Pop from "../utils/Pop.js";
 
