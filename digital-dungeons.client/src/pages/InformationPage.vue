@@ -2,6 +2,7 @@
   <div class="information-page">
     <div class="container-fluid">
       <div class="row">
+        <!-- NOTE Buttons -->
         <div class="col-4 text-center pt-5">
           <div class="text-center">
             <a href="https://www.dndbeyond.com/sources/basic-rules"><button
@@ -47,29 +48,11 @@
             </ul>
           </div>
         </div>
-
         <div class="col-8 bg-transparent">
-          <div class="h-30">
-            <div class="d-flex p-2">
-              <form class="w-100" @submit.prevent="handleSubmit()">
-                <div class="input-group">
-                  <div class="form-floating input-width">
-                    <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
-                    <label for="floatingSearch">Search</label>
-                  </div>
-                  <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
-                </div>
-              </form>
-            </div>
-            <!-- NOTE Buttons -->
-            <div class="d-flex justify-content-between">
-              <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
-                :class="{'disabled' : !previousPage}">Previous</button>
-              <button @click="changePage(nextPage)" :disabled="!nextPage"
-                :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
-            </div>
-          </div>
+          <!-- NOTE Search Functionality -->
+          <SearchPagination />
           <div class="col-12">
+            <!-- NOTE Info Cards -->
             <div class="info-content px-3 scrollable">
               <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
               <SpellCard v-for="s in spells" :spell="s" />
@@ -79,8 +62,6 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
@@ -92,6 +73,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { informationService } from "../services/InformationService";
 import SpellCard from "../components/InformationCards/SpellCard.vue";
+import SearchPagination from "../components/SearchPagination.vue";
 
 export default {
   setup() {
@@ -113,29 +95,7 @@ export default {
     return {
       editable,
       monsters: computed(() => AppState.monsters),
-      nextPage: computed(() => AppState.nextPage),
-      previousPage: computed(() => AppState.previousPage),
       category: computed(() => AppState.activeCategory),
-      async handleSubmit() {
-        try {
-          // STUB change to active category
-          await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
-          editable.value = ""
-        }
-        catch (error) {
-          logger.log('[handleSubmit]', error)
-          Pop.error(error.message)
-        }
-      },
-
-      async changePage(pageUrl) {
-        try {
-          await informationService.getApiInfo(pageUrl)
-        } catch (error) {
-          Pop.error(error, '[changingPage]')
-        }
-      },
-
       async changeCategory(category) {
         try {
           await informationService.getApiInfo(category)
@@ -149,7 +109,7 @@ export default {
 
     };
   },
-  components: { MonsterCard, SpellCard }
+  components: { MonsterCard, SpellCard, SearchPagination }
 };
 </script>
 
@@ -159,8 +119,6 @@ export default {
 }
 
 button {
-
-
   padding-left: 2rem;
   padding-right: 2rem;
   border-radius: 2rem;
@@ -174,13 +132,5 @@ button {
 .scrollable {
   overflow-y: auto;
   height: 85vh;
-}
-
-.h-30 {
-  height: 15vh;
-}
-
-.input-width {
-  width: 70%;
 }
 </style>
