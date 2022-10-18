@@ -21,7 +21,6 @@ export const MonsterSchema = new Schema(
     constitution: { type: Number },
     charisma: { type: Number },
 
-
     //EDITABLE FIELDS
     hit_points: { type: Number, required: true },
     nickName: { type: String, maxlength: 50, minlength: 1 },
@@ -29,6 +28,7 @@ export const MonsterSchema = new Schema(
     image: { type: String },
     icon: { type: String },
     initiative: { type: Number, min: 1 },
+    quantity: { type: Number, min: 1, max: 1000000 },
   },
   SCHEMA_OPTIONS
 );

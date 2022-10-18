@@ -15,7 +15,7 @@
     >
       <div class="muted-layer">
         <span>{{ monster.name }}</span>
-        <span>{{ monster.}}</span>
+        <span> x {{ monster.quantity }}</span>
       </div>
     </div>
   </div>
@@ -121,21 +121,15 @@
         <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent">
+        <div class="modal-footer bg-transparent d-flex justify-content-between">
           <button
+            v-if="account.id == encounter.creatorId"
             type="button"
             class="btn-visible text-visible"
             data-bs-dismiss="modal"
             @click.stop="removeMonster(monster.id)"
           >
             Remove Monster
-          </button>
-          <button
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-          >
-            Close
           </button>
         </div>
       </div>
@@ -144,6 +138,8 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
 import { Monster } from "../models/Monster.js";
 import { monstersService } from "../services/MonstersService.js";
 import Pop from "../utils/Pop.js";
@@ -154,6 +150,8 @@ export default {
   },
   setup(props) {
     return {
+      account: computed(() => AppState.account),
+      encounter: computed(() => AppState.activeEncounter),
       async removeMonster(id) {
         try {
           const yes = await Pop.confirm(
