@@ -24,8 +24,9 @@
             </div>
             <!-- NOTE Info Cards -->
             <div v-else class="info-content px-3 scrollable d-flex flex-wrap gap-4">
-              <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
-              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
+              <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
+              <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
+              <!-- TODO More Cards -->
             </div>
           </div>
         </div>
@@ -37,35 +38,20 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
-import { onMounted, ref } from "vue";
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
-import { logger } from "../utils/Logger";
-import Pop from "../utils/Pop";
-import { informationService } from "../services/InformationService";
 import SpellCard from "../components/InformationCards/SpellCard.vue";
 import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
+import { ref } from "vue";
 
 export default {
   setup() {
-    async function getApiMonsters() {
-      try {
-        await informationService.getApiInfo("monsters")
-        informationService.setActiveCategory("monsters")
-      }
-      catch (error) {
-        logger.log('[getApiInfo]', error)
-        Pop.error(error.message)
-      }
-    }
-
-    // onMounted(() => {
-    //   getApiMonsters()
-    // })
     const editable = ref("")
     return {
       editable,
       monsters: computed(() => AppState.monsters),
+      spells: computed(() => AppState.spells),
+      // TODO More Computeds
       category: computed(() => AppState.activeCategory),
 
     };

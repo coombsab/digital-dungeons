@@ -1,8 +1,9 @@
-export class Spell {setactive
+export class Spell {
+  setactive
   constructor(data) {
     this.slug = data.slug
     this.name = data.name
-    this.desc = dadta.desc
+    this.desc = data.desc
     this.higher_level = data.higher_level
     this.page = data.page
     this.range = data.range

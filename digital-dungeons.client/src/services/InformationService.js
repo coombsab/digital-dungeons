@@ -1,5 +1,10 @@
 import { AppState } from "../AppState"
+import { DndClass } from "../models/DndClass.js"
+import { MagicItem } from "../models/MagicItem.js"
 import { Monster } from "../models/Monster"
+import { Race } from "../models/Race.js"
+import { Spell } from "../models/Spell.js"
+import { Weapon } from "../models/Weapon.js"
 import { openDndApi } from "./AxiosService"
 
 class InformationService {
@@ -12,17 +17,45 @@ class InformationService {
 
     res = await openDndApi.get(pageUrl, params)
 
-    AppState.monsters = res.data.results.map(data => new Monster(data))
+    // AppState.monsters = res.data.results.map(data => new Monster(data))
+    switch (AppState.activeCategory) {
+      case "monsters":
+        AppState.monsters = res.data.results.map(data => new Monster(data))
+        break;
+      case "spells":
+        console.log("our category is", AppState.activeCategory);
+
+        AppState.spells = res.data.results.map(data => new Spell(data))
+        break;
+      case "races":
+        AppState.races = res.data.results.map(data => new Race(data))
+        break;
+      case "classes":
+        AppState.classes = res.data.results.map(data => new DndClass(data))
+        break;
+      case "magicitems":
+        AppState.magicitems = res.data.results.map(data => new MagicItem(data))
+        break;
+      case "weapons":
+        AppState.weapons = res.data.results.map(data => new Weapon(data))
+        break;
+      case "armor":
+        AppState.armor = res.data.results
+        break;
+      default:
+        break;
+    }
+
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
-    this.setTypeIcon()
+    this.setDefaultImgByType()
   }
 
   setActiveCategory(category) {
     AppState.activeCategory = category
   }
 
-  setTypeIcon() {
+  setDefaultImgByType() {
     AppState.monsters.forEach(monster => {
       if (monster.type.toUpperCase().includes("HUMANOID")) {
         monster.image = "https://i.pinimg.com/474x/d6/f6/37/d6f6372a18fec2c0e6c0b81aa74de8cf--golden-ratio-drawings-of.jpg"
@@ -66,9 +99,11 @@ class InformationService {
       if (monster.type.toUpperCase().includes("ABERRATION")) {
         monster.image = "https://i.pinimg.com/736x/34/81/24/34812441c327b55bc398188d37ef5517.jpg"
       }
-    
+
     })
   }
+
+
 }
 
 export const informationService = new InformationService()
