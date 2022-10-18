@@ -1,4 +1,5 @@
 <template>
+  <!-- NOTE DISPLAY CARD -->
   <div class="monster-card text-center text-visible selectable elevation-2" title="See Monster Details"
     data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click=""
     :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
@@ -7,10 +8,12 @@
     </div>
   </div>
 
+  <!-- NOTE MODAL -->
   <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+      <div class="modal-content text-visible bg-warning"
+        :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">

@@ -41,6 +41,7 @@
 
 
 <script>
+import { AppState } from '../../AppState.js'
 import { informationService } from '../../services/InformationService.js'
 import Pop from '../../utils/Pop.js'
 
@@ -52,10 +53,11 @@ export default {
     return {
       async changeCategory(category) {
         try {
-          await informationService.getApiInfo(category)
           informationService.setActiveCategory(category)
+          await informationService.getApiInfo(category)
         }
         catch (error) {
+          AppState.activeCategory = null
           Pop.error(error.message, "[changeCategory]")
         }
       }
