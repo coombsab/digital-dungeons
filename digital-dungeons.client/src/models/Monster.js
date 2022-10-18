@@ -18,7 +18,7 @@ export class Monster {
     this.name = data.name
     this.slug = data.slug
     this.type = data.type
-    this.subtype = data.subtype
+    this.subtype = data.subtype || 'N/A'
     this.alignment = data.alignment
     this.hit_points = data.hit_points
     this.hit_dice = data.hit_dice

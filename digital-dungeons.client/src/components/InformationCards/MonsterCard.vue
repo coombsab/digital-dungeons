@@ -13,41 +13,76 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" v-if="monster">
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Hit Dice</h6>
-              <p>{{monster.hit_dice}}</p>
+          <div class="modal-body" v-if="monster">
+
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Type</h6>
+                <p>{{ monster.type}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Subtype</h6>
+                <p>{{ monster.subtype }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Health</h6>
+                <p>{{ monster.hit_points }}</p>
+              </div>
             </div>
-            <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{monster.size}}</p>
+
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Hit Dice</h6>
+                <p>{{ monster.hit_dice }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Languages</h6>
+                <p>{{ monster.languages }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Challenge Rating</h6>
+                <p>{{ monster.challenge_rating }}</p>
+              </div>
             </div>
-            <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{monster.alignment}}</p>
+
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Strength</h6>
+                <p>{{ monster.strength }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Intelligence</h6>
+                <p>{{ monster.intelligence }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Wisdom</h6>
+                <p>{{ monster.wisdom }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Dexterity</h6>
+                <p>{{ monster.dexterity }}</p>
+              </div>
             </div>
-            <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{monster.hit_points}}</p>
+
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Charisma</h6>
+                <p>{{ monster.charisma }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Constitution</h6>
+                <p>{{ monster.constitution }}</p>
+              </div>
             </div>
-          </div>
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Type</h6>
-              <p>{{monster.type}}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{monster.size}}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{monster.alignment}}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{monster.hit_points}}</p>
-            </div>
+
           </div>
         </div>
         <div class="modal-body" v-else>
