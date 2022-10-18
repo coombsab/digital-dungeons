@@ -38,5 +38,6 @@ export class Monster {
     this.encounterId = data.encounterId;
     this.initiative = data.initiative;
     this.creatorId = data.creatorId;
+    this.quantity = data.quantity;
   }
 }

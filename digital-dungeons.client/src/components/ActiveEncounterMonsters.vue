@@ -15,7 +15,7 @@
     >
       <div class="muted-layer">
         <span>{{ monster.name }}</span>
-        <span>{{ monster.}}</span>
+        <span> x {{ monster.quantity }}</span>
       </div>
     </div>
   </div>
@@ -121,7 +121,7 @@
         <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent">
+        <div class="modal-footer bg-transparent d-flex justify-content-between">
           <button
             type="button"
             class="btn-visible text-visible"
