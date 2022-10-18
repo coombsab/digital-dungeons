@@ -16,6 +16,7 @@ export class Monster {
 
   constructor(data) {
     this.name = data.name
+    this.desc = data.desc
     this.slug = data.slug
     this.type = data.type
     this.subtype = data.subtype || 'N/A'
@@ -36,7 +37,6 @@ export class Monster {
     this.nickName = data.nickName
     this.image = data.image
     this.encounterId = data.encounterId
-    this.initiative = data.initiative
     this.creatorId = data.creatorId
   }
 }

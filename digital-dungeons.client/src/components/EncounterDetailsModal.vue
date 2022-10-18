@@ -1,5 +1,6 @@
 <template>
-  <div :id="'encounterDetailsModal' + encounter.id" class="encounterDetailsModal rounded-bottom" :style="{ backgroundImage: `url(${encounter.coverImg})`}" >
+  <div :id="'encounterDetailsModal' + encounter.id" class="encounterDetailsModal rounded-bottom"
+    :style="{ backgroundImage: `url(${encounter.coverImg})`}">
     <router-link :to="{ name: 'EncounterDetails', params: { encounterId: encounter.id }, }" class="details-link">
       <i class="mdi mdi-arrow-right-bold-outline text-visible" title="Go To Encounter Details Page"> Details</i>
     </router-link>
@@ -25,35 +26,35 @@ export default {
         let modal = document.getElementById('encounterDetailsModal' + props.encounter.id)
         modal.style.display = "none"
       }
+
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  .details-link {
-    position: absolute;
-    right: 2%;
-    top: 2%;
-    z-index: 1;
-  }
+.details-link {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  z-index: 1;
+}
 
-  .encounterDetailsModal{
-    display: none;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    height: 32rem;
-  }
+.encounterDetailsModal {
+  display: none;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  height: 32rem;
+}
 
-  .custom-modal-content {
-    height: 100%;
-    width: 100%;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
+.custom-modal-content {
+  height: 100%;
+  width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 </style>

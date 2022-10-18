@@ -10,6 +10,16 @@ export const MonsterSchema = new Schema(
     type: { type: String, required: true },
     size: { type: String, required: true },
     alignment: { type: String },
+    subtype: { type: String },
+    hit_dice: { type: String },
+    languages: { type: String },
+    strength: { type: Number },
+    intelligence: { type: Number },
+    challenge_rating: { type: Number },
+    wisdom: { type: Number },
+    dexterity: { type: Number },
+    constitution: { type: Number },
+
 
     //EDITABLE FIELDS
     hit_points: { type: Number, required: true },
