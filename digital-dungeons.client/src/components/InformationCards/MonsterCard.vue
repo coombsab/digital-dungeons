@@ -139,7 +139,7 @@ export default {
 }
 
 .bg-transparent:hover {
-  background-color: rgba(10, 10, 10, 0.442) !important;
+  background-color: rgba(10, 10, 10, 0.303) !important;
 }
 
 .bg-transparent-modal {
