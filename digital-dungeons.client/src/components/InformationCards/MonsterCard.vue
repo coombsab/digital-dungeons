@@ -1,13 +1,20 @@
 <template>
-  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
+  <!-- <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
     data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
     <span>{{monster.name}}</span>
+  </div> -->
+
+  <div class="monster-card text-center text-visible selectable" title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+    <div class="muted-layer">
+      <span>{{monster.name}}</span>
+    </div>
   </div>
 
   <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content text-visible"  :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+        <div class="bg-transparent">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">{{monster?.name}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -91,6 +98,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -117,22 +125,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .monster-card {
+//   background-color: green;
+//   height: fit-content;
+//   margin-bottom: 1.5rem;
+//   margin-top: .5rem;
+// }
+
+// p {
+//   margin: 0;
+// }
+
 .monster-card {
-  background-color: green;
-  height: fit-content;
-  margin-bottom: 1.5rem;
-  margin-top: .5rem;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
 }
 
-p {
-  margin: 0;
+.modal-content {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 0.639);
+}
+
+.muted-layer {
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.639);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 0.5rem;
 }
 
 .statistics {
   border-bottom: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 </style>
