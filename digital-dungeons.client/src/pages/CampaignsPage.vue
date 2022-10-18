@@ -2,19 +2,12 @@
   <section class="campaigns-wrapper">
     <div class="campaigns-page text-visible py-4">
       <!-- ADD CAMPAIGN BUTTON -->
-      <button
-        class="btn text-visible create-button elevation-2"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#campaignModal"
-      >
+      <button class="btn text-visible create-button elevation-2" type="button" data-bs-toggle="modal"
+        data-bs-target="#campaignModal">
         Create Campaign
       </button>
       <!-- MY CAMPAIGNS -->
-      <div
-        class="border-bottom border-3 border-color my-3 mb-4 ps-2"
-        v-if="userCampaigns.length > 0"
-      >
+      <div class="border-bottom border-3 border-color my-3 mb-4 ps-2" v-if="userCampaigns.length > 0">
         <h3>My Campaigns</h3>
       </div>
       <div class="d-flex flex-wrap justify-content-around">
@@ -29,60 +22,29 @@
       </div>
     </div>
     <!-- MODAL close this if its driving you crazy -->
-    <div
-      class="modal fade"
-      id="campaignModal"
-      tabindex="-1"
-      aria-labelledby="campaignModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="campaignModal" tabindex="-1" aria-labelledby="campaignModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="campaignModalLabel">New Campaign</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form action="submit" class="card" @submit.prevent="addCampaign()">
               <div class="card-body text-start">
                 <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="editable.name"
-                    required
-                    name="name"
-                    placeholder="Name:"
-                    maxlength="50"
-                  />
+                  <input type="text" class="form-control" v-model="editable.name" required name="name"
+                    placeholder="Name:" maxlength="50" />
                   <label for="name">Name:</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input
-                    type="url"
-                    class="form-control"
-                    v-model="editable.coverImg"
-                    required
-                    name="coverImg"
-                    placeholder="coverImg"
-                    maxlength="10000"
-                  />
+                  <input type="url" class="form-control" v-model="editable.coverImg" required name="coverImg"
+                    placeholder="coverImg" maxlength="10000" />
                   <label for="coverImg">Cover Image:</label>
                 </div>
                 <div class="form-floating">
-                  <textarea
-                    class="form-control textarea-height"
-                    v-model="editable.desc"
-                    name="description"
-                    style="resize: none"
-                    placeholder="Descripotion:"
-                    maxlength="500"
-                  ></textarea>
+                  <textarea class="form-control textarea-height" v-model="editable.desc" name="description"
+                    style="resize: none" placeholder="Descripotion:" maxlength="500"></textarea>
                   <label for="description">Description:</label>
                 </div>
                 <div class="text-end">
@@ -91,18 +53,10 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                   Close
                 </button>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  data-bs-dismiss="modal"
-                >
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
                   Start Your Adventure!
                 </button>
               </div>
@@ -171,6 +125,7 @@ export default {
   height: 100vh;
   overflow-y: auto;
 }
+
 .border-color {
   border-color: rgb(96, 190, 234) !important;
 }
