@@ -6,16 +6,16 @@
         <button type="button" class="btn text-visible fs-3" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
       </div>
       <div class="d-flex flex-column align-items-center justify-content-between">
-        <router-link :to="{ name: 'Home' }">
+        <router-link :to="{ name: 'Home' }" v-if="route.name !== 'Home'">
           <button class="btn rounded text-visible fs-3" data-bs-dismiss="offcanvas"><i class="mdi mdi-home"></i> Home</button>
         </router-link>
-        <router-link :to="{ name: 'Campaigns' }">
+        <router-link :to="{ name: 'Campaigns' }" v-if="route.name !== 'Campaigns'">
           <button class="btn rounded text-visible fs-3 mt-1" data-bs-dismiss="offcanvas"><i class="mdi mdi-horse-human"></i> Campaigns</button>
         </router-link>
-        <router-link :to="{ name: 'Information' }">
+        <router-link :to="{ name: 'Information' }" v-if="route.name !== 'Information'">
           <button class="btn rounded text-visible fs-3 mt-1" data-bs-dismiss="offcanvas"><i class="mdi mdi-script"></i> Information</button>
         </router-link>
-        <router-link :to="{ name: 'About' }">
+        <router-link :to="{ name: 'About' }" v-if="route.name !== 'About'">
           <button class="btn rounded text-visible fs-3" data-bs-dismiss="offcanvas"><i class="mdi mdi-information"></i> About</button>
         </router-link>
         <Login />
@@ -25,11 +25,13 @@
 </template>
 
 <script>
+import { useRoute, useRouter } from "vue-router";
 import Login from './Login.vue'
 export default {
   setup() {
+    const route =useRoute()
     return {
-
+      route
     }
   },
   components: { Login }
