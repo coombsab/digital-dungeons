@@ -1,9 +1,4 @@
 <template>
-  <!-- <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
-    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
-    <span>{{monster.name}}</span>
-  </div> -->
-
   <div class="monster-card text-center text-visible selectable elevation-2" title="See Monster Details"
     data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click=""
     :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
@@ -17,7 +12,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
-        <div class="modal-header bg-transparent">
+        <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
@@ -25,7 +20,7 @@
             X
           </button>
         </div>
-        <div class="modal-body bg-transparent" v-if="monster">
+        <div class="modal-body bg-transparent-modal" v-if="monster">
 
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
@@ -97,10 +92,10 @@
             </div>
           </div>
         </div>
-        <div class="modal-body bg-transparent" v-else>
+        <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent">
+        <div class="modal-footer bg-transparent-modal">
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
             Close
           </button>
@@ -124,17 +119,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .monster-card {
-//   background-color: green;
-//   height: fit-content;
-//   margin-bottom: 1.5rem;
-//   margin-top: .5rem;
-// }
-
-// p {
-//   margin: 0;
-// }
-
 .monster-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
@@ -151,7 +135,15 @@ export default {
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.442) !important;
+  background-color: rgba(10, 10, 10, 0.804) !important;
+}
+
+.bg-transparent:hover {
+  background-color: rgba(10, 10, 10, 0.442) !important;
+}
+
+.bg-transparent-modal {
+  background-color: rgba(10, 10, 10, 0.442) !important;
 }
 
 .muted-layer {
