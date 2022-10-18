@@ -98,7 +98,11 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-dark" @click="addMonster()">
+            <button
+              class="btn btn-dark"
+              @click="addMonster()"
+              v-if="account.id == encounter.creatorId"
+            >
               Add Monster
             </button>
           </div>
@@ -117,6 +121,7 @@ import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { monstersService } from "../services/MonstersService.js";
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 export default {
   props: {
@@ -126,6 +131,9 @@ export default {
     const route = useRoute();
     return {
       route,
+      encounter: computed(() => AppState.encounters),
+      account: computed(() => AppState.account),
+
       setActiveMonster() {
         AppState.activeMonster = props.monster;
       },
