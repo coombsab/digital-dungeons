@@ -5,7 +5,7 @@ export const MonsterSchema = new Schema(
   {
     index: { type: String },
     creatorId: { type: OBJECT_ID, required: true },
-    encounterId: { type: OBJECT_ID },
+    encounterId: { type: OBJECT_ID, required: true },
     name: { type: String, required: true },
     type: { type: String, required: true },
     size: { type: String, required: true },
