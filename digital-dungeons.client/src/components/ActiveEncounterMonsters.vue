@@ -15,6 +15,7 @@
     >
       <div class="muted-layer">
         <span>{{ monster.name }}</span>
+        <span>{{ monster.}}</span>
       </div>
     </div>
   </div>
