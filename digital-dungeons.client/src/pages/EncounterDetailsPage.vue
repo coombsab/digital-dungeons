@@ -48,7 +48,7 @@
               </div>
               <div class="col-12">
                 <div class="info-content px-3 scrollable">
-                  <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
+                  <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
                 </div>
               </div>
             </div>
@@ -72,6 +72,7 @@ import EncounterCard from "../components/EncounterCard.vue";
 import { encountersService } from "../services/EncountersService.js";
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import { informationService } from "../services/InformationService.js";
+import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
 export default {
   setup() {
     const route = useRoute();
@@ -156,7 +157,7 @@ export default {
     };
 
   },
-  components: { CreateEncounterModal, EncounterCard, MonsterCard },
+  components: { CreateEncounterModal, EncounterCard, MonsterCard, MonsterDetailsModal },
 };
 </script>
 
