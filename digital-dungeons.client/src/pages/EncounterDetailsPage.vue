@@ -17,43 +17,81 @@
                 </div>
               </div> -->
               <!-- ADD ENCOUNTER -->
-
             </section>
             <section class="row top">
               <div class="col-12 d-flex">
-                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
+                <img
+                  :src="activeEncounter?.coverImg"
+                  alt=""
+                  class="img-fluid encounterImage"
+                />
                 <p class="p-5">{{ activeEncounter?.desc }}</p>
-                <div class="bg-dark p-2">
-                </div>
+                <div class="bg-dark p-2"></div>
               </div>
-              <div class="col-3 bg-transparent bottomLeft">
+              <!-- SECTION search monsters -->
+              <div class="col-4 bg-transparent bottomLeft">
                 <div class="h-30">
                   <div class="d-flex p-2">
                     <form class="w-100" @submit.prevent="handleSubmit()">
                       <div class="input-group">
                         <div class="form-floating input-width">
-                          <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
-                            v-model="editable">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search"
+                            id="floatingSearch"
+                            v-model="editable"
+                          />
                           <label for="floatingSearch">Search</label>
                         </div>
-                        <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
+                        <button type="submit" class="form-control">
+                          <i class="mdi mdi-magnify"></i>
+                        </button>
                       </div>
                     </form>
                   </div>
                   <div class="d-flex justify-content-between">
-                    <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
-                      :class="{'disabled' : !previousPage}">Previous</button>
-                    <button @click="changePage(nextPage)" :disabled="!nextPage"
-                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
+                    <button
+                      @click="changePage(previousPage)"
+                      :disabled="!previousPage"
+                      class="btn btn-danger me-2"
+                      :class="{ disabled: !previousPage }"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      @click="changePage(nextPage)"
+                      :disabled="!nextPage"
+                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`"
+                    >
+                      Next
+                    </button>
                   </div>
                   <div class="col-12">
                     <div class="px-3 scrollable">
-                      <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+                      <MonsterDetailsModal
+                        v-for="m in monsters"
+                        :key="m.slug"
+                        :monster="m"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- SECTION my monsters -->
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-3">
+                    <ActiveEncounterMonsters
+                      v-for="m in activeMonsters"
+                      :key="m.slug"
+                      :monster="m"
+                    />
+                  </div>
+                </div>
+              </div>
             </section>
+            <section></section>
           </div>
         </div>
       </div>
@@ -75,6 +113,8 @@ import { encountersService } from "../services/EncountersService.js";
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import { informationService } from "../services/InformationService.js";
 import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
+import AccountPage from "./AccountPage.vue";
+import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
 export default {
   setup() {
     const route = useRoute();
@@ -91,10 +131,10 @@ export default {
 
     async function getApiMonsters() {
       try {
-        await informationService.getApiInfo("monsters")
-        informationService.setActiveCategory("monsters")
+        await informationService.getApiInfo("monsters");
+        informationService.setActiveCategory("monsters");
       } catch (error) {
-        Pop.error(error, ["gettingMonsters"])
+        Pop.error(error, ["gettingMonsters"]);
       }
     }
 
@@ -112,9 +152,8 @@ export default {
       getEncounterById();
       // getMonstersByEncounterId();
       getApiMonsters();
-
     });
-    const editable = ref("")
+    const editable = ref("");
     return {
       editable,
       campaigns: computed(() => AppState.campaigns),
@@ -126,40 +165,45 @@ export default {
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
       category: computed(() => AppState.activeCategory),
+      activeMonsters: computed(() => AppState.activeEncounterMonsters),
 
       async handleSubmit() {
         try {
-          await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
-          editable.value = ""
+          await informationService.getApiInfo(AppState.activeCategory, {
+            search: editable.value,
+          });
+          editable.value = "";
         } catch (error) {
-          Pop.error(error, ["SearchSubmit"])
+          Pop.error(error, ["SearchSubmit"]);
         }
       },
 
-
-
       async changePage(pageurl) {
         try {
-          await informationService.getApiInfo(pageurl)
+          await informationService.getApiInfo(pageurl);
         } catch (error) {
-          Pop.error(error, '[changigpage]')
+          Pop.error(error, "[changigpage]");
         }
       },
 
       async changeCategory(category) {
         try {
-          await informationService.getApiInfo(category)
-          informationService.setActiveCategory(category)
+          await informationService.getApiInfo(category);
+          informationService.setActiveCategory(category);
         } catch (error) {
-          Pop.error(error, "[ChangeCategory]")
+          Pop.error(error, "[ChangeCategory]");
         }
-      }
-
-
+      },
     };
-
   },
-  components: { CreateEncounterModal, EncounterCard, MonsterCard, MonsterDetailsModal },
+  components: {
+    CreateEncounterModal,
+    EncounterCard,
+    MonsterCard,
+    MonsterDetailsModal,
+    AccountPage,
+    ActiveEncounterMonsters,
+  },
 };
 </script>
 
