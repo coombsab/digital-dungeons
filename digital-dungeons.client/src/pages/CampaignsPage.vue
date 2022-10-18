@@ -3,7 +3,7 @@
     <div class="campaigns-page text-visible py-4">
       <!-- ADD CAMPAIGN BUTTON -->
       <button class="btn text-visible create-button elevation-2" type="button" data-bs-toggle="modal"
-        data-bs-target="#campaignModal">
+        data-bs-target="#campaignModal" v-if="user.isAuthenticated">
         Create Campaign
       </button>
       <!-- MY CAMPAIGNS -->
@@ -96,6 +96,7 @@ export default {
     }
     return {
       editable,
+      user: computed(() => AppState.user),
       campaigns: computed(() =>
         AppState.campaigns.filter((c) => c.creatorId != AppState.account.id)
       ),
