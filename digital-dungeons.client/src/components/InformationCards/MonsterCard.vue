@@ -1,24 +1,40 @@
 <template>
-  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
-    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
-    <span>{{monster.name}}</span>
+  <div
+    class="monster-card p-3 rounded elevation-2 text-light selectable"
+    title="See Monster Details"
+    data-bs-toggle="modal"
+    :data-bs-target="'#monsterModal' + monster.slug"
+    @click=""
+  >
+    <span>{{ monster.name }}</span>
   </div>
 
-  <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    :id="'monsterModal' + monster.slug"
+    tabindex="-1"
+    aria-labelledby="MonsterDetailsModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">{{monster?.name}}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
+            {{ monster?.name }}
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body" v-if="monster">
           <div class="modal-body" v-if="monster">
-
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Type</h6>
-                <p>{{ monster.type}}</p>
+                <p>{{ monster.type }}</p>
               </div>
               <div>
                 <h6 class="statistics">Subtype</h6>
@@ -82,36 +98,34 @@
                 <p>{{ monster.constitution }}</p>
               </div>
             </div>
-
           </div>
         </div>
         <div class="modal-body" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-
-
-
 <script>
-import { Monster } from '../../models/Monster.js';
-
-
+import { Monster } from "../../models/Monster.js";
 
 export default {
   props: {
-    monster: { type: Monster, required: true }
+    monster: { type: Monster, required: true },
   },
   setup(props) {
-    return {
-
-    };
+    return {};
   },
 };
 </script>
@@ -121,7 +135,7 @@ export default {
   background-color: green;
   height: fit-content;
   margin-bottom: 1.5rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 p {
