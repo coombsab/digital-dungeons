@@ -115,6 +115,7 @@ import { informationService } from "../services/InformationService.js";
 import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
 import AccountPage from "./AccountPage.vue";
 import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
+import { monstersService } from "../services/MonstersService.js";
 export default {
   setup() {
     const route = useRoute();
@@ -138,19 +139,19 @@ export default {
       }
     }
 
-    // async function getMonstersByEncounterId() {
-    //   try {
-    //     await encountersService.getMonstersByEncounterId(
-    //       route.params.encounterId
-    //     );
-    //     console.log("Getting Monsters");
-    //   } catch (error) {
-    //     Pop.error(error);
-    //   }
-    // }
+    async function getMonstersByEncounterId() {
+      try {
+        await monstersService.getMonstersByEncounterId(
+          route.params.encounterId
+        );
+        console.log("Getting Monsters");
+      } catch (error) {
+        Pop.error(error);
+      }
+    }
     onMounted(() => {
       getEncounterById();
-      // getMonstersByEncounterId();
+      getMonstersByEncounterId();
       getApiMonsters();
     });
     const editable = ref("");

@@ -5,7 +5,7 @@ import { baseApi } from "./AxiosService.js";
 class MonstersService {
   async getMonstersByEncounterId(encounterId) {
     const res = await baseApi.get(`api/encounters/${encounterId}/monsters`);
-    AppState.monsters = res.data.map((e) => new Monster(e));
+    AppState.activeEncounterMonsters = res.data.map((e) => new Monster(e));
     console.log(res.data);
     console.log(AppState.monsters);
   }
