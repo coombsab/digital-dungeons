@@ -18,12 +18,21 @@
           <h1 class="modal-title fs-5" id="SpellDetailsModalLabel">
             {{ spell?.name }}
           </h1>
+          <div class="d-flex justify-content-around gap-3">
+            <span>{{spell?.duration}}</span>
+            <span>{{spell?.range}}</span>
+          </div>
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
         <div class="modal-body bg-transparent-modal" v-if="spell">
-
+          <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div>
+              <h6 class="statistics">School</h6>
+              <p>{{ spell.school}}</p>
+            </div>
+          </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
