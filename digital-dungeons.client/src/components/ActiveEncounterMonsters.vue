@@ -8,7 +8,7 @@
     class="monster-card text-center text-visible selectable"
     title="See Monster Details"
     data-bs-toggle="modal"
-    :data-bs-target="'#monsterModal' + monster.slug"
+    :data-bs-target="'#monsterModal' + monster.id"
     @click=""
     :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
   >
@@ -19,7 +19,7 @@
 
   <div
     class="modal fade"
-    :id="'monsterModal' + monster.slug"
+    :id="'monsterModal' + monster.id"
     tabindex="-1"
     aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true"
