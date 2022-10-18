@@ -12,7 +12,7 @@
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning"
+      <div class="modal-content text-visible bg-black"
         :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="SpellDetailsModalLabel">
@@ -141,6 +141,10 @@ export default {
   background-size: cover;
 }
 
+bg-black {
+  background-color: rgb(17, 17, 17);
+}
+
 .modal-content {
   background-position: center;
   background-size: cover;
@@ -155,7 +159,7 @@ export default {
 }
 
 .bg-transparent-modal {
-  background-color: rgba(10, 10, 10, 0.442) !important;
+  background-color: rgba(10, 10, 10, 0.576) !important;
 }
 
 .muted-layer {
@@ -175,11 +179,11 @@ export default {
   align-items: center;
 }
 
-.text-visible {
-  color: rgb(216, 224, 229);
-}
+// .text-visible {
+//   color: rgb(216, 224, 229);
+// }
 
-.text-visible:hover {
-  color: rgb(216, 224, 229) !important;
-}
+// .text-visible:hover {
+//   color: rgb(216, 224, 229) !important;
+// }
 </style>

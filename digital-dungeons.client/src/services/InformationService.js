@@ -23,8 +23,6 @@ class InformationService {
         AppState.monsters = res.data.results.map(data => new Monster(data))
         break;
       case "spells":
-        console.log("our category is", AppState.activeCategory);
-
         AppState.spells = res.data.results.map(data => new Spell(data))
         break;
       case "races":
@@ -107,28 +105,28 @@ class InformationService {
   setSpellSchoolImage() {
     AppState.spells.forEach(spell => {
       if (spell.school.toUpperCase().includes("ABJURATION")) {
-        
+        spell.schoolImg = "https://i.ibb.co/NsSh29L/abjuration-edited.png"
       }
       if (spell.school.toUpperCase().includes("CONJURATION")) {
-
+        spell.schoolImg = "https://i.ibb.co/SxHqL2Q/conjuration-edited.png"
       }
       if (spell.school.toUpperCase().includes("DIVINATION")) {
-
+        spell.schoolImg = "https://i.ibb.co/wypZX54/divination-edited.png"
       }
       if (spell.school.toUpperCase().includes("ENCHANTMENT")) {
-
+        spell.schoolImg = "https://i.ibb.co/6ZyNG9D/enchantment-edited.png"
       }
       if (spell.school.toUpperCase().includes("EVOCATION")) {
-
+        spell.schoolImg = "https://i.ibb.co/2jQFhXR/evocation-edited.png"
       }
       if (spell.school.toUpperCase().includes("ILLUSION")) {
-
+        spell.schoolImg = "https://i.ibb.co/BN5LWS1/illusion-edited.png"
       }
       if (spell.school.toUpperCase().includes("NECROMANCY")) {
-
+        spell.schoolImg = "https://i.ibb.co/19Yx6tc/necromancy-edited.png"
       }
       if (spell.school.toUpperCase().includes("TRANSMUTATION")) {
-
+        spell.schoolImg = "https://i.ibb.co/CnKRk3v/transmutation-edited.png"
       }
     })
   }
