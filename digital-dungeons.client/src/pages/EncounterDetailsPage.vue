@@ -83,7 +83,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <ActiveEncounterMonsters
-                      v-for="m in activeMonsters"
+                      v-for="m in activeEncounterMonsters"
                       :key="m.slug"
                       :monster="m"
                     />

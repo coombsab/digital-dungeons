@@ -1,5 +1,4 @@
 export class Monster {
-
   // constructor(data) {
   //   this.id = data.id
   //   this.slug = data.slug
@@ -15,28 +14,29 @@ export class Monster {
   // }
 
   constructor(data) {
-    this.name = data.name
-    this.slug = data.slug
-    this.type = data.type
-    this.subtype = data.subtype || 'N/A'
-    this.alignment = data.alignment
-    this.hit_points = data.hit_points
-    this.hit_dice = data.hit_dice
-    this.languages = data.languages
-    this.size = data.size
-    this.strength = data.strength
-    this.intelligence = data.intelligence
-    this.challenge_rating = data.challenge_rating
-    this.wisdom = data.wisdom
-    this.dexterity = data.dexterity
-    this.charisma = data.charisma
-    this.constitution = data.constitution
-    this.icon = data.icon
-    this.initiative = data.initiative
-    this.nickName = data.nickName
-    this.image = data.image
-    this.encounterId = data.encounterId
-    this.initiative = data.initiative
-    this.creatorId = data.creatorId
+    this.id = data.id;
+    this.name = data.name;
+    this.slug = data.slug;
+    this.type = data.type;
+    this.subtype = data.subtype || "N/A";
+    this.alignment = data.alignment;
+    this.hit_points = data.hit_points;
+    this.hit_dice = data.hit_dice;
+    this.languages = data.languages;
+    this.size = data.size;
+    this.strength = data.strength;
+    this.intelligence = data.intelligence;
+    this.challenge_rating = data.challenge_rating;
+    this.wisdom = data.wisdom;
+    this.dexterity = data.dexterity;
+    this.charisma = data.charisma;
+    this.constitution = data.constitution;
+    this.icon = data.icon;
+    this.initiative = data.initiative;
+    this.nickName = data.nickName;
+    this.image = data.image;
+    this.encounterId = data.encounterId;
+    this.initiative = data.initiative;
+    this.creatorId = data.creatorId;
   }
 }
