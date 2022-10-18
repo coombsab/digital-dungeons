@@ -14,12 +14,12 @@
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content text-visible"  :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
-        <div class="bg-transparent">
-        <div class="modal-header">
+
+        <div class="modal-header bg-transparent">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">{{monster?.name}}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
         </div>
-        <div class="modal-body" v-if="monster">
+        <div class="modal-body bg-transparent" v-if="monster">
           <div class="modal-body" v-if="monster">
 
             <div class="d-flex flex-wrap justify-content-around mb-3">
@@ -92,12 +92,11 @@
 
           </div>
         </div>
-        <div class="modal-body" v-else>
+        <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+        <div class="modal-footer bg-transparent">
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -152,7 +151,7 @@ export default {
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.639);
+  background-color: rgba(0, 0, 0, 0.639) !important;
 }
 
 .muted-layer {
