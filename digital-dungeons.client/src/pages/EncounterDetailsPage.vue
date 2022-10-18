@@ -15,12 +15,7 @@
             </div>
           </div> -->
           <!-- ADD ENCOUNTER -->
-          <div class="col-2 pt-2">
-            <button v-if="activeEncounter.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
-              data-bs-toggle="modal" data-bs-target="#CreateEncounterModal">
-              Add Monster
-            </button>
-          </div>
+
         </section>
         <section class="row">
           <div class="col-6">
@@ -28,6 +23,33 @@
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
                 <p>{{ activeEncounter?.desc }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-8 bg-transparent">
+            <div class="h-30">
+              <div class="d-flex p-2">
+                <form class="w-100" @submit.prevent="handleSubmit()">
+                  <div class="input-group">
+                    <div class="form-floating input-width">
+                      <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
+                        v-model="editable">
+                      <label for="floatingSearch">Search</label>
+                    </div>
+                    <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
+                  </div>
+                </form>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
+                  :class="{'disabled' : !previousPage}">Previous</button>
+                <button @click="changePage(nextPage)" :disabled="!nextPage"
+                  :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
+              </div>
+              <div class="col-12">
+                <div class="info-content px-3 scrollable">
+                  <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
+                </div>
               </div>
             </div>
           </div>
@@ -41,13 +63,15 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import Pop from "../utils/Pop.js";
 import CreateEncounterModal from "../components/CreateEncounterModal.vue";
 import EncounterCard from "../components/EncounterCard.vue";
 import { encountersService } from "../services/EncountersService.js";
+import MonsterCard from "../components/InformationCards/MonsterCard.vue";
+import { informationService } from "../services/InformationService.js";
 export default {
   setup() {
     const route = useRoute();
@@ -61,6 +85,16 @@ export default {
         Pop.error(error);
       }
     }
+
+    async function getApiMonsters() {
+      try {
+        await informationService.getApiInfo("monsters")
+        informationService.setActiveCategory("monsters")
+      } catch (error) {
+        Pop.error(error, ["gettingMonsters"])
+      }
+    }
+
     // async function getMonstersByEncounterId() {
     //   try {
     //     await encountersService.getMonstersByEncounterId(
@@ -74,16 +108,55 @@ export default {
     onMounted(() => {
       getEncounterById();
       // getMonstersByEncounterId();
+      getApiMonsters();
+
     });
+    const editable = ref("")
     return {
+      editable,
       campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
       activeEncounter: computed(() => AppState.activeEncounter),
-      activeCampaign: computed(() => AppState.activeCampaign)
+      activeCampaign: computed(() => AppState.activeCampaign),
+      monsters: computed(() => AppState.monsters),
+      nextPage: computed(() => AppState.nextPage),
+      previousPage: computed(() => AppState.previousPage),
+      category: computed(() => AppState.activeCategory),
+
+      async handleSubmit() {
+        try {
+          await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
+          editable.value = ""
+        } catch (error) {
+          Pop.error(error, ["SearchSubmit"])
+        }
+      },
+
+
+
+      async changePage(pageurl) {
+        try {
+          await informationService.getApiInfo(pageurl)
+        } catch (error) {
+          Pop.error(error, '[changigpage]')
+        }
+      },
+
+      async changeCategory(category) {
+        try {
+          await informationService.getApiInfo(category)
+          informationService.setActiveCategory(category)
+        } catch (error) {
+          Pop.error(error, "[ChangeCategory]")
+        }
+      }
+
+
     };
+
   },
-  components: { CreateEncounterModal, EncounterCard },
+  components: { CreateEncounterModal, EncounterCard, MonsterCard },
 };
 </script>
 
