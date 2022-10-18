@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-8 bg-transparent">
-          <div class="col-12 h-30">
+          <div class="h-30">
             <div class="d-flex p-2">
               <form class="w-100" @submit.prevent="handleSubmit()">
                 <div class="input-group">
@@ -57,7 +57,7 @@
                     <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
                     <label for="floatingSearch">Search</label>
                   </div>
-                  <button type="submit" class="form-control  "><i class="mdi mdi-magnify"></i></button>
+                  <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
                 </div>
               </form>
             </div>
