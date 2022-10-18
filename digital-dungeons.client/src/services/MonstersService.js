@@ -24,7 +24,9 @@ class MonstersService {
 
   async removeMonster(monsterId) {
     await baseApi.delete(`api/monsters/${monsterId}`);
-    AppState.monsters = AppState.monsters.filter((m) => m.id != id);
+    AppState.activeEncounterMonsters = AppState.activeEncounterMonsters.filter(
+      (m) => m.id != monsterId
+    );
   }
 
   async editMonster(monsterData, id) {

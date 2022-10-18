@@ -4,16 +4,18 @@
     <span>{{monster.name}}</span>
   </div> -->
 
-  <div
-    class="monster-card text-center text-visible selectable"
-    title="See Monster Details"
-    data-bs-toggle="modal"
-    :data-bs-target="'#monsterModal' + monster.id"
-    @click=""
-    :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
-  >
-    <div class="muted-layer">
-      <span>{{ monster.name }}</span>
+  <div class="col-md-3 d-flex justify-content-center mt-3">
+    <div
+      class="monster-card text-center text-visible selectable"
+      title="See Monster Details"
+      data-bs-toggle="modal"
+      :data-bs-target="'#monsterModal' + monster.id"
+      @click=""
+      :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
+    >
+      <div class="muted-layer">
+        <span>{{ monster.name }}</span>
+      </div>
     </div>
   </div>
 
@@ -123,6 +125,14 @@
             type="button"
             class="btn-visible text-visible"
             data-bs-dismiss="modal"
+            @click.stop="removeMonster(monster.id)"
+          >
+            Remove Monster
+          </button>
+          <button
+            type="button"
+            class="btn-visible text-visible"
+            data-bs-dismiss="modal"
           >
             Close
           </button>
@@ -134,13 +144,29 @@
 
 <script>
 import { Monster } from "../models/Monster.js";
+import { monstersService } from "../services/MonstersService.js";
+import Pop from "../utils/Pop.js";
 
 export default {
   props: {
     monster: { type: Monster, required: true },
   },
   setup(props) {
-    return {};
+    return {
+      async removeMonster(id) {
+        try {
+          const yes = await Pop.confirm(
+            "Are you sure you want to delete this Encounter?"
+          );
+          if (!yes) {
+            return;
+          }
+          await monstersService.removeMonster(id);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+    };
   },
 };
 </script>

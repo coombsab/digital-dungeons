@@ -81,13 +81,11 @@
               <!-- SECTION my monsters -->
               <div class="col-md-8">
                 <div class="row">
-                  <div class="col-md-3">
-                    <ActiveEncounterMonsters
-                      v-for="m in activeMonsters"
-                      :key="m.slug"
-                      :monster="m"
-                    />
-                  </div>
+                  <ActiveEncounterMonsters
+                    v-for="m in activeMonsters"
+                    :key="m.slug"
+                    :monster="m"
+                  />
                 </div>
               </div>
             </section>
