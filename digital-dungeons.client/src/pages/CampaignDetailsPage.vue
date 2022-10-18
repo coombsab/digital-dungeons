@@ -16,13 +16,8 @@
           </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2">
-            <button
-              v-if="campaign.creatorId == account.id"
-              class="btn btn-danger"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#CreateEncounterModal"
-            >
+            <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
+              data-bs-target="#CreateEncounterModal">
               Create Encounter
             </button>
           </div>
@@ -48,27 +43,14 @@
           <div class="col-6">
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <h4
-                  class="border-bottom border-3 border-danger text-danger"
-                  v-if="completedEncounters.length > 0"
-                >
+                <h4 class="border-bottom border-3 border-danger text-danger" v-if="completedEncounters.length > 0">
                   Completed Encounters
                 </h4>
-                <EncounterCard
-                  v-for="e in completedEncounters"
-                  :encounter="e"
-                  :key="e?.id"
-                  :campaign="campaign"
-                />
+                <EncounterCard v-for="e in completedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
                 <h4 class="border-bottom border-3 border-danger text-danger">
                   Encounters
                 </h4>
-                <EncounterCard
-                  v-for="e in uncompletedEncounters"
-                  :encounter="e"
-                  :key="e?.id"
-                  :campaign="campaign"
-                />
+                <EncounterCard v-for="e in uncompletedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
               </div>
             </div>
           </div>
@@ -130,18 +112,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.h00 {
-  height: 96vh;
-  background-size: cover;
-  background-position: center;
-}
 
 .morphfont {
   font-family: "Morpheus";
   src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
 }
 
-.glass {
-  background-color: rgba(38, 37, 37, 0.397);
-}
 </style>

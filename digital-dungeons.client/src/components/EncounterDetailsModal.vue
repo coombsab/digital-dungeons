@@ -1,57 +1,10 @@
 <template>
-  <div
-    class="modal fade"
-    :id="'encounterDetailsModal' + encounter.id"
-    tabindex="-1"
-    aria-labelledby="encounterModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content bg-secondary">
-        <div class="modal-header">
-          <h5 class="modal-title" id="encounterModalLabel">
-            {{ encounter.name }}
-          </h5>
-          <button class="btn btn-light-outline">
-            <router-link
-              :to="{
-                name: 'EncounterDetails',
-                params: { encounterId: encounter.id },
-              }"
-            >
-              <i class="mdi mdi-arrow-right-bold-outline"> Details</i>
-            </router-link>
-          </button>
-          <button
-            type="button"
-            class="btn text-white py-1"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
-            <i class="mdi mdi-close fs-3"></i>
-          </button>
-        </div>
-        <div class="modal-body container-fluid text-secondary">
-          <div class="card text-start row">
-            <div class="card-body">
-              <img :src="encounter.coverImg" alt="" class="img-fluid" />
-              <ul class="py-2">
-                <li>
-                  <p class="card-text">{{ encounter.desc }}</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- <div class="modal-footer">
-            <div class="d-flex justify-content-between">
-              <span>{{encounter.musicUrl}}</span>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
-            </div>
-          </div> -->
-        </div>
-      </div>
+  <div :id="'encounterDetailsModal' + encounter.id" class="encounterDetailsModal rounded-bottom" :style="{ backgroundImage: `url(${encounter.coverImg})`}" >
+    <router-link :to="{ name: 'EncounterDetails', params: { encounterId: encounter.id }, }" class="details-link">
+      <i class="mdi mdi-arrow-right-bold-outline text-visible" title="Go To Encounter Details Page"> Details</i>
+    </router-link>
+    <div @click="closeModal()" class="selectable custom-modal-content text-visible rounded-bottom" title="Close Modal">
+      <span>{{encounter.desc }}</span>
     </div>
   </div>
 </template>
@@ -66,10 +19,41 @@ export default {
   props: {
     encounter: { type: Encounter, required: true },
   },
-  setup() {
-    return {};
+  setup(props) {
+    return {
+      closeModal() {
+        let modal = document.getElementById('encounterDetailsModal' + props.encounter.id)
+        modal.style.display = "none"
+      }
+    };
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .details-link {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    z-index: 1;
+  }
+
+  .encounterDetailsModal{
+    display: none;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    height: 32rem;
+  }
+
+  .custom-modal-content {
+    height: 100%;
+    width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+</style>

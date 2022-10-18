@@ -1,5 +1,5 @@
 <template>
-  <div class="encounter-card text-white my-2" v-if="encounter">
+  <div class="encounter-card text-white my-2" title="Open Details Modal" v-if="encounter">
     <div class="dropdown options">
       <button class="btn back dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false" v-if="account.id == campaign.creatorId"></button>
       <ul class="dropdown-menu">
@@ -11,7 +11,8 @@
         </li>
       </ul>
     </div>
-    <div class="selectable" type="button" data-bs-toggle="modal" :data-bs-target="'#encounterDetailsModal' + encounter.id">
+    <div class="selectable" type="button" @click="openModal()">
+
       <div class="card border border-light" :style="{ backgroundImage: `url(${encounter?.coverImg})` }">
         <div class="glass rounded">
           <div class="card-header d-flex justify-content-between">
@@ -26,10 +27,10 @@
         </div>
       </div>
     </div>
+    <EditEncounterDetailsModal :encounter="encounter" />
+    <EncounterDetailsModal :encounter="encounter" />
   </div>
 
-  <EditEncounterDetailsModal :encounter="encounter" />
-  <EncounterDetailsModal :encounter="encounter" class="selectable" />
 </template>
 
 <script>
@@ -44,7 +45,7 @@ export default {
     encounter: { type: Object, required: true },
     campaign: { type: Object, required: true },
   },
-  setup() {
+  setup(props) {
     return {
       account: computed(() => AppState.account),
       async removeEncounter(id) {
@@ -60,6 +61,10 @@ export default {
           Pop.error(error);
         }
       },
+      openModal() {
+        let modal = document.getElementById('encounterDetailsModal' + props.encounter.id)
+        modal.style.display = "block"
+      }
     };
   },
   components: { EncounterDetailsModal },
