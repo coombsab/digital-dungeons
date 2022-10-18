@@ -1,11 +1,11 @@
 <template>
-  <div class="row right">
-    <div class="col-6">
+  <div class="container-fluid right">
+    <div>
       <div>
         <div v-if="activeEncounter" class="h00 elevated rounded">
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
-              <div class="col-7 bg-dark p-2 text-center">
+              <div class="bg-dark text-center">
                 <div class="bg-secondary text-white">
                   <h2>{{ activeEncounter?.name }}</h2>
                 </div>
@@ -19,16 +19,14 @@
               <!-- ADD ENCOUNTER -->
 
             </section>
-            <section class="row">
-              <div class="col-12 topRight">
-                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid" />
+            <section class="row top">
+              <div class="col-12 d-flex">
+                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
+                <p class="p-5">{{ activeEncounter?.desc }}</p>
                 <div class="bg-dark p-2">
-                  <div class="bg-secondary p-1">
-                    <p>{{ activeEncounter?.desc }}</p>
-                  </div>
                 </div>
               </div>
-              <div class="col-12 bg-transparent bottomRight">
+              <div class="col-3 bg-transparent bottomLeft">
                 <div class="h-30">
                   <div class="d-flex p-2">
                     <form class="w-100" @submit.prevent="handleSubmit()">
@@ -180,16 +178,18 @@ export default {
   background-color: rgba(38, 37, 37, 0.397);
 }
 
-.topRight {
-  height: 35vh;
+.encounterImage {
+  max-height: 40vh;
+  max-width: 40vw;
+  padding: 3rem;
 }
 
-.bottomRight {
+.bottomLeft {
   height: 53vh;
   overflow-y: auto;
 }
 
-.right {
-  margin-left: 1rem;
-}
+// .right {
+//   margin-left: 1rem;
+// }
 </style>
