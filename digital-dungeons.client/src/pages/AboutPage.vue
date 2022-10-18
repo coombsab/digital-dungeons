@@ -2,74 +2,74 @@
   <section class="container-fluid about-page">
     <div class="row justify-content-around ">
       <div class="col-md-3 p-md-3 p-2">
-      <div class="card cards elevation-3">
-        <img src="https://thiscatdoesnotexist.com" alt="">
-        <h4 class="text-shadow2">Thomas Daily</h4>
-        <div class="card-body rounded text-shadow ">
-          <p>Description</p>
+        <div class="card cards elevation-3">
+          <img src="https://thiscatdoesnotexist.com" alt="">
+          <h4 class="text-shadow2">Thomas Daily</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/Thomas-Daily" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href=""></a>
+          </div>
         </div>
-        <div class="card-text">
-          <a href="https://github.com/Thomas-Daily" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-          <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href=""></a>
+      </div>
+      <div class="col-md-3 p-md-3 p-2">
+        <div class="card cards elevation-3">
+          <img src="https://thiscatdoesnotexist.com" alt="">
+          <h4 class="text-shadow2">Abraham Coombs</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/coombsab" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
+              href="https://www.linkedin.com/in/abraham-coombs-33408ab8/"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 p-md-3 p-2">
+        <div class="card cards elevation-3">
+          <img src="../assets/img/me.jpg" alt="">
+          <h4 class="text-shadow2">Jake Neitzell</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/JacobNeitzell" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
+              href="https://www.linkedin.com/in/jacob-neitzell-610a64180/"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 p-md-3 p-2">
+        <div class="card cards elevation-3">
+          <img src="https://thiscatdoesnotexist.com" alt="">
+          <h4 class="text-shadow2">Talor Montandon</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Tmontandon"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 p-md-3 p-2">
+        <div class="card cards elevation-3">
+          <img src="https://thiscatdoesnotexist.com" alt="">
+          <h4 class="text-shadow2">Jake Paulin</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Jakeepaulin"></a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 p-md-3 p-2">
-      <div class="card cards elevation-3">
-        <img src="https://thiscatdoesnotexist.com" alt="">
-        <h4 class="text-shadow2">Abraham Coombs</h4>
-        <div class="card-body rounded text-shadow ">
-          <p>Description</p>
-        </div>
-        <div class="card-text">
-          <a href="https://github.com/coombsab" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-          <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
-          href="https://www.linkedin.com/in/abraham-coombs-33408ab8/"></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 p-md-3 p-2">
-      <div class="card cards elevation-3">
-        <img src="../assets/img/me.jpg" alt="">
-        <h4 class="text-shadow2">Jake Neitzell</h4>
-        <div class="card-body rounded text-shadow ">
-          <p>Description</p>
-        </div>
-        <div class="card-text">
-          <a href="https://github.com/JacobNeitzell" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-          <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
-          href="https://www.linkedin.com/in/jacob-neitzell-610a64180/"></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 p-md-3 p-2">
-      <div class="card cards elevation-3">
-        <img src="https://thiscatdoesnotexist.com" alt="">
-        <h4 class="text-shadow2">Talor Montandon</h4>
-        <div class="card-body rounded text-shadow ">
-          <p>Description</p>
-        </div>
-        <div class="card-text">
-          <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-          <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Tmontandon"></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 p-md-3 p-2">
-      <div class="card cards elevation-3">
-        <img src="https://thiscatdoesnotexist.com" alt="">
-        <h4 class="text-shadow2">Jake Paulin</h4>
-        <div class="card-body rounded text-shadow ">
-          <p>Description</p>
-        </div>
-        <div class="card-text">
-          <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-          <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Jakeepaulin"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
@@ -87,10 +87,9 @@ export default {
   overflow-y: auto;
   padding: 1rem 3.5rem 1rem 3.5rem;
 }
+
 .cards {
-  background-image: url('https://wallpaperforu.com/wp-content/uploads/2020/10/amoled-wallpaper-20101513342433.jpg');
-  background-position: center;
-  background-size: cover;
+  background-color: rgba(36, 1, 43, 0.892);
 }
 
 
