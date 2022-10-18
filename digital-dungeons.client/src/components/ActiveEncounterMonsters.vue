@@ -123,6 +123,7 @@
         </div>
         <div class="modal-footer bg-transparent d-flex justify-content-between">
           <button
+            v-if="account.id == encounter.creatorId"
             type="button"
             class="btn-visible text-visible"
             data-bs-dismiss="modal"
@@ -137,6 +138,8 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
 import { Monster } from "../models/Monster.js";
 import { monstersService } from "../services/MonstersService.js";
 import Pop from "../utils/Pop.js";
@@ -147,6 +150,8 @@ export default {
   },
   setup(props) {
     return {
+      account: computed(() => AppState.account),
+      encounter: computed(() => AppState.activeEncounter),
       async removeMonster(id) {
         try {
           const yes = await Pop.confirm(

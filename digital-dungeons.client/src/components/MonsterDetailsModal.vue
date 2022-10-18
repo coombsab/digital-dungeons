@@ -131,7 +131,7 @@ export default {
     const route = useRoute();
     return {
       route,
-      encounter: computed(() => AppState.encounters),
+      encounter: computed(() => AppState.activeEncounter),
       account: computed(() => AppState.account),
 
       setActiveMonster() {
