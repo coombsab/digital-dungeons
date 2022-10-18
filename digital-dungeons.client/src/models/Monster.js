@@ -31,7 +31,7 @@ export class Monster {
     this.strength_save = data.strength_save;
     this.dexterity_save = data.dexterity_save;
     this.constitution_save = data.constitution_save;
-    this.intellegince_save = data.intellegince_save;
+    this.intelligence_save = data.intelligence_save;
     this.wisdom_save = data.wisdom_save;
     this.charisma_save = data.charisma_save;
     this.perception = data.perception;
