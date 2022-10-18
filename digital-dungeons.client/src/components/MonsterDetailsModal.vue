@@ -116,18 +116,23 @@ import { Monster } from "../models/Monster.js";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { monstersService } from "../services/MonstersService.js";
+import { useRoute } from "vue-router";
 
 export default {
   props: {
     monster: { type: Monster, required: true },
   },
   setup(props) {
+    const route = useRoute();
     return {
+      route,
       setActiveMonster() {
         AppState.activeMonster = props.monster;
       },
       async addMonster() {
         try {
+          props.monster.encounterId = route.params.encounterId;
+          console.log(props.monster);
           await monstersService.addMonsterToEncounter(props.monster);
           Pop.success(`You added ${props.monster.name} to your encounter`);
         } catch (error) {

@@ -144,15 +144,15 @@ export default {
         await monstersService.getMonstersByEncounterId(
           route.params.encounterId
         );
-        console.log("Getting Monsters");
+        console.log(AppState.activeEncounterMonsters);
       } catch (error) {
         Pop.error(error);
       }
     }
     onMounted(() => {
       getEncounterById();
-      getMonstersByEncounterId();
       getApiMonsters();
+      getMonstersByEncounterId();
     });
     const editable = ref("");
     return {
