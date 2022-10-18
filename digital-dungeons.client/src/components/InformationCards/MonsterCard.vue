@@ -8,18 +8,32 @@
     :data-bs-target="'#monsterModal' + monster.slug" @click=""
     :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
     <div class="muted-layer">
-      <span>{{monster.name}}</span>
+      <span>{{ monster.name }}</span>
     </div>
   </div>
 
-  <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    :id="'monsterModal' + monster.slug"
+    tabindex="-1"
+    aria-labelledby="MonsterDetailsModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content text-visible" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
         <div class="modal-header bg-transparent">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">{{monster?.name}}</h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
+          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
+            {{ monster?.name }}
+          </h1>
+          <button
+            type="button"
+            class="btn-visible text-visible"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            X
+          </button>
         </div>
         <div class="modal-body bg-transparent" v-if="monster">
 
@@ -80,6 +94,7 @@
             </div>
 
 
+
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Charisma</h6>
@@ -90,36 +105,34 @@
                 <p>{{ monster.constitution }}</p>
               </div>
             </div>
-
           </div>
         </div>
         <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
         <div class="modal-footer bg-transparent">
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">Close</button>
+          <button
+            type="button"
+            class="btn-visible text-visible"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-
-
-
 <script>
-import { Monster } from '../../models/Monster.js';
-
-
+import { Monster } from "../../models/Monster.js";
 
 export default {
   props: {
-    monster: { type: Monster, required: true }
+    monster: { type: Monster, required: true },
   },
   setup(props) {
-    return {
-
-    };
+    return {};
   },
 };
 </script>
