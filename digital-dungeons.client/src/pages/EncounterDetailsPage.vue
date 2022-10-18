@@ -1,59 +1,63 @@
 <template>
-  <div class="p-3">
-    <div v-if="activeEncounter" class="h00 elevated rounded">
-      <div class="text-light h00 glass">
-        <section class="row justify-content-between">
-          <div class="col-7 bg-dark p-2 text-center">
-            <div class="bg-secondary text-white">
-              <h2>{{ activeEncounter?.name }}</h2>
-            </div>
-          </div>
-          <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
-          <div class="col-3 bg-dark p-2">
-            <div class="bg-secondary p-1">
-              {{ activeEncounter }}
-            </div>
-          </div> -->
-          <!-- ADD ENCOUNTER -->
-
-        </section>
-        <section class="row">
-          <div class="col-6">
-            <img :src="activeEncounter?.coverImg" alt="" class="img-fluid" />
-            <div class="bg-dark p-2">
-              <div class="bg-secondary p-1">
-                <p>{{ activeEncounter?.desc }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 bg-transparent">
-            <div class="h-30">
-              <div class="d-flex p-2">
-                <form class="w-100" @submit.prevent="handleSubmit()">
-                  <div class="input-group">
-                    <div class="form-floating input-width">
-                      <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
-                        v-model="editable">
-                      <label for="floatingSearch">Search</label>
-                    </div>
-                    <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
-                  </div>
-                </form>
-              </div>
-              <div class="d-flex justify-content-between">
-                <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
-                  :class="{'disabled' : !previousPage}">Previous</button>
-                <button @click="changePage(nextPage)" :disabled="!nextPage"
-                  :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
-              </div>
-              <div class="col-12">
-                <div class="info-content px-3 scrollable">
-                  <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+  <div class="row right">
+    <div class="col-6">
+      <div>
+        <div v-if="activeEncounter" class="h00 elevated rounded">
+          <div class="text-light h00 glass">
+            <section class="row justify-content-between">
+              <div class="col-7 bg-dark p-2 text-center">
+                <div class="bg-secondary text-white">
+                  <h2>{{ activeEncounter?.name }}</h2>
                 </div>
               </div>
-            </div>
+              <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
+              <div class="col-3 bg-dark p-2">
+                <div class="bg-secondary p-1">
+                  {{ activeEncounter }}
+                </div>
+              </div> -->
+              <!-- ADD ENCOUNTER -->
+
+            </section>
+            <section class="row">
+              <div class="col-12 topRight">
+                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid" />
+                <div class="bg-dark p-2">
+                  <div class="bg-secondary p-1">
+                    <p>{{ activeEncounter?.desc }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 bg-transparent bottomRight">
+                <div class="h-30">
+                  <div class="d-flex p-2">
+                    <form class="w-100" @submit.prevent="handleSubmit()">
+                      <div class="input-group">
+                        <div class="form-floating input-width">
+                          <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
+                            v-model="editable">
+                          <label for="floatingSearch">Search</label>
+                        </div>
+                        <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
+                      :class="{'disabled' : !previousPage}">Previous</button>
+                    <button @click="changePage(nextPage)" :disabled="!nextPage"
+                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
+                  </div>
+                  <div class="col-12">
+                    <div class="px-3 scrollable">
+                      <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </div>
@@ -174,5 +178,18 @@ export default {
 
 .glass {
   background-color: rgba(38, 37, 37, 0.397);
+}
+
+.topRight {
+  height: 35vh;
+}
+
+.bottomRight {
+  height: 53vh;
+  overflow-y: auto;
+}
+
+.right {
+  margin-left: 1rem;
 }
 </style>

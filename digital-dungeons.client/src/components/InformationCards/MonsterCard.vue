@@ -1,12 +1,20 @@
 <template>
+  <!-- <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
+    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
+    <span>{{monster.name}}</span>
+  </div> -->
+
   <div
-    class="monster-card p-3 rounded elevation-2 text-light selectable"
+    class="monster-card text-center text-visible selectable"
     title="See Monster Details"
     data-bs-toggle="modal"
     :data-bs-target="'#monsterModal' + monster.slug"
     @click=""
+    :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
   >
-    <span>{{ monster.name }}</span>
+    <div class="muted-layer">
+      <span>{{ monster.name }}</span>
+    </div>
   </div>
 
   <div
@@ -17,19 +25,26 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div
+        class="modal-content text-visible"
+        :style="
+          monster.image ? { backgroundImage: `url(${monster.image})` } : ''
+        "
+      >
+        <div class="modal-header bg-transparent">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
           <button
             type="button"
-            class="btn-close"
+            class="btn-visible text-visible"
             data-bs-dismiss="modal"
             aria-label="Close"
-          ></button>
+          >
+            X
+          </button>
         </div>
-        <div class="modal-body" v-if="monster">
+        <div class="modal-body bg-transparent" v-if="monster">
           <div class="modal-body" v-if="monster">
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
@@ -100,13 +115,13 @@
             </div>
           </div>
         </div>
-        <div class="modal-body" v-else>
+        <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer bg-transparent">
           <button
             type="button"
-            class="btn btn-secondary"
+            class="btn-visible text-visible"
             data-bs-dismiss="modal"
           >
             Close
@@ -131,22 +146,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .monster-card {
+//   background-color: green;
+//   height: fit-content;
+//   margin-bottom: 1.5rem;
+//   margin-top: .5rem;
+// }
+
+// p {
+//   margin: 0;
+// }
+
 .monster-card {
-  background-color: green;
-  height: fit-content;
-  margin-bottom: 1.5rem;
-  margin-top: 0.5rem;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
 }
 
-p {
-  margin: 0;
+.modal-content {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 0.639) !important;
+}
+
+.muted-layer {
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.639);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 0.5rem;
 }
 
 .statistics {
   border-bottom: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 </style>

@@ -31,5 +31,9 @@ export class Monster {
     this.dexterity = data.dexterity
     this.charisma = data.charisma
     this.constitution = data.constitution
+    this.icon = data.icon
+    this.initiative = data.initiative
+    this.nickName = data.nickName
+    this.image = data.image
   }
 }

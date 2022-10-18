@@ -23,9 +23,9 @@
               Please select a category
             </div>
             <!-- NOTE Info Cards -->
-            <div v-else class="info-content px-3 scrollable">
+            <div v-else class="info-content px-3 scrollable d-flex flex-wrap gap-4">
               <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
-              <SpellCard v-for="s in spells" :spell="s" />
+              <!-- <SpellCard v-for="s in spells" :spell="s" /> -->
             </div>
           </div>
         </div>
