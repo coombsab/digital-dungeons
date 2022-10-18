@@ -130,13 +130,6 @@
           >
             Remove Monster
           </button>
-          <button
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
         </div>
       </div>
     </div>
