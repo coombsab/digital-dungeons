@@ -90,6 +90,7 @@ button {
   backdrop-filter: blur(7px);
 }
 
+
 .scrollable {
   overflow-y: auto;
   height: 85vh;
