@@ -19,6 +19,7 @@ export const MonsterSchema = new Schema(
     wisdom: { type: Number },
     dexterity: { type: Number },
     constitution: { type: Number },
+    charisma: { type: Number },
 
 
     //EDITABLE FIELDS
