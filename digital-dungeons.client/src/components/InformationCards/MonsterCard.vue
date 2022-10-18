@@ -4,34 +4,24 @@
     <span>{{monster.name}}</span>
   </div> -->
 
-  <div class="monster-card text-center text-visible selectable" title="See Monster Details" data-bs-toggle="modal"
-    :data-bs-target="'#monsterModal' + monster.slug" @click=""
+  <div class="monster-card text-center text-visible selectable elevation-2" title="See Monster Details"
+    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click=""
     :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
-    <div class="muted-layer">
+    <div class="muted-layer bg-transparent">
       <span>{{ monster.name }}</span>
     </div>
   </div>
 
-  <div
-    class="modal fade"
-    :id="'monsterModal' + monster.slug"
-    tabindex="-1"
-    aria-labelledby="MonsterDetailsModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+      <div class="modal-content text-visible bg-warning" :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
         <div class="modal-header bg-transparent">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
-          <button
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
@@ -111,11 +101,7 @@
           <p>Sorry, there is no monster data available :(</p>
         </div>
         <div class="modal-footer bg-transparent">
-          <button
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-          >
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
             Close
           </button>
         </div>
@@ -165,14 +151,13 @@ export default {
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.438) !important;
+  background-color: rgba(0, 0, 0, 0.442) !important;
 }
 
 .muted-layer {
   height: 10rem;
   width: 8rem;
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.639);
   display: grid;
   justify-content: center;
   align-content: center;
@@ -184,5 +169,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.text-visible {
+  color: rgb(216, 224, 229);
+}
+
+.text-visible:hover {
+  color: rgb(216, 224, 229) !important;
 }
 </style>
