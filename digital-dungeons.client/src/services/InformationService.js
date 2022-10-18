@@ -49,6 +49,7 @@ class InformationService {
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
     this.setDefaultImgByType()
+    this.setSpellSchoolImage()
   }
 
   setActiveCategory(category) {
@@ -103,7 +104,34 @@ class InformationService {
     })
   }
 
+  setSpellSchoolImage() {
+    AppState.spells.forEach(spell => {
+      if (spell.school.toUpperCase().includes("ABJURATION")) {
+        
+      }
+      if (spell.school.toUpperCase().includes("CONJURATION")) {
 
+      }
+      if (spell.school.toUpperCase().includes("DIVINATION")) {
+
+      }
+      if (spell.school.toUpperCase().includes("ENCHANTMENT")) {
+
+      }
+      if (spell.school.toUpperCase().includes("EVOCATION")) {
+
+      }
+      if (spell.school.toUpperCase().includes("ILLUSION")) {
+
+      }
+      if (spell.school.toUpperCase().includes("NECROMANCY")) {
+
+      }
+      if (spell.school.toUpperCase().includes("TRANSMUTATION")) {
+
+      }
+    })
+  }
 }
 
 export const informationService = new InformationService()

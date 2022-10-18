@@ -18,6 +18,7 @@ export class Spell {
     this.dnd_class = data.dnd_class
     this.archetype = data.archetype
     this.circles = data.circles
+    this.schoolImg = data.schoolImg || "https://thiscatdoesnotexist.com"
     // this.document__slug = data.document__slug
     // this.document__title = data.document__title
     // this.document__license_url = data.document__license_url

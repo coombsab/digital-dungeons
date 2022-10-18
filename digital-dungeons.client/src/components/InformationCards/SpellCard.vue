@@ -2,7 +2,7 @@
   <!-- NOTE DISPLAY CARD -->
   <div class="spell-card text-center text-visible selectable elevation-2" title="See Spell Details"
     data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
-    :style="spell.image ? {backgroundImage: `url(${spell.image})`} : ''">
+    :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ spell.name }}</span>
     </div>
@@ -13,7 +13,7 @@
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning"
-        :style="spell.image ? {backgroundImage: `url(${spell.image})`} : ''">
+        :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="SpellDetailsModalLabel">
             {{ spell?.name }}
