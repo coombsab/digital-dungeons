@@ -18,7 +18,7 @@
           <div class="col-2 pt-2">
             <button v-if="activeEncounter.creatorId == account.id" class="btn btn-danger MonsterC" type="button"
               data-bs-toggle="modal" data-bs-target="#CreateEncounterModal">
-              Create Monster
+              Add Monster
             </button>
           </div>
         </section>
