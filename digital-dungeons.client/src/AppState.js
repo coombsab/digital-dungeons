@@ -35,6 +35,7 @@ export const AppState = reactive({
   /** @type {import('./models/Spell.js').Spell} */
   activeCategory: null,
 
+  hidden: false,
   nextPage: null,
   previousPage: null,
   count: null,

@@ -43,12 +43,15 @@
             class="btn-visible text-visible"
             data-bs-dismiss="modal"
             aria-label="Close"
+            @click.stop="toggleHidden()"
           >
             X
           </button>
         </div>
         <div class="modal-body bg-transparent" v-if="monster">
-          <div class="modal-body" v-if="monster">
+          <!-- SECTION Monster Details -->
+          <!-- NOTE hide place fxn implementation -->
+          <div class="modal-body" v-if="hidden == false">
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Type</h6>
@@ -117,28 +120,171 @@
               </div>
             </div>
           </div>
+          <!-- SECTION Monster Edits -->
+          <div class="modal-body all-transparent" v-else>
+            <form
+              action="submit"
+              class="card text-secondary all-transparent"
+              @submit.prevent="editMonster(monster.id)"
+            >
+              <div class="modal-content all-transparent">
+                <!-- Section -->
+                <div class="modal-body all-transparent">
+                  <div
+                    class="d-flex gap-3 justify-content-around mb-1 all-transparent"
+                  >
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="text"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.nickName"
+                        name="nick Name"
+                        placeholder="Name:"
+                        maxlength="500"
+                      />
+                      <label for="nickName">Name:</label>
+                    </div>
+
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="number"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.quantity"
+                        name="quantity"
+                        max="10000"
+                        placeholder="Quantity:"
+                      />
+                      <label for="quantity">Quantity:</label>
+                    </div>
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="number"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.hit_points"
+                        name="hit_points"
+                        max="10000"
+                        placeholder="Hit Points:"
+                      />
+                      <label for="hit_points">Hit Points:</label>
+                    </div>
+                  </div>
+                  <!-- Section -->
+                  <div class="d-flex gap-3 justify-content-around mb-3">
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="number"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.initiative"
+                        name="initiative"
+                        placeholder="Initiative:"
+                        max="100"
+                      />
+                      <label for="initiative">Initiative:</label>
+                    </div>
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="number"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.speed"
+                        name="speed"
+                        placeholder="Speed:"
+                      />
+                      <label for="speed">Speed:</label>
+                    </div>
+                    <div class="form-floating mb-3 text-visible">
+                      <input
+                        type="number"
+                        class="form-control input-bg text-visible"
+                        v-model="editable.armor_class"
+                        max="100"
+                        name="armor_class"
+                        placeholder="Amor Class:"
+                      />
+                      <label for="armor_class">Amor Class:</label>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3 text-visible">
+                    <textarea
+                      type="text"
+                      class="form-control textarea-height input-bg text-visible"
+                      v-model="editable.desc"
+                      name="desc"
+                      stye="resize: none"
+                      placeholder="Description:"
+                      maxlength="500"
+                    ></textarea>
+                    <label for="desc">Description:</label>
+                  </div>
+                </div>
+                <!-- Section -->
+                <div
+                  class="modal-footer all-transparent d-flex justify-content-between"
+                >
+                  <button
+                    type="button"
+                    class="btn-visible text-visible"
+                    @click.stop="toggleHidden()"
+                  >
+                    Monster Details
+                  </button>
+                  <button
+                    class="btn-visible text-visible"
+                    data-bs-dismiss="modal"
+                    type="submit"
+                    @click.stop="toggleHidden()"
+                  >
+                    Make These Edits
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+        <!-- SECTION No monster Data -->
         <div class="modal-body bg-transparent" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent d-flex justify-content-between">
-          <button
+        <div v-if="hidden == false">
+          <div
+            class="modal-footer bg-transparent d-flex justify-content-between"
             v-if="account.id == encounter.creatorId"
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-            @click.stop="removeMonster(monster.id)"
           >
-            Remove Monster
-          </button>
+            <div>
+              <button
+                v-if="hidden == false"
+                type="button"
+                class="btn-visible text-visible"
+                @click.stop="toggleHidden()"
+              >
+                Edit Monster
+              </button>
+              <button
+                v-else
+                type="button"
+                class="btn-visible text-visible"
+                @click.stop="toggleHidden()"
+              >
+                Monster Details
+              </button>
+            </div>
+            <button
+              type="button"
+              class="btn-visible text-visible"
+              data-bs-dismiss="modal"
+              @click.stop="removeMonster(monster.id)"
+            >
+              Remove Monster
+            </button>
+          </div>
         </div>
+        <div v-else></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";
 import { Monster } from "../models/Monster.js";
 import { monstersService } from "../services/MonstersService.js";
@@ -149,9 +295,22 @@ export default {
     monster: { type: Monster, required: true },
   },
   setup(props) {
+    let editable = ref({});
+    watchEffect(() => {
+      editable.value = { ...props.monster };
+    });
     return {
+      editable,
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.activeEncounter),
+      hidden: computed(() => AppState.hidden),
+      async toggleHidden() {
+        try {
+          AppState.hidden = !AppState.hidden;
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
       async removeMonster(id) {
         try {
           const yes = await Pop.confirm(
@@ -161,6 +320,14 @@ export default {
             return;
           }
           await monstersService.removeMonster(id);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+      async editMonster(id) {
+        try {
+          console.log(props.monster.id, id);
+          await monstersService.editMonster(editable.value, id);
         } catch (error) {
           Pop.error(error);
         }
@@ -192,13 +359,21 @@ export default {
   background-size: cover;
 }
 
+.input-bg {
+  background-color: rgba(0, 0, 0, 0.552) !important;
+}
+
 .modal-content {
   background-position: center;
   background-size: cover;
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.639) !important;
+  background-color: rgba(0, 0, 0, 0.552) !important;
+}
+
+.all-transparent {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .muted-layer {
@@ -217,5 +392,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.textarea-height {
+  height: 10rem;
 }
 </style>
