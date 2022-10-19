@@ -1,7 +1,7 @@
 <template>
   <div class="component d-flex flex-column">
     <div class="h-30">
-      <div class="d-flex pt-2">
+      <div class="d-flex ps-2 pt-3 pe-2">
         <!-- NOTE Search Bar -->
         <form class="flex-grow-1" @submit.prevent="handleSubmit()">
           <div class="input-group">
@@ -15,7 +15,8 @@
       </div>
       <!-- NOTE Pagination Buttons -->
       <div class="d-flex justify-content-between align-items-center p-2">
-        <button @click="previous(previousPage)" :disabled="!previousPage" class="btn-visible text-visible">Previous</button>
+        <button @click="previous(previousPage)" :disabled="!previousPage"
+          class="btn-visible text-visible">Previous</button>
         <div class="text-visible" v-if="pages">
           <span> {{currentPage}} / {{pages}} </span>
         </div>
@@ -83,15 +84,16 @@ export default {
 
 
 <style lang="scss" scoped>
-// .h-30 {
-//   height: 15vh;
-// }
+.h-30 {
+  height: 20vh;
+}
 
 .input-width {
   width: 70%;
 }
 
-.btn-visible:disabled,.btn-visible[disabled] {
+.btn-visible:disabled,
+.btn-visible[disabled] {
   cursor: auto;
   border: none;
   filter: brightness(50%);

@@ -79,6 +79,6 @@ button {
 
 .scrollable {
   overflow-y: auto;
-  height: 85vh;
+  height: 80vh;
 }
 </style>
