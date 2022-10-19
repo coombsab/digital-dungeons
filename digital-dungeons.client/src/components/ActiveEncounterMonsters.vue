@@ -5,45 +5,27 @@
   </div> -->
 
   <div class="col-md-3 d-flex justify-content-center mt-3">
-    <div
-      class="monster-card text-center text-visible selectable"
-      title="See Monster Details"
-      data-bs-toggle="modal"
-      :data-bs-target="'#monsterModal' + monster.id"
-      @click=""
-      :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
-    >
+    <div class="monster-card text-center text-visible selectable" title="See Monster Details" data-bs-toggle="modal"
+      :data-bs-target="'#monsterModal' + monster.id" @click=""
+      :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
       <div class="muted-layer">
-        <span>{{ monster.name }}</span>
+        <span>{{ monster.nickName }}</span>
         <span> x {{ monster.quantity }}</span>
       </div>
     </div>
   </div>
 
-  <div
-    class="modal fade"
-    :id="'monsterModal' + monster.id"
-    tabindex="-1"
-    aria-labelledby="MonsterDetailsModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-      <div
-        class="modal-content text-visible"
-        :style="
-          monster.image ? { backgroundImage: `url(${monster.image})` } : ''
-        "
-      >
+      <div class="modal-content text-visible" :style="
+        monster.image ? { backgroundImage: `url(${monster.image})` } : ''
+      ">
         <div class="modal-header bg-transparent">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
-          <button
-            type="button"
-            class="btn-visible text-visible"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
@@ -121,107 +103,55 @@
           </div>
           <!-- SECTION Monster Edits -->
           <div class="modal-body all-transparent" v-else>
-            <form
-              action="submit"
-              class="card text-secondary all-transparent"
-              @submit.prevent="editMonster(monster.id)"
-            >
+            <form action="submit" class="card text-secondary all-transparent" @submit.prevent="editMonster(monster.id)">
               <div class="modal-content all-transparent">
                 <!-- Section -->
-                <div
-                  class="d-flex gap-3 justify-content-around mb-1 all-transparent"
-                >
+                <div class="d-flex gap-3 justify-content-around mb-1 all-transparent">
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="text"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.nickName"
-                      name="nick Name"
-                      placeholder="Name:"
-                      maxlength="500"
-                    />
+                    <input type="text" class="form-control input-bg text-visible" v-model="editable.nickName"
+                      name="nick Name" placeholder="Name:" maxlength="500" />
                     <label for="nickName">Name:</label>
                   </div>
 
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="number"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.quantity"
-                      name="quantity"
-                      placeholder="Quantity:"
-                    />
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.quantity"
+                      name="quantity" max="1000" placeholder="Quantity:" />
                     <label for="quantity">Quantity:</label>
                   </div>
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="number"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.hit_points"
-                      name="hit_points"
-                      max="10000"
-                      placeholder="Hit Points:"
-                    />
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.hit_points"
+                      name="hit_points" max="10000" placeholder="Hit Points:" />
                     <label for="hit_points">Hit Points:</label>
                   </div>
                 </div>
                 <!-- Section -->
                 <div class="d-flex gap-3 justify-content-around mb-3">
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="number"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.initiative"
-                      name="initiative"
-                      placeholder="Initiative:"
-                      max="100"
-                    />
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.initiative"
+                      name="initiative" placeholder="Initiative:" max="100" />
                     <label for="initiative">Initiative:</label>
                   </div>
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="number"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.speed"
-                      name="speed"
-                      placeholder="Speed:"
-                    />
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.speed"
+                      name="speed" placeholder="Speed:" />
                     <label for="speed">Speed:</label>
                   </div>
                   <div class="form-floating mb-3 text-visible">
-                    <input
-                      type="number"
-                      class="form-control input-bg text-visible"
-                      v-model="editable.armor_class"
-                      max="100"
-                      name="armor_class"
-                      placeholder="Amor Class:"
-                    />
-                    <label for="armor_class">Amor Class:</label>
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.armor_class"
+                      max="100" name="armor_class" placeholder="Armor Class:" />
+                    <label for="armor_class">Armor Class:</label>
                   </div>
                 </div>
                 <div class="form-floating mb-3 text-visible">
-                  <textarea
-                    type="text"
-                    class="form-control textarea-height input-bg text-visible"
-                    v-model="editable.desc"
-                    name="desc"
-                    stye="resize: none"
-                    placeholder="Description:"
-                    maxlength="500"
-                  ></textarea>
+                  <textarea type="text" class="form-control textarea-height input-bg text-visible"
+                    v-model="editable.desc" name="desc" stye="resize: none" placeholder="Description:"
+                    maxlength="500"></textarea>
                   <label for="desc">Description:</label>
                 </div>
               </div>
               <!-- Section -->
-              <div
-                class="modal-footer all-transparent d-flex justify-content-between"
-              >
-                <button
-                  type="button"
-                  class="btn-visible text-visible"
-                  @click.stop="toggleHidden()"
-                >
+              <div class="modal-footer all-transparent d-flex justify-content-between">
+                <button type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
                   Monster Details
                 </button>
                 <button class="btn-visible text-visible" type="submit">
@@ -236,34 +166,18 @@
           <p>Sorry, there is no monster data available :(</p>
         </div>
         <div v-if="account.id == encounter.creatorId">
-          <div
-            class="modal-footer bg-transparent d-flex justify-content-between"
-            v-if="hidden == false"
-          >
+          <div class="modal-footer bg-transparent d-flex justify-content-between" v-if="hidden == false">
             <div>
-              <button
-                v-if="hidden == false"
-                type="button"
-                class="btn-visible text-visible"
-                @click.stop="toggleHidden()"
-              >
+              <button v-if="hidden == false" type="button" class="btn-visible text-visible"
+                @click.stop="toggleHidden()">
                 Edit Monster
               </button>
-              <button
-                v-else
-                type="button"
-                class="btn-visible text-visible"
-                @click.stop="toggleHidden()"
-              >
+              <button v-else type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
                 Monster Details
               </button>
             </div>
-            <button
-              type="button"
-              class="btn-visible text-visible"
-              data-bs-dismiss="modal"
-              @click.stop="removeMonster(monster.id)"
-            >
+            <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal"
+              @click.stop="removeMonster(monster.id)">
               Remove Monster
             </button>
           </div>
@@ -385,6 +299,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
 .textarea-height {
   height: 10rem;
 }

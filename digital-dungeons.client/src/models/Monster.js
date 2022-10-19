@@ -7,7 +7,7 @@ export class Monster {
     this.initiative = data.initiative;
     this.image = data.image;
     this.desc = data.desc;
-    this.nickName = data.nickName;
+    this.nickName = data.nickName || data.name;
     this.quantity = data.quantity
     // NOTE Data below comes from Api
     this.slug = data.slug;
