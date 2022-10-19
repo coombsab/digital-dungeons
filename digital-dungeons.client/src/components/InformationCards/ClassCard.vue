@@ -11,7 +11,7 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'dndClassModal' + dndClass.slug" tabindex="-1" aria-labelledby="DndClassDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg h-80">
       <div class="modal-content text-visible bg-warning"
         :style="dndClass.coverImg ? {backgroundImage: `url(${dndClass.coverImg})`} : ''">
 
@@ -180,8 +180,12 @@ export default {
   color: rgb(216, 224, 229) !important;
 }
 
-.scrollable {
+.h-80 {
   max-height: 80vh;
+}
+
+.scrollable {
+  max-height: 60vh;
   overflow-y: auto;
 }
 </style>
