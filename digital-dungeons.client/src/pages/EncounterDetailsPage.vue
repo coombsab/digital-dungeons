@@ -22,7 +22,6 @@
               <div class="col-12 d-flex">
                 <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
                 <p class="p-5">{{ activeEncounter?.desc }}</p>
-                <div class="bg-dark p-2"></div>
               </div>
               <!-- SECTION search monsters -->
               <div class="col-4 bg-transparent bottomLeft box">

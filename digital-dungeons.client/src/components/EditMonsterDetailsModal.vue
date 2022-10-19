@@ -4,7 +4,7 @@
     class="monster-card p-3 rounded elevation-2 text-light selectable"
     title="Edit Monster Details"
     data-bs-toggle="modal"
-    :data-bs-target="'#editMonsterDetailModal' + monster.slug"
+    :data-bs-target="'#editMonsterDetailModal' + monster.id"
     @click=""
   >
     <span>{{ monster.name }}</span>
@@ -42,77 +42,83 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="editable.hit_dice"
-                  required
-                  name="hit dice"
-                  placeholder="Hit Dice:"
-                  maxlength="50"
+                  v-model="editable.nickName"
+                  name="nick Name"
+                  placeholder="Name:"
+                  maxlength="500"
                 />
-                <label for="hit_dice">Hit Dice:</label>
+                <label for="nickName">Name:</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="editable.quantity"
+                  name="quantity"
+                  max="10000"
+                  placeholder="Quantity:"
+                />
+                <label for="quantity">Quantity:</label>
               </div>
               <div class="form-floating mb-3">
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  v-model="editable.size"
-                  required
-                  name="size"
-                  placeholder="Size:"
-                  maxlength="50"
+                  v-model="editable.hit_points"
+                  name="hit_points"
+                  max="10000"
+                  placeholder="Hit Points:"
                 />
-                <label for="size">Size:</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="editable.alignment"
-                  required
-                  name="alignment"
-                  placeholder="Alignment:"
-                  maxlength="50"
-                />
-                <label for="alignment">Alignment:</label>
+                <label for="hit_points">Hit Points:</label>
               </div>
             </div>
             <!-- Section -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div class="form-floating mb-3">
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  v-model="editable.hit_points"
-                  required
-                  name="hit_points"
-                  placeholder="Hit Points:"
-                  maxlength="50"
+                  v-model="editable.initiative"
+                  name="initiative"
+                  placeholder="Initiative:"
+                  max="100"
                 />
-                <label for="hit_points">Hit Points:</label>
+                <label for="initiative">Initiative:</label>
               </div>
               <div class="form-floating mb-3">
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  v-model="editable.type"
-                  required
-                  name="type"
-                  placeholder="Type:"
-                  maxlength="50"
+                  v-model="editable.speed"
+                  name="speed"
+                  placeholder="Speed:"
                 />
-                <label for="type">Type:</label>
+                <label for="speed">Speed:</label>
               </div>
               <div class="form-floating mb-3">
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  v-model="editable.type"
-                  required
-                  name="type"
-                  placeholder="Type:"
-                  maxlength="50"
+                  v-model="editable.armor_class"
+                  max="100"
+                  name="armor_class"
+                  placeholder="Amor Class:"
                 />
-                <label for="type">Type:</label>
+                <label for="armor_class">Amor Class:</label>
               </div>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea
+                type="text"
+                class="form-control textarea-height"
+                v-model="editable.desc"
+                name="desc"
+                stye="resize: none"
+                placeholder="Description:"
+                maxlength="500"
+              ></textarea>
+              <label for="desc">Description:</label>
             </div>
           </div>
           <!-- Section -->
@@ -131,10 +137,11 @@
 import Pop from "../utils/Pop";
 import { monstersService } from "../services/MonstersService.js";
 import { ref, watchEffect } from "vue";
+import { Monster } from "../models/Monster.js";
 
 export default {
   props: {
-    monster: { type: Object, required: true },
+    monster: { type: Monster, required: true },
   },
   setup(props) {
     let editable = ref({});
@@ -168,6 +175,10 @@ export default {
 
 p {
   margin: 0;
+}
+
+.textarea-height {
+  height: 10.8rem;
 }
 
 .statistics {
