@@ -94,3 +94,29 @@ form:invalid button[type="submit"] {
   font-weight: 700;
   letter-spacing: 0.035rem;
 }
+.text-visible-light {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(189, 234, 30, 0.678);
+  color: rgb(214, 215, 215);
+  font-weight: 700;
+  letter-spacing: 0.035rem;
+}
+
+.text-visible-light:hover {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(189, 234, 30, 0.678);
+  color: rgb(214, 215, 215)!important;
+  font-weight: 700;
+  letter-spacing: 0.035rem;
+}
+.text-visible-dark {
+  text-shadow: 1px 1px rgb(96, 190, 234), 0px 0px 5px rgba(232, 232, 232, 0.678);
+  color: rgb(23, 23, 23);
+  font-weight: 700;
+  letter-spacing: 0.035rem;
+}
+
+.text-visible-dark:hover {
+  text-shadow: 1px 1px rgb(96, 190, 234), 0px 0px 5px rgba(232, 232, 232, 0.678);
+  color: rgb(23, 23, 23) !important;
+  font-weight: 700;
+  letter-spacing: 0.035rem;
+}

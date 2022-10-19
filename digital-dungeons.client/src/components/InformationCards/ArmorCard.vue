@@ -16,15 +16,35 @@
         :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="ArmorDetailsModalLabel">
-            {{ armor?.name }}
-          </h1>
+          <div class="d-flex justify-content-between align-items-center w-100 px-3">
+            <h1 class="modal-title fs-5 m-0" id="ArmorDetailsModalLabel">{{armor?.name}}</h1>
+            <p class="m-0">{{armor?.cost}}</p>
+          </div>
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
         <div class="modal-body bg-transparent-modal" v-if="armor">
-
+          <div class="d-flex flex-wrap justify-content-around gap-3 mb-3">
+            <div class="text-center">
+              <h6 class="statistics">Category</h6>
+              <p>{{ armor.category}}</p>
+            </div>
+            <div class="text-center">
+              <h6 class="statistics">Armor Class</h6>
+              <p>{{ armor.ac_string}}</p>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-around gap-3">
+            <div class="text-center">
+              <h6 class="statistics" v-if="armor.strength_requirement">Strength Required</h6>
+              <p>{{ armor.strength_requirement}}</p>
+            </div>
+            <div class="text-center">
+              <h6 v-if="armor.stealth_disadvantage">Stealth Disadvantage</h6>
+              <!-- <p>{{ armor.stealth_disadvantage}}</p> -->
+            </div>
+          </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -172,5 +192,9 @@ export default {
 
 .text-visible:hover {
   color: rgb(216, 224, 229) !important;
+}
+
+h6 {
+  color: var(--info);
 }
 </style>
