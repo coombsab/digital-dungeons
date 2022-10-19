@@ -5,8 +5,8 @@
         <div v-if="activeEncounter" class="h00 elevated rounded">
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
-              <div class="bg-dark text-center">
-                <div class="bg-secondary text-white">
+              <div class="AETitle text-center">
+                <div class="text-shadow2">
                   <h2>{{ activeEncounter?.name }}</h2>
                 </div>
               </div>
@@ -21,7 +21,7 @@
             <section class="row top">
               <div class="col-12 d-flex">
                 <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
-                <p class="p-5">{{ activeEncounter?.desc }}</p>
+                <p class="p-5 text-shadow">{{ activeEncounter?.desc }}</p>
               </div>
               <!-- SECTION search monsters -->
               <div class="col-4 bg-transparent bottomLeft box">
@@ -156,9 +156,37 @@ export default {
   background-position: center;
 }
 
+.text-shadow {
+  color: rgb(113, 166, 177);
+  text-shadow: 1px 1px rgb(28, 51, 74), 0px 0px 5px rgb(136, 62, 147);
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+.text-shadow2 {
+  color: rgba(117, 117, 13, 0.727);
+  text-shadow: 1px 1px rgb(88, 27, 27), 0px 0px 5px rgb(105, 41, 115);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
 .MonsterC:hover {
   transform: scale(1.2);
 }
+
+.AETitle {
+  background-color: rgba(105, 19, 102, 0.505);
+  border-top: 6px solid;
+  border-bottom: 6px solid;
+  border-color: rgba(119, 19, 125, 0.749);
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+
+
 
 .glass {
   background-color: rgba(38, 37, 37, 0.397);
