@@ -115,7 +115,7 @@
 
                   <div class="form-floating mb-3 text-visible">
                     <input type="number" class="form-control input-bg text-visible" v-model="editable.quantity"
-                      name="quantity" placeholder="Quantity:" />
+                      name="quantity" max="1000" placeholder="Quantity:" />
                     <label for="quantity">Quantity:</label>
                   </div>
                   <div class="form-floating mb-3 text-visible">
@@ -138,8 +138,8 @@
                   </div>
                   <div class="form-floating mb-3 text-visible">
                     <input type="number" class="form-control input-bg text-visible" v-model="editable.armor_class"
-                      max="100" name="armor_class" placeholder="Amor Class:" />
-                    <label for="armor_class">Amor Class:</label>
+                      max="100" name="armor_class" placeholder="Armor Class:" />
+                    <label for="armor_class">Armor Class:</label>
                   </div>
                 </div>
                 <div class="form-floating mb-3 text-visible">

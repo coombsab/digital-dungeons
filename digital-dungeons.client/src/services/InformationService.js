@@ -1,4 +1,5 @@
 import { AppState } from "../AppState"
+import { Armor } from "../models/Armor.js"
 import { DndClass } from "../models/DndClass.js"
 import { MagicItem } from "../models/MagicItem.js"
 import { Monster } from "../models/Monster"
@@ -36,12 +37,15 @@ class InformationService {
         break;
       case "magicitems":
         AppState.magicitems = res.data.results.map(data => new MagicItem(data))
+        this.setMagicItemCoverImg()
         break;
       case "weapons":
         AppState.weapons = res.data.results.map(data => new Weapon(data))
+        this.setWeaponCoverImg()
         break;
       case "armor":
-        AppState.armor = res.data.results
+        AppState.armor = res.data.results.map(data => new Armor(data))
+        this.setArmorCoverImg()
         break;
       default:
         break;
@@ -203,6 +207,85 @@ class InformationService {
       }
       if (dndClass.name.toUpperCase().includes("WIZARD")) {
         dndClass.coverImg = "https://64.media.tumblr.com/d0ba6a6102cfcfb18705eb75292e774c/tumblr_inline_p1xkkj2Y4w1qdq19t_640.jpg"
+      }
+    })
+  }
+
+  setMagicItemCoverImg() {
+    AppState.magicitems.forEach(mi => {
+      if (mi.type.toUpperCase().includes("ARMOR")) {
+        mi.coverImg = "https://www.epicpath.org/images/e/ec/Magic_Armor_1.jpg"
+      }
+      if (mi.type.toUpperCase().includes("POTION")) {
+        mi.coverImg = "https://www.nicepng.com/png/detail/152-1527956_potion-of-deaths-postponement-dnd-magic-item-art.png"
+      }
+      if (mi.type.toUpperCase().includes("STAFF")) {
+        mi.coverImg = "https://64.media.tumblr.com/35050200c9e21d5ac0af91dcecd80da9/464c252922a66e73-e4/s1280x1920/d7b6a8be8dfa626c330f620a0d48e61ca14bafde.jpg"
+      }
+      if (mi.type.toUpperCase().includes("ROD")) {
+        mi.coverImg = "https://64.media.tumblr.com/b82c60224516a2b31ab725304c563dd1/41c92f428cc8bf81-8e/s1280x1920/ddf4e6f3b659d856861f104837f06e695e30ceb9.jpg"
+      }
+      if (mi.type.toUpperCase().includes("RING")) {
+        mi.coverImg = "http://www.dndadventure.com/wp-content/uploads/2017/03/ring.jpg"
+      }
+      if (mi.type.toUpperCase().includes("WAND")) {
+        mi.coverImg = "https://static.wikia.nocookie.net/forgottenrealms/images/5/53/WandMagicMissiles.jpeg"
+      }
+      if (mi.type.toUpperCase().includes("WEAPON")) {
+        mi.coverImg = "https://static.wikia.nocookie.net/forgottenrealms/images/3/34/Greatsword_of_impiltur.jpg"
+      }
+      if (mi.type.toUpperCase().includes("WONDROUS")) {
+        mi.coverImg = "https://i.ibb.co/2Zf3T0J/chest-edited.png"
+      }
+    })
+  }
+
+  setWeaponCoverImg() {
+    AppState.weapons.forEach(w => {
+      if (w.category.toUpperCase().includes("MARTIAL MELEE")) {
+        w.coverImg = "https://cdn.conceptartempire.com/images/11/3090/03-warhammer-ax.jpg"
+      }
+      if (w.category.toUpperCase().includes("MARTIAL RANGED")) {
+        w.coverImg = "https://64.media.tumblr.com/acf848cf853aea27a9523ff162385249/e2bf892b04919957-36/s1280x1920/cefdd4bdc1531b1918c8f48b8c524e53e3c71242.jpg"
+      }
+      if (w.category.toUpperCase().includes("SIMPLE MELEE")) {
+        w.coverImg = "https://sites.google.com/site/pathfinderogc/_/rsrc/1487036772539/images/club.png"
+      }
+      if (w.category.toUpperCase().includes("SIMPLE RANGED")) {
+        w.coverImg = "https://static.wikia.nocookie.net/saga-of-survival/images/9/93/Sling.png"
+      }
+    })
+  }
+
+  setArmorCoverImg() {
+
+    AppState.armor.forEach(a => {
+      if (a.name.toUpperCase().includes("DRACON")) {
+        a.coverImg = "https://t4.ftcdn.net/jpg/02/20/75/65/360_F_220756504_msEZzapwxdgSCal55lWBcWwtYPOmkmXN.jpg"
+      }
+      if (a.name.toUpperCase().includes("BARBARIAN")) {
+        a.coverImg = "https://preview.redd.it/ec8qfjg0zsw11.jpg?auto=webp&s=8a0d23b866d25e7d6b0ed0829192d492efcdcfba"
+      }
+      if (a.name.toUpperCase().includes("MONK")) {
+        a.coverImg = "https://i.pinimg.com/originals/a2/14/90/a21490ace77ec8dd41513e4cc25e1958.png"
+      }
+      if (a.category.toUpperCase().includes("NO ARMOR")) {
+        a.coverImg = "https://i.pinimg.com/originals/b3/f6/ae/b3f6ae3234bd72908574d44b279532ab.jpg"
+      }
+      if (a.category.toUpperCase().includes("LIGHT")) {
+        a.coverImg = "https://i.pinimg.com/564x/f0/d7/5c/f0d75cba4311cb66ace2531324c9ebf8.jpg"
+      }
+      if (a.category.toUpperCase().includes("MEDIUM")) {
+        a.coverImg = "https://cdnb.artstation.com/p/assets/images/images/029/874/723/large/wil-hromek-medium-avatar.jpg"
+      }
+      if (a.category.toUpperCase().includes("HEAVY")) {
+        a.coverImg = "https://cdna.artstation.com/p/assets/images/images/015/441/660/large/wooju-ko-3.jpg"
+      }
+      if (a.category.toUpperCase().includes("SPELL")) {
+        a.coverImg = "https://i.redd.it/6ckbnwsm60i01.png"
+      }
+      if (a.category.toUpperCase().includes("SHIELD")) {
+        a.coverImg = "https://i.ibb.co/6r9BgDV/shield-edited.png"
       }
     })
   }

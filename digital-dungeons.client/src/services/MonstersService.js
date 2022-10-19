@@ -34,6 +34,7 @@ class MonstersService {
     // console.log(monsterData);
     const updatedMonster = new Monster(res.data);
     console.log(res.data);
+    console.log(updatedMonster);
     const index = AppState.monsters.findIndex((m) => m.id == id);
     AppState.monsters.splice(index, 1, updatedMonster);
   }
