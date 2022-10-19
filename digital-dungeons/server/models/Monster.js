@@ -31,7 +31,10 @@ export const MonsterSchema = new Schema(
     charisma_save: { type: Number, default: 0 },
     perception: { type: Number, default: 0 },
     skills: { type: Object, default: {} },
-    damage_vulnerabilities: { type: String, default: "No damage vulnerabilities" },
+    damage_vulnerabilities: {
+      type: String,
+      default: "No damage vulnerabilities",
+    },
     damage_resistances: { type: String, default: "No damage resistances" },
     damage_immunities: { type: String, default: "No damage immunities" },
     condition_immunities: { type: String, default: "No condition immunities" },
