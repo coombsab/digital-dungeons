@@ -149,6 +149,7 @@
                       class="form-control input-bg text-visible"
                       v-model="editable.quantity"
                       name="quantity"
+                      max="1000"
                       placeholder="Quantity:"
                     />
                     <label for="quantity">Quantity:</label>
@@ -195,9 +196,9 @@
                       v-model="editable.armor_class"
                       max="100"
                       name="armor_class"
-                      placeholder="Amor Class:"
+                      placeholder="Armor Class:"
                     />
-                    <label for="armor_class">Amor Class:</label>
+                    <label for="armor_class">Armor Class:</label>
                   </div>
                 </div>
                 <div class="form-floating mb-3 text-visible">
