@@ -11,19 +11,54 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'weaponModal' + weapon.slug" tabindex="-1" aria-labelledby="WeaponDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning"
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content text-visible bg-secondary h-80"
         :style="weapon.coverImg ? {backgroundImage: `url(${weapon.coverImg})`} : ''">
 
-        <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="WeaponDetailsModalLabel">
+        <div class="modal-header bg-transparent-modal d-flex align-items-center">
+          <h1 class="modal-title fs-5 text-info text-shadow" id="WeaponDetailsModalLabel">
             {{ weapon?.name }}
           </h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
+          <div class="d-flex align-items-center">
+            <p class="text-info text-shadow me-1 my-auto">Cost:</p>
+            <p class=" my-auto">{{weapon?.cost}}</p>
+          </div>
+          <div></div>
         </div>
-        <div class="modal-body bg-transparent-modal" v-if="weapon">
+        <div class="modal-body bg-transparent-modal d-flex flex-column justify-content-around" v-if="weapon">
+          <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div>
+              <h6 class="statistics text-info">Category</h6>
+              <p>{{ weapon.category}}</p>
+            </div>
+            <div>
+              <h6 class="statistics text-info">Weight</h6>
+              <p>{{ weapon.weight}}</p>
+            </div>
+          </div>
+          <div>
+            <h6 class="statistics text-info">Damage</h6>
+            <div class="d-flex justify-content-around">
+              <div class="d-flex">
+                <p class="text-info me-1">Roll(s) and Die:</p>
+                <p>{{ weapon.damage_dice}}</p>
+              </div>
+              <div class="d-flex">
+                <p class="text-info me-1">Type:</p>
+                <p>{{ weapon.damage_type}}</p>
+              </div>
+            </div>
+          </div>
+          <div>
+
+            <h6 v-if="weapon.properties" class="statistics text-info">Properties</h6>
+            <h6 v-else class=""></h6>
+            <div class="d-flex justify-content-around flex-wrap">
+              <div class="" v-for="p in weapon.properties">
+                <p class="">{{p}}</p>
+              </div>
+            </div>
+          </div>
 
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
@@ -166,11 +201,47 @@ export default {
   align-items: center;
 }
 
+.statistics2 {
+  border-bottom: 1px solid gray;
+  display: flex;
+  align-items: center;
+}
+
 .text-visible {
   color: rgb(216, 224, 229);
 }
 
 .text-visible:hover {
   color: rgb(216, 224, 229) !important;
+}
+
+.text-shadow {
+  color: aliceblue;
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(229, 222, 221);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+    /* Second Color  in text-shadow is the blur */
+}
+
+.text-info {
+  color: aliceblue;
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(229, 222, 221);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.text-light {
+  color: aliceblue;
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(229, 222, 221);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.h-80 {
+  height: 80vh;
+}
+
+.modal-xl {
+  width: 50vw !important;
 }
 </style>
