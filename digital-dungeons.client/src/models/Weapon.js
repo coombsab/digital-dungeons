@@ -1,5 +1,6 @@
 export class Weapon {
   constructor(data) {
+    this.coverImg = data.coverImg
     this.name = data.name
     this.slug = data.slug
     this.category = data.category

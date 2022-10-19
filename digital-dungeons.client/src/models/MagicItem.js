@@ -1,5 +1,6 @@
 export class MagicItem {
   constructor(data) {
+    this.coverImg = data.coverImg
     this.name = data.name
     this.slug = data.slug
     this.desc = data.desc
