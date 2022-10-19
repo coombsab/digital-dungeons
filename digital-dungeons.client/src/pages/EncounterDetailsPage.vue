@@ -20,11 +20,7 @@
             </section>
             <section class="row top">
               <div class="col-12 d-flex">
-                <img
-                  :src="activeEncounter?.coverImg"
-                  alt=""
-                  class="img-fluid encounterImage"
-                />
+                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
                 <p class="p-5">{{ activeEncounter?.desc }}</p>
                 <div class="bg-dark p-2"></div>
               </div>
@@ -35,13 +31,8 @@
                     <form class="w-100" @submit.prevent="handleSubmit()">
                       <div class="input-group">
                         <div class="form-floating input-width">
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Search"
-                            id="floatingSearch"
-                            v-model="editable"
-                          />
+                          <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
+                            v-model="editable" />
                           <label for="floatingSearch">Search</label>
                         </div>
                         <button type="submit" class="form-control">
@@ -51,29 +42,18 @@
                     </form>
                   </div>
                   <div class="d-flex justify-content-between">
-                    <button
-                      @click="changePage(previousPage)"
-                      :disabled="!previousPage"
-                      class="btn btn-danger me-2"
-                      :class="{ disabled: !previousPage }"
-                    >
+                    <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
+                      :class="{ disabled: !previousPage }">
                       Previous
                     </button>
-                    <button
-                      @click="changePage(nextPage)"
-                      :disabled="!nextPage"
-                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`"
-                    >
+                    <button @click="changePage(nextPage)" :disabled="!nextPage"
+                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">
                       Next
                     </button>
                   </div>
                   <div class="col-12">
                     <div class="px-3 scrollable">
-                      <MonsterDetailsModal
-                        v-for="m in monsters"
-                        :key="m.slug"
-                        :monster="m"
-                      />
+                      <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
                     </div>
                   </div>
                 </div>
@@ -81,11 +61,7 @@
               <!-- SECTION my monsters -->
               <div class="col-md-8">
                 <div class="row">
-                  <ActiveEncounterMonsters
-                    v-for="m in activeMonsters"
-                    :key="m.slug"
-                    :monster="m"
-                  />
+                  <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.slug" :monster="m" />
                 </div>
               </div>
             </section>
