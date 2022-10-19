@@ -1,103 +1,126 @@
 <template>
-  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
-    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
-    <span>{{monster.name}}</span>
+  <!-- NOTE DISPLAY CARD -->
+  <div class="race-card text-center text-visible selectable elevation-2" title="See Race Details" data-bs-toggle="modal"
+    :data-bs-target="'#raceModal' + race.slug" @click=""
+    :style="race.coverImg ? {backgroundImage: `url(${race.coverImg})`} : ''">
+    <div class="muted-layer bg-transparent">
+      <span>{{ race?.name }}</span>
+    </div>
   </div>
 
-  <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
+  <!-- NOTE MODAL -->
+  <div class="modal fade" :id="'raceModal' + race.slug" tabindex="-1" aria-labelledby="RaceDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">{{monster?.name}}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content text-visible bg-warning"
+        :style="race.coverImg ? {backgroundImage: `url(${race.coverImg})`} : ''">
+
+        <div class="modal-header bg-transparent-modal">
+          <h1 class="modal-title fs-5" id="RaceDetailsModalLabel">
+            {{ race?.name }}
+          </h1>
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
+            X
+          </button>
         </div>
-        <div class="modal-body" v-if="monster">
-          <div class="d-flex flex-wrap justify-content-around mb-3">
+        <div class="modal-body bg-transparent-modal" v-if="race">
+          <div class="d-flex flex-wrap mb-3">
             <div>
-              <h6 class="statistics">Hit Dice</h6>
-              <p>{{monster.hit_dice}}</p>
+              <p>{{ race.age}}</p>
             </div>
             <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{monster.size}}</p>
+              <p>{{ race.alignment}}</p>
             </div>
             <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{monster.alignment}}</p>
+              <p>{{ race.speed_desc}}</p>
             </div>
             <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{monster.hit_points}}</p>
-            </div>
-          </div>
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Type</h6>
-              <p>{{monster.type}}</p>
+              <p>{{ race.languages}}</p>
             </div>
             <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{monster.size}}</p>
+              <p>{{ race.vision}}</p>
             </div>
             <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{monster.alignment}}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{monster.hit_points}}</p>
+              <p>{{ race.traits}}</p>
             </div>
           </div>
         </div>
-        <div class="modal-body" v-else>
-          <p>Sorry, there is no monster data available :(</p>
+        <div class="modal-body bg-transparent-modal" v-else>
+          <p>Sorry, there is no race data available :(</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="modal-footer bg-transparent-modal">
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
+            Close
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-
-
-
 <script>
-import { Monster } from '../../models/Monster.js';
-
-
+import { Race } from "../../models/Race.js";
 
 export default {
   props: {
-    monster: { type: Monster, required: true }
+    race: { type: Race, required: true },
   },
   setup(props) {
-    return {
-
-    };
+    return {};
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.monster-card {
-  background-color: green;
-  height: fit-content;
-  margin-bottom: 1.5rem;
-  margin-top: .5rem;
+.race-card {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
 }
 
-p {
-  margin: 0;
+.modal-content {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-transparent {
+  background-color: rgba(10, 10, 10, 0.804) !important;
+}
+
+.bg-transparent:hover {
+  background-color: rgba(10, 10, 10, 0.303) !important;
+}
+
+.bg-transparent-modal {
+  background-color: rgba(10, 10, 10, 0.442) !important;
+}
+
+.muted-layer {
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 0.5rem;
 }
 
 .statistics {
   border-bottom: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.text-visible {
+  color: rgb(216, 224, 229);
+}
+
+.text-visible:hover {
+  color: rgb(216, 224, 229) !important;
 }
 </style>

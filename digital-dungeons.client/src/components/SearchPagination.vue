@@ -1,9 +1,9 @@
 <template>
-  <div class="component">
+  <div class="component d-flex flex-column">
     <div class="h-30">
-      <div class="d-flex p-2">
+      <div class="d-flex ps-2 pt-3 pe-2">
         <!-- NOTE Search Bar -->
-        <form class="w-100" @submit.prevent="handleSubmit()">
+        <form class="flex-grow-1" @submit.prevent="handleSubmit()">
           <div class="input-group">
             <div class="form-floating input-width">
               <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
@@ -14,11 +14,13 @@
         </form>
       </div>
       <!-- NOTE Pagination Buttons -->
-      <div class="d-flex justify-content-between">
-        <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
-          :class="{'disabled' : !previousPage}">Previous</button>
-        <button @click="changePage(nextPage)" :disabled="!nextPage"
-          :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
+      <div class="d-flex justify-content-between align-items-center p-2">
+        <button @click="previous(previousPage)" :disabled="!previousPage"
+          class="btn-visible text-visible">Previous</button>
+        <div class="text-visible" v-if="pages">
+          <span> {{currentPage}} / {{pages}} </span>
+        </div>
+        <button @click="next(nextPage)" :disabled="!nextPage" class="btn-visible text-visible">Next</button>
       </div>
     </div>
   </div>
@@ -39,22 +41,40 @@ export default {
       editable,
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
+      pages: computed(() => Math.ceil(AppState.count / 50)),
+      currentPage: computed(() => AppState.currentPage),
       async handleSubmit() {
         try {
           // STUB change to active category
           await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
           editable.value = ""
+          AppState.currentPage = 1
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
           Pop.error(error.message)
         }
       },
-      async changePage(pageUrl) {
+      async previous(pageUrl) {
         try {
           await informationService.getApiInfo(pageUrl)
+          const index = AppState.nextPage.indexOf("page=")
+          AppState.currentPage = parseInt(AppState.nextPage.substring(index + 5, AppState.nextPage.length)) - 1
         } catch (error) {
-          Pop.error(error, '[changingPage]')
+          Pop.error(error, '[previousPage]')
+        }
+      },
+      async next(pageUrl) {
+        try {
+          await informationService.getApiInfo(pageUrl)
+          const index = AppState.previousPage.indexOf("page=")
+          if (parseInt(AppState.previousPage.substring(index + 5, AppState.previousPage.length))) {
+            AppState.currentPage = parseInt(AppState.previousPage.substring(index + 5, AppState.previousPage.length)) + 1
+          } else {
+            AppState.currentPage = 2
+          }
+        } catch (error) {
+          Pop.error(error, '[nextPage]')
         }
       },
     }
@@ -64,11 +84,14 @@ export default {
 
 
 <style lang="scss" scoped>
-.h-30 {
-  height: 15vh;
-}
-
 .input-width {
   width: 70%;
+}
+
+.btn-visible:disabled,
+.btn-visible[disabled] {
+  cursor: auto;
+  border: none;
+  filter: brightness(50%);
 }
 </style>

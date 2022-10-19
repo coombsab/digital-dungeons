@@ -2,7 +2,7 @@
   <!-- NOTE DISPLAY CARD -->
   <div class="spell-card text-center text-visible selectable elevation-2" title="See Spell Details"
     data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
-    :style="spell.image ? {backgroundImage: `url(${spell.image})`} : ''">
+    :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ spell.name }}</span>
     </div>
@@ -12,18 +12,27 @@
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning"
-        :style="spell.image ? {backgroundImage: `url(${spell.image})`} : ''">
+      <div class="modal-content text-visible bg-black"
+        :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="SpellDetailsModalLabel">
             {{ spell?.name }}
           </h1>
+          <div class="d-flex justify-content-around gap-3">
+            <span>{{spell?.duration}}</span>
+            <span>{{spell?.range}}</span>
+          </div>
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
         <div class="modal-body bg-transparent-modal" v-if="spell">
-
+          <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div>
+              <h6 class="statistics">School</h6>
+              <p>{{ spell.school}}</p>
+            </div>
+          </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -132,6 +141,10 @@ export default {
   background-size: cover;
 }
 
+bg-black {
+  background-color: rgb(17, 17, 17);
+}
+
 .modal-content {
   background-position: center;
   background-size: cover;
@@ -146,7 +159,7 @@ export default {
 }
 
 .bg-transparent-modal {
-  background-color: rgba(10, 10, 10, 0.442) !important;
+  background-color: rgba(10, 10, 10, 0.576) !important;
 }
 
 .muted-layer {
@@ -166,11 +179,11 @@ export default {
   align-items: center;
 }
 
-.text-visible {
-  color: rgb(216, 224, 229);
-}
+// .text-visible {
+//   color: rgb(216, 224, 229);
+// }
 
-.text-visible:hover {
-  color: rgb(216, 224, 229) !important;
-}
+// .text-visible:hover {
+//   color: rgb(216, 224, 229) !important;
+// }
 </style>
