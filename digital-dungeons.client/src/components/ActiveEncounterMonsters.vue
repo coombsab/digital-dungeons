@@ -149,7 +149,6 @@
                       class="form-control input-bg text-visible"
                       v-model="editable.quantity"
                       name="quantity"
-                      max="10000"
                       placeholder="Quantity:"
                     />
                     <label for="quantity">Quantity:</label>
@@ -225,12 +224,7 @@
                 >
                   Monster Details
                 </button>
-                <button
-                  class="btn-visible text-visible"
-                  data-bs-dismiss="modal"
-                  type="submit"
-                  @click.stop="toggleHidden()"
-                >
+                <button class="btn-visible text-visible" type="submit">
                   Make These Edits
                 </button>
               </div>
@@ -295,6 +289,7 @@ export default {
     let editable = ref({});
     watchEffect(() => {
       editable.value = { ...props.monster };
+      AppState.activeEncounterMonsters;
     });
     return {
       editable,
@@ -366,7 +361,7 @@ export default {
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.552) !important;
+  background-color: rgba(0, 0, 0, 0.684) !important;
 }
 
 .all-transparent {

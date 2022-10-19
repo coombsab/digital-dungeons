@@ -33,6 +33,7 @@ class MonstersService {
     const res = await baseApi.put(`api/monsters/${id}`, monsterData);
     // console.log(monsterData);
     const updatedMonster = new Monster(res.data);
+    console.log(res.data);
     const index = AppState.monsters.findIndex((m) => m.id == id);
     AppState.monsters.splice(index, 1, updatedMonster);
   }
