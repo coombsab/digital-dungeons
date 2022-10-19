@@ -25,37 +25,10 @@
                 <div class="bg-dark p-2"></div>
               </div>
               <!-- SECTION search monsters -->
-              <div class="col-4 bg-transparent bottomLeft">
-                <div class="h-30">
-                  <div class="d-flex p-2">
-                    <form class="w-100" @submit.prevent="handleSubmit()">
-                      <div class="input-group">
-                        <div class="form-floating input-width">
-                          <input type="text" class="form-control" placeholder="Search" id="floatingSearch"
-                            v-model="editable" />
-                          <label for="floatingSearch">Search</label>
-                        </div>
-                        <button type="submit" class="form-control">
-                          <i class="mdi mdi-magnify"></i>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
-                      :class="{ disabled: !previousPage }">
-                      Previous
-                    </button>
-                    <button @click="changePage(nextPage)" :disabled="!nextPage"
-                      :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">
-                      Next
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <div class="px-3 scrollable">
-                      <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
-                    </div>
-                  </div>
+              <div class="col-4 bg-transparent bottomLeft box">
+                <SearchPagination />
+                <div class="elem2 scrollable">
+                  <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
                 </div>
               </div>
               <!-- SECTION my monsters -->
@@ -90,6 +63,7 @@ import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
 import AccountPage from "./AccountPage.vue";
 import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
 import { monstersService } from "../services/MonstersService.js";
+import SearchPagination from "../components/SearchPagination.vue";
 export default {
   setup() {
     const route = useRoute();
@@ -118,7 +92,7 @@ export default {
         await monstersService.getMonstersByEncounterId(
           route.params.encounterId
         );
-        console.log(AppState.activeEncounterMonsters);
+        console.log("getMonstersByEncounterId", AppState.activeEncounterMonsters);
       } catch (error) {
         Pop.error(error);
       }
@@ -128,6 +102,7 @@ export default {
       getApiMonsters();
       getMonstersByEncounterId();
     });
+
     const editable = ref("");
     return {
       editable,
@@ -153,14 +128,6 @@ export default {
         }
       },
 
-      async changePage(pageurl) {
-        try {
-          await informationService.getApiInfo(pageurl);
-        } catch (error) {
-          Pop.error(error, "[changigpage]");
-        }
-      },
-
       async changeCategory(category) {
         try {
           await informationService.getApiInfo(category);
@@ -178,6 +145,7 @@ export default {
     MonsterDetailsModal,
     AccountPage,
     ActiveEncounterMonsters,
+    SearchPagination
   },
 };
 </script>
@@ -205,6 +173,19 @@ export default {
 
 .bottomLeft {
   height: 53vh;
+  overflow-y: auto;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.elem2 {
+  flex-grow: 1;
+}
+
+.scrollable {
   overflow-y: auto;
 }
 
