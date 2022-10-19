@@ -24,6 +24,7 @@
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
               <RaceCard v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
+              <ClassCard v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
               <!-- TODO More Cards -->
             </div>
           </div>
@@ -42,6 +43,7 @@ import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
 import { ref } from "vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
+import ClassCard from "../components/InformationCards/ClassCard.vue";
 
 export default {
   setup() {
@@ -51,12 +53,13 @@ export default {
       monsters: computed(() => AppState.monsters),
       spells: computed(() => AppState.spells),
       races: computed(() => AppState.races),
+      classes: computed(() => AppState.classes),
       // TODO More Computeds
       category: computed(() => AppState.activeCategory),
 
     };
   },
-  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard }
+  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard, ClassCard }
 };
 </script>
 

@@ -50,6 +50,7 @@ class InformationService {
     this.setDefaultImgByType()
     this.setSpellSchoolImage()
     this.setRaceCoverImg()
+    this.setClassCoverImg()
   }
 
   setActiveCategory(category) {
@@ -161,6 +162,47 @@ class InformationService {
       }
       if (race.name.toUpperCase().includes("TIEFLING")) {
         race.coverImg = "https://dndink.com/magic/2022/06/tiefling-race-371x480.jpg"
+      }
+    })
+  }
+
+  setClassCoverImg() {
+    AppState.classes.forEach(dndClass => {
+      if (dndClass.name.toUpperCase().includes("BARBARIAN")) {
+        dndClass.coverImg = "https://cdn.shopify.com/s/files/1/1066/8352/files/Ultimate_5e_Barbarian_Class_Guide_large.jpg?v=1555985633"
+      }
+      if (dndClass.name.toUpperCase().includes("BARD")) {
+        dndClass.coverImg = "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_300/http://www.nonfictiongaming.com/wp-content/uploads/2018/04/DND-Bard-Lute-Red.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("CLERIC")) {
+        dndClass.coverImg = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53ac55df-4ffd-4ed6-bc32-e911903d5e47/delmly8-661ddd56-f250-4c90-bca9-8f73704d57ec.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzYWM1NWRmLTRmZmQtNGVkNi1iYzMyLWU5MTE5MDNkNWU0N1wvZGVsbWx5OC02NjFkZGQ1Ni1mMjUwLTRjOTAtYmNhOS04ZjczNzA0ZDU3ZWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Uwt6nOtOHS8OFLh4xC85wV0ZPDL0Qi3G0aeu1V2YQ60"
+      }
+      if (dndClass.name.toUpperCase().includes("DRUID")) {
+        dndClass.coverImg = "https://i0.wp.com/nerdarchy.com/wp-content/uploads/2015/11/druid_by_dleoblack-d5yvham.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("FIGHTER")) {
+        dndClass.coverImg = "https://www.dungeonsolvers.com/wp-content/uploads/2019/02/gxfpQmM.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("MONK")) {
+        dndClass.coverImg = "https://sagegamers.com/ezoimgfmt/149658804.v2.pressablecdn.com/wp-content/uploads/2021/08/diego-vila-aasimar-monk.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("PALADIN")) {
+        dndClass.coverImg = "https://www.gamingtierlist.com/wp-content/uploads/2019/04/paladinguide-2.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("RANGER")) {
+        dndClass.coverImg = "https://arcaneeye.com/wp-content/uploads/2020/06/unnamed1-512x481.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("ROGUE")) {
+        dndClass.coverImg = "https://64.media.tumblr.com/043cc6f6c86b0759699bd01803416de0/565b90c646a608c3-6c/s1280x1920/e4ddadad38b4d72c95350b2da135c4c4cd753189.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("SORCERER")) {
+        dndClass.coverImg = "https://www.gamersdecide.com/sites/default/files/styles/news_images/public/sorc_1.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("WARLOCK")) {
+        dndClass.coverImg = "https://64.media.tumblr.com/5a04482d4c0c441af946b9c1e3fafe72/tumblr_inline_p01n3oeIhQ1qdq19t_1280.jpg"
+      }
+      if (dndClass.name.toUpperCase().includes("WIZARD")) {
+        dndClass.coverImg = "https://64.media.tumblr.com/d0ba6a6102cfcfb18705eb75292e774c/tumblr_inline_p1xkkj2Y4w1qdq19t_640.jpg"
       }
     })
   }
