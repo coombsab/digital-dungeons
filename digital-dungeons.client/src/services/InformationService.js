@@ -49,6 +49,7 @@ class InformationService {
     AppState.count = res.data.count
     this.setDefaultImgByType()
     this.setSpellSchoolImage()
+    this.setRaceCoverImg()
   }
 
   setActiveCategory(category) {
@@ -128,6 +129,38 @@ class InformationService {
       }
       if (spell.school.toUpperCase().includes("TRANSMUTATION")) {
         spell.schoolImg = "https://i.ibb.co/CnKRk3v/transmutation-edited.png"
+      }
+    })
+  }
+
+  setRaceCoverImg () {
+    AppState.races.forEach(race => {
+      if (race.name.toUpperCase().includes("DWARF")) {
+        race.coverImg = "https://static.wikia.nocookie.net/powerlisting/images/3/36/Fantasy-dwarf.jpg"
+      }
+      if (race.name.toUpperCase().includes("ELF")) {
+        race.coverImg = "https://www.wargamer.com/wp-content/uploads/2022/06/dnd-elf-5e-bard.jpg"
+      }
+      if (race.name.toUpperCase().includes("HUMAN")) {
+        race.coverImg = "https://i.imgur.com/wBHnYRv.jpg"
+      }
+      if (race.name.toUpperCase().includes("HALFLING")) {
+        race.coverImg = "https://i.pinimg.com/550x/9e/52/35/9e523504313818a3dc630cf2c97cc6cc.jpg"
+      }
+      if (race.name.toUpperCase().includes("DRAGONBORN")) {
+        race.coverImg = "https://static.wikia.nocookie.net/criticalrole/images/7/73/Dragonborn.png"
+      }
+      if (race.name.toUpperCase().includes("GNOME")) {
+        race.coverImg = "https://explorednd.com/wp-content/uploads/2022/06/Gnome-5e-Guide.jpg"
+      }
+      if (race.name.toUpperCase().includes("HALF-ELF")) {
+        race.coverImg = "https://i.redd.it/0d8a69vn8q531.jpg"
+      }
+      if (race.name.toUpperCase().includes("HALF-ORC")) {
+        race.coverImg = "https://preview.redd.it/7g7txmbu2sg81.png?width=640&crop=smart&auto=webp&s=bf54d2852fedcead1c9fe772b8ae190fe0987813"
+      }
+      if (race.name.toUpperCase().includes("TIEFLING")) {
+        race.coverImg = "https://dndink.com/magic/2022/06/tiefling-race-371x480.jpg"
       }
     })
   }
