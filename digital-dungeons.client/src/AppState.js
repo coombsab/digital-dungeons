@@ -38,4 +38,5 @@ export const AppState = reactive({
   nextPage: null,
   previousPage: null,
   count: null,
+  currentPage: 1,
 });

@@ -46,6 +46,7 @@ class InformationService {
 
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
+    AppState.count = res.data.count
     this.setDefaultImgByType()
     this.setSpellSchoolImage()
   }

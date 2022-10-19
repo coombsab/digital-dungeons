@@ -14,10 +14,13 @@
         </form>
       </div>
       <!-- NOTE Pagination Buttons -->
-      <div class="d-flex justify-content-between">
-        <button @click="changePage(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
+      <div class="d-flex justify-content-between align-items-center">
+        <button @click="previous(previousPage)" :disabled="!previousPage" class="btn btn-danger me-2"
           :class="{'disabled' : !previousPage}">Previous</button>
-        <button @click="changePage(nextPage)" :disabled="!nextPage"
+        <div class="text-visible" v-if="pages">
+          <span> {{currentPage}} / {{pages}} </span>
+        </div>
+        <button @click="next(nextPage)" :disabled="!nextPage"
           :class="`btn btn-danger ${!nextPage ? 'btn-info' : ''}`">Next</button>
       </div>
     </div>
@@ -39,22 +42,40 @@ export default {
       editable,
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
+      pages: computed(() => Math.ceil(AppState.count / 50)),
+      currentPage: computed(() => AppState.currentPage),
       async handleSubmit() {
         try {
           // STUB change to active category
           await informationService.getApiInfo(AppState.activeCategory, { search: editable.value })
           editable.value = ""
+          AppState.currentPage = 1
         }
         catch (error) {
           logger.log('[handleSubmit]', error)
           Pop.error(error.message)
         }
       },
-      async changePage(pageUrl) {
+      async previous(pageUrl) {
         try {
           await informationService.getApiInfo(pageUrl)
+          const index = AppState.nextPage.indexOf("page=")
+          AppState.currentPage = parseInt(AppState.nextPage.substring(index + 5, AppState.nextPage.length)) - 1
         } catch (error) {
-          Pop.error(error, '[changingPage]')
+          Pop.error(error, '[previousPage]')
+        }
+      },
+      async next(pageUrl) {
+        try {
+          await informationService.getApiInfo(pageUrl)
+          const index = AppState.previousPage.indexOf("page=")
+          if (parseInt(AppState.previousPage.substring(index + 5, AppState.previousPage.length))) {
+            AppState.currentPage = parseInt(AppState.previousPage.substring(index + 5, AppState.previousPage.length)) + 1
+          } else {
+            AppState.currentPage = 2
+          }
+        } catch (error) {
+          Pop.error(error, '[nextPage]')
         }
       },
     }
