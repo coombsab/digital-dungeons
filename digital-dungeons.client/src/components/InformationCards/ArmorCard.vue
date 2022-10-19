@@ -1,6 +1,6 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="armor-card text-center text-visible selectable elevation-2" title="See Armor Details"
+  <div class="armor-card text-center text-visible-dark selectable elevation-2" title="See Armor Details"
     data-bs-toggle="modal" :data-bs-target="'#armorModal' + armor.slug" @click=""
     :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
     <div class="muted-layer bg-transparent">
@@ -12,7 +12,7 @@
   <div class="modal fade" :id="'armorModal' + armor.slug" tabindex="-1" aria-labelledby="ArmorDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning"
+      <div class="modal-content text-visible-dark bg-warning"
         :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
@@ -20,7 +20,7 @@
             <h1 class="modal-title fs-5 m-0" id="ArmorDetailsModalLabel">{{armor?.name}}</h1>
             <p class="m-0">{{armor?.cost}}</p>
           </div>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
+          <button type="button" class="btn-visible text-visible-dark" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
@@ -119,7 +119,7 @@
           <p>Sorry, there is no armor data available :(</p>
         </div>
         <div class="modal-footer bg-transparent-modal">
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
+          <button type="button" class="btn-visible text-visible-dark" data-bs-dismiss="modal">
             Close
           </button>
         </div>
@@ -184,14 +184,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.text-visible {
-  color: rgb(216, 224, 229);
-}
-
-.text-visible:hover {
-  color: rgb(216, 224, 229) !important;
 }
 
 h6 {
