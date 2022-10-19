@@ -16,14 +16,11 @@
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
-          <!-- NOTE Search Functionality -->
-          <SearchPagination />
-          <div class="col-12">
-            <div v-if="!category" class="scrollable fs-1 text-visible text-center pt-5">
-              Please select a category
-            </div>
+          <div class="box">
+            <!-- NOTE Search Functionality -->
+            <SearchPagination />
             <!-- NOTE Info Cards -->
-            <div v-else class="info-content px-3 scrollable d-flex flex-wrap gap-4">
+            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
               <!-- TODO More Cards -->
@@ -76,9 +73,17 @@ button {
   backdrop-filter: blur(7px);
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.elem2 {
+  flex-grow: 1;
+}
 
 .scrollable {
   overflow-y: auto;
-  height: 80vh;
 }
 </style>

@@ -84,10 +84,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.h-30 {
-  height: 20vh;
-}
-
 .input-width {
   width: 70%;
 }
