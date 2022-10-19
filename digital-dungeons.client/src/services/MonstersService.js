@@ -38,10 +38,6 @@ class MonstersService {
     const index = AppState.activeEncounterMonsters.findIndex((m) => m.id == id);
     AppState.activeEncounterMonsters.splice(index, 1, updatedMonster);
   }
-
-  setActiveMonster(monster) {
-
-  }
 }
 
 export const monstersService = new MonstersService();
