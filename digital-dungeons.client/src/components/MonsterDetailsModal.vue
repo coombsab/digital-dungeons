@@ -1,35 +1,21 @@
 <template>
-  <div
-    class="monster-card p-3 rounded elevation-2 text-light selectable"
-    title="See Monster Details"
-    data-bs-toggle="modal"
-    :data-bs-target="'#monsterDetailModal' + monster.slug"
-    @click="setActiveMonster()"
-  >
-    <span>{{ monster.name }}</span>
+  <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
+    data-bs-toggle="modal" :data-bs-target="'#monsterDetailModal' + monster.slug" @click="setActiveMonster()">
+    <span class="text-shadow ">{{ monster.name }}</span>
   </div>
 
-  <div
-    class="modal fade"
-    :id="'monsterDetailModal' + monster.slug"
-    tabindex="-1"
-    aria-labelledby="monsterDetailModal"
-    aria-hidden="true"
-  >
+  <div class="modal fade" :id="'monsterDetailModal' + monster.slug" tabindex="-1" aria-labelledby="monsterDetailModal"
+    aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content text-visible bg-warning"
+        :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+        <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="monsterDetailModal">
             {{ monster?.name }}
           </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" v-if="monster">
+        <div class="modal-body bg-transparent-modal" v-if="monster">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -97,12 +83,8 @@
               <p>{{ monster.constitution }}</p>
             </div>
           </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-dark"
-              @click="addMonster()"
-              v-if="account.id == encounter.creatorId"
-            >
+          <div class="modal-footer bg-transparent-modal">
+            <button class="btn btn-dark" @click="addMonster()" v-if="account.id == encounter.creatorId">
               Add Monster
             </button>
           </div>
@@ -154,7 +136,7 @@ export default {
 
 <style lang="scss" scoped>
 .monster-card {
-  background-color: green;
+  background-color: rgba(37, 8, 60, 0.849);
   height: fit-content;
   margin-bottom: 1.5rem;
   margin-top: 0.5rem;
@@ -164,11 +146,66 @@ p {
   margin: 0;
 }
 
+.text-shadow {
+  color: rgb(201, 154, 223);
+  text-shadow: 1px 1px rgb(28, 51, 74), 0px 0px 5px rgb(136, 62, 147);
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+.modal-content {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-transparent {
+  background-color: rgba(10, 10, 10, 0.804) !important;
+}
+
+.bg-transparent:hover {
+  background-color: rgba(10, 10, 10, 0.303) !important;
+}
+
+.bg-transparent-modal {
+  background-color: rgba(10, 10, 10, 0.442) !important;
+}
+
+.muted-layer {
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 0.5rem;
+}
+
 .statistics {
   border-bottom: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  color: rgb(230, 225, 233);
+  text-shadow: 1px 1px rgb(31, 47, 62), 0px 0px 5px rgb(34, 19, 37);
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+.text-visible {
+  color: rgb(213, 213, 213);
+  text-shadow: 1px 1px rgb(28, 35, 42), 0px 0px 5px rgb(75, 96, 108);
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  font-family: "Morpheus";
+  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
+}
+
+.text-visible:hover {
+  color: rgb(184, 195, 202) !important;
+
 }
 </style>
