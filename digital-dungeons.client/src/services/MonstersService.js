@@ -6,8 +6,8 @@ class MonstersService {
   async getMonstersByEncounterId(encounterId) {
     const res = await baseApi.get(`api/encounters/${encounterId}/monsters`);
     AppState.activeEncounterMonsters = res.data.map((e) => new Monster(e));
-    console.log("res", res.data);
-    console.log("AppState", AppState.activeEncounterMonsters);
+    // console.log("res", res.data);
+    // console.log("AppState", AppState.activeEncounterMonsters);
   }
 
   async addMonsterToEncounter(monsterData) {
@@ -18,8 +18,8 @@ class MonstersService {
       ...AppState.activeEncounterMonsters,
       monster,
     ];
-    console.log(monster);
-    console.log(AppState.activeEncounterMonsters);
+    // console.log(monster);
+    // console.log(AppState.activeEncounterMonsters);
   }
 
   async removeMonster(monsterId) {
@@ -31,7 +31,7 @@ class MonstersService {
 
   async editMonster(monsterData, id) {
     const res = await baseApi.put(`api/monsters/${id}`, monsterData);
-    console.log(monsterData);
+    // console.log(monsterData);
     const updatedMonster = new Monster(res.data);
     const index = AppState.monsters.findIndex((m) => m.id == id);
     AppState.monsters.splice(index, 1, updatedMonster);

@@ -80,8 +80,8 @@ export default {
 
     async function getApiMonsters() {
       try {
-        await informationService.getApiInfo("monsters");
         informationService.setActiveCategory("monsters");
+        await informationService.getApiInfo("monsters");
       } catch (error) {
         Pop.error(error, ["gettingMonsters"]);
       }
@@ -92,7 +92,7 @@ export default {
         await monstersService.getMonstersByEncounterId(
           route.params.encounterId
         );
-        console.log("getMonstersByEncounterId", AppState.activeEncounterMonsters);
+        // console.log("getMonstersByEncounterId", AppState.activeEncounterMonsters);
       } catch (error) {
         Pop.error(error);
       }

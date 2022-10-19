@@ -17,7 +17,6 @@ class InformationService {
 
     res = await openDndApi.get(pageUrl, params)
 
-    // AppState.monsters = res.data.results.map(data => new Monster(data))
     switch (AppState.activeCategory) {
       case "monsters":
         AppState.monsters = res.data.results.map(data => new Monster(data))
@@ -43,6 +42,7 @@ class InformationService {
       default:
         break;
     }
+
 
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
