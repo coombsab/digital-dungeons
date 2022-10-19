@@ -15,6 +15,8 @@ class MonstersService {
     monster.icon = monsterData.icon || monster.icon
     monster.hit_points = monsterData.hit_points || monster.hit_points
     monster.initiative = monsterData.initiative || monster.initiative
+    monster.armor_class = monsterData.armor_class || monster.armor_class
+    monster.quantity = monsterData.quantity || monster.quantity
 
     await monster.save()
     return monster

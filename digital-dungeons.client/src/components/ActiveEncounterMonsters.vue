@@ -109,7 +109,7 @@
                 <div class="d-flex gap-3 justify-content-around mb-1 all-transparent">
                   <div class="form-floating mb-3 text-visible">
                     <input type="text" class="form-control input-bg text-visible" v-model="editable.nickName"
-                      name="nick Name" placeholder="Name:" maxlength="500" />
+                      name="nickName" placeholder="Name:" maxlength="500" />
                     <label for="nickName">Name:</label>
                   </div>
 
