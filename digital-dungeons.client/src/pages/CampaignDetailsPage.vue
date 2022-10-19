@@ -33,7 +33,7 @@
         </section>
         <section class="row">
           <div class="col-6">
-            <img :src="campaign.coverImg" alt="" class="img-fluid" />
+            <img :src="campaign.coverImg" alt="The campaign picture" class="img-fluid campaignImg" />
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
                 <p>{{ campaign.desc }}</p>
@@ -112,10 +112,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .morphfont {
   font-family: "Morpheus";
   src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
 }
 
+.campaignImg {
+  min-width: 100%;
+}
 </style>
