@@ -20,15 +20,19 @@ class InformationService {
     switch (AppState.activeCategory) {
       case "monsters":
         AppState.monsters = res.data.results.map(data => new Monster(data))
+        this.setMonsterImage()
         break;
       case "spells":
         AppState.spells = res.data.results.map(data => new Spell(data))
+        this.setSpellSchoolImage()
         break;
       case "races":
         AppState.races = res.data.results.map(data => new Race(data))
+        this.setRaceCoverImg()
         break;
       case "classes":
         AppState.classes = res.data.results.map(data => new DndClass(data))
+        this.setClassCoverImg()
         break;
       case "magicitems":
         AppState.magicitems = res.data.results.map(data => new MagicItem(data))
@@ -47,17 +51,13 @@ class InformationService {
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
     AppState.count = res.data.count
-    this.setDefaultImgByType()
-    this.setSpellSchoolImage()
-    this.setRaceCoverImg()
-    this.setClassCoverImg()
   }
 
   setActiveCategory(category) {
     AppState.activeCategory = category
   }
 
-  setDefaultImgByType() {
+  setMonsterImage() {
     AppState.monsters.forEach(monster => {
       if (monster.type.toUpperCase().includes("HUMANOID")) {
         monster.image = "https://i.pinimg.com/474x/d6/f6/37/d6f6372a18fec2c0e6c0b81aa74de8cf--golden-ratio-drawings-of.jpg"
@@ -134,7 +134,7 @@ class InformationService {
     })
   }
 
-  setRaceCoverImg () {
+  setRaceCoverImg() {
     AppState.races.forEach(race => {
       if (race.name.toUpperCase().includes("DWARF")) {
         race.coverImg = "https://static.wikia.nocookie.net/powerlisting/images/3/36/Fantasy-dwarf.jpg"

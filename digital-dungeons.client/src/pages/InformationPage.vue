@@ -25,7 +25,9 @@
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
               <RaceCard v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
               <ClassCard v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
-              <!-- TODO More Cards -->
+              <MagicItemCard v-if="category == 'magicitems'" v-for="m in magicitems" :key="m.slug" :magicitem="m" />
+              <WeaponCard v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
+              <ArmorCard v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
             </div>
           </div>
         </div>
@@ -44,6 +46,9 @@ import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
 import { ref } from "vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
 import ClassCard from "../components/InformationCards/ClassCard.vue";
+import MagicItemCard from "../components/InformationCards/MagicItemCard.vue";
+import WeaponCard from "../components/InformationCards/WeaponCard.vue";
+import ArmorCard from "../components/InformationCards/ArmorCard.vue";
 
 export default {
   setup() {
@@ -54,12 +59,14 @@ export default {
       spells: computed(() => AppState.spells),
       races: computed(() => AppState.races),
       classes: computed(() => AppState.classes),
-      // TODO More Computeds
+      magicitems: computed(() => AppState.magicitems),
+      weapons: computed(() => AppState.weapons),
+      armor: computed(() => AppState.armor),
       category: computed(() => AppState.activeCategory),
 
     };
   },
-  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard, ClassCard }
+  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard, ClassCard, MagicItemCard, WeaponCard, ArmorCard }
 };
 </script>
 
