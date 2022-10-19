@@ -2,18 +2,18 @@
   <!-- NOTE DISPLAY CARD -->
   <div class="magicitem-card text-center text-visible selectable elevation-2" title="See Magicitem Details"
     data-bs-toggle="modal" :data-bs-target="'#magicitemModal' + magicitem.slug" @click=""
-    :style="magicitem.image ? {backgroundImage: `url(${magicitem.image})`} : ''">
+    :style="magicitem.coverImg ? {backgroundImage: `url(${magicitem.coverImg})`} : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ magicitem.name }}</span>
     </div>
   </div>
 
   <!-- NOTE MODAL -->
-  <div class="modal fade" :id="'magicitemModal' + magicitem.slug" tabindex="-1" aria-labelledby="MagicitemDetailsModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" :id="'magicitemModal' + magicitem.slug" tabindex="-1"
+    aria-labelledby="MagicitemDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning"
-        :style="magicitem.image ? {backgroundImage: `url(${magicitem.image})`} : ''">
+        :style="magicitem.coverImg ? {backgroundImage: `url(${magicitem.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="MagicitemDetailsModalLabel">
