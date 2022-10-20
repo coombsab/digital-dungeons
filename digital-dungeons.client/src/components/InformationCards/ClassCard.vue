@@ -20,45 +20,53 @@
           <h1 class="modal-title fs-5" id="DndClassDetailsModalLabel">
             {{ dndClass?.name }}
           </h1>
-
-
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
-
-
-
-
-          <!-- Class details -->
         </div>
+
+
+
+
+        <!-- Class details -->
         <div class="modal-body bg-transparent-modal scrollable" v-if="dndClass">
           <div class="flex-wrap mb-3">
 
-
             <!-- Hit points -->
             <div>
-              <h5 class="statistics">Hit Points</h5>
+              <h4 class="statistics">Hit Points</h4>
               <p>Hit dice: {{dndClass.hit_dice}}</p>
-              <!--   v    Not defined -->
-              <!-- <p>HP at first: {{hp_at_1st_level}}</p>
-              <p>HP at higher levels: {{hp_at_higher_levels}}</p> -->
+              <p>HP at first: {{dndClass.hp_at_1st_level}}</p>
+              <p>HP at higher levels: {{dndClass.hp_at_higher_levels}}</p>
             </div>
+            <br>
 
             <!-- Proficiencies -->
+            <br>
             <div>
-              <h5 class="statistics">Proficiencies</h5>
+              <h4 class="statistics">Proficiencies</h4>
+              <p>Armor: {{dndClass.prof_armor}}</p>
+              <p>Weapons: {{dndClass.prof_weapons}}</p>
+              <p>Tools: {{dndClass.prof_tools}}</p>
+              <p>Saving Throws: {{dndClass.prof_saving_throws}}</p>
+              <p>Skills: {{dndClass.prof_skills}}</p>
             </div>
+            <br>
+
+
+            <!-- Equipment -->
+            <br>
+            <div>
+              <h4 class="statistics">Equipment</h4>
+              <Markdown class="" :source="dndClass.equipment" />
+            </div>
+            <br>
 
 
             <!-- Description -->
-            <!-- TODO: find a way to break up the text -->
+            <br>
             <div>
               <h6 class="statistics">Description</h6>
               <Markdown class="class-details" :source="dndClass.desc" />
-              <!-- <p>{{ dndClass.desc }}</p> -->
             </div>
-
-
+            <br>
           </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
