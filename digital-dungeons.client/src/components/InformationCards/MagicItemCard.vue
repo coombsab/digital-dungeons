@@ -25,12 +25,16 @@
           </button> -->
         </div>
         <div class="modal-body bg-transparent-modal d-flex align-items-center flex-wrap scrollable" v-if="magicitem">
+          <div class="text-center w-100 pb-2">
+            <h5>{{magicitem.requires_attunement.toUpperCase()}}</h5>
+          </div>
           <p class="description">{{ magicitem.desc }}</p>
         </div>
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no magicitem data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent-modal">
+        <div class="modal-footer d-flex justify-content-between align-items-center gap-3 px-3 bg-transparent-modal">
+          <p class="m-0">{{magicitem.type}}</p>
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
             Close
           </button>
