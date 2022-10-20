@@ -42,7 +42,7 @@ class MonstersService {
     console.log(encounterId);
     AppState.activeEncounterMonsters.forEach((m) => {
       const calcDexMod = Math.floor((m.dexterity - 10) / 2);
-      const rollInitiative = Math.ceil(Math.random() * 20);
+      const rollInitiative = Math.floor((Math.random() * 20) + 1);
       m.initiative = calcDexMod + rollInitiative;
       console.log(m.initiative);
     });
