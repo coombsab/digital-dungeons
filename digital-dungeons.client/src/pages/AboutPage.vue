@@ -1,6 +1,7 @@
 <template>
   <section class="container-fluid about-page">
     <div class="row justify-content-around ">
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -14,6 +15,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -28,6 +31,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="../assets/img/me.jpg" alt="">
@@ -42,6 +47,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -55,6 +62,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -69,6 +78,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -86,6 +97,9 @@
   </section>
 </template>
 
+
+
+
 <script>
 export default {
   setup() {
@@ -95,6 +109,10 @@ export default {
   }
 }
 </script>
+
+
+
+
 <style lang="scss" scoped>
 .about-page {
   height: 100vh;
