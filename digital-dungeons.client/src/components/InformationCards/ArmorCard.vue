@@ -14,7 +14,6 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning"
         :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
-
         <div class="modal-header bg-transparent-modal">
           <div class="d-flex justify-content-between align-items-center w-100 px-3">
             <h1 class="modal-title fs-5 m-0" id="ArmorDetailsModalLabel">{{armor?.name}}</h1>
@@ -81,6 +80,11 @@ export default {
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
+  transition: 150ms linear;
+}
+
+.armor-card:hover {
+  transform: scale(1.1);
 }
 
 .modal-content {
