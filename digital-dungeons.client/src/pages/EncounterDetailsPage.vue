@@ -134,6 +134,7 @@ export default {
     const editable = ref("");
     return {
       editable,
+      route,
       campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
@@ -143,10 +144,14 @@ export default {
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
       category: computed(() => AppState.activeCategory),
-      activeMonsters: computed(() => AppState.activeEncounterMonsters),
+      activeMonsters: computed(() =>
+        AppState.activeEncounterMonsters.sort(
+          (a, b) => a.initiative - b.initiative
+        )
+      ),
       async rollInitiatives() {
         try {
-          await monstersService.rollInitiatives();
+          await monstersService.rollInitiatives(route.params.encounterId);
         } catch (error) {
           Pop.error(error);
         }
