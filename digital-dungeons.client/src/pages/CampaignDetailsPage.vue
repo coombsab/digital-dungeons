@@ -42,7 +42,7 @@
           </div>
           <div class="col-6">
             <div class="bg-dark p-2">
-              <div class="bg-secondary p-1 animate__animated  animate__slideInRight">
+              <div class="bg-secondary p-1">
                 <h4 class="border-bottom border-3 border-danger text-danger" v-if="completedEncounters.length > 0">
                   Completed Encounters
                 </h4>
