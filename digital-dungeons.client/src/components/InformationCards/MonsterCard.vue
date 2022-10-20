@@ -11,7 +11,7 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-l">
       <div class="modal-content text-visible bg-warning"
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
         <!-- SECTION HEADER -->
@@ -24,8 +24,8 @@
             <p class=" my-auto">{{monster.challenge_rating}}</p>
           </div>
         </div>
-        <!-- SECTION GENERAL -->
-        <div class="modal-body bg-transparent-modal" v-if="monster">
+        <div class="modal-body bg-transparent-modal scrollable" v-if="monster">
+          <!-- SECTION GENERAL -->
           <h4 class="statistics text-info">General</h4>
           <div class="d-flex justify-content-evenly">
             <div class="text-center">
@@ -235,6 +235,11 @@ export default {
 
 .modal-xl {
   width: 70vw !important;
+}
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 70vh;
 }
 
 // .modal {
