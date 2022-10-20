@@ -11,6 +11,7 @@
       <div class="muted-layer bg-transparent ">
         <span>{{ monster.nickName }}</span>
         <span> x {{ monster.quantity }}</span>
+        <span>Int: {{monster.initiative}}</span>
       </div>
     </div>
   </div>
