@@ -6,8 +6,8 @@
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
               <div class="AETitle text-center">
-                <div class="text-shadow2 d-flex justify-content-between">
-                  <div></div>
+                <div class="text-shadow2 d-flex justify-content-around">
+                  <button class="btn text-danger">Roll Initiatives</button>
                   <h2>{{ activeEncounter?.name }}</h2>
                   <button
                     class="text-danger btn px-3"
