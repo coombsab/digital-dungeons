@@ -53,9 +53,9 @@
               </div>
             </div>
           </div>
-          <!-- SECTION SPEED -->
-          <!-- NOTE Speed is weird, for help ask Talor or Sam -->
-          <h5 class="border-bottom border-1 text-info">Speed</h5>
+          <!-- STUB SPEED -->
+          <!-- NOTE Speed is weird, for help ask Talor -->
+          <h4 class=" text-info">Speed</h4>
           <div class="d-flex justify-content-around">
             <div v-for="(value, property) in monster.speed" :key="property">
               <span class="d-flex">
@@ -85,7 +85,7 @@
             </span>
             <span class="d-flex">
               <p class="me-1 text-info">Wis:</p>
-              <p>{{monster.widsom}}</p>
+              <p>{{monster.wisdom}}</p>
             </span>
             <span class="d-flex">
               <p class="me-1 text-info">Cha:</p>
@@ -94,33 +94,50 @@
           </div>
           <!-- SECTION INFO -->
           <h4 class="statistics text-info">Info</h4>
-          <span class="d-flex">
-            <p class="me-1 text-info">Actions:</p>
-            <p></p>
-          </span>
-          <span class="d-flex">
-            <p class="me-1 text-info">Reactions:</p>
-            <p></p>
-          </span>
-          <span class="d-flex">
-            <p class="me-1 text-info">Special Abilities:</p>
-            <p></p>
-          </span>
-          <!-- STUB LEGENDARY -->
-          <div v-if="monster.legendary_desc || monster.legendary_abilities">
-            <h5 class="text-warning border-bottom border-1 ">Legendary</h5>
-            <span class="d-flex">
-              <p class="me-1 mb-1 text-warning">Description:</p>
-              <p>{{monster.legendary_desc}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-warning">Abilities:</p>
-              <p>{{monster.legendary_abilities}}</p>
+          <!-- STUB ACTIONS -->
+          <h4 v-if="monster.actions" class="me-1 text-info">Actions</h4>
+          <div v-if="monster.actions" v-for="actions in monster.actions">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{actions.name}}:</p>
+              <p>{{actions.desc}}</p>
             </span>
           </div>
-          <!-- SECTION SPELlS -->
-          <h4 class=" statistics text-info">Spells</h4>
-
+          <!-- STUB REACTIONS -->
+          <h4 v-if="monster.reactions" class="me-1 text-info">Reactions</h4>
+          <div v-if="monster.reactions" v-for="reactions in monster.reactions">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{reactions.name}}:</p>
+              <p>{{reactions.desc}}</p>
+            </span>
+          </div>
+          <!-- STUB SPECIAL ABILITIES -->
+          <h4 v-if="monster.special_abilities" class="me-1 text-info">Special Abilities</h4>
+          <div v-if="monster.special_abilities" v-for="special_abilities in monster.special_abilities">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{special_abilities.name}}:</p>
+              <p>{{special_abilities.desc}}</p>
+            </span>
+          </div>
+          <!-- STUB LEGENDARY -->
+          <div v-if="monster.legendary_desc || monster.legendary_actions">
+            <h5 class="text-warning border-bottom border-1 ">Legendary</h5>
+            <span class="d-flex flex-wrap">
+              <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
+              <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
+            </span>
+            <p v-if="monster.legendary_actions" class=" me-1 text-warning">Actions</p>
+            <div v-if="monster.legendary_actions" v-for="a in monster.legendary_actions">
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">{{a.name}}:</p>
+                <p>{{a.desc}}</p>
+              </span>
+            </div>
+          </div>
+          <!-- SECTION SPELLS -->
+          <h4 v-if="monster.spell_list[0]" class=" statistics text-info">Spells</h4>
+          <div v-if="monster.spell_list[0]">
+            {{monster.spell_list}}
+          </div>
 
 
 
