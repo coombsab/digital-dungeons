@@ -136,6 +136,11 @@ export default {
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
+  transition: 150ms linear;
+}
+
+.dndClass-card:hover {
+  transform: scale(1.1);
 }
 
 .modal-content {

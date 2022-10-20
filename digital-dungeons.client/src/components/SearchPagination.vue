@@ -9,7 +9,7 @@
               <input type="text" class="form-control" placeholder="Search" id="floatingSearch" v-model="editable">
               <label for="floatingSearch">Search</label>
             </div>
-            <button type="submit" class="form-control"><i class="mdi mdi-magnify"></i></button>
+            <button type="submit" class="form-control" title="Search Current Category"><i class="mdi mdi-magnify"></i></button>
           </div>
         </form>
       </div>
