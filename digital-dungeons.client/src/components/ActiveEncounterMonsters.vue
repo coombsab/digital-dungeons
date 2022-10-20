@@ -100,6 +100,7 @@
                 <p>{{ monster.constitution }}</p>
               </div>
             </div>
+            <div></div>
           </div>
           <!-- SECTION Monster Edits -->
           <div class="modal-body all-transparent" v-else>
