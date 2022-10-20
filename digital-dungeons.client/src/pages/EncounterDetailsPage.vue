@@ -26,7 +26,7 @@
               <!-- SECTION search monsters -->
               <div class="col-4 bg-transparent bottomLeft box">
                 <SearchPagination />
-                <div class="elem2 scrollable">
+                <div class="elem2 scrollable animate__animated animate__lightSpeedInLeft">
                   <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
                 </div>
               </div>
