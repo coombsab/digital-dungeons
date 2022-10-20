@@ -48,7 +48,7 @@ class MonstersService {
     });
     const res = await baseApi.put(
       `api/encounters/${encounterId}/monsters`,
-      activeEncounterMonsters
+      AppState.activeEncounterMonsters
     );
   }
 }
