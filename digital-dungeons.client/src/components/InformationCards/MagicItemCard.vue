@@ -11,19 +11,21 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'magicitemModal' + magicitem.slug" tabindex="-1"
     aria-labelledby="MagicitemDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content text-visible bg-warning"
         :style="magicitem.coverImg ? {backgroundImage: `url(${magicitem.coverImg})`} : ''">
 
+
+        <!-- Name + rarity -->
         <div class="modal-header bg-transparent-modal">
           <div class="d-flex justify-content-between align-items-center w-100 px-3 gap-3">
             <h3 class="modal-title m-0" id="MagicitemDetailsModalLabel">{{ magicitem?.name }}</h3>
             <p class="m-0">{{magicitem?.rarity}}</p>
           </div>
-          <!-- <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button> -->
         </div>
+
+
+        <!-- Description -->
         <div class="modal-body bg-transparent-modal d-flex align-items-center flex-wrap scrollable" v-if="magicitem">
           <div class="text-center w-100 pb-2">
             <h5>{{magicitem.requires_attunement.toUpperCase()}}</h5>
@@ -31,6 +33,10 @@
           <Markdown :source="magicitem.desc" />
           <!-- <p class="description">{{ magicitem.desc }}</p> -->
         </div>
+
+
+
+
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no magicitem data available :(</p>
         </div>
@@ -118,5 +124,9 @@ export default {
 
 .scrollable {
   overflow-y: auto;
+}
+
+.modal-xl {
+  width: 50vw !important;
 }
 </style>

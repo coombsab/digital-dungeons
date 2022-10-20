@@ -2,6 +2,8 @@
   <div class="information-page">
     <div class="container-fluid">
       <div class="row">
+
+
         <!-- NOTE Buttons -->
         <div class="col-4 text-center pt-5">
           <div class="text-center">
@@ -13,20 +15,32 @@
                 class="btn btn-success elevation-2 m-2">GAME
                 MECHANICS</button></a>
           </div>
+
+
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
           <div class="box">
+
+
             <!-- NOTE Search Functionality -->
             <SearchPagination />
+
+
             <!-- NOTE Info Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
+
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
+
               <RaceCard v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
+
               <ClassCard v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
+
               <MagicItemCard v-if="category == 'magicitems'" v-for="m in magicitems" :key="m.slug" :magicitem="m" />
+
               <WeaponCard v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
+
               <ArmorCard v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
             </div>
           </div>
