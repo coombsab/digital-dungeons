@@ -56,7 +56,7 @@
                 <p>{{ monster.size }}</p>
               </div>
             </div>
-            <div class="d-flex flex-wrap justify-content-around mb-3">
+            <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Alignment</h6>
                 <p>{{ monster.alignment}}</p>
@@ -135,7 +135,7 @@
                 <h6 class="statistics">Size</h6>
                 <p>{{ monster.size }}</p>
               </div>
-            </div>
+            </div> -->
             <!--ANCHOR Description -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
