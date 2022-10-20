@@ -61,8 +61,8 @@ export class EncountersController extends BaseController {
 
   async editMonsters(req, res, next) {
     try {
-      const monsters = await monstersService.editMonsters(req.body, req.userInfo.id)
-      res.send(monsters)
+      const monstersReport = await monstersService.editMonsters(req.body, req.userInfo.id, req.params.encounterId)
+      res.send(monstersReport)
     }
     catch(error) {
       next(error)

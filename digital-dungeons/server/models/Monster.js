@@ -54,7 +54,7 @@ export const MonsterSchema = new Schema(
 
     //EDITABLE FIELDS
     icon: { type: String },
-    initiative: { type: Number, min: 1, max: 60 },
+    initiative: { type: Number, min: 1, max: 60, default: 1 },
     image: { type: String },
     desc: { type: String, maxlength: 500 },
     nickName: { type: String, maxlength: 50, minlength: 1 },
