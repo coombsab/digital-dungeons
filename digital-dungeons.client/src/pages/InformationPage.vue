@@ -16,16 +16,13 @@
                 MECHANICS</button></a>
           </div>
 
-
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
           <div class="box">
 
-
             <!-- NOTE Search Functionality -->
             <SearchPagination />
-
 
             <!-- NOTE Info Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
