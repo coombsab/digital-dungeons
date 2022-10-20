@@ -2,6 +2,14 @@ import { dbContext } from "../db/DbContext";
 import { BadRequest, Forbidden } from "../utils/Errors";
 
 class MonstersService {
+  async editMonsters(arrayOfMonsters, accountId) {
+    arrayOfMonsters = arrayOfMonsters.filter(monster => monster.creatorId === accountId)
+    if (arrayOfMonsters.length === 0) {
+      throw new Forbidden("Not your monsters, no editing allowed.")
+    }
+    const monsters = await dbContext.Monsters.bulkSave(arrayOfMonsters)
+    return monsters
+  }
   async editMonster(monsterData) {
     const monster = await this.getMonsterById(monsterData.id)
     // @ts-ignore
