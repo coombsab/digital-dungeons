@@ -13,7 +13,7 @@
       @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''"
     >
-      <div class="muted-layer">
+      <div class="muted-layer bg-transparent">
         <span>{{ monster.nickName }}</span>
         <span> x {{ monster.quantity }}</span>
       </div>
@@ -34,7 +34,7 @@
           monster.image ? { backgroundImage: `url(${monster.image})` } : ''
         "
       >
-        <div class="modal-header bg-transparent">
+        <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
@@ -47,7 +47,7 @@
             X
           </button>
         </div>
-        <div class="modal-body bg-transparent" v-if="monster">
+        <div class="modal-body bg-transparent-modal" v-if="monster">
           <!-- SECTION Monster Details -->
           <!-- NOTE hide place fxn implementation -->
           <div class="modal-body" v-if="hidden == false">
@@ -233,12 +233,12 @@
           </div>
         </div>
         <!-- SECTION No monster Data -->
-        <div class="modal-body bg-transparent" v-else>
+        <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
         <div v-if="account.id == encounter.creatorId">
           <div
-            class="modal-footer bg-transparent d-flex justify-content-between"
+            class="modal-footer bg-transparent-modal d-flex justify-content-between"
             v-if="hidden == false"
           >
             <div>
@@ -332,17 +332,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .monster-card {
-//   background-color: green;
-//   height: fit-content;
-//   margin-bottom: 1.5rem;
-//   margin-top: .5rem;
-// }
-
-// p {
-//   margin: 0;
-// }
-
 .monster-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
@@ -351,8 +340,12 @@ export default {
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
+  transition: 150ms linear;
 }
 
+.monster-card:hover {
+  transform: scale(1.1);
+}
 .input-bg {
   background-color: rgba(0, 0, 0, 0.552) !important;
 }
@@ -363,7 +356,15 @@ export default {
 }
 
 .bg-transparent {
-  background-color: rgba(0, 0, 0, 0.684) !important;
+  background-color: rgba(10, 10, 10, 0.804) !important;
+}
+
+.bg-transparent:hover {
+  background-color: rgba(10, 10, 10, 0.303) !important;
+}
+
+.bg-transparent-modal {
+  background-color: rgba(10, 10, 10, 0.664) !important;
 }
 
 .all-transparent {
