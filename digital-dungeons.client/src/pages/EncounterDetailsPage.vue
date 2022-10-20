@@ -146,7 +146,7 @@ export default {
       category: computed(() => AppState.activeCategory),
       activeMonsters: computed(() =>
         AppState.activeEncounterMonsters.sort(
-          (a, b) => a.initiative - b.initiative
+          (a, b) => b.initiative - a.initiative
         )
       ),
       async rollInitiatives() {

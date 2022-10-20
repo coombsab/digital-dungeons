@@ -46,7 +46,10 @@ class MonstersService {
       m.initiative = calcDexMod + rollInitiative;
       console.log(m.initiative);
     });
-    const res = await baseApi.put(`api/encounters/${encounterId}/monsters`);
+    const res = await baseApi.put(
+      `api/encounters/${encounterId}/monsters`,
+      activeEncounterMonsters
+    );
   }
 }
 
