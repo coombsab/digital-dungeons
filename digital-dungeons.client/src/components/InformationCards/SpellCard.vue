@@ -11,14 +11,14 @@
   <!-- NOTE: MODAL -->
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
 
       <!-- School img -->
       <div class="modal-content text-visible bg-black"
         :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
-        <div class="modal-header bg-transparent-modal">
 
-          <!-- Spell header: name and level -->
+        <!-- Spell header: name and level -->
+        <div class="modal-header bg-transparent-modal">
           <div>
             <div>
               <h1 class="modal-title fs-5 mb-2 fs-3" id="SpellDetailsModalLabel">
@@ -26,8 +26,11 @@
               </h1>
             </div>
 
-            <div class="text-lighter">
-              <p><em>{{spell.level}} {{ spell.school}}</em> | {{spell.dnd_class}}</p>
+            <div v-if="spell.dnd_class" class="text-lighter">
+              <p><em>{{spell.level}} {{ spell.school}}</em> <span>| {{spell.dnd_class}}</span></p>
+            </div>
+            <div v-else>
+              <p><em>{{spell.level}} {{ spell.school}}</em></p>
             </div>
           </div>
         </div>
@@ -82,10 +85,10 @@
             </div>
             <div v-else></div>
           </div>
+        </div>
 
 
-
-          <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
+        <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
               <p>{{ spell.type}}</p>
@@ -152,8 +155,6 @@
               </div>
             </div>
           </div> -->
-        </div>
-
 
 
         <!-- NOTE In Case Of No Data -->
@@ -269,5 +270,9 @@ bg-black {
   text-shadow: 1px 1px black, 0px 0px 5px rgb(170, 8, 191);
   font-weight: bold;
   letter-spacing: 0.08rem
+}
+
+.modal-xl {
+  width: 50vw !important;
 }
 </style>
