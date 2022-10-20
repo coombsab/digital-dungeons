@@ -38,6 +38,16 @@ class MonstersService {
     const index = AppState.activeEncounterMonsters.findIndex((m) => m.id == id);
     AppState.activeEncounterMonsters.splice(index, 1, updatedMonster);
   }
+  async rollInitiatives(encounterId) {
+    console.log(encounterId);
+    AppState.activeEncounterMonsters.forEach((m) => {
+      const calcDexMod = Math.floor((m.dexterity - 10) / 2);
+      const rollInitiative = Math.ceil(Math.random() * 20);
+      m.initiative = calcDexMod + rollInitiative;
+      console.log(m.initiative);
+    });
+    const res = await baseApi.put(`api/encounters/${encounterId}/monsters`);
+  }
 }
 
 export const monstersService = new MonstersService();

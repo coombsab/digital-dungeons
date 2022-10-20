@@ -6,15 +6,20 @@
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
               <div class="AETitle text-center">
-                <div class="text-shadow2 d-flex justify-content-between">
-                  <div></div>
-                  <h2>{{ activeEncounter?.name }}</h2>
+                <div class="text-shadow2 d-flex justify-content-around">
                   <button
                     class="text-danger btn px-3"
                     data-bs-toggle="modal"
                     :data-bs-target="'#encounterModal' + activeEncounter?.id"
                   >
                     Edit Encounter
+                  </button>
+                  <h2>{{ activeEncounter?.name }}</h2>
+                  <button
+                    class="btn text-danger"
+                    @click.stop="rollInitiatives()"
+                  >
+                    Roll Initiatives
                   </button>
                 </div>
               </div>
@@ -129,6 +134,7 @@ export default {
     const editable = ref("");
     return {
       editable,
+      route,
       campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
       encounter: computed(() => AppState.encounters),
@@ -138,25 +144,16 @@ export default {
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
       category: computed(() => AppState.activeCategory),
-      activeMonsters: computed(() => AppState.activeEncounterMonsters),
-
-      async handleSubmit() {
+      activeMonsters: computed(() =>
+        AppState.activeEncounterMonsters.sort(
+          (a, b) => a.initiative - b.initiative
+        )
+      ),
+      async rollInitiatives() {
         try {
-          await informationService.getApiInfo(AppState.activeCategory, {
-            search: editable.value,
-          });
-          editable.value = "";
+          await monstersService.rollInitiatives(route.params.encounterId);
         } catch (error) {
-          Pop.error(error, ["SearchSubmit"]);
-        }
-      },
-
-      async changeCategory(category) {
-        try {
-          await informationService.getApiInfo(category);
-          informationService.setActiveCategory(category);
-        } catch (error) {
-          Pop.error(error, "[ChangeCategory]");
+          Pop.error(error);
         }
       },
     };
