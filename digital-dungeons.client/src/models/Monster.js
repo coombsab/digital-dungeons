@@ -19,7 +19,7 @@ export class Monster {
     this.type = data.type;
     this.subtype = data.subtype || "No SubType";
     this.group = data.group;
-    // 
+    // done
     this.alignment = data.alignment;
     // 
     this.armor_class = data.armor_class;
