@@ -148,6 +148,12 @@
   </div>
 </template>
 
+
+
+
+
+
+
 <script>
 import { DndClass } from "../../models/DndClass.js";
 import Markdown from 'vue3-markdown-it'
@@ -162,6 +168,11 @@ export default {
   components: { Markdown }
 };
 </script>
+
+
+
+
+
 
 <style lang="scss" scoped>
 .dndClass-card {
@@ -229,14 +240,12 @@ export default {
   max-height: 60vh;
   overflow-y: auto;
 }
-</style>
 
-<style lang="scss">
-.class-details {
-  // em {
-  //   background-color: rgba(0, 128, 128, 0.232);
-  //   padding: .015rem;
-  //   border-radius: 5px;
-  // }
-}
+// .class-details {
+// em {
+//   background-color: rgba(0, 128, 128, 0.232);
+//   padding: .015rem;
+//   border-radius: 5px;
+// }
+// }
 </style>
