@@ -32,11 +32,31 @@
           <!-- Class details -->
         </div>
         <div class="modal-body bg-transparent-modal scrollable" v-if="dndClass">
-          <div class="d-flex flex-wrap justify-content-around mb-3">
+          <div class="flex-wrap mb-3">
+
+
+            <!-- Hit points -->
+            <div>
+              <h5 class="statistics">Hit Points</h5>
+              <p>Hit dice: {{dndClass.hit_dice}}</p>
+              <!--   v    Not defined -->
+              <!-- <p>HP at first: {{hp_at_1st_level}}</p>
+              <p>HP at higher levels: {{hp_at_higher_levels}}</p> -->
+            </div>
+
+            <!-- Proficiencies -->
+            <div>
+              <h5 class="statistics">Proficiencies</h5>
+            </div>
+
+
+            <!-- Description -->
+            <!-- TODO: find a way to break up the text -->
             <div>
               <h6 class="statistics">Description</h6>
               <p>{{ dndClass.desc }}</p>
             </div>
+
 
           </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
