@@ -16,84 +16,42 @@
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
+          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
+          <div v-if="monster.challenge_rating" class="d-flex align-items-center">
+            <p class="text-info text-shadow me-1 my-auto">Challenge Rating:</p>
+            <p class=" my-auto">{{monster.challenge_rating}}</p>
+          </div>
         </div>
         <div class="modal-body bg-transparent-modal" v-if="monster">
-
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Type</h6>
-              <p>{{ monster.type}}</p>
+          <h4 class="statistics text-info">General</h4>
+          <div class="d-flex justify-content-evenly">
+            <div class="text-center">
+              <p>Type: {{monster.type}}</p>
+              <p>Alignment: {{monster.alignment}}</p>
             </div>
-            <div>
-              <h6 class="statistics">Subtype</h6>
-              <p>{{ monster.subtype }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{ monster.alignment }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{ monster.hit_points }}</p>
+            <div class="text-center">
+              <p>Size: {{monster.size}}</p>
+              <p>HP: {{monster.hit_points}}</p>
             </div>
           </div>
-
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Hit Dice</h6>
-              <p>{{ monster.hit_dice }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Languages</h6>
-              <p>{{ monster.languages }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{ monster.size }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Challenge Rating</h6>
-              <p>{{ monster.challenge_rating }}</p>
+          <h4 class=" statistics text-info">Speed</h4>
+          <div class="d-flex justify-content-around">
+            <div class="" v-for="(value, property) in monster.speed" :key="property">
+              <p class="">
+                {{property}}: {{value}}
+              </p>
             </div>
           </div>
+          <h4 class=" statistics text-info">Statistics</h4>
+          <div>
 
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Strength</h6>
-              <p>{{ monster.strength }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Intelligence</h6>
-              <p>{{ monster.intelligence }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Wisdom</h6>
-              <p>{{ monster.wisdom }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Dexterity</h6>
-              <p>{{ monster.dexterity }}</p>
-            </div>
-
-
-
-            <div class="d-flex flex-wrap justify-content-around mb-3">
-              <div>
-                <h6 class="statistics">Charisma</h6>
-                <p>{{ monster.charisma }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Constitution</h6>
-                <p>{{ monster.constitution }}</p>
-              </div>
-            </div>
           </div>
+
+
+
+
         </div>
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no monster data available :(</p>
