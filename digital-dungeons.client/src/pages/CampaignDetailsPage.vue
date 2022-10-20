@@ -2,20 +2,20 @@
   <div class="p-3">
     <div v-if="campaign" class="h00 elevated rounded">
       <div class="text-light h00 glass">
-        <section class="row justify-content-between">
+        <section class="row justify-content-between align-content-center">
           <div class="col-7 bg-dark p-2 text-center">
-            <div class="bg-secondary text-white">
+            <div class="bg-secondary text-white rounded">
               <h2 class="morphfont">{{ campaign.name }}</h2>
             </div>
           </div>
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
-          <div class="col-3 bg-dark p-2">
-            <div class="bg-secondary p-1">
+          <div class="col-3 bg-dark p-2 pt-3">
+            <div class="bg-secondary p-1 rounded">
               {{ campaign.creator.name }}
             </div>
           </div>
           <!-- ADD ENCOUNTER -->
-          <div class="col-2 pt-2">
+          <div class="col-2 pt-2 rounded">
             <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
               data-bs-target="#CreateEncounterModal">
               Create Encounter
@@ -32,10 +32,10 @@
           </div> -->
         </section>
         <section class="row">
-          <div class="col-6">
-            <img :src="campaign.coverImg" alt="" class="img-fluid campaignImg" />
-            <div class="bg-dark p-2">
-              <div class="bg-secondary p-1">
+          <div class="col-6 ps-5">
+            <img :src="campaign.coverImg" alt="" class="img-fluid campaignImg rounded ps-3 py-4" />
+            <div class="bg-dark p-2 rounded">
+              <div class="bg-secondary p-1 rounded">
                 <p>{{ campaign.desc }}</p>
               </div>
             </div>

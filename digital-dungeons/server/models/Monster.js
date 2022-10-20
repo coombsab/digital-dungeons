@@ -13,10 +13,10 @@ export const MonsterSchema = new Schema(
     subtype: { type: String, default: "No subtype" },
     group: { type: String, default: "No group" },
     alignment: { type: String, default: "No alignment" },
-    armor_class: { type: Number, default: null },
+    armor_class: { type: Number, default: null, min: 1 },
     armor_desc: { type: String, default: "No armor desc" },
     hit_dice: { type: String, default: "No hit dice" },
-    speed: { type: Object, default: {} },
+    speed: { type: Number, default: 1, min: 1, max: 100 },
     strength: { type: Number, default: 0 },
     dexterity: { type: Number, default: 0 },
     constitution: { type: Number, default: 0 },
@@ -54,12 +54,12 @@ export const MonsterSchema = new Schema(
 
     //EDITABLE FIELDS
     icon: { type: String },
-    initiative: { type: Number, min: 1 },
+    initiative: { type: Number, min: 1, max: 60 },
     image: { type: String },
     desc: { type: String, maxlength: 500 },
     nickName: { type: String, maxlength: 50, minlength: 1 },
     quantity: { type: Number, default: 1, min: 1, max: 1000000 },
-    hit_points: { type: Number, required: true },
+    hit_points: { type: Number, required: true, min: 1, max: 100000 },
   },
   SCHEMA_OPTIONS
 );
