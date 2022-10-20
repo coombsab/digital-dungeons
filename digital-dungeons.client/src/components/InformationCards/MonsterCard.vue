@@ -28,25 +28,46 @@
           <h4 class="statistics text-info">General</h4>
           <div class="d-flex justify-content-evenly">
             <div class="text-center">
-              <p>Type: {{monster.type}}</p>
-              <p>Alignment: {{monster.alignment}}</p>
+              <span class="d-flex">
+                <p class="me-1 text-info">Type:</p>
+                <p>{{monster.type}} </p>
+              </span>
+              <span class="d-flex">
+                <p class="me-1 text-info">Alignment:</p>
+                <p>{{monster.alignment}} </p>
+              </span>
             </div>
             <div class="text-center">
-              <p>Size: {{monster.size}}</p>
-              <p>HP: {{monster.hit_points}}</p>
+              <span class="d-flex">
+                <p class="text-info me-1">Size:</p>
+                <p>{{monster.size}}</p>
+              </span>
+              <div class="d-flex">
+                <span class="d-flex">
+                  <p class="text-info me-1">HP:</p>
+                  <p class="me-2">{{monster.hit_points}}</p>
+                </span>
+                <p class="me-1 text-info">Hit Dice:</p>
+                <p class="">{{monster.hit_dice}}</p>
+              </div>
             </div>
           </div>
-          <h4 class=" statistics text-info">Speed</h4>
+          <h6 class=" statistics text-info">Speed</h6>
           <div class="d-flex justify-content-around">
             <div class="" v-for="(value, property) in monster.speed" :key="property">
-              <p class="">
-                {{property}}: {{value}}
-              </p>
+              <span class="d-flex">
+                <p class="text-info me-1">{{property}}:
+                </p>
+                {{value}}ft
+              </span>
             </div>
           </div>
           <h4 class=" statistics text-info">Statistics</h4>
           <div>
-
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
           </div>
 
 
@@ -56,7 +77,8 @@
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer bg-transparent-modal">
+        <div class="modal-footer d-flex justify-content-between bg-transparent-modal">
+
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
             Close
           </button>
