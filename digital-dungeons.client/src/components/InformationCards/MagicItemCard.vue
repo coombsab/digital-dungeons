@@ -28,7 +28,8 @@
           <div class="text-center w-100 pb-2">
             <h5>{{magicitem.requires_attunement.toUpperCase()}}</h5>
           </div>
-          <p class="description">{{ magicitem.desc }}</p>
+          <Markdown :source="magicitem.desc" />
+          <!-- <p class="description">{{ magicitem.desc }}</p> -->
         </div>
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no magicitem data available :(</p>
@@ -46,6 +47,8 @@
 
 <script>
 import { MagicItem } from "../../models/MagicItem.js";
+import Markdown from 'vue3-markdown-it'
+
 
 export default {
   props: {
@@ -54,6 +57,8 @@ export default {
   setup(props) {
     return {};
   },
+  components: { Markdown }
+
 };
 </script>
 

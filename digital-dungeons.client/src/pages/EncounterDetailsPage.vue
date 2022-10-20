@@ -7,14 +7,19 @@
             <section class="row justify-content-between">
               <div class="AETitle text-center">
                 <div class="text-shadow2 d-flex justify-content-around">
-                  <button class="btn text-danger">Roll Initiatives</button>
-                  <h2>{{ activeEncounter?.name }}</h2>
                   <button
                     class="text-danger btn px-3"
                     data-bs-toggle="modal"
                     :data-bs-target="'#encounterModal' + activeEncounter?.id"
                   >
                     Edit Encounter
+                  </button>
+                  <h2>{{ activeEncounter?.name }}</h2>
+                  <button
+                    class="btn text-danger"
+                    @click.stop="rollInitiatives()"
+                  >
+                    Roll Initiatives
                   </button>
                 </div>
               </div>
@@ -139,24 +144,11 @@ export default {
       previousPage: computed(() => AppState.previousPage),
       category: computed(() => AppState.activeCategory),
       activeMonsters: computed(() => AppState.activeEncounterMonsters),
-
-      async handleSubmit() {
+      async rollInitiatives() {
         try {
-          await informationService.getApiInfo(AppState.activeCategory, {
-            search: editable.value,
-          });
-          editable.value = "";
+          await monstersService.rollInitiatives();
         } catch (error) {
-          Pop.error(error, ["SearchSubmit"]);
-        }
-      },
-
-      async changeCategory(category) {
-        try {
-          await informationService.getApiInfo(category);
-          informationService.setActiveCategory(category);
-        } catch (error) {
-          Pop.error(error, "[ChangeCategory]");
+          Pop.error(error);
         }
       },
     };
