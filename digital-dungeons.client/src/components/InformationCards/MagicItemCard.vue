@@ -16,84 +16,16 @@
         :style="magicitem.coverImg ? {backgroundImage: `url(${magicitem.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="MagicitemDetailsModalLabel">
-            {{ magicitem?.name }}
-          </h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
+          <div class="d-flex justify-content-between align-items-center w-100 px-3 gap-3">
+            <h3 class="modal-title m-0" id="MagicitemDetailsModalLabel">{{ magicitem?.name }}</h3>
+            <p class="m-0">{{magicitem?.rarity}}</p>
+          </div>
+          <!-- <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
-          </button>
+          </button> -->
         </div>
-        <div class="modal-body bg-transparent-modal" v-if="magicitem">
-
-          <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Type</h6>
-              <p>{{ magicitem.type}}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Subtype</h6>
-              <p>{{ magicitem.subtype }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Alignment</h6>
-              <p>{{ magicitem.alignment }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Health</h6>
-              <p>{{ magicitem.hit_points }}</p>
-            </div>
-          </div>
-
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Hit Dice</h6>
-              <p>{{ magicitem.hit_dice }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Languages</h6>
-              <p>{{ magicitem.languages }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Size</h6>
-              <p>{{ magicitem.size }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Challenge Rating</h6>
-              <p>{{ magicitem.challenge_rating }}</p>
-            </div>
-          </div>
-
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">Strength</h6>
-              <p>{{ magicitem.strength }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Intelligence</h6>
-              <p>{{ magicitem.intelligence }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Wisdom</h6>
-              <p>{{ magicitem.wisdom }}</p>
-            </div>
-            <div>
-              <h6 class="statistics">Dexterity</h6>
-              <p>{{ magicitem.dexterity }}</p>
-            </div>
-
-
-
-            <div class="d-flex flex-wrap justify-content-around mb-3">
-              <div>
-                <h6 class="statistics">Charisma</h6>
-                <p>{{ magicitem.charisma }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Constitution</h6>
-                <p>{{ magicitem.constitution }}</p>
-              </div>
-            </div>
-          </div> -->
+        <div class="modal-body bg-transparent-modal d-flex align-items-center flex-wrap scrollable" v-if="magicitem">
+          <p class="description">{{ magicitem.desc }}</p>
         </div>
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no magicitem data available :(</p>
@@ -133,6 +65,10 @@ export default {
   transition: 150ms linear;
 }
 
+.modal-body {
+  max-height: 60vh;
+}
+
 .magicitem-card:hover {
   transform: scale(1.1);
 }
@@ -151,7 +87,7 @@ export default {
 }
 
 .bg-transparent-modal {
-  background-color: rgba(10, 10, 10, 0.442) !important;
+  background-color: rgba(10, 10, 10, 0.75) !important;
 }
 
 .muted-layer {
@@ -171,11 +107,7 @@ export default {
   align-items: center;
 }
 
-.text-visible {
-  color: rgb(216, 224, 229);
-}
-
-.text-visible:hover {
-  color: rgb(216, 224, 229) !important;
+.scrollable {
+  overflow-y: auto;
 }
 </style>

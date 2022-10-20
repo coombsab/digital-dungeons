@@ -17,11 +17,11 @@
         <div class="modal-header bg-transparent-modal">
           <div class="d-flex justify-content-between align-items-center w-100 px-3">
             <h1 class="modal-title fs-5 m-0" id="ArmorDetailsModalLabel">{{armor?.name}}</h1>
-            <p class="m-0">{{armor?.cost}}</p>
+            <p class="m-0">Value: {{armor?.cost}}</p>
           </div>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
+          <!-- <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
-          </button>
+          </button> -->
         </div>
         <div class="modal-body bg-transparent-modal d-flex flex-column align-items-center justify-content-around" v-if="armor">
           <div class=" flex-grow-1 d-flex flex-column flex-wrap align-items-center justify-content-around gap-3 mb-3 fs-5">
