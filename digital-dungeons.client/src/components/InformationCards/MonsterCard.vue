@@ -59,10 +59,8 @@
           <div class="d-flex justify-content-around">
             <div v-for="(value, property) in monster.speed" :key="property">
               <span class="d-flex">
-                <p class="text-info me-1">{{property}}:
-                </p>
-                <p v-if="value == Number">{{value}}ft</p>
-                <p v-else>{{value}}</p>
+                <p class="text-info me-1">{{property}}:</p>
+                <p>{{value}}{{typeof value == 'number' ? 'ft' : ''}}</p>
               </span>
             </div>
           </div>
