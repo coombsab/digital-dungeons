@@ -54,7 +54,8 @@
             <!-- TODO: find a way to break up the text -->
             <div>
               <h6 class="statistics">Description</h6>
-              <p>{{ dndClass.desc }}</p>
+              <Markdown class="class-details" :source="dndClass.desc" />
+              <!-- <p>{{ dndClass.desc }}</p> -->
             </div>
 
 
@@ -149,6 +150,7 @@
 
 <script>
 import { DndClass } from "../../models/DndClass.js";
+import Markdown from 'vue3-markdown-it'
 
 export default {
   props: {
@@ -157,6 +159,7 @@ export default {
   setup(props) {
     return {};
   },
+  components: { Markdown }
 };
 </script>
 
@@ -226,4 +229,8 @@ export default {
   max-height: 60vh;
   overflow-y: auto;
 }
+</style>
+
+<style lang="scss">
+.class-details {}
 </style>

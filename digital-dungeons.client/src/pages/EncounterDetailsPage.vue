@@ -6,10 +6,16 @@
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
               <div class="AETitle text-center">
-                <div class="text-shadow2 d-flex justify-content-between">
-                  <div></div>
+                <div class="text-shadow2 d-flex justify-content-around">
+                  <button class="btn text-danger">Roll Initiatives</button>
                   <h2>{{ activeEncounter?.name }}</h2>
-                  <button class="text-danger btn px-3">Edit Encounter</button>
+                  <button
+                    class="text-danger btn px-3"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#encounterModal' + activeEncounter?.id"
+                  >
+                    Edit Encounter
+                  </button>
                 </div>
               </div>
               <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
@@ -57,6 +63,9 @@
       </div>
     </div>
   </div>
+  <div v-if="activeEncounter">
+    <EditEncounterDetailsModal :encounter="activeEncounter" />
+  </div>
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
@@ -77,6 +86,7 @@ import AccountPage from "./AccountPage.vue";
 import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
 import { monstersService } from "../services/MonstersService.js";
 import SearchPagination from "../components/SearchPagination.vue";
+import EditEncounterDetailsModal from "../components/EditEncounterDetailsModal.vue";
 export default {
   setup() {
     const route = useRoute();
@@ -159,6 +169,7 @@ export default {
     AccountPage,
     ActiveEncounterMonsters,
     SearchPagination,
+    EditEncounterDetailsModal,
   },
 };
 </script>
