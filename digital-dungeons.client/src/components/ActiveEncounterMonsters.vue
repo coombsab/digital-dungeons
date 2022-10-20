@@ -5,10 +5,10 @@
   </div> -->
 
   <div class="col-md-3 d-flex justify-content-center mt-3">
-    <div class="monster-card text-center text-visible selectable" title="See Monster Details" data-bs-toggle="modal"
-      :data-bs-target="'#monsterModal' + monster.id" @click=""
+    <div class="monster-card text-center text-visible selectable animate__animated animate__flipInX"
+      title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.id" @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
-      <div class="muted-layer bg-transparent">
+      <div class="muted-layer bg-transparent ">
         <span>{{ monster.nickName }}</span>
         <span> x {{ monster.quantity }}</span>
       </div>
@@ -92,10 +92,15 @@
 
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Description</h6>
-                <p>{{ monster.desc }}</p>
+                <h6 class="statistics">Charisma</h6>
+                <p>{{ monster.charisma }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Constitution</h6>
+                <p>{{ monster.constitution }}</p>
               </div>
             </div>
+            <div></div>
           </div>
           <!-- SECTION Monster Edits -->
           <div class="modal-body all-transparent" v-else>
