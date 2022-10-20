@@ -51,7 +51,6 @@
                 <p>{{ monster.hit_points }}</p>
               </div>
             </div>
-
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Hit Dice</h6>
@@ -70,7 +69,24 @@
                 <p>{{ monster.languages }}</p>
               </div>
             </div>
-
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Armor Class</h6>
+                <p>{{ monster.armor_class }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Challenge Rating</h6>
+                <p>{{ monster.challenge_rating }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Languages</h6>
+                <p>{{ monster.languages }}</p>
+              </div>
+            </div>
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Strength</h6>
@@ -89,7 +105,6 @@
                 <p>{{ monster.dexterity }}</p>
               </div>
             </div>
-
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Charisma</h6>
@@ -100,7 +115,12 @@
                 <p>{{ monster.constitution }}</p>
               </div>
             </div>
-            <div></div>
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Description</h6>
+                <p>{{ monster.desc }}</p>
+              </div>
+            </div>
           </div>
           <!-- SECTION Monster Edits -->
           <div class="modal-body all-transparent" v-else>

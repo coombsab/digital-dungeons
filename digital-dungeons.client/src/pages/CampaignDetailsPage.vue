@@ -42,12 +42,12 @@
           </div>
           <div class="col-6">
             <div class="bg-dark p-2">
-              <div class="bg-secondary p-1">
+              <div class="bg-secondary p-1 animate__animated  animate__slideInRight">
                 <h4 class="border-bottom border-3 border-danger text-danger" v-if="completedEncounters.length > 0">
                   Completed Encounters
                 </h4>
                 <EncounterCard v-for="e in completedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
-                <h4 class="border-bottom border-3 border-danger text-danger">
+                <h4 class="border-bottom border-3 border-danger text-danger ">
                   Encounters
                 </h4>
                 <EncounterCard v-for="e in uncompletedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
