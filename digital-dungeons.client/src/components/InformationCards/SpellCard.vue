@@ -21,21 +21,15 @@
           <!-- Spell header: name and level -->
           <div>
             <div>
-              <h1 class="modal-title fs-5 mb-2" id="SpellDetailsModalLabel">
+              <h1 class="modal-title fs-5 mb-2 fs-3" id="SpellDetailsModalLabel">
                 {{ spell?.name }}
               </h1>
             </div>
 
-            <div>
+            <div class="text-lighter">
               <p><em>{{spell.level}} {{ spell.school}}</em> | {{spell.dnd_class}}</p>
             </div>
           </div>
-
-
-          <!-- Dismiss modal -->
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
         </div>
 
 
@@ -43,36 +37,48 @@
         <!-- Spell details/body -->
         <div class="modal-body bg-transparent-modal" v-if="spell">
           <div class="flex-wrap mb-3">
+            <!-- Range -->
             <div v-if="spell.range" class="mb-3">
-              <strong class="fs-5">Range</strong>: {{spell.range}}
+              <strong class="fs-4 text-visible text-shadow-darker">Range: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.range}}</strong>
             </div>
             <div v-else></div>
 
 
+            <!-- Casting time -->
             <div v-if="spell.casting_time">
-              Casting Time: {{spell.casting_time}}
+              <strong class="fs-4 text-visible text-shadow-darker">Casting Time: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.casting_time}}</strong>
             </div>
             <div v-else></div>
 
+            <!-- Duration -->
             <div v-if="spell.duration">
-              Duration: {{spell.duration}}
+              <strong class="fs-4 text-visible text-shadow-darker">Duration: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.duration}}</strong>
             </div>
             <div v-else></div>
 
+            <!-- Components required -->
             <div v-if="spell.components" class="mb-4">
-              Components: {{spell.components}}
+              <strong class="fs-4 text-visible text-shadow-darker">Components: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.components}}</strong>
             </div>
             <div v-else></div>
 
 
+            <!-- Description of the spell -->
             <div v-if="spell.desc" class="mb-3">
-              Description: {{spell.desc}}
+              <strong class="fs-4 text-visible text-shadow-darker">Description: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.desc}}</strong>
             </div>
             <div v-else></div>
 
 
-            <div v-if="spell.higher_level">
-              At higher levels: {{spell.higher_level}}
+            <!-- At higher levels -->
+            <div v-if="spell.higher_level" class="mb-5">
+              <strong class="fs-4 text-visible text-shadow-darker">At higher levels: </strong>
+              <strong class="fs-5 text-lighter text-shadow">{{spell.higher_level}}</strong>
             </div>
             <div v-else></div>
           </div>
@@ -240,10 +246,28 @@ bg-black {
 }
 
 .text-visible {
-  color: rgb(216, 224, 229);
+  color: rgb(225, 0, 255);
 }
 
 .text-visible:hover {
-  color: rgb(216, 224, 229) !important;
+  color: rgb(225, 0, 255) !important;
+}
+
+.text-lighter {
+  color: rgb(110, 163, 255);
+}
+
+.text-shadow {
+  color: rgb(110, 163, 255);
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(77, 121, 196);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.text-shadow-darker {
+  color: rgb(225, 0, 255);
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(170, 8, 191);
+  font-weight: bold;
+  letter-spacing: 0.08rem
 }
 </style>
