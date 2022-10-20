@@ -1,7 +1,7 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="magicitem-card text-center text-visible selectable elevation-2" title="See Magicitem Details"
-    data-bs-toggle="modal" :data-bs-target="'#magicitemModal' + magicitem.slug" @click=""
+  <div class="magicitem-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
+    title="See Magicitem Details" data-bs-toggle="modal" :data-bs-target="'#magicitemModal' + magicitem.slug" @click=""
     :style="magicitem.coverImg ? {backgroundImage: `url(${magicitem.coverImg})`} : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ magicitem.name }}</span>
