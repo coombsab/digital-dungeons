@@ -14,7 +14,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning"
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
-
+        <!-- SECTION HEADER -->
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
@@ -24,6 +24,7 @@
             <p class=" my-auto">{{monster.challenge_rating}}</p>
           </div>
         </div>
+        <!-- SECTION GENERAL -->
         <div class="modal-body bg-transparent-modal" v-if="monster">
           <h4 class="statistics text-info">General</h4>
           <div class="d-flex justify-content-evenly">
@@ -52,24 +53,91 @@
               </div>
             </div>
           </div>
-          <h6 class=" statistics text-info">Speed</h6>
+          <!-- STUB SPEED -->
+          <!-- NOTE Speed is weird, for help ask Talor -->
+          <h4 class=" text-info">Speed</h4>
           <div class="d-flex justify-content-around">
-            <div class="" v-for="(value, property) in monster.speed" :key="property">
+            <div v-for="(value, property) in monster.speed" :key="property">
               <span class="d-flex">
-                <p class="text-info me-1">{{property}}:
-                </p>
-                {{value}}ft
+                <p class="text-info me-1">{{property}}:</p>
+                <p>{{value}}{{typeof value == 'number' ? 'ft' : ''}}</p>
               </span>
             </div>
           </div>
-          <h4 class=" statistics text-info">Statistics</h4>
-          <div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+          <!-- SECTION STATS -->
+          <h4 class="statistics text-info">Stats</h4>
+          <div class="d-flex justify-content-around">
+            <span class="d-flex">
+              <p class="me-1 text-info">Str:</p>
+              <p>{{monster.strength}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Dex:</p>
+              <p>{{monster.dexterity}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Con:</p>
+              <p>{{monster.constitution}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Int:</p>
+              <p>{{monster.intelligence}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Wis:</p>
+              <p>{{monster.wisdom}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Cha:</p>
+              <p>{{monster.charisma}}</p>
+            </span>
           </div>
-
+          <!-- SECTION INFO -->
+          <h4 class="statistics text-info">Info</h4>
+          <!-- STUB ACTIONS -->
+          <h4 v-if="monster.actions" class="me-1 text-info">Actions</h4>
+          <div v-if="monster.actions" v-for="actions in monster.actions">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{actions.name}}:</p>
+              <p>{{actions.desc}}</p>
+            </span>
+          </div>
+          <!-- STUB REACTIONS -->
+          <h4 v-if="monster.reactions" class="me-1 text-info">Reactions</h4>
+          <div v-if="monster.reactions" v-for="reactions in monster.reactions">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{reactions.name}}:</p>
+              <p>{{reactions.desc}}</p>
+            </span>
+          </div>
+          <!-- STUB SPECIAL ABILITIES -->
+          <h4 v-if="monster.special_abilities" class="me-1 text-info">Special Abilities</h4>
+          <div v-if="monster.special_abilities" v-for="special_abilities in monster.special_abilities">
+            <span class="d-flex flex-wrap">
+              <p class="text-info me-1">{{special_abilities.name}}:</p>
+              <p>{{special_abilities.desc}}</p>
+            </span>
+          </div>
+          <!-- STUB LEGENDARY -->
+          <div v-if="monster.legendary_desc || monster.legendary_actions">
+            <h5 class="text-warning border-bottom border-1 ">Legendary</h5>
+            <span class="d-flex flex-wrap">
+              <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
+              <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
+            </span>
+            <p v-if="monster.legendary_actions" class=" me-1 text-warning">Actions</p>
+            <div v-if="monster.legendary_actions" v-for="a in monster.legendary_actions">
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">{{a.name}}:</p>
+                <p>{{a.desc}}</p>
+              </span>
+            </div>
+          </div>
+          <!-- SECTION SPELLS -->
+          <h4 v-if="monster.spell_list[0]" class=" statistics text-info">Spells</h4>
+          <div v-if="monster.spell_list[0]">
+            {{monster.spell_list}}
+          </div>
 
 
 
@@ -145,7 +213,7 @@ export default {
 }
 
 .statistics {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(172, 170, 170);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,4 +226,8 @@ export default {
 .text-visible:hover {
   color: rgb(216, 224, 229) !important;
 }
+
+// .modal-xl {
+//   width: 50vw !important;
+// }
 </style>
