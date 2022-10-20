@@ -17,8 +17,7 @@
     "sweetalert2": "11.4.34",
     "vue": "3.2.39",
     "vue-router": "4.1.5",
-    "vue3-markdown-it": "^1.0.10",
-    "vue-youtube-embed": "^2.2.2"
+    "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "3.1.0",
