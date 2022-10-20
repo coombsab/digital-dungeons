@@ -5,7 +5,8 @@
         <h1 class="DD-title text-shadow"><span class="">WELCOME TO DIGITAL DUNGEONS</span></h1>
       </div>
     </div>
-    <div class="cards-container justify-content-around align-items-center d-flex flex-wrap flex-grow-1">
+    <div
+      class="cards-container justify-content-around align-items-center d-flex flex-wrap flex-grow-1 animate__animated animate__fadeIn">
       <router-link :to="{ name: 'Campaigns' }">
         <div class="theme-card campaigns elevation-3">
           <div class="on-md-hover text-visible">
@@ -35,7 +36,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .home {
   height: 100vh;
   position: relative;
@@ -72,6 +72,7 @@ export default {
   background-position: center;
   background-size: cover;
 }
+
 .information {
   background-image: url("https://i.pinimg.com/originals/da/72/e6/da72e6588befda673cc0fcdf64a49e40.jpg");
   background-position: center;
@@ -117,7 +118,8 @@ export default {
     opacity: 0;
     pointer-events: none;
   }
-  *:hover > .on-md-hover {
+
+  *:hover>.on-md-hover {
     opacity: 1;
     pointer-events: all;
   }
