@@ -232,5 +232,11 @@ export default {
 </style>
 
 <style lang="scss">
-.class-details {}
+.class-details {
+  // em {
+  //   background-color: rgba(0, 128, 128, 0.232);
+  //   padding: .015rem;
+  //   border-radius: 5px;
+  // }
+}
 </style>
