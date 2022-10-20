@@ -8,31 +8,77 @@
     </div>
   </div>
 
-  <!-- NOTE MODAL -->
+  <!-- NOTE: MODAL -->
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
+
+      <!-- School img -->
       <div class="modal-content text-visible bg-black"
         :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="SpellDetailsModalLabel">
-            {{ spell?.name }}
-          </h1>
-          <div class="d-flex justify-content-around gap-3">
-            <span>{{spell?.duration}}</span>
-            <span>{{spell?.range}}</span>
+
+          <!-- Spell header: name and level -->
+          <div>
+            <div>
+              <h1 class="modal-title fs-5 mb-2" id="SpellDetailsModalLabel">
+                {{ spell?.name }}
+              </h1>
+            </div>
+
+            <div>
+              <p><em>{{spell.level}} {{ spell.school}}</em> | {{spell.dnd_class}}</p>
+            </div>
           </div>
+
+
+          <!-- Dismiss modal -->
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
             X
           </button>
         </div>
+
+
+
+        <!-- Spell details/body -->
         <div class="modal-body bg-transparent-modal" v-if="spell">
-          <div class="d-flex flex-wrap justify-content-around mb-3">
-            <div>
-              <h6 class="statistics">School</h6>
-              <p>{{ spell.school}}</p>
+          <div class="flex-wrap mb-3">
+            <div v-if="spell.range" class="mb-3">
+              Range: {{spell.range}}
             </div>
+            <div v-else></div>
+
+
+            <div v-if="spell.casting_time">
+              Casting Time: {{spell.casting_time}}
+            </div>
+            <div v-else></div>
+
+            <div v-if="spell.duration">
+              Duration: {{spell.duration}}
+            </div>
+            <div v-else></div>
+
+            <div v-if="spell.components" class="mb-4">
+              Components: {{spell.components}}
+            </div>
+            <div v-else></div>
+
+
+            <div v-if="spell.desc" class="mb-3">
+              Description: {{spell.desc}}
+            </div>
+            <div v-else></div>
+
+
+            <div v-if="spell.higher_level">
+              At higher levels: {{spell.higher_level}}
+            </div>
+            <div v-else></div>
           </div>
+
+
+
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
               <h6 class="statistics">Type</h6>
@@ -101,6 +147,9 @@
             </div>
           </div> -->
         </div>
+
+
+
         <!-- NOTE In Case Of No Data -->
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no spell data available :(</p>
@@ -114,6 +163,9 @@
     </div>
   </div>
 </template>
+
+
+
 
 <script>
 import { Spell } from '../../models/Spell.js';
@@ -129,6 +181,9 @@ export default {
   },
 };
 </script>
+
+
+
 
 <style lang="scss" scoped>
 .spell-card {
