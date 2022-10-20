@@ -31,6 +31,7 @@ class EncountersService {
     const updatedEncounter = new Encounter(res.data);
     const index = AppState.encounters.findIndex((e) => e.id == id);
     AppState.encounters.splice(index, 1, updatedEncounter);
+    AppState.activeEncounter = updatedEncounter;
   }
 
   async getEncounterById(campaignId, encounterId) {
@@ -40,7 +41,7 @@ class EncountersService {
     AppState.activeEncounter = new Encounter(res.data);
     // console.log(res.data);
     // console.log("Getting Encounters Round 2");
-    // console.log(AppState.activeEncounter);
+    console.log(AppState.activeEncounter);
   }
 }
 
