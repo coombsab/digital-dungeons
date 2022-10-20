@@ -44,7 +44,7 @@
         <div class="modal-body bg-transparent-modal" v-if="spell">
           <div class="flex-wrap mb-3">
             <div v-if="spell.range" class="mb-3">
-              Range: {{spell.range}}
+              <strong class="fs-5">Range</strong>: {{spell.range}}
             </div>
             <div v-else></div>
 
@@ -239,11 +239,11 @@ bg-black {
   align-items: center;
 }
 
-// .text-visible {
-//   color: rgb(216, 224, 229);
-// }
+.text-visible {
+  color: rgb(216, 224, 229);
+}
 
-// .text-visible:hover {
-//   color: rgb(216, 224, 229) !important;
-// }
+.text-visible:hover {
+  color: rgb(216, 224, 229) !important;
+}
 </style>
