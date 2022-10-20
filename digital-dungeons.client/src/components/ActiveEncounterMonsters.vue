@@ -44,80 +44,95 @@
                 <h6 class="statistics">Subtype</h6>
                 <p>{{ monster.subtype }}</p>
               </div>
-              <div>
-                <h6 class="statistics">Alignment</h6>
-                <p>{{ monster.alignment }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Health</h6>
-                <p>{{ monster.hit_points }}</p>
-              </div>
             </div>
-            <!--ANCHOR Hit Dice, Size and Challenge Rating-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Hit Dice</h6>
-                <p>{{ monster.hit_dice }}</p>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
               </div>
               <div>
                 <h6 class="statistics">Size</h6>
                 <p>{{ monster.size }}</p>
               </div>
-              <div>
-                <h6 class="statistics">Challenge Rating</h6>
-                <p>{{ monster.challenge_rating }}</p>
-              </div>
             </div>
-            <!--ANCHOR Languages-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Languages</h6>
-                <p>{{ monster.languages }}</p>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
               </div>
             </div>
-            <!--ANCHOR Armor Class, -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Armor Class</h6>
-                <p>{{ monster.armor_class }}</p>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
               </div>
               <div>
-                <h6 class="statistics">Armor Description</h6>
-                <p>{{ monster.armor_desc }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Challenge Rating</h6>
-                <p>{{ monster.challenge_rating }}</p>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
               </div>
             </div>
-            <!--ANCHOR Strenght, Intelligence, Wisdom and Dexterity-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Strength</h6>
-                <p>{{ monster.strength }}</p>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
               </div>
               <div>
-                <h6 class="statistics">Intelligence</h6>
-                <p>{{ monster.intelligence }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Wisdom</h6>
-                <p>{{ monster.wisdom }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Dexterity</h6>
-                <p>{{ monster.dexterity }}</p>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
               </div>
             </div>
-            <!--ANCHOR Charisma and Wisdom-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Charisma</h6>
-                <p>{{ monster.charisma }}</p>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
               </div>
               <div>
-                <h6 class="statistics">Constitution</h6>
-                <p>{{ monster.constitution }}</p>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-around mb-3">
+              <div>
+                <h6 class="statistics">Alignment</h6>
+                <p>{{ monster.alignment}}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Size</h6>
+                <p>{{ monster.size }}</p>
               </div>
             </div>
             <!--ANCHOR Description -->
