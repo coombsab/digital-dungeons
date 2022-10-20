@@ -50,6 +50,10 @@
   </div>
 </template>
 
+
+
+
+
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
@@ -83,6 +87,10 @@ export default {
   components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard, ClassCard, MagicItemCard, WeaponCard, ArmorCard }
 };
 </script>
+
+
+
+
 
 <style lang="scss" scoped>
 .information-page {

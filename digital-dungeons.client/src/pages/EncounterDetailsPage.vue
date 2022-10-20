@@ -214,7 +214,7 @@ export default {
 .encounterImage {
   max-height: 40vh;
   max-width: 40vw;
-  padding: 3rem;
+  padding: 4rem;
 }
 
 .bottomLeft {

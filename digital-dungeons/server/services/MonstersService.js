@@ -1,14 +1,29 @@
 import { dbContext } from "../db/DbContext";
 import { BadRequest, Forbidden } from "../utils/Errors";
+import { logger } from "../utils/Logger";
 
 class MonstersService {
-  async editMonsters(arrayOfMonsters, accountId) {
+  async editMonsters(arrayOfMonsters, accountId, encounterId) {
+    console.log("Hi")
     arrayOfMonsters = arrayOfMonsters.filter(monster => monster.creatorId === accountId)
     if (arrayOfMonsters.length === 0) {
       throw new Forbidden("Not your monsters, no editing allowed.")
     }
-    const monsters = await dbContext.Monsters.bulkSave(arrayOfMonsters)
-    return monsters
+    const document = []
+
+    arrayOfMonsters.forEach(monster => {
+      const obj = {
+        updateOne: {
+          filter: { _id: monster.id },
+          update: { $set: { initiative: monster.initiative } }
+        }
+      }
+      document.push(obj)
+    })
+    const monstersReport = await dbContext.Monsters.bulkWrite(document)
+    const monsters = await this.getMonstersByEncounterId(encounterId)
+
+    return { monstersReport, monsters }
   }
   async editMonster(monsterData) {
     const monster = await this.getMonsterById(monsterData.id)
