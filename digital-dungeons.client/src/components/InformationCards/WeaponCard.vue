@@ -16,28 +16,27 @@
         :style="weapon.coverImg ? {backgroundImage: `url(${weapon.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal d-flex align-items-center">
-          <h1 class="modal-title fs-5 text-info text-shadow" id="WeaponDetailsModalLabel">
+          <h1 class="modal-title fs-3 text-info text-shadow" id="WeaponDetailsModalLabel">
             {{ weapon?.name }}
           </h1>
           <div class="d-flex align-items-center">
-            <p class="text-info text-shadow me-1 my-auto">Cost:</p>
+            <p class="text-info text-shadow me-1 my-auto">Value:</p>
             <p class=" my-auto">{{weapon?.cost}}</p>
           </div>
-          <div></div>
         </div>
         <div class="modal-body bg-transparent-modal d-flex flex-column justify-content-around" v-if="weapon">
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
-              <h6 class="statistics text-info">Category</h6>
+              <h4 class="statistics text-info">Category</h4>
               <p>{{ weapon.category}}</p>
             </div>
             <div>
-              <h6 class="statistics text-info">Weight</h6>
+              <h4 class="statistics text-info">Weight</h4>
               <p>{{ weapon.weight}}</p>
             </div>
           </div>
           <div>
-            <h6 class="statistics text-info">Damage</h6>
+            <h4 class="statistics text-info">Damage</h4>
             <div class="d-flex justify-content-around">
               <div class="d-flex">
                 <p class="text-info me-1">Roll(s) and Die:</p>
@@ -51,8 +50,8 @@
           </div>
           <div>
 
-            <h6 v-if="weapon.properties" class="statistics text-info">Properties</h6>
-            <h6 v-else class=""></h6>
+            <h4 v-if="weapon.properties" class="statistics text-info">Properties</h4>
+            <h4 v-else class=""></h4>
             <div class="d-flex justify-content-around flex-wrap">
               <div class="" v-for="p in weapon.properties">
                 <p class="">{{p}}</p>
@@ -62,57 +61,57 @@
 
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
-              <h6 class="statistics">Type</h6>
+              <h4 class="statistics">Type</h4>
               <p>{{ weapon.type}}</p>
             </div>
             <div>
-              <h6 class="statistics">Subtype</h6>
+              <h4 class="statistics">Subtype</h4>
               <p>{{ weapon.subtype }}</p>
             </div>
             <div>
-              <h6 class="statistics">Alignment</h6>
+              <h4 class="statistics">Alignment</h4>
               <p>{{ weapon.alignment }}</p>
             </div>
             <div>
-              <h6 class="statistics">Health</h6>
+              <h4 class="statistics">Health</h4>
               <p>{{ weapon.hit_points }}</p>
             </div>
           </div>
 
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
-              <h6 class="statistics">Hit Dice</h6>
+              <h4 class="statistics">Hit Dice</h4>
               <p>{{ weapon.hit_dice }}</p>
             </div>
             <div>
-              <h6 class="statistics">Languages</h6>
+              <h4 class="statistics">Languages</h4>
               <p>{{ weapon.languages }}</p>
             </div>
             <div>
-              <h6 class="statistics">Size</h6>
+              <h4 class="statistics">Size</h4>
               <p>{{ weapon.size }}</p>
             </div>
             <div>
-              <h6 class="statistics">Challenge Rating</h6>
+              <h4 class="statistics">Challenge Rating</h4>
               <p>{{ weapon.challenge_rating }}</p>
             </div>
           </div>
 
           <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
-              <h6 class="statistics">Strength</h6>
+              <h4 class="statistics">Strength</h4>
               <p>{{ weapon.strength }}</p>
             </div>
             <div>
-              <h6 class="statistics">Intelligence</h6>
+              <h4 class="statistics">Intelligence</h4>
               <p>{{ weapon.intelligence }}</p>
             </div>
             <div>
-              <h6 class="statistics">Wisdom</h6>
+              <h4 class="statistics">Wisdom</h4>
               <p>{{ weapon.wisdom }}</p>
             </div>
             <div>
-              <h6 class="statistics">Dexterity</h6>
+              <h4 class="statistics">Dexterity</h4>
               <p>{{ weapon.dexterity }}</p>
             </div>
 
@@ -120,11 +119,11 @@
 
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
-                <h6 class="statistics">Charisma</h6>
+                <h4 class="statistics">Charisma</h4>
                 <p>{{ weapon.charisma }}</p>
               </div>
               <div>
-                <h6 class="statistics">Constitution</h6>
+                <h4 class="statistics">Constitution</h4>
                 <p>{{ weapon.constitution }}</p>
               </div>
             </div>

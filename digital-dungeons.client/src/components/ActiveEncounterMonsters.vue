@@ -58,16 +58,16 @@
                 <p>{{ monster.hit_dice }}</p>
               </div>
               <div>
-                <h6 class="statistics">Languages</h6>
-                <p>{{ monster.languages }}</p>
-              </div>
-              <div>
                 <h6 class="statistics">Size</h6>
                 <p>{{ monster.size }}</p>
               </div>
               <div>
                 <h6 class="statistics">Challenge Rating</h6>
                 <p>{{ monster.challenge_rating }}</p>
+              </div>
+              <div>
+                <h6 class="statistics">Languages</h6>
+                <p>{{ monster.languages }}</p>
               </div>
             </div>
 
