@@ -1,9 +1,9 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="armor-card text-center text-visible selectable elevation-2" title="See Armor Details"
-    data-bs-toggle="modal" :data-bs-target="'#armorModal' + armor.slug" @click=""
+  <div class="armor-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
+    title="See Armor Details" data-bs-toggle="modal" :data-bs-target="'#armorModal' + armor.slug" @click=""
     :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
-    <div class="muted-layer bg-transparent">
+    <div class="muted-layer bg-transparent ">
       <span>{{ armor.name }}</span>
     </div>
   </div>
@@ -23,8 +23,10 @@
             X
           </button> -->
         </div>
-        <div class="modal-body bg-transparent-modal d-flex flex-column align-items-center justify-content-around" v-if="armor">
-          <div class=" flex-grow-1 d-flex flex-column flex-wrap align-items-center justify-content-around gap-3 mb-3 fs-5">
+        <div class="modal-body bg-transparent-modal d-flex flex-column align-items-center justify-content-around"
+          v-if="armor">
+          <div
+            class=" flex-grow-1 d-flex flex-column flex-wrap align-items-center justify-content-around gap-3 mb-3 fs-5">
             <div class="text-center">
               <h3 class="statistics">Category</h3>
               <p>{{ armor.category}}</p>

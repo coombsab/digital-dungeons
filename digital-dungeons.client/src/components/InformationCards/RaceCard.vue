@@ -1,9 +1,9 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="race-card text-center text-visible selectable elevation-2" title="See Race Details" data-bs-toggle="modal"
-    :data-bs-target="'#raceModal' + race.slug" @click=""
+  <div class="race-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
+    title="See Race Details" data-bs-toggle="modal" :data-bs-target="'#raceModal' + race.slug" @click=""
     :style="race.coverImg ? {backgroundImage: `url(${race.coverImg})`} : ''">
-    <div class="muted-layer bg-transparent">
+    <div class="muted-layer bg-transparent ">
       <span>{{ race?.name }}</span>
     </div>
   </div>

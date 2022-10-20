@@ -1,9 +1,9 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="spell-card text-center text-visible selectable elevation-2" title="See Spell Details"
-    data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
+  <div class="spell-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
+    title="See Spell Details" data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
     :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
-    <div class="muted-layer bg-transparent">
+    <div class="muted-layer bg-transparent ">
       <span>{{ spell.name }}</span>
     </div>
   </div>
