@@ -8,7 +8,7 @@ export class Monster {
     this.image = data.image;
     this.desc = data.desc;
     this.nickName = data.nickName || data.name;
-    this.quantity = data.quantity || 1;
+    this.quantity = data.quantity;
     // NOTE Data below comes from Api
     this.slug = data.slug;
     this.name = data.name;
