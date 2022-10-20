@@ -11,7 +11,7 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content text-visible bg-warning"
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
         <!-- SECTION HEADER -->
@@ -125,18 +125,20 @@
               <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
               <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
             </span>
-            <p v-if="monster.legendary_actions" class=" me-1 text-warning">Actions</p>
+            <p v-if="monster.legendary_actions" class="fs-5 border-bottom border-1 mb-1 me-1 text-warning">Actions</p>
             <div v-if="monster.legendary_actions" v-for="a in monster.legendary_actions">
               <span class="d-flex flex-wrap">
-                <p class="text-info me-1">{{a.name}}:</p>
-                <p>{{a.desc}}</p>
+                <p class="text-warning me-1 mb-1">{{a.name}}:</p>
+                <p class="mb-1">{{a.desc}}</p>
               </span>
             </div>
           </div>
           <!-- SECTION SPELLS -->
           <h4 v-if="monster.spell_list[0]" class=" statistics text-info">Spells</h4>
-          <div v-if="monster.spell_list[0]">
-            {{monster.spell_list}}
+          <div v-if="monster.spell_list[0]" v-for="spell in monster.spell_list">
+            <a :href="spell.replace('api-beta.', '')" target="_blank"
+              class="text-light">{{spell.replace('https://api-beta.open5e.com/spells/', '').replace('/',
+              '').replace('-', '').toUpperCase()}}</a>
           </div>
 
 
@@ -227,7 +229,21 @@ export default {
   color: rgb(216, 224, 229) !important;
 }
 
-// .modal-xl {
-//   width: 50vw !important;
+.text-light:hover {
+  color: rgb(216, 224, 229) !important;
+}
+
+.modal-xl {
+  width: 70vw !important;
+}
+
+// .modal {
+//   position: relative;
+
+//   .modal-dialog {
+//     position: absolute;
+//     right: 50%;
+//     width: 70vw !important;
+//   }
 // }
 </style>
