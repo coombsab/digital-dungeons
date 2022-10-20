@@ -14,7 +14,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning"
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
-
+        <!-- SECTION HEADER -->
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
@@ -24,6 +24,7 @@
             <p class=" my-auto">{{monster.challenge_rating}}</p>
           </div>
         </div>
+        <!-- SECTION GENERAL -->
         <div class="modal-body bg-transparent-modal" v-if="monster">
           <h4 class="statistics text-info">General</h4>
           <div class="d-flex justify-content-evenly">
@@ -52,23 +53,75 @@
               </div>
             </div>
           </div>
-          <h6 class=" statistics text-info">Speed</h6>
+          <!-- SECTION SPEED -->
+          <!-- NOTE Speed is weird, for help ask Talor or Sam -->
+          <h5 class="border-bottom border-1 text-info">Speed</h5>
           <div class="d-flex justify-content-around">
-            <div class="" v-for="(value, property) in monster.speed" :key="property">
+            <div v-for="(value, property) in monster.speed" :key="property">
               <span class="d-flex">
                 <p class="text-info me-1">{{property}}:
                 </p>
-                {{value}}ft
+                <p v-if="value == Number">{{value}}ft</p>
+                <p v-else>{{value}}</p>
               </span>
             </div>
           </div>
-          <h4 class=" statistics text-info">Statistics</h4>
-          <div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+          <!-- SECTION STATS -->
+          <h4 class="statistics text-info">Stats</h4>
+          <div class="d-flex justify-content-around">
+            <span class="d-flex">
+              <p class="me-1 text-info">Str:</p>
+              <p>{{monster.strength}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Dex:</p>
+              <p>{{monster.dexterity}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Con:</p>
+              <p>{{monster.constitution}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Int:</p>
+              <p>{{monster.intelligence}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Wis:</p>
+              <p>{{monster.widsom}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-info">Cha:</p>
+              <p>{{monster.charisma}}</p>
+            </span>
           </div>
+          <!-- SECTION INFO -->
+          <h4 class="statistics text-info">Info</h4>
+          <span class="d-flex">
+            <p class="me-1 text-info">Actions:</p>
+            <p></p>
+          </span>
+          <span class="d-flex">
+            <p class="me-1 text-info">Reactions:</p>
+            <p></p>
+          </span>
+          <span class="d-flex">
+            <p class="me-1 text-info">Special Abilities:</p>
+            <p></p>
+          </span>
+          <!-- STUB LEGENDARY -->
+          <div v-if="monster.legendary_desc || monster.legendary_abilities">
+            <h5 class="text-warning border-bottom border-1 ">Legendary</h5>
+            <span class="d-flex">
+              <p class="me-1 mb-1 text-warning">Description:</p>
+              <p>{{monster.legendary_desc}}</p>
+            </span>
+            <span class="d-flex">
+              <p class="me-1 text-warning">Abilities:</p>
+              <p>{{monster.legendary_abilities}}</p>
+            </span>
+          </div>
+          <!-- SECTION SPELlS -->
+          <h4 class=" statistics text-info">Spells</h4>
 
 
 
@@ -145,7 +198,7 @@ export default {
 }
 
 .statistics {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(172, 170, 170);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,4 +211,8 @@ export default {
 .text-visible:hover {
   color: rgb(216, 224, 229) !important;
 }
+
+// .modal-xl {
+//   width: 50vw !important;
+// }
 </style>
