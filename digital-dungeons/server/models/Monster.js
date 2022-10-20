@@ -16,7 +16,7 @@ export const MonsterSchema = new Schema(
     armor_class: { type: Number, default: null, min: 1 },
     armor_desc: { type: String, default: "No armor desc" },
     hit_dice: { type: String, default: "No hit dice" },
-    speed: { type: Object, default: {} },
+    speed: { type: Number, default: 1, min: 1, max: 100 },
     strength: { type: Number, default: 0 },
     dexterity: { type: Number, default: 0 },
     constitution: { type: Number, default: 0 },
