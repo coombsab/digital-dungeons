@@ -1,6 +1,7 @@
 <template>
   <section class="container-fluid about-page">
     <div class="row justify-content-around ">
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -14,6 +15,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -28,6 +31,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="../assets/img/me.jpg" alt="">
@@ -42,6 +47,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -55,6 +62,23 @@
           </div>
         </div>
       </div>
+
+
+      <div class="col-md-3 p-md-3 p-2">
+        <div class="card cards elevation-3">
+          <img src="https://thiscatdoesnotexist.com" alt="">
+          <h4 class="text-shadow2">Jake Paulin</h4>
+          <div class="card-body rounded text-shadow ">
+            <p>Description</p>
+          </div>
+          <div class="card-text">
+            <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
+            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Jakeepaulin"></a>
+          </div>
+        </div>
+      </div>
+
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
@@ -69,22 +93,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Jake Paulin</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Jakeepaulin"></a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
+
+
+
 
 <script>
 export default {
@@ -95,6 +109,10 @@ export default {
   }
 }
 </script>
+
+
+
+
 <style lang="scss" scoped>
 .about-page {
   height: 100vh;
