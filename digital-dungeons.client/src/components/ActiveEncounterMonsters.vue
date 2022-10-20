@@ -33,6 +33,8 @@
           <!-- SECTION Monster Details -->
           <!-- NOTE hide place fxn implementation -->
           <div class="modal-body" v-if="hidden == false">
+
+            <!--ANCHOR Type, Subtype, Alignment and Health-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Type</h6>
@@ -51,6 +53,7 @@
                 <p>{{ monster.hit_points }}</p>
               </div>
             </div>
+            <!--ANCHOR Hit Dice, Size and Challenge Rating-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Hit Dice</h6>
@@ -64,29 +67,30 @@
                 <h6 class="statistics">Challenge Rating</h6>
                 <p>{{ monster.challenge_rating }}</p>
               </div>
+            </div>
+            <!--ANCHOR Languages-->
+            <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Languages</h6>
                 <p>{{ monster.languages }}</p>
               </div>
             </div>
+            <!--ANCHOR Armor Class, -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Armor Class</h6>
                 <p>{{ monster.armor_class }}</p>
               </div>
               <div>
-                <h6 class="statistics">Size</h6>
-                <p>{{ monster.size }}</p>
+                <h6 class="statistics">Armor Description</h6>
+                <p>{{ monster.armor_desc }}</p>
               </div>
               <div>
                 <h6 class="statistics">Challenge Rating</h6>
                 <p>{{ monster.challenge_rating }}</p>
               </div>
-              <div>
-                <h6 class="statistics">Languages</h6>
-                <p>{{ monster.languages }}</p>
-              </div>
             </div>
+            <!--ANCHOR Strenght, Intelligence, Wisdom and Dexterity-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Strength</h6>
@@ -105,6 +109,7 @@
                 <p>{{ monster.dexterity }}</p>
               </div>
             </div>
+            <!--ANCHOR Charisma and Wisdom-->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Charisma</h6>
@@ -115,6 +120,7 @@
                 <p>{{ monster.constitution }}</p>
               </div>
             </div>
+            <!--ANCHOR Description -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Description</h6>
