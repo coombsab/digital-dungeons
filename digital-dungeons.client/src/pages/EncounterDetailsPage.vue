@@ -6,8 +6,10 @@
           <div class="text-light h00 glass">
             <section class="row justify-content-between">
               <div class="AETitle text-center">
-                <div class="text-shadow2">
+                <div class="text-shadow2 d-flex justify-content-between">
+                  <div></div>
                   <h2>{{ activeEncounter?.name }}</h2>
+                  <button class="text-danger btn px-3">Edit Encounter</button>
                 </div>
               </div>
               <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
@@ -20,20 +22,32 @@
             </section>
             <section class="row top">
               <div class="col-12 d-flex">
-                <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage" />
+                <img
+                  :src="activeEncounter?.coverImg"
+                  alt=""
+                  class="img-fluid encounterImage rounded"
+                />
                 <p class="p-5 text-shadow">{{ activeEncounter?.desc }}</p>
               </div>
               <!-- SECTION search monsters -->
               <div class="col-4 bg-transparent bottomLeft box">
                 <SearchPagination />
-                <div class="elem2 scrollable animate__animated animate__lightSpeedInLeft">
-                  <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+                <div class="elem2 scrollable">
+                  <MonsterDetailsModal
+                    v-for="m in monsters"
+                    :key="m.slug"
+                    :monster="m"
+                  />
                 </div>
               </div>
               <!-- SECTION my monsters -->
               <div class="col-md-8">
                 <div class="row">
-                  <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.slug" :monster="m" />
+                  <ActiveEncounterMonsters
+                    v-for="m in activeMonsters"
+                    :key="m.slug"
+                    :monster="m"
+                  />
                 </div>
               </div>
             </section>
@@ -144,7 +158,7 @@ export default {
     MonsterDetailsModal,
     AccountPage,
     ActiveEncounterMonsters,
-    SearchPagination
+    SearchPagination,
   },
 };
 </script>
@@ -169,7 +183,7 @@ export default {
   color: rgba(117, 117, 13, 0.727);
   text-shadow: 1px 1px rgb(88, 27, 27), 0px 0px 5px rgb(105, 41, 115);
   font-weight: bold;
-  letter-spacing: 0.08rem
+  letter-spacing: 0.08rem;
 }
 
 .MonsterC:hover {
@@ -184,9 +198,6 @@ export default {
   font-family: "Morpheus";
   src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
 }
-
-
-
 
 .glass {
   background-color: rgba(38, 37, 37, 0.397);
