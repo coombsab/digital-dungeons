@@ -2,7 +2,7 @@
   <div class="component">
     <div
       class="modal fade"
-      :id="'encounterModal' + encounter.id"
+      :id="'encounterModal' + encounter?.id"
       tabindex="-1"
       aria-labelledby="encounterModalLabel"
       aria-hidden="true"
