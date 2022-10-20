@@ -1,7 +1,7 @@
 <template>
   <!-- NOTE DISPLAY CARD -->
-  <div class="dndClass-card text-center text-visible selectable elevation-2" title="See DndClass Details"
-    data-bs-toggle="modal" :data-bs-target="'#dndClassModal' + dndClass.slug" @click=""
+  <div class="dndClass-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
+    title="See DndClass Details" data-bs-toggle="modal" :data-bs-target="'#dndClassModal' + dndClass.slug" @click=""
     :style="dndClass.coverImg ? {backgroundImage: `url(${dndClass.coverImg})`} : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ dndClass.name }}</span>
@@ -9,8 +9,8 @@
   </div>
 
   <!-- NOTE MODAL -->
-  <div class="modal fade" :id="'dndClassModal' + dndClass.slug" tabindex="-1" aria-labelledby="DndClassDetailsModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" :id="'dndClassModal' + dndClass.slug" tabindex="-1"
+    aria-labelledby="DndClassDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg h-80">
       <div class="modal-content text-visible bg-warning"
         :style="dndClass.coverImg ? {backgroundImage: `url(${dndClass.coverImg})`} : ''">
@@ -29,7 +29,7 @@
               <h6 class="statistics">Description</h6>
               <p>{{ dndClass.desc }}</p>
             </div>
-  
+
           </div>
           <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
             <div>
