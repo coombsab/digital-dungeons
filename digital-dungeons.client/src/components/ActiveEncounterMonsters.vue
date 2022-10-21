@@ -7,7 +7,7 @@
         <div>
           <span>HP: {{monster.hit_points}}</span>
         </div>
-        <span class="fs-4 text-visible">{{ monster.nickName }} </span>
+        <span class="text-visible" :class="monster.nickName.length < 20 ? 'fs-4' : ''">{{ monster.nickName }} </span>
         <div class="d-flex justify-content-between">
           <span>Q: {{ monster.quantity }}</span>
           <span>I: {{monster.initiative}}</span>
