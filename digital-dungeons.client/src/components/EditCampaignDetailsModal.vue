@@ -3,7 +3,7 @@
     <div class="modal fade" :id="'campaignModalEdit' + campaign?.id" tabindex="-1" aria-labelledby="campaignModalEdit"
       aria-hidden="true">
       <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-secondary text-light">
+        <div class="modal-content bg-body text-white">
           <div class="modal-header">
             <h5 class="modal-title" id="campaignModalEdit">
               Edit {{ campaign?.name }}
@@ -12,20 +12,20 @@
               @click="resetForm()"></button>
           </div>
           <div class="modal-body">
-            <form action="submit" class="bg-secondary " @submit.prevent="editCampaign(campaign.id)">
+            <form action="submit" class=" " @submit.prevent="editCampaign(campaign.id)">
               <div class="card-body text-start">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control bg-danger text-white" v-model="editable.name" required
+                  <input type="text" class="form-control bg-primary text-white" v-model="editable.name" required
                     name="name" placeholder="Name:" maxlength="50" />
                   <label for="name">Name:</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="url" class="form-control bg-danger text-white" v-model="editable.coverImg"
+                  <input type="url" class="form-control bg-primary text-white" v-model="editable.coverImg"
                     name="coverImg" placeholder="Cover Image:" maxlength="10000" />
                   <label for="coverImg">Cover Image:</label>
                 </div>
                 <div class="form-floating">
-                  <textarea type="text" class="form-control textarea-height bg-danger text-white"
+                  <textarea type="text" class="form-control textarea-height bg-primary text-white"
                     v-model="editable.desc" name="description" style="resize: none" placeholder="Description:"
                     maxlength="1000"></textarea>
                   <label for="description">Description:</label>
@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetForm()">
+                <button type="button" class="btn bg-secondary" data-bs-dismiss="modal" @click="resetForm()">
                   Close
                 </button>
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
