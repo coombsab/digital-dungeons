@@ -10,6 +10,7 @@
         <ClassModal v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
         <MonsterModal v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
         <RaceModal v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
+        <WeaponModal v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
 
 
         <!-- NOTE Buttons -->
@@ -87,6 +88,7 @@ import ArmorModal from "../components/InfoCardModals/ArmorModal.vue";
 import ClassModal from "../components/InfoCardModals/ClassModal.vue";
 import MonsterModal from "../components/InfoCardModals/MonsterModal.vue";
 import RaceModal from "../components/InfoCardModals/RaceModal.vue";
+import WeaponModal from "../components/InfoCardModals/WeaponModal.vue";
 
 export default {
   setup() {
@@ -118,7 +120,8 @@ export default {
     ArmorModal,
     ClassModal,
     MonsterModal,
-    RaceModal
+    RaceModal,
+    WeaponModal
   }
 };
 </script>
