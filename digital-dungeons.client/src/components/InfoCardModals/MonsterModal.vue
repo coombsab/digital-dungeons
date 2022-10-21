@@ -68,7 +68,6 @@
             </div>
           </div>
 
-
           <!-- SECTION INFO -->
           <h4 class="statistics text-info">Data</h4>
           <div>
@@ -117,29 +116,29 @@
             </div>
             <div class="collapse" id="collapseSaves">
               <div class="d-flex justify-content-around">
-                <span v-if="monster.strength_save" class="d-flex" title="Strength Save">
+                <span class="d-flex" title="Strength Save">
                   <p class="me-1 text-info">Str:</p>
-                  <p>{{monster.strength_save}}</p>
+                  <p>{{monster.strength_save !== null ? monster.strength_save : '0'}}</p>
                 </span>
-                <span v-if="monster.dexterity_save" class="d-flex" title="Dexterity Save">
+                <span class="d-flex" title="Dexterity Save">
                   <p class="me-1 text-info">Dex:</p>
-                  <p>{{monster.dexterity_save}}</p>
+                  <p>{{monster.strength_save !== null ? monster.strength_save : '0'}}</p>
                 </span>
-                <span v-if="monster.constitution_save" class="d-flex" title="Constitution Save">
+                <span class="d-flex" title="Constitution Save">
                   <p class="me-1 text-info">Con:</p>
-                  <p>{{monster.constitution_save}}</p>
+                  <p>{{monster.constitution_save !== null ? monster.constitution_save : '0'}}</p>
                 </span>
-                <span v-if="monster.intelligence_save" class="d-flex" title="Intelligence Save">
+                <span class="d-flex" title="Intelligence Save">
                   <p class="me-1 text-info">Int:</p>
-                  <p>{{monster.intelligence_save}}</p>
+                  <p>{{monster.intelligence_save !== null ? monster.intelligence_save : '0'}}</p>
                 </span>
-                <span v-if="monster.wisdom_save" class="d-flex" title="Wisdom Save">
+                <span class="d-flex" title="Wisdom Save">
                   <p class="me-1 text-info">Wis:</p>
-                  <p>{{monster.wisdom_save}}</p>
+                  <p>{{monster.wisdom_save !== null ? monster.wisdom_save : '0'}}</p>
                 </span>
-                <span v-if="monster.charisma_save" class="d-flex" title="Charisma Save">
+                <span class="d-flex" title="Charisma Save">
                   <p class="me-1 text-info">Cha:</p>
-                  <p>{{monster.charisma_save}}</p>
+                  <p>{{monster.charisma_save !== null ? monster.charisma_save : '0'}}</p>
                 </span>
               </div>
             </div>
@@ -206,7 +205,6 @@
               </span>
             </div>
           </div>
-
 
           <!-- SECTION PERFORMANCES -->
           <h4 class="statistics text-info">Moves</h4>
