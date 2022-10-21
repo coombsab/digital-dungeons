@@ -29,6 +29,10 @@
   </section>
 </template>
 
+
+
+
+
 <script>
 export default {
   setup() {
@@ -38,6 +42,10 @@ export default {
   }
 }
 </script>
+
+
+
+
 
 <style scoped lang="scss">
 .home {
