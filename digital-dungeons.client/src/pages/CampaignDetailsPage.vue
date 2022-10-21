@@ -3,7 +3,17 @@
     <div v-if="campaign" class="h00 elevated rounded">
       <div class="text-light h00 glass">
         <section class="row justify-content-between align-content-center">
-          <div class="col-7 bg-dark p-2 text-center">
+          <div class="col-md-2">
+            <button
+              v-if="campaign.creatorId == account.id"
+              class="btn text-danger"
+              data-bs-toggle="modal"
+              :data-bs-target="'#campaignModalEdit' + campaign?.id"
+            >
+              Edit Campaign
+            </button>
+          </div>
+          <div class="col-5 bg-dark p-2 text-center">
             <div class="bg-secondary text-white rounded">
               <h2 class="morphfont">{{ campaign.name }}</h2>
             </div>
@@ -16,8 +26,13 @@
           </div>
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2 rounded">
-            <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
-              data-bs-target="#CreateEncounterModal">
+            <button
+              v-if="campaign.creatorId == account.id"
+              class="btn btn-danger"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#CreateEncounterModal"
+            >
               Create Encounter
             </button>
           </div>
@@ -33,7 +48,11 @@
         </section>
         <section class="row">
           <div class="col-6 ps-5">
-            <img :src="campaign.coverImg" alt="" class="img-fluid campaignImg rounded ps-3 py-4" />
+            <img
+              :src="campaign.coverImg"
+              alt=""
+              class="img-fluid campaignImg rounded ps-3 py-4"
+            />
             <div class="bg-dark p-2 rounded">
               <div class="bg-secondary p-1 rounded">
                 <p>{{ campaign.desc }}</p>
@@ -43,14 +62,27 @@
           <div class="col-6">
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
-                <h4 class="border-bottom border-3 border-danger text-danger" v-if="completedEncounters.length > 0">
+                <h4
+                  class="border-bottom border-3 border-danger text-danger"
+                  v-if="completedEncounters.length > 0"
+                >
                   Completed Encounters
                 </h4>
-                <EncounterCard v-for="e in completedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
-                <h4 class="border-bottom border-3 border-danger text-danger ">
+                <EncounterCard
+                  v-for="e in completedEncounters"
+                  :encounter="e"
+                  :key="e?.id"
+                  :campaign="campaign"
+                />
+                <h4 class="border-bottom border-3 border-danger text-danger">
                   Encounters
                 </h4>
-                <EncounterCard v-for="e in uncompletedEncounters" :encounter="e" :key="e?.id" :campaign="campaign" />
+                <EncounterCard
+                  v-for="e in uncompletedEncounters"
+                  :encounter="e"
+                  :key="e?.id"
+                  :campaign="campaign"
+                />
               </div>
             </div>
           </div>
@@ -61,6 +93,7 @@
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
+  <EditCampaignDetailsModal :campaign="campaign" />
 </template>
 
 <script>
@@ -72,6 +105,7 @@ import Pop from "../utils/Pop.js";
 import CreateEncounterModal from "../components/CreateEncounterModal.vue";
 import EncounterCard from "../components/EncounterCard.vue";
 import { encountersService } from "../services/EncountersService.js";
+import EditCampaignDetailsModal from "../components/EditCampaignDetailsModal.vue";
 export default {
   setup() {
     const route = useRoute();
@@ -107,7 +141,7 @@ export default {
       ),
     };
   },
-  components: { CreateEncounterModal, EncounterCard },
+  components: { CreateEncounterModal, EncounterCard, EditCampaignDetailsModal },
 };
 </script>
 

@@ -39,6 +39,7 @@ class CampaignsService {
     const updatedCampaign = new Campaign(res.data);
     const index = AppState.campaigns.findIndex((c) => c.id == id);
     AppState.campaigns.splice(index, 1, updatedCampaign);
+    AppState.activeCampaign = updatedCampaign;
   }
 }
 
