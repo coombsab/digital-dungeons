@@ -24,7 +24,7 @@
     <!-- MODAL close this if its driving you crazy -->
     <div class="modal fade" id="campaignModal" tabindex="-1" aria-labelledby="campaignModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content bg-secondary">
           <div class="modal-header">
             <h5 class="modal-title" id="campaignModalLabel">New Campaign</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="text-end">
                   <span>{{ editable.desc ? editable.desc.length : 0 }}</span>
-                  <span>/ 500</span>
+                  <span>/ 1000</span>
                 </div>
               </div>
               <div class="modal-footer">
