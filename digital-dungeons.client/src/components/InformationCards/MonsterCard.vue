@@ -54,13 +54,13 @@
             </div>
           </div>
           <!-- STUB SPEED -->
-          <!-- NOTE Speed is weird, for help ask Talor -->
           <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpeed"
             aria-expanded="false" aria-controls="collapseSpeed">
             <h4 class=" text-">Speed</h4>
           </button>
           <div class="collapse" id="collapseSpeed">
             <div class="d-flex justify-content-around">
+              <!-- NOTE Speed is weird, for help ask Talor -->
               <div v-for="(value, property) in monster.speed" :key="property">
                 <span class="d-flex">
                   <p class="text-info me-1">{{property}}:</p>
