@@ -50,6 +50,7 @@ export class Monster {
     this.special_abilities = data.special_abilities;
     this.spell_list = data.spell_list;
     this.img_main = data.img_main;
+    this.characterType = data.characterType;
     // NOTE Likely Useless
     this.document__slug = data.document__slug;
     this.document__title = data.document__title;

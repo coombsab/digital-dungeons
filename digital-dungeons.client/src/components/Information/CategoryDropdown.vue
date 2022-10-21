@@ -47,7 +47,7 @@ import Pop from '../../utils/Pop.js'
 
 export default {
   props: {
-    category: { type: String, requried: true }
+    category: { type: String, required: true }
   },
   setup() {
     return {
