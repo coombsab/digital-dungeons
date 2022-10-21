@@ -5,7 +5,10 @@
         <section class="row justify-content-between">
           <div class="AETitle text-center">
             <div class="text-shadow2 d-flex justify-content-around">
-              <div class="d-flex gap-5">
+              <div class="d-flex gap-5 align-items-center">
+                <router-link :to="{ name: 'CampaignDetails', params: { campaignId: route.params.campaignId }} ">
+                  <span>Go Back</span>
+                </router-link>
                 <button class="text-danger btn px-3" data-bs-toggle="modal"
                   :data-bs-target="'#encounterModal' + activeEncounter?.id">
                   Edit Encounter
