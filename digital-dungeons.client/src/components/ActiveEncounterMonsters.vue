@@ -136,7 +136,7 @@
                 <p>{{ monster.size }}</p>
               </div>
             </div>
-            <!--ANCHOR Description -->
+            <!-- ANCHOR Description -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Description</h6>
