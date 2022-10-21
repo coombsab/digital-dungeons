@@ -80,13 +80,14 @@ export default {
 }
 
 .campaigns {
-  background-image: url("https://preview.redd.it/nme1k9p45eo21.jpg?auto=webp&s=e7beecea363fa0a547ce09b0cca2872a2019447e");
+  background-image: url("https://www.kotaku.com.au/wp-content/uploads/sites/3/2022/08/23/dungeons-dragons-starter-set-adventure-e1661234095525.jpeg?quality=80&resize=1280,720");
   background-position: center;
   background-size: cover;
 }
 
 .information {
-  background-image: url("https://i.pinimg.com/originals/da/72/e6/da72e6588befda673cc0fcdf64a49e40.jpg");
+  // https://i.pinimg.com/originals/da/72/e6/da72e6588befda673cc0fcdf64a49e40.jpg
+  background-image: url("https://artfiles.alphacoders.com/113/113838.jpg");
   background-position: center;
   background-size: cover;
 }
