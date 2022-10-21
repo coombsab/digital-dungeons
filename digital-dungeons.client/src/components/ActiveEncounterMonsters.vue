@@ -18,19 +18,19 @@
 
   <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content text-visible" :style="
         monster.image ? { backgroundImage: `url(${monster.image})` } : ''
       ">
-
-
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
+          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
+          <div v-if="monster.challenge_rating" class="d-flex align-items-center gap-3">
+              <p class="text-info text-shadow me-1 my-auto">Challenge Rating:</p>
+              <p class=" my-auto">{{monster.challenge_rating}}</p>
+            <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
+          </div>
         </div>
         <div class="modal-body bg-transparent-modal scrollable" v-if="monster">
           <!-- SECTION Monster Details -->
