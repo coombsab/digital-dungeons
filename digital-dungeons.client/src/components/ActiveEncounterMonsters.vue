@@ -1,13 +1,12 @@
 <template>
   <div class="col-md-3 d-flex justify-content-center mt-3">
     <div class="monster-card text-center text-visible selectable animate__animated animate__fadeIn"
-      title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.id" @click=""
+      title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#encounterMonsterModal' + monster.id" @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
       <div class="muted-layer bg-transparent">
         <div>
           <span>HP: {{ monster.hit_points }}</span>
         </div>
-
         <span class="text-visible" :class="monster.nickName.length < 20 ? 'fs-4' : ''">{{ monster.nickName }} </span>
         <div class="d-flex justify-content-between">
           <span>Q: {{ monster.quantity }}</span>
@@ -17,7 +16,7 @@
     </div>
   </div>
 
-  <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
+  <div class="modal fade" :id="'encounterMonsterModal' + monster.id" tabindex="-1" aria-labelledby="encounterMonsterModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content text-visible bg-warning"
@@ -27,7 +26,7 @@
 
         <!-- SECTION HEADER -->
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
+          <h1 class="modal-title text-info fs-5" id="encounterMonsterModalLabel">
             {{ monster?.name }}
           </h1>
           <div v-if="monster.challenge_rating" class="d-flex align-items-center">
@@ -524,16 +523,6 @@ export default {
 
 .bg-transparent-modal {
   background-color: rgba(10, 10, 10, 0.442) !important;
-}
-
-.muted-layer {
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  padding: 0.5rem;
 }
 
 .statistics {
