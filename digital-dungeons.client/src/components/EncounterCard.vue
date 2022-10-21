@@ -15,7 +15,7 @@
           </button>
         </li>
         <li class="dropdown-item">
-          <button class="btn" @click="encounter.isCompleted = true">
+          <button class="btn" @click="toggleCompleted()">
             Complete Encounter
           </button>
         </li>
@@ -69,7 +69,14 @@ export default {
           Pop.error(error);
         }
       },
-
+      async toggleCompleted() {
+        try {
+          props.encounter.isCompleted = !props.encounter.isCompleted
+          await encountersService.editEncounter(props.encounter, props.encounter.id)
+        } catch (error) {
+          Pop.error(error, "[Making Complete]")
+        }
+      },
 
 
       openModal() {
