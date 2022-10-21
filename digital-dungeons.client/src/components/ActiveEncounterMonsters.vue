@@ -405,7 +405,7 @@
 
 
 <script>
-import { computed, ref, watchEffect } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";
 import { Monster } from "../models/Monster.js";
 import { monstersService } from "../services/MonstersService.js";
@@ -420,7 +420,10 @@ export default {
     watchEffect(() => {
       editable.value = { ...props.monster };
       AppState.activeEncounterMonsters;
-    });
+    }),
+    onMounted(() => {
+      console.log("activeEncounterMonsters prop", props.monster)
+    })
     return {
       editable,
       account: computed(() => AppState.account),
