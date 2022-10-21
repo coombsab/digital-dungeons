@@ -195,9 +195,9 @@ export default {
   color: rgb(225, 0, 255) !important;
 }
 
-// .text-visible:hover {
-//   color: rgb(225, 0, 255) !important;
-// }
+.text-visible:hover {
+  color: rgb(225, 0, 255) !important;
+}
 
 .text-lighter {
   color: rgb(110, 163, 255) !important;
