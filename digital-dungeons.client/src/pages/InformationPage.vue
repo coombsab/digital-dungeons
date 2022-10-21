@@ -14,21 +14,18 @@
 
 
         <!-- NOTE Buttons -->
-        <div class="col-4 text-center pt-5">
-          <div class="text-center">
-            <a href="https://www.dndbeyond.com/sources/basic-rules">
-              <button class="btn btn-success elevation-2 m-2">
-                RULES
-              </button></a>
+        <div class="col-4 text-center upup">
+          <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
+            <a href="https://www.dndbeyond.com/sources/basic-rules" target="_blank">
+              <h3 class="text-info"><i class="mdi mdi-book"></i> RULES</h3>
+            </a>
           </div>
 
-          <div class="text-center">
-            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/">
-              <button class="btn btn-success elevation-2 m-2">
-                GAME MECHANICS
-              </button></a>
+          <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
+            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/" target="_blank">
+              <h3 class="text-info"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</h3>
+            </a>
           </div>
-
 
           <CategoryDropdown :category="category" />
         </div>
@@ -75,7 +72,6 @@ import { AppState } from "../AppState"
 import { ref } from "vue";
 import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
-
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import SpellCard from "../components/InformationCards/SpellCard.vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
@@ -158,5 +154,23 @@ button {
 
 .scrollable {
   overflow-y: auto;
+}
+
+.upup {
+  margin-top: 18vh;
+}
+
+.glass {
+  border: solid rgba(120, 115, 115, 0.576);
+  background-color: rgba(18, 17, 17, 0.764);
+
+  :hover {
+    opacity: 0.6;
+  }
+}
+
+.text-woah {
+  color: rgb(96, 190, 234) !important;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(18, 34, 50, 0.678);
 }
 </style>
