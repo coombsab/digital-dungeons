@@ -5,7 +5,7 @@
         aria-expanded="false">{{category ? (category === 'magicitems' ? 'MAGIC ITEMS' :
         category.toUpperCase()) :
         "Select Category"}}</button>
-      <ul class="dropdown-menu bg-secondary p-3 text-center">
+      <ul class="dropdown-menu bg-secondary no-select p-3 text-center">
         <li class="dropdown-item rounded" @click="changeCategory('monsters')">
           <h4>
             Monsters
