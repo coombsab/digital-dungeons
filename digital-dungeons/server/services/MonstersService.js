@@ -4,69 +4,71 @@ import { logger } from "../utils/Logger";
 
 class MonstersService {
   async editMonsters(arrayOfMonsters, accountId, encounterId) {
-    console.log("Hi")
-    arrayOfMonsters = arrayOfMonsters.filter(monster => monster.creatorId === accountId)
+    console.log("Hi");
+    arrayOfMonsters = arrayOfMonsters.filter(
+      (monster) => monster.creatorId === accountId
+    );
     if (arrayOfMonsters.length === 0) {
-      throw new Forbidden("Not your monsters, no editing allowed.")
+      throw new Forbidden("Not your monsters, no editing allowed.");
     }
-    const document = []
+    const document = [];
 
-    arrayOfMonsters.forEach(monster => {
+    arrayOfMonsters.forEach((monster) => {
       const obj = {
         updateOne: {
           filter: { _id: monster.id },
-          update: { $set: { initiative: monster.initiative } }
-        }
-      }
-      document.push(obj)
-    })
-    const monstersReport = await dbContext.Monsters.bulkWrite(document)
-    const monsters = await this.getMonstersByEncounterId(encounterId)
+          update: { $set: { initiative: monster.initiative } },
+        },
+      };
+      document.push(obj);
+    });
+    const monstersReport = await dbContext.Monsters.bulkWrite(document);
+    const monsters = await this.getMonstersByEncounterId(encounterId);
 
-    return { monstersReport, monsters }
+    return { monstersReport, monsters };
   }
   async editMonster(monsterData) {
-    const monster = await this.getMonsterById(monsterData.id)
+    const monster = await this.getMonsterById(monsterData.id);
     // @ts-ignore
     if (monster.creatorId.toString() !== monsterData.creatorId) {
-      throw new Forbidden("This is not your monster; you cannot edit it.")
+      throw new Forbidden("This is not your monster; you cannot edit it.");
     }
 
-    monster.nickName = monsterData.nickName || monster.nickName
-    monster.desc = monsterData.desc || monster.desc
-    monster.image = monsterData.image || monster.image
-    monster.icon = monsterData.icon || monster.icon
-    monster.hit_points = monsterData.hit_points || monster.hit_points
-    monster.initiative = monsterData.initiative || monster.initiative
-    monster.armor_class = monsterData.armor_class || monster.armor_class
-    monster.quantity = monsterData.quantity || monster.quantity
+    monster.nickName = monsterData.nickName || monster.nickName;
+    monster.desc = monsterData.desc || monster.desc;
+    monster.image = monsterData.image || monster.image;
+    monster.icon = monsterData.icon || monster.icon;
+    monster.hit_points = monsterData.hit_points || monster.hit_points;
+    monster.initiative = monsterData.initiative || monster.initiative;
+    monster.armor_class = monsterData.armor_class || monster.armor_class;
+    monster.quantity = monsterData.quantity || monster.quantity;
 
-    await monster.save()
-    return monster
+    await monster.save();
+    return monster;
   }
 
   async deleteMonster(monsterId, userId) {
-    const monster = await this.getMonsterById(monsterId)
+    const monster = await this.getMonsterById(monsterId);
     // @ts-ignore
     if (monster.creatorId.toString() !== userId) {
-      throw new Forbidden("This is not your monster; you cannot delete it.")
+      throw new Forbidden("This is not your monster; you cannot delete it.");
     }
-    await monster.remove()
-    return monster
+    await monster.remove();
+    return monster;
   }
 
   async getMonsterById(monsterId) {
-    const monster = await dbContext.Monsters.findById(monsterId)
+    const monster = await dbContext.Monsters.findById(monsterId);
     if (!monster) {
-      throw new BadRequest("Could not get monster by that ID")
+      throw new BadRequest("Could not get monster by that ID");
     }
-    return monster
+    return monster;
   }
 
   async addMonster(monsterData) {
     const monster = await dbContext.Monsters.create(monsterData);
-    await monster.populate("encounter")
-    return monster
+    await monster.populate("encounter");
+    return monster;
   }
 
   async getMonstersByEncounterId(encounterId) {
@@ -75,7 +77,6 @@ class MonstersService {
     );
     return monsters;
   }
-
 }
 
 export const monstersService = new MonstersService();

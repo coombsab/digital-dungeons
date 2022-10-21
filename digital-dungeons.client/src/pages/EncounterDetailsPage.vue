@@ -4,28 +4,36 @@
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
           <div class="AETitle text-center">
-
-
-            <!-- Conditionally rendered edit encounter + roll initiative buttons -->
             <div class="text-shadow2 d-flex justify-content-around">
-              <button v-if="activeEncounter?.creatorId == account.id" class="text-danger btn px-3"
-                data-bs-toggle="modal" :data-bs-target="'#encounterModal' + activeEncounter?.id">
-                Edit Encounter
-              </button>
-              <div v-else></div>
-
-              <!-- Campaign title -->
+              <div class="d-flex gap-5">
+                <button
+                  class="text-danger btn px-3"
+                  data-bs-toggle="modal"
+                  :data-bs-target="'#encounterModal' + activeEncounter?.id"
+                >
+                  Edit Encounter
+                </button>
+                <button
+                  class="btn text-danger"
+                  data-bs-target="addCharacterModal"
+                >
+                  Add NPC
+                </button>
+              </div>
               <h2>{{ activeEncounter?.name }}</h2>
-
-              <button v-if="activeEncounter?.creatorId == account.id" class="btn text-danger"
-                @click.stop="rollInitiatives()">
-                Roll Initiatives
-              </button>
-              <div v-else></div>
+              <div class="d-flex gap-5">
+                <button
+                  class="btn text-danger"
+                  data-bs-target="addCharacterModal"
+                >
+                  Add Player
+                </button>
+                <button class="btn text-danger" @click.stop="rollInitiatives()">
+                  Roll Initiatives
+                </button>
+              </div>
             </div>
           </div>
-
-
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
               <div class="col-3 bg-dark p-2">
                 <div class="bg-secondary p-1">
@@ -33,29 +41,38 @@
                 </div>
               </div> -->
 
-
           <!-- ADD ENCOUNTER -->
         </section>
         <section class="row top">
           <div class="col-12 d-flex">
-            <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage rounded" />
+            <img
+              :src="activeEncounter?.coverImg"
+              alt=""
+              class="img-fluid encounterImage rounded"
+            />
             <p class="p-5 text-shadow">{{ activeEncounter?.desc }}</p>
           </div>
-
 
           <!-- SECTION search monsters -->
           <div class="col-4 bg-transparent bottomLeft box">
             <SearchPagination />
             <div class="elem2 scrollable">
-              <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+              <MonsterDetailsModal
+                v-for="m in monsters"
+                :key="m.slug"
+                :monster="m"
+              />
             </div>
           </div>
-
 
           <!-- SECTION my monsters -->
           <div class="col-md-8">
             <div class="row">
-              <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.slug" :monster="m" />
+              <ActiveEncounterMonsters
+                v-for="m in activeMonsters"
+                :key="m.slug"
+                :monster="m"
+              />
             </div>
           </div>
         </section>
@@ -64,20 +81,14 @@
     </div>
   </div>
 
-
   <div v-if="activeEncounter">
     <EditEncounterDetailsModal :encounter="activeEncounter" />
   </div>
 
-
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
+  <CreateCharacterModal />
 </template>
-
-
-
-
-
 
 <script>
 import { computed, onMounted, ref } from "vue";
@@ -99,13 +110,10 @@ import AccountPage from "./AccountPage.vue";
 import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
 import SearchPagination from "../components/SearchPagination.vue";
 
-
-
 export default {
   setup() {
     const route = useRoute();
     const editable = ref("");
-
 
     async function getEncounterById() {
       try {
@@ -118,7 +126,6 @@ export default {
       }
     }
 
-
     async function getApiMonsters() {
       try {
         informationService.setActiveCategory("monsters");
@@ -127,7 +134,6 @@ export default {
         Pop.error(error, ["gettingMonsters"]);
       }
     }
-
 
     async function getMonstersByEncounterId() {
       try {
@@ -144,7 +150,6 @@ export default {
       getApiMonsters();
       getMonstersByEncounterId();
     });
-
 
     return {
       editable,
@@ -164,10 +169,16 @@ export default {
         )
       ),
 
-
       async rollInitiatives() {
         try {
           await monstersService.rollInitiatives(route.params.encounterId);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+      async addCharacter() {
+        try {
+          await monstersService.addCharacter(req.body);
         } catch (error) {
           Pop.error(error);
         }
@@ -187,11 +198,6 @@ export default {
   },
 };
 </script>
-
-
-
-
-
 
 <style lang="scss" scoped>
 .h00 {
