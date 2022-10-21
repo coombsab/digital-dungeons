@@ -104,10 +104,14 @@
 
 
 
-          <!-- SECTION INFO -->
-          <h4 class="statistics text-info">Data</h4>
-          <div>
 
+
+
+
+
+          <!-- SECTION INFO -->
+          <h4 class="statistics text-info mt-4">Proficiencies</h4>
+          <div>
 
 
             <!-- STUB STATS -->
@@ -154,7 +158,6 @@
                 </span>
               </div>
             </div>
-
 
 
 
@@ -277,8 +280,13 @@
 
 
 
+
+
+
+
+
           <!-- SECTION ACTIONS -->
-          <h4 class="statistics text-info">Moves</h4>
+          <h4 class="statistics text-info mt-4">ACTIONS</h4>
           <div>
 
             <!-- STUB LEGENDARY -->
@@ -317,13 +325,12 @@
               <div class="collapse" id="collapseActions">
                 <div v-if="monster.actions" v-for="actions in monster.actions">
                   <span class="d-flex flex-wrap">
-                    <p class="text-info me-1">{{actions.name}}:</p>
+                    <p class="text-info me-1">{{actions.name}}: </p>
                     <p>{{actions.desc}}</p>
                   </span>
                 </div>
               </div>
             </div>
-
 
 
             <!-- STUB REACTIONS -->
@@ -343,7 +350,6 @@
             </div>
 
 
-
             <!-- STUB SPECIAL ABILITIES -->
             <div>
               <button class="btn selectable" type="button" data-bs-toggle="collapse"
@@ -360,6 +366,12 @@
               </div>
             </div>
           </div>
+
+
+
+
+
+
 
 
 
