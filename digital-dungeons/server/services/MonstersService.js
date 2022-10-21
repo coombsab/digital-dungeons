@@ -4,7 +4,6 @@ import { logger } from "../utils/Logger";
 
 class MonstersService {
   async editMonsters(arrayOfMonsters, accountId, encounterId) {
-    console.log("Hi");
     arrayOfMonsters = arrayOfMonsters.filter(
       (monster) => monster.creatorId === accountId
     );

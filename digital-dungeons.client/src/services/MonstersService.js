@@ -50,7 +50,6 @@ class MonstersService {
       const calcDexMod = Math.floor((m.dexterity - 10) / 2);
       const rollInitiative = Math.floor(Math.random() * 20 + 1);
       m.initiative = calcDexMod + rollInitiative;
-      console.log(m.initiative);
     });
     const res = await baseApi.put(
       `api/encounters/${encounterId}/monsters`,

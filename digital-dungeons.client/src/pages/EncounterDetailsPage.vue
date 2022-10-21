@@ -1,11 +1,14 @@
 <template>
-  <div class="container-fluid right">
+  <div class="container-fluid">
     <div v-if="activeEncounter" class="h00 elevated rounded">
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
           <div class="AETitle text-center">
             <div class="text-shadow2 d-flex justify-content-around">
-              <div class="d-flex gap-5">
+              <div class="d-flex gap-5 align-items-center">
+                <router-link :to="{ name: 'CampaignDetails', params: { campaignId: route.params.campaignId }} ">
+                  <span>Go Back</span>
+                </router-link>
                 <button class="text-danger btn px-3" data-bs-toggle="modal"
                   :data-bs-target="'#encounterModal' + activeEncounter?.id">
                   Edit Encounter
@@ -67,18 +70,15 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted } from "vue";
 import { onBeforeRouteLeave, useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { encountersService } from "../services/EncountersService.js";
 import { informationService } from "../services/InformationService.js";
 import { monstersService } from "../services/MonstersService.js";
-
 import CreateEncounterModal from "../components/CreateEncounterModal.vue";
 import EditEncounterDetailsModal from "../components/EditEncounterDetailsModal.vue";
 import Pop from "../utils/Pop.js";
-import { Account } from "../models/Account.js";
-
 import EncounterCard from "../components/EncounterCard.vue";
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
@@ -90,7 +90,6 @@ import CreateCharacterModal from "../components/CreateCharacterModal.vue";
 export default {
   setup() {
     const route = useRoute();
-    const editable = ref("");
 
     async function getEncounterById() {
       try {
@@ -134,7 +133,6 @@ export default {
     })
 
     return {
-      editable,
       route,
       campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
@@ -245,8 +243,4 @@ export default {
 .scrollable {
   overflow-y: auto;
 }
-
-// .right {
-//   margin-left: 1rem;
-// }
 </style>

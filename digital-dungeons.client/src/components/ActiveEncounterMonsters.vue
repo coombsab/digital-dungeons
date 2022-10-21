@@ -7,7 +7,9 @@
         <div>
           <span>HP: {{monster.hit_points}}</span>
         </div>
-        <span class="text-visible" :class="monster.nickName.length < 20 ? 'fs-4' : ''">{{ monster.nickName }} </span>
+        <div class="w-100 d-flex justify-content-center">
+          <span class="text-visible">{{ monster.nickName }} </span>
+        </div>
         <div class="d-flex justify-content-between">
           <span>Q: {{ monster.quantity }}</span>
           <span>I: {{monster.initiative}}</span>
@@ -18,19 +20,19 @@
 
   <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content text-visible" :style="
         monster.image ? { backgroundImage: `url(${monster.image})` } : ''
       ">
-
-
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="MonsterDetailsModalLabel">
+          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
           </h1>
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">
-            X
-          </button>
+          <div v-if="monster.challenge_rating" class="d-flex align-items-center gap-3">
+              <p class="text-info text-shadow me-1 my-auto">Challenge Rating:</p>
+              <p class=" my-auto">{{monster.challenge_rating}}</p>
+            <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
+          </div>
         </div>
         <div class="modal-body bg-transparent-modal scrollable" v-if="monster">
           <!-- SECTION Monster Details -->
@@ -185,7 +187,7 @@
             </button>
             <div class="collapse" id="collapseFeaturesAndTraits">
               <!-- SKILLS -->
-              <p v-if="!skills" class="border-bottom border-1 text-info">Skills</p>
+              <p v-if="!monster.skills" class="border-bottom border-1 text-info">Skills</p>
               <div v-if="monster.skills" class="d-flex flex-wrap">
                 <div v-for="(value, property) in monster.skills" :key="property">
                   <span class="d-flex me-2">
@@ -464,8 +466,8 @@ export default {
 .monster-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
+  height: 12rem;
+  width: 10rem;
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
@@ -476,6 +478,25 @@ export default {
   transform: scale(1.1);
 }
 
+.muted-layer {
+  height: 12rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.639);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0.5rem;
+  text-shadow: none;
+  color: rgba(96, 190, 234, 0.505);
+}
+
+.muted-layer:hover {
+  color: rgb(96, 190, 234);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
+    0px 0px 5px rgba(189, 234, 30, 0.678);
+}
 .input-bg {
   background-color: rgba(0, 0, 0, 0.552) !important;
 }
@@ -501,25 +522,6 @@ export default {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.muted-layer {
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.639);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  padding: 0.5rem;
-  text-shadow: none;
-  color: rgba(96, 190, 234, 0.505);
-}
-
-.muted-layer:hover {
-  color: rgb(96, 190, 234);
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
-    0px 0px 5px rgba(189, 234, 30, 0.678);
-}
 
 .statistics {
   border-bottom: 1px solid gray;

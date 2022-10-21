@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning">
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="addCharacterModal">
+          <h1 class="modal-title fs-5">
             Add Character
           </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -16,14 +16,21 @@
                   maxlength="50" />
                 <label for="name">Name:</label>
               </div>
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" v-model="editable.hit_points" required name="hit_points"
-                  placeholder="Hit Points:" maxlength="50" />
-                <label for="hit_points">Hit Points:</label>
+              <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" v-model="editable.hit_points" required name="hit_points"
+                    placeholder="Hit Points:" min="0" />
+                  <label for="hit_points">Hit Points:</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" v-model="editable.dexterity" required name="dexterity"
+                    placeholder="Dexterity:" min="0" />
+                  <label for="dexterity">Dexterity:</label>
+                </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="url" class="form-control" v-model="editable.image" name="Image"
-                  placeholder="Image:" maxlength="10000" />
+                <input type="url" class="form-control" v-model="editable.image" name="Image" placeholder="Image:"
+                  maxlength="10000" />
                 <label for="image">Image:</label>
               </div>
               <div class="form-floating mb-3">
@@ -32,10 +39,10 @@
                 <label for="description">Description:</label>
               </div>
               <div class="form-floating">
-                <select type="select" class="form-select" v-model="editable.characterType" name="characterType"
+                <select class="form-select" v-model="editable.characterType" required name="characterType"
                   aria-label="Character Type Selection">
                   <option value="player">Player</option>
-                  <option value="npc">Non Player Character</option>
+                  <option value="npc">NPC</option>
                 </select>
                 <label for="characterType">Select Character Type</label>
               </div>
@@ -67,7 +74,7 @@ import { useRoute } from "vue-router";
 import { computed, ref } from "vue";
 
 export default {
-  setup(props) {
+  setup() {
     const editable = ref({});
     const route = useRoute();
     return {
@@ -78,7 +85,6 @@ export default {
 
       async addMonster() {
         try {
-          console.log("Trying to make something");
           editable.value.encounterId = route.params.encounterId;
           await monstersService.addMonsterToEncounter(editable.value);
           Pop.success(`You added ${editable.value.name} to your encounter`);
