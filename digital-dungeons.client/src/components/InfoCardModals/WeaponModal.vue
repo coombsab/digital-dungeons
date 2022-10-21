@@ -2,7 +2,7 @@
   <!-- NOTE MODAL -->
   <div class="modal fade" :id="'weaponModal' + weapon.slug" tabindex="-1" aria-labelledby="WeaponDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-l">
       <div class="modal-content text-visible bg-secondary h-80"
         :style="weapon.coverImg ? {backgroundImage: `url(${weapon.coverImg})`} : ''">
 
@@ -182,7 +182,7 @@ export default {
   height: 80vh;
 }
 
-.modal-xl {
-  width: 50vw !important;
+.mod {
+  width: 80vw !important;
 }
 </style>

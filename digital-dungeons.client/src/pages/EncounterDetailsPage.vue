@@ -6,23 +6,16 @@
           <div class="AETitle text-center">
             <div class="text-shadow2 d-flex justify-content-around">
               <div class="d-flex gap-5">
-                <button
-                  class="text-danger btn px-3"
-                  data-bs-toggle="modal"
-                  :data-bs-target="'#encounterModal' + activeEncounter?.id"
-                >
+                <button class="text-danger btn px-3" data-bs-toggle="modal"
+                  :data-bs-target="'#encounterModal' + activeEncounter?.id">
                   Edit Encounter
                 </button>
               </div>
               <h2>{{ activeEncounter?.name }}</h2>
               <div class="d-flex gap-5">
-                <button
-                  class="btn text-danger"
-                  data-bs-toggle="modal"
-                  data-bs-target="#addCharacterModal"
-                >
+                <!-- <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
                   Add Character
-                </button>
+                </button> -->
                 <button class="btn text-danger" @click.stop="rollInitiatives()">
                   Roll Initiatives
                 </button>
@@ -40,11 +33,7 @@
         </section>
         <section class="row top">
           <div class="col-12 d-flex">
-            <img
-              :src="activeEncounter?.coverImg"
-              alt=""
-              class="img-fluid encounterImage rounded"
-            />
+            <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage rounded" />
             <p class="p-5 text-shadow">{{ activeEncounter?.desc }}</p>
           </div>
 
@@ -52,22 +41,14 @@
           <div class="col-4 bg-transparent bottomLeft box">
             <SearchPagination />
             <div class="elem2 scrollable">
-              <MonsterDetailsModal
-                v-for="m in monsters"
-                :key="m.slug"
-                :monster="m"
-              />
+              <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
             </div>
           </div>
 
           <!-- SECTION my monsters -->
           <div class="col-md-8">
             <div class="row">
-              <ActiveEncounterMonsters
-                v-for="m in activeMonsters"
-                :key="m.slug"
-                :monster="m"
-              />
+              <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.slug" :monster="m" />
             </div>
           </div>
         </section>
@@ -82,7 +63,7 @@
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
-  <CreateCharacterModal />
+  <!-- <CreateCharacterModal /> -->
 </template>
 
 <script>
@@ -104,6 +85,7 @@ import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
 import AccountPage from "./AccountPage.vue";
 import ActiveEncounterMonsters from "../components/ActiveEncounterMonsters.vue";
 import SearchPagination from "../components/SearchPagination.vue";
+import CreateCharacterModal from "../components/CreateCharacterModal.vue";
 
 export default {
   setup() {
@@ -190,7 +172,8 @@ export default {
     ActiveEncounterMonsters,
     SearchPagination,
     EditEncounterDetailsModal,
-  },
+    CreateCharacterModal
+},
 };
 </script>
 

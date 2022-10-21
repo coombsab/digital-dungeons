@@ -2,8 +2,6 @@
   <div class="information-page">
     <div class="container-fluid">
       <div class="row">
-
-
         <!-- NOTE: Information card modals -->
         <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
         <ArmorModal v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
@@ -11,34 +9,33 @@
         <MonsterModal v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
         <RaceModal v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
         <WeaponModal v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
-
+        <MagicItemModal v-if="category == 'magicitems'" v-for="mi in magicitems" :key="mi.slug" :magicitem="mi" />
 
         <!-- NOTE Buttons -->
-        <div class="col-4 text-center upup">
-          <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
-            <a href="https://www.dndbeyond.com/sources/basic-rules" target="_blank">
-              <h3 class="text-info"><i class="mdi mdi-book"></i> RULES</h3>
-            </a>
+        <div class="col-4 text-center upup d-flex flex-column justify-content-between">
+
+          <div>
+            <CategoryDropdown :category="category" />
           </div>
 
-          <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
-            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/" target="_blank">
-              <h3 class="text-info"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</h3>
-            </a>
+          <div>
+            <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
+              <a href="https://www.dndbeyond.com/sources/basic-rules" target="_blank">
+                <h3 class="text-info no-select"><i class="mdi mdi-book"></i> RULES</h3>
+              </a>
+            </div>
+            <div class="text-center p-2 py-4 elevation-2 m-2 mb-4 card glass selectable">
+              <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/" target="_blank">
+                <h3 class="text-info no-select"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</h3>
+              </a>
+            </div>
           </div>
 
-          <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
           <div class="box">
-
-
-
             <!-- NOTE Search Functionality -->
             <SearchPagination />
-
-
-
             <!-- NOTE Information Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
@@ -61,11 +58,6 @@
     </div>
   </div>
 </template>
-
-
-
-
-
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
@@ -85,6 +77,7 @@ import ClassModal from "../components/InfoCardModals/ClassModal.vue";
 import MonsterModal from "../components/InfoCardModals/MonsterModal.vue";
 import RaceModal from "../components/InfoCardModals/RaceModal.vue";
 import WeaponModal from "../components/InfoCardModals/WeaponModal.vue";
+import MagicItemModal from "../components/InfoCardModals/MagicItemModal.vue";
 
 export default {
   setup() {
@@ -117,14 +110,11 @@ export default {
     ClassModal,
     MonsterModal,
     RaceModal,
-    WeaponModal
+    WeaponModal,
+    MagicItemModal
   }
 };
 </script>
-
-
-
-
 
 <style lang="scss" scoped>
 .information-page {
