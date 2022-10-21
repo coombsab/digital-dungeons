@@ -3,7 +3,7 @@
   <div class="spell-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Spell Details" data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
     :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
-    <div class="muted-layer bg-transparent ">
+    <div class="muted-layer bg-transparent text-visible">
       <span>{{ spell.name }}</span>
     </div>
   </div>
@@ -11,7 +11,7 @@
   <!-- NOTE: MODAL -->
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-x1">
 
       <!-- School img -->
       <div class="modal-content text-visible bg-black"
@@ -29,9 +29,7 @@
             <div v-if="spell.dnd_class" class="text-lighter">
               <p><em>{{spell.level}} {{ spell.school}}</em> <span>| {{spell.dnd_class}}</span></p>
             </div>
-            <div v-else>
-              <p><em>{{spell.level}} {{ spell.school}}</em></p>
-            </div>
+            <div v-else><em>{{spell.level}} {{ spell.school}}</em></div>
           </div>
         </div>
 
@@ -193,6 +191,36 @@ export default {
 
 
 <style lang="scss" scoped>
+.text-visible {
+  color: rgb(225, 0, 255) !important;
+}
+
+.text-visible:hover {
+  color: rgb(225, 0, 255) !important;
+}
+
+.text-lighter {
+  color: rgb(110, 163, 255) !important;
+}
+
+.text-shadow {
+  color: rgb(110, 163, 255);
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(77, 121, 196);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.text-shadow-darker {
+  color: rgb(225, 0, 255);
+  text-shadow: 1px 1px black, 0px 0px 5px rgb(170, 8, 191);
+  font-weight: bold;
+  letter-spacing: 0.08rem
+}
+
+.modal-xl {
+  width: 50vw !important;
+}
+
 .spell-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
@@ -208,7 +236,7 @@ export default {
   transform: scale(1.1);
 }
 
-bg-black {
+.bg-black {
   background-color: rgb(17, 17, 17);
 }
 
@@ -244,35 +272,5 @@ bg-black {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.text-visible {
-  color: rgb(225, 0, 255);
-}
-
-.text-visible:hover {
-  color: rgb(225, 0, 255) !important;
-}
-
-.text-lighter {
-  color: rgb(110, 163, 255);
-}
-
-.text-shadow {
-  color: rgb(110, 163, 255);
-  text-shadow: 1px 1px black, 0px 0px 5px rgb(77, 121, 196);
-  font-weight: bold;
-  letter-spacing: 0.08rem
-}
-
-.text-shadow-darker {
-  color: rgb(225, 0, 255);
-  text-shadow: 1px 1px black, 0px 0px 5px rgb(170, 8, 191);
-  font-weight: bold;
-  letter-spacing: 0.08rem
-}
-
-.modal-xl {
-  width: 50vw !important;
 }
 </style>

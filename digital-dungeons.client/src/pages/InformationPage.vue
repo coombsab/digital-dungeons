@@ -4,25 +4,36 @@
       <div class="row">
 
 
+
         <!-- NOTE Buttons -->
         <div class="col-4 text-center pt-5">
           <div class="text-center">
-            <a href="https://www.dndbeyond.com/sources/basic-rules"><button
-                class="btn btn-success elevation-2 m-2">RULES</button></a>
+            <a href="https://www.dndbeyond.com/sources/basic-rules">
+              <button class="btn btn-success elevation-2 m-2">
+                RULES
+              </button></a>
           </div>
+
           <div class="text-center">
-            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/"><button
-                class="btn btn-success elevation-2 m-2">GAME
-                MECHANICS</button></a>
+            <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/">
+              <button class="btn btn-success elevation-2 m-2">
+                GAME MECHANICS
+              </button></a>
           </div>
+
+
 
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
           <div class="box">
 
+
+
             <!-- NOTE Search Functionality -->
             <SearchPagination />
+
+
 
             <!-- NOTE Info Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
