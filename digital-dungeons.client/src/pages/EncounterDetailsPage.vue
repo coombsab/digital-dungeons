@@ -13,9 +13,9 @@
               </div>
               <h2>{{ activeEncounter?.name }}</h2>
               <div class="d-flex gap-5">
-                <!-- <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
+                <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
                   Add Character
-                </button> -->
+                </button>
                 <button class="btn text-danger" @click.stop="rollInitiatives()">
                   Roll Initiatives
                 </button>
@@ -63,22 +63,19 @@
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
-  <!-- <CreateCharacterModal /> -->
+  <CreateCharacterModal />
 </template>
 
 <script>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted } from "vue";
 import { onBeforeRouteLeave, useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { encountersService } from "../services/EncountersService.js";
 import { informationService } from "../services/InformationService.js";
 import { monstersService } from "../services/MonstersService.js";
-
 import CreateEncounterModal from "../components/CreateEncounterModal.vue";
 import EditEncounterDetailsModal from "../components/EditEncounterDetailsModal.vue";
 import Pop from "../utils/Pop.js";
-import { Account } from "../models/Account.js";
-
 import EncounterCard from "../components/EncounterCard.vue";
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import MonsterDetailsModal from "../components/MonsterDetailsModal.vue";
@@ -90,7 +87,6 @@ import CreateCharacterModal from "../components/CreateCharacterModal.vue";
 export default {
   setup() {
     const route = useRoute();
-    const editable = ref("");
 
     async function getEncounterById() {
       try {
@@ -134,7 +130,6 @@ export default {
     })
 
     return {
-      editable,
       route,
       campaigns: computed(() => AppState.campaigns),
       account: computed(() => AppState.account),
