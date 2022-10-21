@@ -121,8 +121,4 @@ export default {
 .h-80 {
   height: 80vh;
 }
-
-.modal-xl {
-  width: 50vw !important;
-}
 </style>

@@ -11,7 +11,7 @@ class MonstersService {
   }
 
   async addMonsterToEncounter(monsterData) {
-    console.log(monsterData);
+    console.log("This is what we made", monsterData);
     const res = await baseApi.post("/api/monsters", monsterData);
     const monster = new Monster(res.data);
     AppState.activeEncounterMonsters = [
@@ -19,7 +19,7 @@ class MonstersService {
       monster,
     ];
     // console.log(monster);
-    // console.log(AppState.activeEncounterMonsters);
+    console.log("Hello Appstate", AppState.activeEncounterMonsters);
   }
 
   async removeMonster(monsterId) {

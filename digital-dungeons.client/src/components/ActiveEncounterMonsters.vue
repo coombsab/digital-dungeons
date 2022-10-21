@@ -1,13 +1,12 @@
 <template>
   <div class="col-md-3 d-flex justify-content-center mt-3">
     <div class="monster-card text-center text-visible selectable animate__animated animate__fadeIn"
-      title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.id" @click=""
+      title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#encounterMonsterModal' + monster.id" @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
       <div class="muted-layer bg-transparent">
         <div>
           <span>HP: {{ monster.hit_points }}</span>
         </div>
-
         <span class="text-visible" :class="monster.nickName.length < 20 ? 'fs-4' : ''">{{ monster.nickName }} </span>
         <div class="d-flex justify-content-between">
           <span>Q: {{ monster.quantity }}</span>
@@ -17,7 +16,7 @@
     </div>
   </div>
 
-  <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
+  <div class="modal fade" :id="'encounterMonsterModal' + monster.id" tabindex="-1" aria-labelledby="encounterMonsterModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content text-visible bg-warning"
@@ -27,7 +26,7 @@
 
         <!-- SECTION HEADER -->
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
+          <h1 class="modal-title text-info fs-5" id="encounterMonsterModalLabel">
             {{ monster?.name }}
           </h1>
           <div v-if="monster.challenge_rating" class="d-flex align-items-center">
@@ -469,46 +468,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.monster-card {
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  background-position: center;
-  background-size: cover;
-  transition: 150ms linear;
-}
-
-.monster-card:hover {
-  transform: scale(1.1);
-}
-
-.input-bg {
-  background-color: rgba(0, 0, 0, 0.552) !important;
-}
-
-.modal-content {
-  background-position: center;
-  background-size: cover;
-}
-
-.bg-transparent {
-  background-color: rgba(10, 10, 10, 0.804) !important;
-}
-
-.bg-transparent:hover {
-  background-color: rgba(10, 10, 10, 0.43) !important;
-}
-
-.bg-transparent-modal {
-  background-color: rgba(10, 10, 10, 0.664) !important;
-}
-
-.all-transparent {
-  background-color: rgba(0, 0, 0, 0) !important;
-}
-
 .muted-layer {
   height: 10rem;
   width: 8rem;
@@ -536,7 +495,64 @@ export default {
   align-items: center;
 }
 
-.textarea-height {
+.scrollable {
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.text-woah {
+  color: rgb(96, 190, 234) !important;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(18, 34, 50, 0.678);
+}
+
+.monster-card {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
   height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
+  transition: 150ms linear;
+}
+
+.monster-card:hover {
+  transform: scale(1.1);
+}
+
+.modal-content {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-transparent {
+  background-color: rgba(10, 10, 10, 0.804) !important;
+}
+
+.bg-transparent:hover {
+  background-color: rgba(10, 10, 10, 0.303) !important;
+}
+
+.bg-transparent-modal {
+  background-color: rgba(10, 10, 10, 0.442) !important;
+}
+
+.statistics {
+  border-bottom: 1px solid rgb(172, 170, 170);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-visible {
+  color: rgb(216, 224, 229) !important;
+}
+
+.text-visible:hover {
+  color: rgb(216, 224, 229) !important;
+}
+
+.text-light:hover {
+  color: rgb(216, 224, 229) !important;
 }
 </style>
