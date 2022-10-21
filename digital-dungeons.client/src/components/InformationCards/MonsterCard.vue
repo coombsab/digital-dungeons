@@ -26,86 +26,158 @@
         </div>
         <div class="modal-body bg-transparent-modal scrollable" v-if="monster">
           <!-- SECTION GENERAL -->
-          <h4 class="statistics text-info">General</h4>
-          <div class="d-flex justify-content-evenly">
-            <div class="text-center">
-              <span class="d-flex">
-                <p class="me-1 text-info">Type:</p>
-                <p>{{monster.type}} </p>
-              </span>
-              <span class="d-flex">
-                <p class="me-1 text-info">Alignment:</p>
-                <p>{{monster.alignment}} </p>
-              </span>
-            </div>
-            <div class="text-center">
-              <span class="d-flex">
-                <p class="text-info me-1">Size:</p>
-                <p>{{monster.size}}</p>
-              </span>
-              <div class="d-flex">
+          <div>
+            <h4 class="statistics text-info">General</h4>
+            <div class="d-flex justify-content-evenly">
+              <div class="text-center">
                 <span class="d-flex">
-                  <p class="text-info me-1">HP:</p>
-                  <p class="me-2">{{monster.hit_points}}</p>
+                  <p class="me-1 text-info">Type:</p>
+                  <p>{{monster.type}} </p>
                 </span>
-                <p class="me-1 text-info">Hit Dice:</p>
-                <p class="">{{monster.hit_dice}}</p>
-              </div>
-            </div>
-          </div>
-          <!-- STUB SPEED -->
-          <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpeed"
-            aria-expanded="false" aria-controls="collapseSpeed">
-            <h4 class=" text-">Speed</h4>
-          </button>
-          <div class="collapse" id="collapseSpeed">
-            <div class="d-flex justify-content-around">
-              <!-- NOTE Speed is weird, for help ask Talor -->
-              <div v-for="(value, property) in monster.speed" :key="property">
                 <span class="d-flex">
-                  <p class="text-info me-1">{{property}}:</p>
-                  <p>{{value}}{{typeof value == 'number' ? 'ft' : ''}}</p>
+                  <p class="me-1 text-info">Alignment:</p>
+                  <p>{{monster.alignment}} </p>
                 </span>
               </div>
+              <div class="text-center">
+                <span class="d-flex">
+                  <p class="text-info me-1">Size:</p>
+                  <p>{{monster.size}}</p>
+                </span>
+                <div class="d-flex">
+                  <span class="d-flex">
+                    <p class="text-info me-1">HP:</p>
+                    <p class="me-2">{{monster.hit_points}}</p>
+                  </span>
+                  <p class="me-1 text-info">Hit Dice:</p>
+                  <p class="">{{monster.hit_dice}}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- SECTION STATS -->
-          <h4 class="statistics text-info">Stats</h4>
-          <div class="d-flex justify-content-around">
-            <span class="d-flex">
-              <p class="me-1 text-info">Str:</p>
-              <p>{{monster.strength}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-info">Dex:</p>
-              <p>{{monster.dexterity}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-info">Con:</p>
-              <p>{{monster.constitution}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-info">Int:</p>
-              <p>{{monster.intelligence}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-info">Wis:</p>
-              <p>{{monster.wisdom}}</p>
-            </span>
-            <span class="d-flex">
-              <p class="me-1 text-info">Cha:</p>
-              <p>{{monster.charisma}}</p>
-            </span>
+            <!-- STUB SPEED -->
+            <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpeed"
+              aria-expanded="false" aria-controls="collapseSpeed">
+              <h5 class="text-info">Speed</h5>
+            </button>
+            <div class="collapse" id="collapseSpeed">
+              <div class="d-flex justify-content-around">
+                <!-- NOTE Speed is weird, for help ask Talor -->
+                <div v-for="(value, property) in monster.speed" :key="property">
+                  <span class="d-flex">
+                    <p class="text-info me-1">{{property}}:</p>
+                    <p>{{value}}{{typeof value == 'number' ? 'ft' : ''}}</p>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- SECTION INFO -->
-          <h4 class="statistics text-info">Info</h4>
-          <!-- TODO perception, skills, vulnerabilities, resistances, immunities, sense, languages, saves -->
-          <div class="d-flex flex-wrap">
+          <h4 class="statistics text-info">Data</h4>
+          <div>
+            <!-- STUB STATS -->
+            <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStats"
+              aria-expanded="false" aria-controls="collapseStats">
+              <h5 class="text-info">Stats</h5>
+            </button>
+            <div class="collapsible" id="collapseStats">
+              <div class="d-flex justify-content-around">
+                <span class="d-flex" title="Strength">
+                  <p class="me-1 text-info">Str:</p>
+                  <p>{{monster.strength}}</p>
+                </span>
+                <span class="d-flex" title="Dexterity">
+                  <p class="me-1 text-info">Dex:</p>
+                  <p>{{monster.dexterity}}</p>
+                </span>
+                <span class="d-flex" title="Constitution">
+                  <p class="me-1 text-info">Con:</p>
+                  <p>{{monster.constitution}}</p>
+                </span>
+                <span class="d-flex" title="Intelligence">
+                  <p class="me-1 text-info">Int:</p>
+                  <p>{{monster.intelligence}}</p>
+                </span>
+                <span class="d-flex" title="Wisdom">
+                  <p class="me-1 text-info">Wis:</p>
+                  <p>{{monster.wisdom}}</p>
+                </span>
+                <span class="d-flex" title="Charisma">
+                  <p class="me-1 text-info">Cha:</p>
+                  <p>{{monster.charisma}}</p>
+                </span>
+              </div>
+            </div>
+            <!-- STUB SAVES -->
+            <div>
+              <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSaves"
+                aria-expanded="false" aria-controls="collapseSaves">
+                <h5 class="text-info">Save Stats</h5>
+              </button>
+            </div>
+            <div class="collapse" id="collapseSaves">
+              <div class="d-flex justify-content-around">
+                <span v-if="monster.strength_save" class="d-flex" title="Strength Save">
+                  <p class="me-1 text-info">Str:</p>
+                  <p>{{monster.strength_save}}</p>
+                </span>
+                <span v-if="monster.dexterity_save" class="d-flex" title="Dexterity Save">
+                  <p class="me-1 text-info">Dex:</p>
+                  <p>{{monster.dexterity_save}}</p>
+                </span>
+                <span v-if="monster.constitution_save" class="d-flex" title="Constitution Save">
+                  <p class="me-1 text-info">Con:</p>
+                  <p>{{monster.constitution_save}}</p>
+                </span>
+                <span v-if="monster.intelligence_save" class="d-flex" title="Intelligence Save">
+                  <p class="me-1 text-info">Int:</p>
+                  <p>{{monster.intelligence_save}}</p>
+                </span>
+                <span v-if="monster.wisdom_save" class="d-flex" title="Wisdom Save">
+                  <p class="me-1 text-info">Wis:</p>
+                  <p>{{monster.wisdom_save}}</p>
+                </span>
+                <span v-if="monster.charisma_save" class="d-flex" title="Charisma Save">
+                  <p class="me-1 text-info">Cha:</p>
+                  <p>{{monster.charisma_save}}</p>
+                </span>
+              </div>
+            </div>
+            <!-- STUB ARMOR -->
+            <!-- TODO ARMOR (name & desc) -->
+            <!-- STUB FEATURES AND TRAITS -->
+            <!-- TODO FEATURES (skills, sense, languages) -->
+            <!-- TODO TRAITS (vulnerabilities, resistances, dmg & condition immunities)-->
+          </div>
+          <!-- SECTION PERFORMANCES -->
+          <h4 class="statistics text-info">Performances</h4>
+          <div>
+            <!-- STUB LEGENDARY -->
+            <div v-if="monster.legendary_desc || monster.legendary_actions">
+              <button v-if="monster.legendary_desc || monster.legendary_actions" class="btn selectable" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseLegendary" aria-expanded="false"
+                aria-controls="collapseLegendary">
+                <h5 class="text-warning ">Legendary Info</h5>
+              </button>
+            </div>
+            <div v-if="monster.legendary_desc || monster.legendary_actions" class="collapsible" id="collapseLegendary">
+              <span class="d-flex flex-wrap">
+                <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
+                <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
+              </span>
+              <p v-if="monster.legendary_actions"
+                class="fs-5 border-bottom border-1 border-warning mb-1 me-1 text-warning">Actions</p>
+              <div v-if="monster.legendary_actions" v-for="a in monster.legendary_actions">
+                <span class="d-flex flex-wrap">
+                  <p class="text-warning me-1 mb-1">{{a.name}}:</p>
+                  <p class="mb-1">{{a.desc}}</p>
+                </span>
+              </div>
+            </div>
             <!-- STUB ACTIONS -->
             <div>
               <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseActions"
                 aria-expanded="false" aria-controls="collapseActions">
-                <h4 v-if="monster.actions" class="me-1 text-info">Actions</h4>
+                <h5 v-if="monster.actions" class="me-1 text-info">Actions</h5>
               </button>
               <div class="collapse" id="collapseActions">
                 <div v-if="monster.actions" v-for="actions in monster.actions">
@@ -120,7 +192,7 @@
             <div v-if="monster.reactions">
               <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReactions"
                 aria-expanded="false" aria-controls="collapseReactions">
-                <h4 v-if="monster.reactions" class="me-1 text-info">Reactions</h4>
+                <h5 v-if="monster.reactions" class="me-1 text-info">Reactions</h5>
               </button>
               <div class="collapse" id="collapseReactions">
                 <div v-if="monster.reactions" v-for="reactions in monster.reactions">
@@ -135,7 +207,7 @@
             <div>
               <button class="btn selectable" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseSpAbilities" aria-expanded="false" aria-controls="collapseSpAbilities">
-                <h4 v-if="monster.special_abilities" class="me-1 text-info">Special Abilities</h4>
+                <h5 v-if="monster.special_abilities" class="me-1 text-info">Special Abilities</h5>
               </button>
               <div class="collapse" id="collapseSpAbilities">
                 <div v-if="monster.special_abilities" v-for="special_abilities in monster.special_abilities">
@@ -146,27 +218,7 @@
                 </div>
               </div>
             </div>
-            <!-- STUB LEGENDARY -->
-            <div v-if="monster.legendary_desc || monster.legendary_actions">
-              <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegendary"
-                aria-expanded="false" aria-controls="collapseLegendary">
-                <h4 class="text-warning ">Legendary Data</h4>
-              </button>
-              <div class="collapsible" id="collapseLegendary">
-                <span class="d-flex flex-wrap">
-                  <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
-                  <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
-                </span>
-                <p v-if="monster.legendary_actions"
-                  class="fs-5 border-bottom border-1 border-warning mb-1 me-1 text-warning">Actions</p>
-                <div v-if="monster.legendary_actions" v-for="a in monster.legendary_actions">
-                  <span class="d-flex flex-wrap">
-                    <p class="text-warning me-1 mb-1">{{a.name}}:</p>
-                    <p class="mb-1">{{a.desc}}</p>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <!-- STUB SAVES -->
           </div>
           <!-- SECTION SPELLS -->
           <h4 v-if="monster.spell_list[0]" class=" statistics text-info">Spells</h4>
