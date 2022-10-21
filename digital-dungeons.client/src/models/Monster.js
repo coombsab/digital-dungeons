@@ -4,7 +4,6 @@ export class Monster {
     this.encounterId = data.encounterId;
     this.creatorId = data.creatorId;
     this.icon = data.icon;
-    this.initiative = data.initiative;
     this.image = data.image;
     this.desc = data.desc;
     this.nickName = data.nickName || data.name;
@@ -51,6 +50,7 @@ export class Monster {
     this.spell_list = data.spell_list;
     this.img_main = data.img_main;
     this.characterType = data.characterType;
+    this.initiative = data.initiative || Math.floor(Math.random() * 20) + 1;
     // NOTE Likely Useless
     this.document__slug = data.document__slug;
     this.document__title = data.document__title;

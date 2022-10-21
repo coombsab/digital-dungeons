@@ -7,20 +7,36 @@
             <section class="row justify-content-between">
               <div class="AETitle text-center">
                 <div class="text-shadow2 d-flex justify-content-around">
-                  <button
-                    class="text-danger btn px-3"
-                    data-bs-toggle="modal"
-                    :data-bs-target="'#encounterModal' + activeEncounter?.id"
-                  >
-                    Edit Encounter
-                  </button>
+                  <div class="d-flex gap-5">
+                    <button
+                      class="text-danger btn px-3"
+                      data-bs-toggle="modal"
+                      :data-bs-target="'#encounterModal' + activeEncounter?.id"
+                    >
+                      Edit Encounter
+                    </button>
+                    <button
+                      class="btn text-danger"
+                      data-bs-target="addCharacterModal"
+                    >
+                      Add NPC
+                    </button>
+                  </div>
                   <h2>{{ activeEncounter?.name }}</h2>
-                  <button
-                    class="btn text-danger"
-                    @click.stop="rollInitiatives()"
-                  >
-                    Roll Initiatives
-                  </button>
+                  <div class="d-flex gap-5">
+                    <button
+                      class="btn text-danger"
+                      data-bs-target="addCharacterModal"
+                    >
+                      Add Player
+                    </button>
+                    <button
+                      class="btn text-danger"
+                      @click.stop="rollInitiatives()"
+                    >
+                      Roll Initiatives
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
@@ -74,6 +90,7 @@
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
+  <CreateCharacterModal />
 </template>
 
 <script>
@@ -152,6 +169,13 @@ export default {
       async rollInitiatives() {
         try {
           await monstersService.rollInitiatives(route.params.encounterId);
+        } catch (error) {
+          Pop.error(error);
+        }
+      },
+      async addCharacter() {
+        try {
+          await monstersService.addCharacter(req.body);
         } catch (error) {
           Pop.error(error);
         }
