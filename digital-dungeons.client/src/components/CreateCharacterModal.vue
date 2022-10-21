@@ -20,7 +20,7 @@
       <div
         class="modal-content text-visible bg-warning"
         :style="
-          monster.image ? { backgroundImage: `url(${monster.image})` } : ''
+          monster?.image ? { backgroundImage: `url(${monster.image})` } : ''
         "
       >
         <div class="modal-header bg-transparent-modal">
@@ -34,7 +34,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body bg-transparent-modal" v-if="monster">
+        <div class="modal-body bg-transparent-modal">
           <form action="submit" class="card" @submit.prevent="addMonster()">
             <div class="card-body text-start">
               <div class="form-floating mb-3">
@@ -84,6 +84,19 @@
                 ></textarea>
                 <label for="description">Description:</label>
               </div>
+              <div class="form-floating">
+                <select
+                  type="select"
+                  class="form-select"
+                  v-model="editable.characterType"
+                  name="characterType"
+                  aria-label="Character Type Selection"
+                >
+                  <option value="player">Player</option>
+                  <option value="npc">Non Player Character</option>
+                </select>
+                <label for="characterType">Select Character Type</label>
+              </div>
               <div class="text-end">
                 <span>{{ editable.desc ? editable.desc.length : 0 }}</span>
                 <span>/ 500</span>
@@ -107,9 +120,6 @@
             </div>
           </form>
         </div>
-        <div class="modal-body" v-else>
-          <p>Sorry, there is no monster data available :(</p>
-        </div>
       </div>
     </div>
   </div>
@@ -121,28 +131,31 @@ import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { monstersService } from "../services/MonstersService.js";
 import { useRoute } from "vue-router";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 export default {
-  props: {
-    monster: { type: Monster, required: true },
-  },
+  // props: {
+  //   monster: { type: Monster, required: true },
+  // },
   setup(props) {
+    let editable = ref({});
     const route = useRoute();
     return {
+      editable,
       route,
       encounter: computed(() => AppState.activeEncounter),
       account: computed(() => AppState.account),
 
-      setActiveMonster() {
-        AppState.activeMonster = props.monster;
-      },
+      // setActiveMonster() {
+      //   AppState.activeMonster = props.monster;
+      // },
       async addMonster() {
         try {
-          props.monster.encounterId = route.params.encounterId;
-          console.log(props.monster);
-          await monstersService.addMonsterToEncounter(props.monster);
-          Pop.success(`You added ${props.monster.name} to your encounter`);
+          console.log("Trying to make something");
+          // props.monster.encounterId = route.params.encounterId;
+          editable.value.encounterId = route.params.encounterId;
+          await monstersService.addMonsterToEncounter(editable.value);
+          Pop.success(`You added ${editable.value.name} to your encounter`);
         } catch (error) {
           Pop.error(error);
         }
