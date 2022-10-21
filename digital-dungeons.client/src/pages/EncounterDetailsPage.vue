@@ -128,6 +128,11 @@ export default {
       getMonstersByEncounterId();
     });
 
+    onBeforeRouteLeave(() => {
+      AppState.monsters = []
+      AppState.activeCategory = null
+    })
+
     return {
       editable,
       route,
