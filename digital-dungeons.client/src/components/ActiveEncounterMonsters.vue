@@ -341,12 +341,7 @@
                   <div class="form-floating mb-3 text-visible">
                     <input type="number" class="form-control input-bg text-visible" v-model="editable.initiative"
                       name="initiative" placeholder="Initiative:" max="100" />
-                    <label for="initiative">Initiative:</label>
-                  </div>
-                  <div class="form-floating mb-3 text-visible">
-                    <input type="number" class="form-control input-bg text-visible" v-model="editable.speed"
-                      name="speed" placeholder="Speed:" />
-                    <label for="speed">Speed:</label>
+                    <label for="initiative">Initiative Bonus:</label>
                   </div>
                   <div class="form-floating mb-3 text-visible">
                     <input type="number" class="form-control input-bg text-visible" v-model="editable.armor_class"
