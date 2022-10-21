@@ -15,18 +15,13 @@
           </div>
         </div>
 
-
         <!-- Description -->
         <div class="modal-body bg-transparent-modal d-flex align-items-center flex-wrap scrollable" v-if="magicitem">
           <div class="text-center w-100 pb-2">
             <h5>{{magicitem.requires_attunement.toUpperCase()}}</h5>
           </div>
           <Markdown :source="magicitem.desc" />
-          <!-- <p class="description">{{ magicitem.desc }}</p> -->
         </div>
-
-
-
 
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no magicitem data available :(</p>
@@ -42,7 +37,6 @@
   </div>
 </template>
 
-
 <script>
 import { MagicItem } from "../../models/MagicItem.js";
 import Markdown from 'vue3-markdown-it'
@@ -53,8 +47,11 @@ export default {
   },
   setup() {
     return {}
-  }
+  },
+  components: { Markdown }
+
 }
+
 </script>
 
 

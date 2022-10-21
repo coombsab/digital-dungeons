@@ -9,11 +9,6 @@
   </div>
 </template>
 
-
-
-
-
-
 <script>
 import { MagicItem } from "../../models/MagicItem.js";
 import Markdown from 'vue3-markdown-it'
