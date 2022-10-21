@@ -68,7 +68,7 @@
 
 <script>
 import { computed, onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { onBeforeRouteLeave, useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { encountersService } from "../services/EncountersService.js";
 import { informationService } from "../services/InformationService.js";
