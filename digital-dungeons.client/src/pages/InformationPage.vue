@@ -103,9 +103,9 @@ export default {
       weapons: computed(() => AppState.weapons),
       armor: computed(() => AppState.armor),
       category: computed(() => AppState.activeCategory),
-
     };
   },
+
   components: {
     MonsterCard,
     SpellCard,
