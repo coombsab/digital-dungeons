@@ -4,6 +4,8 @@
       <div class="row">
 
 
+        <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
+
 
         <!-- NOTE Buttons -->
         <div class="col-4 text-center pt-5">
@@ -75,6 +77,7 @@ import ClassCard from "../components/InformationCards/ClassCard.vue";
 import MagicItemCard from "../components/InformationCards/MagicItemCard.vue";
 import WeaponCard from "../components/InformationCards/WeaponCard.vue";
 import ArmorCard from "../components/InformationCards/ArmorCard.vue";
+import SpellModal from "../components/InfoCardModals/SpellModal.vue";
 
 export default {
   setup() {
@@ -92,7 +95,18 @@ export default {
 
     };
   },
-  components: { MonsterCard, SpellCard, SearchPagination, CategoryDropdown, RaceCard, ClassCard, MagicItemCard, WeaponCard, ArmorCard }
+  components: {
+    MonsterCard,
+    SpellCard,
+    SearchPagination,
+    CategoryDropdown,
+    RaceCard,
+    ClassCard,
+    MagicItemCard,
+    WeaponCard,
+    ArmorCard,
+    SpellModal
+  }
 };
 </script>
 
