@@ -375,15 +375,81 @@
 
 
 
-        <div class="modal-body bg-transparent-modal" v-else>
-          <p>Sorry, there is no monster data available :(</p>
+        <div class="modal-body all-transparent" v-else>
+          <form action="submit" class="card text-secondary all-transparent" @submit.prevent="editMonster(monster.id)">
+            <div class="modal-content all-transparent">
+              <!-- Section -->
+              <div class="d-flex gap-3 justify-content-around mb-1 all-transparent">
+                <div class="form-floating mb-3 text-visible">
+                  <input type="text" class="form-control input-bg text-visible" v-model="editable.nickName"
+                    name="nickName" placeholder="Name:" maxlength="500" />
+                  <label for="nickName">Name:</label>
+                </div>
+                <div class="form-floating mb-3 text-visible">
+                  <input type="number" class="form-control input-bg text-visible" v-model="editable.quantity"
+                    name="quantity" max="1000" placeholder="Quantity:" />
+                  <label for="quantity">Quantity:</label>
+                </div>
+                <div class="form-floating mb-3 text-visible">
+                  <input type="number" class="form-control input-bg text-visible" v-model="editable.hit_points"
+                    name="hit_points" max="10000" placeholder="Hit Points:" />
+                  <label for="hit_points">Hit Points:</label>
+                </div>
+              </div>
+              <!-- Section -->
+              <div class="d-flex gap-3 justify-content-around mb-3">
+                <div class="form-floating mb-3 text-visible">
+                  <input type="number" class="form-control input-bg text-visible" v-model="editable.initiative"
+                    name="initiative" placeholder="Initiative:" max="100" />
+                  <label for="initiative">Initiative:</label>
+                </div>
+                <div class="form-floating mb-3 text-visible">
+                  <input type="number" class="form-control input-bg text-visible" v-model="editable.speed" name="speed"
+                    placeholder="Speed:" />
+                  <label for="speed">Speed:</label>
+                </div>
+                <div class="form-floating mb-3 text-visible">
+                  <input type="number" class="form-control input-bg text-visible" v-model="editable.armor_class"
+                    max="100" name="armor_class" placeholder="Armor Class:" />
+                  <label for="armor_class">Armor Class:</label>
+                </div>
+              </div>
+              <div class="form-floating mb-3 text-visible">
+                <textarea type="text" class="form-control textarea-height input-bg text-visible" v-model="editable.desc"
+                  name="desc" stye="resize: none" placeholder="Description:" maxlength="500"></textarea>
+                <label for="desc">Description:</label>
+              </div>
+            </div>
+            <!-- Section -->
+            <div class="modal-footer all-transparent d-flex justify-content-between">
+              <button type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
+                Monster Details
+              </button>
+              <button class="btn-visible text-visible" type="submit">
+                Make These Edits
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer d-flex justify-content-end bg-transparent-modal">
-          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
-            Close
+      </div>
+      <!-- SECTION No monster Data -->
+      <div v-if="account.id == encounter.creatorId">
+        <div class="modal-footer bg-transparent-modal d-flex justify-content-between" v-if="hidden == false">
+          <div>
+            <button v-if="hidden == false" type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
+              Edit Monster
+            </button>
+            <button v-else type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
+              Monster Details
+            </button>
+          </div>
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal"
+            @click.stop="removeMonster(monster.id)">
+            Remove Monster
           </button>
         </div>
       </div>
+      <div v-else></div>
     </div>
   </div>
 </template>
