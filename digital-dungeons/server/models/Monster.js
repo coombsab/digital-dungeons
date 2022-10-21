@@ -51,6 +51,12 @@ export const MonsterSchema = new Schema(
     document__slug: { type: String, default: "No document slug" },
     document__title: { type: String, default: "No document title" },
     document__license_url: { type: String, default: "No license url" },
+    characterType: {
+      type: String,
+      enum: ["monster", "player", "npc"],
+      required: true,
+      default: "monster",
+    },
 
     //EDITABLE FIELDS
     icon: { type: String },
