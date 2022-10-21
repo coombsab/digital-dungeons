@@ -79,7 +79,7 @@
               aria-expanded="false" aria-controls="collapseStats">
               <h5 class="text-info">Stats</h5>
             </button>
-            <div class="collapsible" id="collapseStats">
+            <div class="collapse" id="collapseStats">
               <div class="d-flex justify-content-around">
                 <span class="d-flex" title="Strength">
                   <p class="me-1 text-info">Str:</p>
@@ -143,10 +143,62 @@
               </div>
             </div>
             <!-- STUB ARMOR -->
-            <!-- TODO ARMOR (name & desc) -->
-            <!-- STUB FEATURES AND TRAITS -->
-            <!-- TODO FEATURES (skills, sense, languages) -->
-            <!-- TODO TRAITS (vulnerabilities, resistances, dmg & condition immunities)-->
+            <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArmor"
+              aria-expanded="false" aria-controls="collapseArmor">
+              <h5 class="text-info">Armor</h5>
+            </button>
+            <div class="collapse" id="collapseArmor">
+              <span class="d-flex">
+                <p class="me-1">Class: {{monster.armor_class}},</p>
+                <p>{{monster.armor_desc}}</p>
+              </span>
+            </div>
+          </div>
+          <!-- STUB FEATURES AND TRAITS -->
+          <button class="btn selectable" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFeaturesAndTraits" aria-expanded="false" aria-controls="collapseFeaturesAndTraits">
+            <h5 class="text-info">Features & Traits</h5>
+          </button>
+          <div class="collapse" id="collapseFeaturesAndTraits">
+            <!-- SKILLS -->
+            <p v-if="monster.skills" class="border-bottom border-1 text-info">Skills</p>
+            <div v-if="monster.skills" class="d-flex flex-wrap">
+              <div v-for="(value, property) in monster.skills" :key="property">
+                <span class="d-flex me-2">
+                  <p class=" me-1">{{property}}:</p>
+                  <p>{{value}}</p>
+                </span>
+              </div>
+            </div>
+            <!-- SENSES -->
+            <div v-if="monster.senses">
+              <p class="border-bottom border-1 text-info">Senses</p>
+              <p>{{monster.senses}}</p>
+            </div>
+            <!-- LANGUAGES -->
+            <div v-if="monster.languages">
+              <p class="border-bottom border-1 text-info">Languages</p>
+              <p>{{monster.languages}}</p>
+            </div>
+            <!-- TRAITS -->
+            <div class="d-flex flex-wrap">
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">Vulnerabilities:</p>
+                <p>{{monster.senses}}</p>
+              </span>
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">Resistances:</p>
+                <p>{{monster.senses}}</p>
+              </span>
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">Damage Immuntities:</p>
+                <p>{{monster.senses}}</p>
+              </span>
+              <span class="d-flex flex-wrap">
+                <p class="text-info me-1">Condition Immunities:</p>
+                <p>{{monster.senses}}</p>
+              </span>
+            </div>
           </div>
           <!-- SECTION PERFORMANCES -->
           <h4 class="statistics text-info">Performances</h4>
@@ -159,7 +211,7 @@
                 <h5 class="text-warning ">Legendary Info</h5>
               </button>
             </div>
-            <div v-if="monster.legendary_desc || monster.legendary_actions" class="collapsible" id="collapseLegendary">
+            <div v-if="monster.legendary_desc || monster.legendary_actions" class="collapse" id="collapseLegendary">
               <span class="d-flex flex-wrap">
                 <p v-if="monster.legendary_desc" class="me-1 mb-1 text-warning">Description:</p>
                 <p v-if="monster.legendary_desc">{{monster.legendary_desc}}</p>
