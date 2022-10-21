@@ -2,7 +2,7 @@
   <div class="component">
     <div
       class="modal fade"
-      :id="'campaignModalEdit' + campaign.id"
+      :id="'campaignModalEdit' + campaign?.id"
       tabindex="-1"
       aria-labelledby="campaignModalEdit"
       aria-hidden="true"
@@ -11,7 +11,7 @@
         <div class="modal-content bg-secondary">
           <div class="modal-header">
             <h5 class="modal-title" id="campaignModalEdit">
-              Edit {{ campaign.name }}
+              Edit {{ campaign?.name }}
             </h5>
             <button
               type="button"

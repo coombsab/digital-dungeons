@@ -1,24 +1,11 @@
 <template>
-  <div
-    class="encounter-card text-white my-2"
-    title="Open Details Modal"
-    v-if="encounter"
-  >
+  <div class="encounter-card text-white my-2" title="Open Details Modal" v-if="encounter">
     <div class="dropdown options">
-      <button
-        class="btn back dropdown-toggle text-light"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        v-if="account.id == campaign.creatorId"
-      ></button>
+      <button class="btn back dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+        v-if="account.id == campaign.creatorId"></button>
       <ul class="dropdown-menu">
         <li class="dropdown-item">
-          <button
-            class="btn"
-            data-bs-toggle="modal"
-            :data-bs-target="'#encounterModal' + encounter.id"
-          >
+          <button class="btn" data-bs-toggle="modal" :data-bs-target="'#encounterModal' + encounter.id">
             Edit Encounter
           </button>
         </li>
@@ -27,13 +14,15 @@
             Delete Encounter
           </button>
         </li>
+        <li class="dropdown-item">
+          <button class="btn" @click="encounter.isCompleted = true">
+            Complete Encounter
+          </button>
+        </li>
       </ul>
     </div>
     <div class="selectable" type="button" @click="openModal()">
-      <div
-        class="card border border-light"
-        :style="{ backgroundImage: `url(${encounter?.coverImg})` }"
-      >
+      <div class="card border border-light" :style="{ backgroundImage: `url(${encounter?.coverImg})` }">
         <div class="glass rounded">
           <div class="card-header d-flex justify-content-between">
             <h5>{{ encounter?.name }}</h5>
@@ -80,6 +69,9 @@ export default {
           Pop.error(error);
         }
       },
+
+
+
       openModal() {
         let modal = document.getElementById(
           "encounterDetailsModal" + props.encounter.id
@@ -103,6 +95,7 @@ export default {
   right: 2%;
   z-index: 1;
 }
+
 .glass {
   background-color: rgba(85, 3, 3, 0.739);
 }
