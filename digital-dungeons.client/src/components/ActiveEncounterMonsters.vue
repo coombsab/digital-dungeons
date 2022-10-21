@@ -78,6 +78,8 @@
 
 
 
+
+
             <!-- FIXME: everything below here -->
 
 
@@ -113,6 +115,7 @@
               aria-expanded="false" aria-controls="collapseStats">
               <h5 class="text-woah">Stats</h5>
             </button>
+            <!-- strength -->
             <div class="collapse" id="collapseStats">
               <div class="d-flex justify-content-around">
                 <span class="d-flex" title="Strength">
@@ -120,26 +123,31 @@
                   <p>{{monster.strength}}</p>
                 </span>
 
+                <!-- dexterity -->
                 <span class="d-flex" title="Dexterity">
                   <p class="me-1 text-info">Dex:</p>
                   <p>{{monster.dexterity}}</p>
                 </span>
 
+                <!-- constitution -->
                 <span class="d-flex" title="Constitution">
                   <p class="me-1 text-info">Con:</p>
                   <p>{{monster.constitution}}</p>
                 </span>
 
+                <!-- intelligence -->
                 <span class="d-flex" title="Intelligence">
                   <p class="me-1 text-info">Int:</p>
                   <p>{{monster.intelligence}}</p>
                 </span>
 
+                <!-- wisdom -->
                 <span class="d-flex" title="Wisdom">
                   <p class="me-1 text-info">Wis:</p>
                   <p>{{monster.wisdom}}</p>
                 </span>
 
+                <!-- charisma -->
                 <span class="d-flex" title="Charisma">
                   <p class="me-1 text-info">Cha:</p>
                   <p>{{monster.charisma}}</p>
