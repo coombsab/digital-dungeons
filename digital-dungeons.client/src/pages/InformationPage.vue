@@ -6,6 +6,7 @@
 
         <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
         <ArmorModal v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
+        <ClassModal v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
 
 
         <!-- NOTE Buttons -->
@@ -80,6 +81,7 @@ import WeaponCard from "../components/InformationCards/WeaponCard.vue";
 import ArmorCard from "../components/InformationCards/ArmorCard.vue";
 import SpellModal from "../components/InfoCardModals/SpellModal.vue";
 import ArmorModal from "../components/InfoCardModals/ArmorModal.vue";
+import ClassModal from "../components/InfoCardModals/ClassModal.vue";
 
 export default {
   setup() {
@@ -108,7 +110,8 @@ export default {
     WeaponCard,
     ArmorCard,
     SpellModal,
-    ArmorModal
+    ArmorModal,
+    ClassModal
   }
 };
 </script>
