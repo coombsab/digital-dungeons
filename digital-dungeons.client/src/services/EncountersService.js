@@ -1,9 +1,11 @@
 import { AppState } from "../AppState.js";
 import { Encounter } from "../models/Encounter.js";
+import { logger } from "../utils/Logger.js";
 import { baseApi } from "./AxiosService.js";
 
+
 class EncountersService {
-  async getEncounters(params) {}
+  async getEncounters(params) { }
 
   async getEncountersByCampaignId(campaignId) {
     const res = await baseApi.get(`api/campaigns/${campaignId}/encounters`);
@@ -33,6 +35,10 @@ class EncountersService {
     AppState.encounters.splice(index, 1, updatedEncounter);
     AppState.activeEncounter = updatedEncounter;
   }
+
+
+
+
 
   async getEncounterById(campaignId, encounterId) {
     const res = await baseApi.get(
