@@ -1,10 +1,10 @@
 <template>
   <div class="modal fade" id="addCharacterModal" tabindex="-1" aria-labelledby="addCharacterModal" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content text-visible bg-warning" :style=" monster?.image ? { backgroundImage: `url(${monster.image})` } : ''">
+      <div class="modal-content text-visible bg-warning">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title fs-5" id="addCharacterModal">
-            {{ monster?.name }}
+            Add Character
           </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -68,7 +68,7 @@ import { computed, ref } from "vue";
 
 export default {
   setup(props) {
-    let editable = ref({});
+    const editable = ref({});
     const route = useRoute();
     return {
       editable,
