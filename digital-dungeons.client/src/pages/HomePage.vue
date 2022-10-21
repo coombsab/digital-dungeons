@@ -5,6 +5,8 @@
         <h1 class="DD-title text-shadow"><span class="">WELCOME TO DIGITAL DUNGEONS</span></h1>
       </div>
     </div>
+
+
     <div
       class="cards-container justify-content-around align-items-center d-flex flex-wrap flex-grow-1 animate__animated animate__fadeIn">
       <router-link :to="{ name: 'Campaigns' }">
@@ -14,6 +16,8 @@
           </div>
         </div>
       </router-link>
+
+
       <router-link :to="{ name: 'Information' }">
         <div class="theme-card information elevation-3">
           <div class="on-md-hover text-visible">
