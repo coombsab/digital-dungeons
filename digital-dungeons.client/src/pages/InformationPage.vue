@@ -4,6 +4,7 @@
       <div class="row">
 
 
+        <!-- NOTE: Information card modals -->
         <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
         <ArmorModal v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
         <ClassModal v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
@@ -39,7 +40,7 @@
 
 
 
-            <!-- NOTE Info Cards -->
+            <!-- NOTE Information Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
 
