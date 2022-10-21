@@ -27,7 +27,6 @@
           </div>
 
 
-
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
@@ -70,11 +69,12 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
-import MonsterCard from "../components/InformationCards/MonsterCard.vue";
-import SpellCard from "../components/InformationCards/SpellCard.vue";
+import { ref } from "vue";
 import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
-import { ref } from "vue";
+
+import MonsterCard from "../components/InformationCards/MonsterCard.vue";
+import SpellCard from "../components/InformationCards/SpellCard.vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
 import ClassCard from "../components/InformationCards/ClassCard.vue";
 import MagicItemCard from "../components/InformationCards/MagicItemCard.vue";
