@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-3 d-flex justify-content-center mt-3">
     <div
-      class="monster-card text-center text-visible selectable animate__animated animate__flipInX"
+      class="monster-card text-center text-visible selectable animate__animated animate__fadeIn"
       title="See Monster Details"
       data-bs-toggle="modal"
       :data-bs-target="'#monsterModal' + monster.id"
