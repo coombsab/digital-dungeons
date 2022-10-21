@@ -6,10 +6,10 @@ export const MonsterSchema = new Schema(
     encounterId: { type: OBJECT_ID, required: true },
     creatorId: { type: OBJECT_ID, required: true },
 
-    slug: { type: String, required: true },
+    slug: { type: String },
     name: { type: String, required: true },
-    size: { type: String, required: true },
-    type: { type: String, required: true },
+    size: { type: String },
+    type: { type: String },
     subtype: { type: String, default: "No subtype" },
     group: { type: String, default: "No group" },
     alignment: { type: String, default: "No alignment" },

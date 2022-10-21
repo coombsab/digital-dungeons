@@ -13,20 +13,15 @@
                 >
                   Edit Encounter
                 </button>
-                <button
-                  class="btn text-danger"
-                  data-bs-target="addCharacterModal"
-                >
-                  Add NPC
-                </button>
               </div>
               <h2>{{ activeEncounter?.name }}</h2>
               <div class="d-flex gap-5">
                 <button
                   class="btn text-danger"
-                  data-bs-target="addCharacterModal"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addCharacterModal"
                 >
-                  Add Player
+                  Add Character
                 </button>
                 <button class="btn text-danger" @click.stop="rollInitiatives()">
                   Roll Initiatives
