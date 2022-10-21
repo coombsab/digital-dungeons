@@ -1,17 +1,17 @@
 <template>
-  <!-- <div class="monster-card p-3 rounded elevation-2 text-light selectable" title="See Monster Details"
-    data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click="">
-    <span>{{monster.name}}</span>
-  </div> -->
-
   <div class="col-md-3 d-flex justify-content-center mt-3">
     <div class="monster-card text-center text-visible selectable animate__animated animate__flipInX"
       title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.id" @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
-      <div class="muted-layer bg-transparent ">
-        <span>{{ monster.nickName }}</span>
-        <span> x {{ monster.quantity }}</span>
-        <span>Int: {{monster.initiative}}</span>
+      <div class="muted-layer bg-transparent">
+        <div>
+          <span>HP: {{monster.hit_points}}</span>
+        </div>
+        <span class="fs-4 text-visible">{{ monster.nickName }} </span>
+        <div class="d-flex justify-content-between">
+          <span>Q: {{ monster.quantity }}</span>
+          <span>I: {{monster.initiative}}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
                 <p>{{ monster.size }}</p>
               </div>
             </div>
-            <div class="d-flex flex-wrap justify-content-around mb-3">
+            <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
                 <h6 class="statistics">Alignment</h6>
                 <p>{{ monster.alignment}}</p>
@@ -135,7 +135,7 @@
                 <h6 class="statistics">Size</h6>
                 <p>{{ monster.size }}</p>
               </div>
-            </div>
+            </div> -->
             <!--ANCHOR Description -->
             <div class="d-flex flex-wrap justify-content-around mb-3">
               <div>
@@ -317,7 +317,7 @@ export default {
 }
 
 .bg-transparent:hover {
-  background-color: rgba(10, 10, 10, 0.303) !important;
+  background-color: rgba(10, 10, 10, 0.43) !important;
 }
 
 .bg-transparent-modal {
@@ -333,10 +333,19 @@ export default {
   width: 8rem;
   border-radius: 0.5rem;
   background-color: rgba(0, 0, 0, 0.639);
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-content: center;
   padding: 0.5rem;
+  text-shadow: none;
+  color: rgba(96, 190, 234, 0.505);
+}
+
+.muted-layer:hover {
+  color: rgb(96, 190, 234);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
+    0px 0px 5px rgba(189, 234, 30, 0.678);
 }
 
 .statistics {
