@@ -149,7 +149,7 @@
             </button>
             <div class="collapse" id="collapseArmor">
               <span class="d-flex">
-                <p class="me-1">Class: {{monster.armor_class}},</p>
+                <p class="me-1">Class: {{monster.armor_class}} -</p>
                 <p>{{monster.armor_desc}}</p>
               </span>
             </div>
@@ -181,22 +181,22 @@
               <p>{{monster.languages}}</p>
             </div>
             <!-- TRAITS -->
-            <div class="d-flex flex-wrap">
+            <div class="d-flex justify-content-around flex-wrap">
               <span class="d-flex flex-wrap">
                 <p class="text-info me-1">Vulnerabilities:</p>
-                <p>{{monster.senses}}</p>
+                <p>{{monster.damage_vulnerabilities}}</p>
               </span>
               <span class="d-flex flex-wrap">
                 <p class="text-info me-1">Resistances:</p>
-                <p>{{monster.senses}}</p>
+                <p>{{monster.damage_resistances}}</p>
               </span>
               <span class="d-flex flex-wrap">
                 <p class="text-info me-1">Damage Immuntities:</p>
-                <p>{{monster.senses}}</p>
+                <p>{{monster.damage_immunities}}</p>
               </span>
               <span class="d-flex flex-wrap">
                 <p class="text-info me-1">Condition Immunities:</p>
-                <p>{{monster.senses}}</p>
+                <p>{{monster.condition_immunities}}</p>
               </span>
             </div>
           </div>
