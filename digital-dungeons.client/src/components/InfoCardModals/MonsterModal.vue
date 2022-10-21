@@ -149,12 +149,12 @@
               <button v-if="monster.armor_class || monster.armor_desc" class="btn selectable" type="button"
                 data-bs-toggle="collapse" data-bs-target="#collapseArmor" aria-expanded="false"
                 aria-controls="collapseArmor">
-                <h5 class="text-woah">Armor</h5>
+                <h5 class="text-woah">Armor Class</h5>
               </button>
             </div>
             <div class="collapse" id="collapseArmor">
               <span class="d-flex">
-                <p v-if="monster.armor_class" class="me-1">Class: {{monster.armor_class}} -</p>
+                <p v-if="monster.armor_class" class="me-1">AC: {{monster.armor_class}} -</p>
                 <p v-if="monster.armor_desc">{{monster.armor_desc}}</p>
               </span>
             </div>
