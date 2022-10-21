@@ -49,12 +49,11 @@
                 </div>
               </div>
             </div>
+
             <!-- STUB SPEED -->
-
-
             <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpeed"
               aria-expanded="false" aria-controls="collapseSpeed">
-              <h5 class="text-info">Speed</h5>
+              <h5 class="text-woah">Speed</h5>
             </button>
             <div class="collapse" id="collapseSpeed">
               <div class="d-flex justify-content-around">
@@ -73,12 +72,11 @@
           <!-- SECTION INFO -->
           <h4 class="statistics text-info">Data</h4>
           <div>
+
             <!-- STUB STATS -->
-
-
             <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStats"
               aria-expanded="false" aria-controls="collapseStats">
-              <h5 class="text-info">Stats</h5>
+              <h5 class="text-woah">Stats</h5>
             </button>
             <div class="collapse" id="collapseStats">
               <div class="d-flex justify-content-around">
@@ -108,13 +106,13 @@
                 </span>
               </div>
             </div>
+
             <!-- STUB SAVES -->
-
-
-            <div>
+            <div
+              v-if="monster.strength_save || monster.dexterity_save || monster.constitution_save || monster.intelligence_save || monster.wisdom_save || monster.charisma_save">
               <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSaves"
-                aria-expanded="false" aria-controls="collapseSaves">
-                <h5 class="text-info">Save Stats</h5>
+                aria-expanded="false" aria-controls="collapseSaves" title="Saving Dice Rolls">
+                <h5 class="text-woah">Save DC</h5>
               </button>
             </div>
             <div class="collapse" id="collapseSaves">
@@ -145,31 +143,31 @@
                 </span>
               </div>
             </div>
+
             <!-- STUB ARMOR -->
-
-
-            <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArmor"
-              aria-expanded="false" aria-controls="collapseArmor">
-              <h5 class="text-info">Armor</h5>
-            </button>
+            <div>
+              <button v-if="monster.armor_class || monster.armor_desc" class="btn selectable" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseArmor" aria-expanded="false"
+                aria-controls="collapseArmor">
+                <h5 class="text-woah">Armor</h5>
+              </button>
+            </div>
             <div class="collapse" id="collapseArmor">
               <span class="d-flex">
-                <p class="me-1">Class: {{monster.armor_class}} -</p>
-                <p>{{monster.armor_desc}}</p>
+                <p v-if="monster.armor_class" class="me-1">Class: {{monster.armor_class}} -</p>
+                <p v-if="monster.armor_desc">{{monster.armor_desc}}</p>
               </span>
             </div>
           </div>
+
           <!-- STUB FEATURES AND TRAITS -->
-
-
           <button class="btn selectable" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseFeaturesAndTraits" aria-expanded="false" aria-controls="collapseFeaturesAndTraits">
-            <h5 class="text-info">Features & Traits</h5>
+            <h5 class="text-woah">Features & Traits</h5>
           </button>
-
           <div class="collapse" id="collapseFeaturesAndTraits">
             <!-- SKILLS -->
-            <p v-if="monster.skills" class="border-bottom border-1 text-info">Skills</p>
+            <p v-if="!skills" class="border-bottom border-1 text-info">Skills</p>
             <div v-if="monster.skills" class="d-flex flex-wrap">
               <div v-for="(value, property) in monster.skills" :key="property">
                 <span class="d-flex me-2">
@@ -178,19 +176,16 @@
                 </span>
               </div>
             </div>
-
             <!-- SENSES -->
             <div v-if="monster.senses">
               <p class="border-bottom border-1 text-info">Senses</p>
               <p>{{monster.senses}}</p>
             </div>
-
             <!-- LANGUAGES -->
             <div v-if="monster.languages">
               <p class="border-bottom border-1 text-info">Languages</p>
-              <p>{{monster.languages}}</p>
+              <p>{{monster.languages.replace('—', 'None').replace('-', 'None')}}</p>
             </div>
-
             <!-- TRAITS -->
             <div class="d-flex justify-content-around flex-wrap">
               <span class="d-flex flex-wrap">
@@ -214,11 +209,10 @@
 
 
           <!-- SECTION PERFORMANCES -->
-          <h4 class="statistics text-info">Performances</h4>
+          <h4 class="statistics text-info">Moves</h4>
           <div>
+
             <!-- STUB LEGENDARY -->
-
-
             <div v-if="monster.legendary_desc || monster.legendary_actions">
               <button v-if="monster.legendary_desc || monster.legendary_actions" class="btn selectable" type="button"
                 data-bs-toggle="collapse" data-bs-target="#collapseLegendary" aria-expanded="false"
@@ -240,13 +234,12 @@
                 </span>
               </div>
             </div>
+
             <!-- STUB ACTIONS -->
-
-
             <div>
               <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseActions"
                 aria-expanded="false" aria-controls="collapseActions">
-                <h5 v-if="monster.actions" class="me-1 text-info">Actions</h5>
+                <h5 v-if="monster.actions" class="me-1 text-woah">Actions</h5>
               </button>
               <div class="collapse" id="collapseActions">
                 <div v-if="monster.actions" v-for="actions in monster.actions">
@@ -257,13 +250,12 @@
                 </div>
               </div>
             </div>
+
             <!-- STUB REACTIONS -->
-
-
             <div v-if="monster.reactions">
               <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReactions"
                 aria-expanded="false" aria-controls="collapseReactions">
-                <h5 v-if="monster.reactions" class="me-1 text-info">Reactions</h5>
+                <h5 v-if="monster.reactions" class="me-1 text-woah">Reactions</h5>
               </button>
               <div class="collapse" id="collapseReactions">
                 <div v-if="monster.reactions" v-for="reactions in monster.reactions">
@@ -274,13 +266,12 @@
                 </div>
               </div>
             </div>
+
             <!-- STUB SPECIAL ABILITIES -->
-
-
             <div>
               <button class="btn selectable" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseSpAbilities" aria-expanded="false" aria-controls="collapseSpAbilities">
-                <h5 v-if="monster.special_abilities" class="me-1 text-info">Special Abilities</h5>
+                <h5 v-if="monster.special_abilities" class="me-1 text-woah">Special Abilities</h5>
               </button>
               <div class="collapse" id="collapseSpAbilities">
                 <div v-if="monster.special_abilities" v-for="special_abilities in monster.special_abilities">
@@ -292,8 +283,6 @@
               </div>
             </div>
           </div>
-          <!-- STUB SAVES -->
-
 
           <!-- SECTION SPELLS -->
           <h4 v-if="monster.spell_list[0]" class=" statistics text-info">Spells</h4>
@@ -306,7 +295,7 @@
         <div class="modal-body bg-transparent-modal" v-else>
           <p>Sorry, there is no monster data available :(</p>
         </div>
-        <div class="modal-footer d-flex justify-content-between bg-transparent-modal">
+        <div class="modal-footer d-flex justify-content-end bg-transparent-modal">
           <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal">
             Close
           </button>
@@ -321,14 +310,17 @@
 
 
 <script>
+import { computed } from "@vue/reactivity";
 import { Monster } from "../../models/Monster.js";
 
 export default {
   props: {
     monster: { type: Monster, required: true },
   },
-  setup() {
-    return {}
+  setup(props) {
+    return {
+      skills: computed(() => Object.keys(props.monster.skills).length == 0)
+    }
   }
 }
 </script>
@@ -338,6 +330,11 @@ export default {
 
 
 <style lang="scss" scoped>
+.text-woah {
+  color: rgb(96, 190, 234) !important;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(18, 34, 50, 0.678);
+}
+
 .monster-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
