@@ -4,9 +4,13 @@
       <div class="row">
 
 
+        <!-- NOTE: Information card modals -->
         <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
         <ArmorModal v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
         <ClassModal v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
+        <MonsterModal v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
+        <RaceModal v-if="category == 'races'" v-for="r in races" :key="r.slug" :race="r" />
+        <WeaponModal v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
 
 
         <!-- NOTE Buttons -->
@@ -26,7 +30,6 @@
           </div>
 
 
-
           <CategoryDropdown :category="category" />
         </div>
         <div class="col-8 bg-transparent">
@@ -39,7 +42,7 @@
 
 
 
-            <!-- NOTE Info Cards -->
+            <!-- NOTE Information Cards -->
             <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
 
@@ -69,11 +72,12 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
-import MonsterCard from "../components/InformationCards/MonsterCard.vue";
-import SpellCard from "../components/InformationCards/SpellCard.vue";
+import { ref } from "vue";
 import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
-import { ref } from "vue";
+
+import MonsterCard from "../components/InformationCards/MonsterCard.vue";
+import SpellCard from "../components/InformationCards/SpellCard.vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
 import ClassCard from "../components/InformationCards/ClassCard.vue";
 import MagicItemCard from "../components/InformationCards/MagicItemCard.vue";
@@ -82,6 +86,9 @@ import ArmorCard from "../components/InformationCards/ArmorCard.vue";
 import SpellModal from "../components/InfoCardModals/SpellModal.vue";
 import ArmorModal from "../components/InfoCardModals/ArmorModal.vue";
 import ClassModal from "../components/InfoCardModals/ClassModal.vue";
+import MonsterModal from "../components/InfoCardModals/MonsterModal.vue";
+import RaceModal from "../components/InfoCardModals/RaceModal.vue";
+import WeaponModal from "../components/InfoCardModals/WeaponModal.vue";
 
 export default {
   setup() {
@@ -96,9 +103,9 @@ export default {
       weapons: computed(() => AppState.weapons),
       armor: computed(() => AppState.armor),
       category: computed(() => AppState.activeCategory),
-
     };
   },
+
   components: {
     MonsterCard,
     SpellCard,
@@ -111,7 +118,10 @@ export default {
     ArmorCard,
     SpellModal,
     ArmorModal,
-    ClassModal
+    ClassModal,
+    MonsterModal,
+    RaceModal,
+    WeaponModal
   }
 };
 </script>
