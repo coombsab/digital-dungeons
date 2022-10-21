@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid right">
+  <div class="container-fluid">
     <div v-if="activeEncounter" class="h00 elevated rounded">
       <div class="text-light h00 glass">
         <section class="row justify-content-between">
@@ -243,8 +243,4 @@ export default {
 .scrollable {
   overflow-y: auto;
 }
-
-// .right {
-//   margin-left: 1rem;
-// }
 </style>

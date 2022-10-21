@@ -457,8 +457,8 @@ export default {
 .monster-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
+  height: 12rem;
+  width: 10rem;
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
@@ -469,6 +469,25 @@ export default {
   transform: scale(1.1);
 }
 
+.muted-layer {
+  height: 12rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.639);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0.5rem;
+  text-shadow: none;
+  color: rgba(96, 190, 234, 0.505);
+}
+
+.muted-layer:hover {
+  color: rgb(96, 190, 234);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
+    0px 0px 5px rgba(189, 234, 30, 0.678);
+}
 .input-bg {
   background-color: rgba(0, 0, 0, 0.552) !important;
 }
@@ -494,25 +513,6 @@ export default {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.muted-layer {
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.639);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  padding: 0.5rem;
-  text-shadow: none;
-  color: rgba(96, 190, 234, 0.505);
-}
-
-.muted-layer:hover {
-  color: rgb(96, 190, 234);
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
-    0px 0px 5px rgba(189, 234, 30, 0.678);
-}
 
 .statistics {
   border-bottom: 1px solid gray;
