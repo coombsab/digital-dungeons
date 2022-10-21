@@ -71,7 +71,9 @@ export default {
       },
       async toggleCompleted() {
         try {
+          console.log(props.encounter.isCompleted)
           props.encounter.isCompleted = !props.encounter.isCompleted
+          console.log(props.encounter.isCompleted)
           await encountersService.editEncounter(props.encounter, props.encounter.id)
         } catch (error) {
           Pop.error(error, "[Making Complete]")
