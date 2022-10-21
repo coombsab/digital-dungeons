@@ -2,7 +2,7 @@
   <!-- ANCHOR MODAL -->
   <div class="modal fade" :id="'monsterModal' + monster.slug" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-l">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content text-visible bg-warning"
         :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
 
@@ -396,14 +396,18 @@ export default {
   color: rgb(216, 224, 229) !important;
 }
 
-.modal-xl {
-  width: 70vw !important;
-}
+// .modal-l {
+//   width: 70vw !important;
+// }
 
 .scrollable {
   overflow-y: auto;
   max-height: 70vh;
 }
+
+// .modal-dialog {
+//   width: 70vw !important
+// }
 
 // .modal {
 //   position: relative;
