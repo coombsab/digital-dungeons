@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-visible bg-warning">
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="addCharacterModal">
+          <h1 class="modal-title fs-5">
             Add Character
           </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

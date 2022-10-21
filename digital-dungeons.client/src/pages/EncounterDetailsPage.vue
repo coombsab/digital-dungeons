@@ -13,9 +13,9 @@
               </div>
               <h2>{{ activeEncounter?.name }}</h2>
               <div class="d-flex gap-5">
-                <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
+                <!-- <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
                   Add Character
-                </button>
+                </button> -->
                 <button class="btn text-danger" @click.stop="rollInitiatives()">
                   Roll Initiatives
                 </button>
@@ -63,7 +63,7 @@
 
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
-  <CreateCharacterModal />
+  <!-- <CreateCharacterModal /> -->
 </template>
 
 <script>

@@ -185,7 +185,7 @@
             </button>
             <div class="collapse" id="collapseFeaturesAndTraits">
               <!-- SKILLS -->
-              <p v-if="!skills" class="border-bottom border-1 text-info">Skills</p>
+              <p v-if="!monster.skills" class="border-bottom border-1 text-info">Skills</p>
               <div v-if="monster.skills" class="d-flex flex-wrap">
                 <div v-for="(value, property) in monster.skills" :key="property">
                   <span class="d-flex me-2">
