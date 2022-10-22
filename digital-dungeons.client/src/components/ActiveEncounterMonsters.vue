@@ -311,7 +311,21 @@
                 class="text-light">{{spell.replace('https://api-beta.open5e.com/spells/', '').replace('/',
                 '').replace('-', '').toUpperCase()}}</a>
             </div>
+            <div>
+              <button class="btn selectable" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesc"
+                aria-expanded="false" aria-controls="collapseDesc">
+                <h5 v-if="monster.desc" class="me-1 text-woah">Description</h5>
+              </button>
+              <div class="collapse" id="collapseDesc">
+                <div v-if="monster.desc">
+                  <span class="d-flex flex-wrap">
+                    <p>{{monster.desc}}</p>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
+
 
 
 
@@ -340,11 +354,6 @@
                 </div>
                 <!-- Section -->
                 <div class="d-flex gap-3 justify-content-around mb-3">
-                  <div class="form-floating mb-3 text-visible">
-                    <input type="number" class="form-control input-bg text-visible" v-model="editable.initiative"
-                      name="initiative" placeholder="Initiative:" max="100" />
-                    <label for="initiative">Initiative Bonus:</label>
-                  </div>
                   <div class="form-floating mb-3 text-visible">
                     <input type="number" class="form-control input-bg text-visible" v-model="editable.armor_class"
                       max="100" name="armor_class" placeholder="Armor Class:" />

@@ -1,6 +1,6 @@
 <template>
   <div class="encounter-card text-white my-2" title="Open Details Modal" v-if="encounter">
-    <div class="dropdown options">
+    <div class="dropstart options">
       <button class="btn back dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"
         v-if="account.id == campaign.creatorId"></button>
       <ul class="dropdown-menu">
@@ -71,7 +71,9 @@ export default {
       },
       async toggleCompleted() {
         try {
+          console.log(props.encounter.isCompleted)
           props.encounter.isCompleted = !props.encounter.isCompleted
+          console.log(props.encounter.isCompleted)
           await encountersService.editEncounter(props.encounter, props.encounter.id)
         } catch (error) {
           Pop.error(error, "[Making Complete]")
@@ -94,6 +96,7 @@ export default {
 <style lang="scss" scoped>
 .encounter-card {
   position: relative;
+  // height: 12rem;
 }
 
 .options {
@@ -105,6 +108,7 @@ export default {
 
 .glass {
   background-color: rgba(85, 3, 3, 0.739);
+  // height: 12rem;
 }
 
 .card {
