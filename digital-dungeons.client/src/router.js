@@ -30,7 +30,7 @@ const routes = [
     path: "/campaigns/:campaignId/encounter/:encounterId",
     name: "EncounterDetails",
     component: loadPage("EncounterDetailsPage"),
-    beforeEnter: authSettled, authGuard,
+    beforeEnter: authGuard,
   },
   {
     path: "/about",
