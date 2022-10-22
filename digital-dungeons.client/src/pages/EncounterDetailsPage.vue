@@ -10,16 +10,16 @@
         <span class="text-primary fs-3">{{ activeEncounter?.name }}</span>
       </div>
       <div class="col-md-4 d-flex justify-content-between align-items-center">
-          <button class="text-primary btn" data-bs-toggle="modal"
-            :data-bs-target="'#encounterModal' + activeEncounter?.id">
-            Edit Encounter
-          </button>
-          <button class="btn text-primary" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
-            Add Character
-          </button>
-          <button class="btn text-primary" @click.stop="rollInitiatives()">
-            Roll Initiatives
-          </button>
+        <button class="text-primary btn" data-bs-toggle="modal"
+          :data-bs-target="'#encounterModal' + activeEncounter?.id">
+          Edit Encounter
+        </button>
+        <button class="btn text-primary" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
+          Add Character
+        </button>
+        <button class="btn text-primary" @click.stop="rollInitiatives()">
+          Roll Initiatives
+        </button>
       </div>
     </div>
     <section class="row content">
