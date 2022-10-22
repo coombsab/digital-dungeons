@@ -1,72 +1,52 @@
 <template>
   <div class="container-fluid">
-    <div v-if="activeEncounter" class="h00 elevated rounded">
-      <div class="text-light h00 glass">
-        <section class="row justify-content-between">
-          <div class="AETitle text-center">
-            <div class="text-shadow2 d-flex justify-content-around">
-              <div class="d-flex gap-5 align-items-center">
-                <router-link :to="{ name: 'CampaignDetails', params: { campaignId: route.params.campaignId }} ">
-                  <span>Go Back</span>
-                </router-link>
-                <button class="text-danger btn px-3" data-bs-toggle="modal"
-                  :data-bs-target="'#encounterModal' + activeEncounter?.id">
-                  Edit Encounter
-                </button>
-              </div>
-              <h2>{{ activeEncounter?.name }}</h2>
-              <div class="d-flex gap-5">
-                <button class="btn text-danger" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
-                  Add Character
-                </button>
-                <button class="btn text-danger" @click.stop="rollInitiatives()">
-                  Roll Initiatives
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign
-              <div class="col-3 bg-dark p-2">
-                <div class="bg-secondary p-1">
-                  {{ activeEncounter }}
-                </div>
-              </div> -->
-
-          <!-- ADD ENCOUNTER -->
-        </section>
-        <section class="row top">
-          <div class="col-12 d-flex">
-            <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage rounded" />
-            <p class="p-5 text-shadow">{{ activeEncounter?.desc }}</p>
-          </div>
-
-          <!-- SECTION search monsters -->
-          <div class="col-4 bg-transparent bottomLeft box">
-            <SearchPagination />
-            <div class="elem2 scrollable">
-              <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
-            </div>
-          </div>
-
-          <!-- SECTION my monsters -->
-          <div class="col-md-8">
-            <div class="row">
-              <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.id" :monster="m" />
-            </div>
-          </div>
-        </section>
-        <section></section>
+    <div class="row AETitle" v-if="activeEncounter">
+      <div class="col-4 d-flex justify-content-between align-items-center">
+        <router-link :to="{ name: 'CampaignDetails', params: { campaignId: route.params.campaignId }} ">
+          <span>Go Back</span>
+        </router-link>
+      </div>
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <span class="text-primary fs-3">{{ activeEncounter?.name }}</span>
+      </div>
+      <div class="col-4 d-flex justify-content-between align-items-center">
+          <button class="text-primary btn" data-bs-toggle="modal"
+            :data-bs-target="'#encounterModal' + activeEncounter?.id">
+            Edit Encounter
+          </button>
+          <button class="btn text-primary" data-bs-toggle="modal" data-bs-target="#addCharacterModal">
+            Add Character
+          </button>
+          <button class="btn text-primary" @click.stop="rollInitiatives()">
+            Roll Initiatives
+          </button>
       </div>
     </div>
-  </div>
+    <section class="row content">
+      <div class="col-12 img-col d-flex">
+        <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage rounded" />
+        <p class="p-5 text-primary">{{ activeEncounter?.desc }}</p>
+      </div>
+      <div class="col-4 bg-transparent monster-col box">
+        <SearchPagination />
+        <div class="elem2 scrollable">
+          <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
+        </div>
+      </div>
+      <div class="col-md-8 monster-col box">
+        <div class="d-flex flex-wrap gap-3 elem2 scrollable">
+          <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.id" :monster="m" />
+        </div>
+      </div>
+    </section>
+    
+    <div v-if="activeEncounter">
+      <EditEncounterDetailsModal :encounter="activeEncounter" />
+    </div>
 
-  <div v-if="activeEncounter">
-    <EditEncounterDetailsModal :encounter="activeEncounter" />
+    <CreateEncounterModal />
+    <CreateCharacterModal />
   </div>
-
-  <!-- MODAL COMPONENT -->
-  <CreateEncounterModal />
-  <CreateCharacterModal />
 </template>
 
 <script>
@@ -176,37 +156,11 @@ export default {
     SearchPagination,
     EditEncounterDetailsModal,
     CreateCharacterModal
-},
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.h00 {
-  height: 96vh;
-  background-size: cover;
-  background-position: center;
-}
-
-.text-shadow {
-  color: rgb(113, 166, 177);
-  text-shadow: 1px 1px rgb(28, 51, 74), 0px 0px 5px rgb(136, 62, 147);
-  font-weight: bold;
-  letter-spacing: 0.08rem;
-  font-family: "Morpheus";
-  src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
-}
-
-.text-shadow2 {
-  color: rgba(117, 117, 13, 0.727);
-  text-shadow: 1px 1px rgb(88, 27, 27), 0px 0px 5px rgb(105, 41, 115);
-  font-weight: bold;
-  letter-spacing: 0.08rem;
-}
-
-.MonsterC:hover {
-  transform: scale(1.2);
-}
-
 .AETitle {
   background-color: rgba(105, 19, 102, 0.505);
   border-top: 6px solid;
@@ -214,21 +168,25 @@ export default {
   border-color: rgba(119, 19, 125, 0.749);
   font-family: "Morpheus";
   src: local("Morphues") url(./fonts/MORPHEUS.TTF) format("truetype");
-}
-
-.glass {
-  background-color: rgba(38, 37, 37, 0.397);
+  height: 7vh;
 }
 
 .encounterImage {
-  max-height: 40vh;
-  max-width: 40vw;
-  padding: 4rem;
+  height: 100%;
+  padding-left: 4rem;
+  padding-top: 1rem;
 }
 
-.bottomLeft {
-  height: 53vh;
-  overflow-y: auto;
+.content {
+  height: 93vh;
+}
+
+.img-col {
+  height: 30vh;
+}
+
+.monster-col {
+  height: 63vh;
 }
 
 .box {
