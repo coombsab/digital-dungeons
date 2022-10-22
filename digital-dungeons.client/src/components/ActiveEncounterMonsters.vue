@@ -20,7 +20,7 @@
 
   <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" v-if="monster.characterType === 'monster'">
       <div class="modal-content text-visible" :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
@@ -399,7 +399,100 @@
         </div>
         <div v-else></div>
       </div>
+
     </div>
+    <div class="modal-dialog"  v-else>
+      <div class="modal-content text-visible npc-content" :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
+        <div class="modal-header bg-transparent-modal">
+          <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
+            {{ monster?.name }}
+          </h1>
+          <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
+        </div>
+        <div class="modal-body bg-transparent-modal scrollable d-flex flex-column justify-content-around" v-if="hidden === false">
+          <div class="d-flex flex-wrap justify-content-around">
+            <div class="text-center">
+              <h5 class="text-primary">HP</h5>
+              <p>{{monster.hit_points}}</p>
+            </div>
+            <div class="text-center">
+              <h5 class="text-primary">Dexterity</h5>
+              <p>{{monster.dexterity}}</p>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <h5 class="text-primary">Description</h5>
+            <div>
+              <p>{{monster.desc}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body bg-transparent-modal" v-else>
+            <form action="submit" class="card text-secondary all-transparent" @submit.prevent="editMonster(monster.id)">
+              <div class="modal-content all-transparent">
+                <!-- Section -->
+                <div class="d-flex gap-3 justify-content-around mb-1 all-transparent">
+                  <div class="form-floating mb-3 text-visible">
+                    <input type="text" class="form-control input-bg text-visible" v-model="editable.nickName"
+                      name="nickName" placeholder="Name:" maxlength="500" />
+                    <label for="nickName">Name:</label>
+                  </div>
+                  <div class="form-floating mb-3 text-visible">
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.dexterity"
+                      name="dexterity" max="10000" placeholder="Dexterity:" />
+                    <label for="dexterity">Dexterity:</label>
+                  </div>
+                  <div class="form-floating mb-3 text-visible">
+                    <input type="number" class="form-control input-bg text-visible" v-model="editable.hit_points"
+                      name="hit_points" max="10000" placeholder="Hit Points:" />
+                    <label for="hit_points">Hit Points:</label>
+                  </div>
+                </div>
+                <!-- Section -->
+                <div class="form-floating text-visible">
+                  <textarea type="text" class="form-control textarea-height input-bg text-visible"
+                    v-model="editable.desc" name="desc" stye="resize: none" placeholder="Description:"
+                    maxlength="500"></textarea>
+                  <label for="desc">Description:</label>
+                </div>
+                <div class="text-end text-visible mt-2">
+                  <span>{{ editable.desc ? editable.desc.length : 0 }}</span>
+                  <span>/ 500</span>
+                </div>
+              </div>
+              <!-- Section -->
+              <div class="modal-footer all-transparent d-flex justify-content-between">
+                <button type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
+                  Monster Details
+                </button>
+                <button class="btn-visible text-visible" type="submit">
+                  Make These Edits
+                </button>
+              </div>
+            </form>
+          </div>
+        
+        <div v-if="account.id == encounter.creatorId">
+          <div class="modal-footer bg-transparent-modal d-flex justify-content-between" v-if="hidden == false">
+            <div>
+              <button v-if="hidden == false" type="button" class="btn-visible text-visible"
+                @click.stop="toggleHidden()">
+                Edit Monster
+              </button>
+              <button v-else type="button" class="btn-visible text-visible" @click.stop="toggleHidden()">
+                Monster Details
+              </button>
+            </div>
+            <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal"
+              @click.stop="removeMonster(monster.id)">
+              Remove Monster
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
@@ -520,6 +613,9 @@ export default {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
+.npc-content {
+  min-height: 60vh;
+}
 
 .statistics {
   border-bottom: 1px solid gray;
