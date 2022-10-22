@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 d-flex justify-content-center mt-3">
+  <div class="d-flex justify-content-center">
     <div class="monster-card text-center text-visible selectable animate__animated animate__fadeIn"
       title="See Monster Details" data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.id" @click=""
       :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
@@ -21,9 +21,7 @@
   <div class="modal fade" :id="'monsterModal' + monster.id" tabindex="-1" aria-labelledby="MonsterDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content text-visible" :style="
-        monster.image ? { backgroundImage: `url(${monster.image})` } : ''
-      ">
+      <div class="modal-content text-visible" :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
         <div class="modal-header bg-transparent-modal">
           <h1 class="modal-title text-info fs-5" id="MonsterDetailsModalLabel">
             {{ monster?.name }}
@@ -38,7 +36,6 @@
           <!-- SECTION Monster Details -->
           <!-- NOTE hide place fxn implementation -->
           <div class="modal-body" v-if="hidden == false">
-
             <!-- SECTION GENERAL -->
             <div>
               <h4 class="statistics text-info">General</h4>

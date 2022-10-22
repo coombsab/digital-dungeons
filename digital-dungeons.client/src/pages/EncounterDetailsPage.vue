@@ -1,15 +1,15 @@
 <template>
   <div class="container-fluid">
     <div class="row AETitle" v-if="activeEncounter">
-      <div class="col-4 d-flex justify-content-between align-items-center">
+      <div class="col-md-4 d-flex justify-content-between align-items-center">
         <router-link :to="{ name: 'CampaignDetails', params: { campaignId: route.params.campaignId }} ">
           <span>Go Back</span>
         </router-link>
       </div>
-      <div class="col-4 d-flex justify-content-center align-items-center">
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
         <span class="text-primary fs-3">{{ activeEncounter?.name }}</span>
       </div>
-      <div class="col-4 d-flex justify-content-between align-items-center">
+      <div class="col-md-4 d-flex justify-content-between align-items-center">
           <button class="text-primary btn" data-bs-toggle="modal"
             :data-bs-target="'#encounterModal' + activeEncounter?.id">
             Edit Encounter
@@ -27,19 +27,19 @@
         <img :src="activeEncounter?.coverImg" alt="" class="img-fluid encounterImage rounded" />
         <p class="p-5 text-primary">{{ activeEncounter?.desc }}</p>
       </div>
-      <div class="col-4 bg-transparent monster-col box">
+      <div class="col-md-4 bg-transparent monster-col box">
         <SearchPagination />
         <div class="elem2 scrollable">
           <MonsterDetailsModal v-for="m in monsters" :key="m.slug" :monster="m" />
         </div>
       </div>
-      <div class="col-md-8 monster-col box">
-        <div class="d-flex flex-wrap gap-3 elem2 scrollable">
+      <div class="col-md-8 monster-col">
+        <div class="d-flex flex-wrap gap-3 pt-3 scrollable h-100 align-content-start">
           <ActiveEncounterMonsters v-for="m in activeMonsters" :key="m.id" :monster="m" />
         </div>
       </div>
     </section>
-    
+
     <div v-if="activeEncounter">
       <EditEncounterDetailsModal :encounter="activeEncounter" />
     </div>
@@ -200,5 +200,9 @@ export default {
 
 .scrollable {
   overflow-y: auto;
+}
+
+.h-100 {
+  height: 100%;
 }
 </style>
