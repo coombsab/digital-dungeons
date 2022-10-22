@@ -9,7 +9,7 @@
       <div class="col-md-4 d-flex justify-content-center align-items-center">
         <span class="text-primary fs-3">{{ activeEncounter?.name }}</span>
       </div>
-      <div class="col-md-4 d-flex justify-content-between align-items-center">
+      <div class="col-md-4 d-flex justify-content-between align-items-center" v-if="activeEncounter?.creatorId == account?.id">
           <button class="text-primary btn" data-bs-toggle="modal"
             :data-bs-target="'#encounterModal' + activeEncounter?.id">
             Edit Encounter
