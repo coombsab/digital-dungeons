@@ -87,7 +87,8 @@ export default {
   },
   setup() {
     return {}
-  }
+  },
+  components: { Markdown }
 }
 </script>
 
