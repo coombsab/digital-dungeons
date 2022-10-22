@@ -32,8 +32,8 @@ export default {
 .armor-card {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
+  height: 12rem;
+  width: 10rem;
   border-radius: 0.5rem;
   background-position: center;
   background-size: cover;
@@ -44,11 +44,6 @@ export default {
   transform: scale(1.1);
 }
 
-.modal-content {
-  background-position: center;
-  background-size: cover;
-}
-
 .bg-transparent {
   background-color: rgba(10, 10, 10, 0.804) !important;
 }
@@ -57,32 +52,13 @@ export default {
   background-color: rgba(10, 10, 10, 0.303) !important;
 }
 
-.bg-transparent-modal {
-  background-color: rgba(10, 10, 10, 0.664) !important;
-}
-
 .muted-layer {
-  height: 10rem;
-  width: 8rem;
+  height: 12rem;
+  width: 10rem;
   border-radius: 0.5rem;
   display: grid;
   justify-content: center;
   align-content: center;
   padding: 0.5rem;
-}
-
-.statistics {
-  border-bottom: 1px solid gray;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-content {
-  height: 70vh;
-}
-
-h6 {
-  color: var(--info);
 }
 </style>
