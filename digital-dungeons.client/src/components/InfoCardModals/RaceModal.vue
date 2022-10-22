@@ -7,31 +7,37 @@
         :style="race.coverImg ? {backgroundImage: `url(${race.coverImg})`} : ''">
 
         <div class="modal-header bg-transparent-modal">
-          <h1 class="modal-title fs-5" id="RaceDetailsModalLabel">
+          <h3 class="modal-title" id="RaceDetailsModalLabel">
             {{ race?.name }}
-          </h1>
+          </h3>
         </div>
 
 
-        <div class="modal-body bg-transparent-modal" v-if="race">
+        <div class="modal-body bg-transparent-modal scrollable" v-if="race">
           <div class="d-flex flex-wrap mb-3">
             <div>
-              <p>{{ race.age}}</p>
+              <!-- <p>{{ race.age}}</p> -->
+              <Markdown :source="race.age" />
             </div>
             <div>
-              <p>{{ race.alignment}}</p>
+              <!-- <p>{{ race.alignment}}</p> -->
+              <Markdown :source="race.alignment" />
             </div>
             <div>
-              <p>{{ race.speed_desc}}</p>
+              <!-- <p>{{ race.speed_desc}}</p> -->
+              <Markdown :source="race.speed_desc" />
             </div>
             <div>
-              <p>{{ race.languages}}</p>
+              <!-- <p>{{ race.languages}}</p> -->
+              <Markdown :source="race.languages" />
             </div>
             <div>
-              <p>{{ race.vision}}</p>
+              <!-- <p>{{ race.vision}}</p> -->
+              <Markdown :source="race.vision" />
             </div>
             <div>
-              <p>{{ race.traits}}</p>
+              <!-- <p>{{ race.traits}}</p> -->
+              <Markdown :source="race.traits" />
             </div>
           </div>
         </div>
@@ -53,6 +59,7 @@
 
 <script>
 import { Race } from "../../models/Race.js";
+import Markdown from 'vue3-markdown-it'
 
 export default {
   props: {
@@ -60,7 +67,8 @@ export default {
   },
   setup() {
     return {}
-  }
+  },
+  components: { Markdown }
 }
 </script>
 
@@ -73,5 +81,10 @@ export default {
 
 .bg-transparent-modal {
   background-color: rgba(10, 10, 10, 0.442) !important;
+}
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 70vh;
 }
 </style>
