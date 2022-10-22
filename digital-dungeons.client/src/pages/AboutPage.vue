@@ -2,6 +2,7 @@
   <section class="container-fluid about-page">
     <div class="row justify-content-around ">
 
+
       <div class="col-md-3 p-md-3 p-2">
         <div class="card cards elevation-3">
           <img src="https://thiscatdoesnotexist.com" alt="">
