@@ -29,8 +29,8 @@
             {{ monster?.name }}
           </h1>
           <div v-if="monster.challenge_rating" class="d-flex align-items-center gap-3">
-              <p class="text-info text-shadow me-1 my-auto">Challenge Rating:</p>
-              <p class=" my-auto">{{monster.challenge_rating}}</p>
+            <p class="text-info text-shadow me-1 my-auto">Challenge Rating:</p>
+            <p class=" my-auto">{{monster.challenge_rating}}</p>
             <button type="button" class="btn-visible text-visible" data-bs-dismiss="modal" aria-label="Close">X</button>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="modal-body" v-if="hidden == false">
 
             <!-- SECTION GENERAL -->
-            <div>
+            <div v-if="monster.characterType == monster">
               <h4 class="statistics text-info">General</h4>
               <div class="d-flex justify-content-evenly">
                 <div class="text-center">
@@ -497,6 +497,7 @@ export default {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.644),
     0px 0px 5px rgba(189, 234, 30, 0.678);
 }
+
 .input-bg {
   background-color: rgba(0, 0, 0, 0.552) !important;
 }
