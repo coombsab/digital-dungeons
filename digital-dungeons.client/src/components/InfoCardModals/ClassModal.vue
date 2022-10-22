@@ -59,79 +59,7 @@
             </div>
             <br>
           </div>
-          <!-- <div class="d-flex flex-wrap justify-content-around mb-3">
-              <div>
-                <h6 class="statistics">Type</h6>
-                <p>{{ dndClass.type}}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Subtype</h6>
-                <p>{{ dndClass.subtype }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Alignment</h6>
-                <p>{{ dndClass.alignment }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Health</h6>
-                <p>{{ dndClass.hit_points }}</p>
-              </div>
-            </div>
-  
-            <div class="d-flex flex-wrap justify-content-around mb-3">
-              <div>
-                <h6 class="statistics">Hit Dice</h6>
-                <p>{{ dndClass.hit_dice }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Languages</h6>
-                <p>{{ dndClass.languages }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Size</h6>
-                <p>{{ dndClass.size }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Challenge Rating</h6>
-                <p>{{ dndClass.challenge_rating }}</p>
-              </div>
-            </div>
-  
-            <div class="d-flex flex-wrap justify-content-around mb-3">
-              <div>
-                <h6 class="statistics">Strength</h6>
-                <p>{{ dndClass.strength }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Intelligence</h6>
-                <p>{{ dndClass.intelligence }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Wisdom</h6>
-                <p>{{ dndClass.wisdom }}</p>
-              </div>
-              <div>
-                <h6 class="statistics">Dexterity</h6>
-                <p>{{ dndClass.dexterity }}</p>
-              </div>
-  
-  
-  
-              <div class="d-flex flex-wrap justify-content-around mb-3">
-                <div>
-                  <h6 class="statistics">Charisma</h6>
-                  <p>{{ dndClass.charisma }}</p>
-                </div>
-                <div>
-                  <h6 class="statistics">Constitution</h6>
-                  <p>{{ dndClass.constitution }}</p>
-                </div>
-              </div>
-            </div> -->
         </div>
-
-
-
 
 
         <div class="modal-body bg-transparent-modal" v-else>
@@ -146,8 +74,6 @@
     </div>
   </div>
 </template>
-
-
 
 
 
@@ -167,49 +93,14 @@ export default {
 
 
 
-
-
 <style lang="scss" scoped>
-.dndClass-card {
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  background-position: center;
-  background-size: cover;
-  transition: 150ms linear;
-}
-
-.dndClass-card:hover {
-  transform: scale(1.1);
-}
-
 .modal-content {
   background-position: center;
   background-size: cover;
 }
 
-.bg-transparent {
-  background-color: rgba(10, 10, 10, 0.804) !important;
-}
-
-.bg-transparent:hover {
-  background-color: rgba(10, 10, 10, 0.303) !important;
-}
-
 .bg-transparent-modal {
   background-color: rgba(10, 10, 10, 0.442) !important;
-}
-
-.muted-layer {
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  padding: 0.5rem;
 }
 
 .statistics {
@@ -217,14 +108,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.text-visible {
-  color: rgb(216, 224, 229);
-}
-
-.text-visible:hover {
-  color: rgb(216, 224, 229) !important;
 }
 
 .h-80 {
@@ -235,12 +118,4 @@ export default {
   max-height: 60vh;
   overflow-y: auto;
 }
-
-// .class-details {
-// em {
-//   background-color: rgba(0, 128, 128, 0.232);
-//   padding: .015rem;
-//   border-radius: 5px;
-// }
-// }
 </style>

@@ -333,32 +333,9 @@ export default {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(18, 34, 50, 0.678);
 }
 
-.monster-card {
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 10rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  background-position: center;
-  background-size: cover;
-  transition: 150ms linear;
-}
-
-.monster-card:hover {
-  transform: scale(1.1);
-}
-
 .modal-content {
   background-position: center;
   background-size: cover;
-}
-
-.bg-transparent {
-  background-color: rgba(10, 10, 10, 0.804) !important;
-}
-
-.bg-transparent:hover {
-  background-color: rgba(10, 10, 10, 0.303) !important;
 }
 
 .bg-transparent-modal {
@@ -394,26 +371,8 @@ export default {
   color: rgb(216, 224, 229) !important;
 }
 
-// .modal-l {
-//   width: 70vw !important;
-// }
-
 .scrollable {
   overflow-y: auto;
   max-height: 70vh;
 }
-
-// .modal-dialog {
-//   width: 70vw !important
-// }
-
-// .modal {
-//   position: relative;
-
-//   .modal-dialog {
-//     position: absolute;
-//     right: 50%;
-//     width: 70vw !important;
-//   }
-// }
 </style>
