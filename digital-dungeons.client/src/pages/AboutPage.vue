@@ -116,35 +116,35 @@
 
       <ul class="carousel__items">
         <!-- Ky Want -->
-        <li class="carousel__item"><img
+        <li class="carousel__item carousel_img"><img
             src="https://images.unsplash.com/photo-1561389248-231c46a75a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN1dGUlMjBjYXR8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Kylee Want Picture" class="carousel_img img-fluid">
+            alt="Kylee Want Picture" class="img-fluid rounded">
         </li>
 
         <!-- Abraham Coombs -->
-        <li class="carousel__item"><img src="../assets/img/abraham.jpg" alt="Abraham Coombs Picture"
-            class="carousel_img img-fluid"></li>
+        <li class="carousel__item carousel_img"><img src="../assets/img/abraham.jpg" alt="Abraham Coombs Picture"
+            class="img-fluid rounded"></li>
 
         <!-- Jake Neitzell -->
-        <li class="carousel__item"><img src="../assets/img/me.jpg" alt="Jake Neitzell Picture"
-            class="carousel_img img-fluid">
+        <li class="carousel__item carousel_img"><img src="../assets/img/jake-neitzell.jpg" alt="Jake Neitzell Picture"
+            class="img-fluid rounded d-flex justify-content-center">
         </li>
 
         <!-- Talor Montandon -->
-        <li class="carousel__item"><img
+        <li class="carousel__item carousel_img"><img
             src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
-            alt="Talor Montandon Picture" class="carousel_img img-fluid"></li>
+            alt="Talor Montandon Picture" class="img-fluid rounded"></li>
 
         <!-- Thomas Daily -->
-        <li class="carousel__item"><img
+        <li class="carousel__item carousel_img"><img
             src="https://c1.wallpaperflare.com/preview/108/852/910/cat-mackerel-funny-red.jpg"
-            alt="Thomas Daily Picture" class="carousel_img img-fluid">
+            alt="Thomas Daily Picture" class="img-fluid rounded">
         </li>
 
         <!-- Jake Paulin -->
-        <li class="carousel__item"><img
+        <li class="carousel__item carousel_img"><img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8ErlMlPdnS5zbhJ2KL339H-cCsjrxjMl8A&usqp=CAU"
-            alt="Jake Paulin Picture" class="carousel_img img-fluid">
+            alt="Jake Paulin Picture" class="img-fluid rounded">
         </li>
       </ul>
 
@@ -205,8 +205,6 @@ export default {
 
 <style lang="scss" scoped>
 // #region: carousel
-.carousel_img {}
-
 %animation-default {
   opacity: 1 !important;
   z-index: 3;
@@ -312,12 +310,21 @@ export default {
       width: 100%;
       height: 100%;
       z-index: 1;
-      transition: opacity 2s;
+      transition: opacity 1s;
       -webkit-transition: opacity 2s;
 
-      img {
-        width: 100%;
-        vertical-align: middle;
+      // img {
+      //   width: 100%;
+      //   vertical-align: middle;
+      // }
+      .carousel_img {
+        background-color: rgb(36, 36, 36);
+        background-size: cover;
+        background-attachment: fixed;
+        min-width: 75rem;
+        min-height: 45rem;
+        max-width: 70rem;
+        max-height: 45rem;
       }
     }
 
