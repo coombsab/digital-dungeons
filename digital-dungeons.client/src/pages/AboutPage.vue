@@ -111,7 +111,6 @@
       <input type="radio" id="carousel-4" name="carousel[]">
       <input type="radio" id="carousel-5" name="carousel[]">
       <input type="radio" id="carousel-6" name="carousel[]">
-      <input type="radio" id="carousel-7" name="carousel[]">
 
 
       <ul class="carousel__items">
@@ -143,7 +142,7 @@
 
         <!-- Jake Paulin -->
         <li class="carousel__item carousel_img"><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8ErlMlPdnS5zbhJ2KL339H-cCsjrxjMl8A&usqp=CAU"
+            src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg"
             alt="Jake Paulin Picture" class="img-fluid rounded">
         </li>
       </ul>
@@ -177,12 +176,7 @@
       </div>
     </div>
   </div>
-
-
 </template>
-
-
-
 
 
 
@@ -195,10 +189,6 @@ export default {
   }
 }
 </script>
-
-
-
-
 
 
 
@@ -313,16 +303,15 @@ export default {
       transition: opacity 1s;
       -webkit-transition: opacity 2s;
 
-      // img {
-      //   width: 100%;
-      //   vertical-align: middle;
-      // }
       .carousel_img {
+        // vertical-align: middle;
         background-color: rgb(36, 36, 36);
         background-size: cover;
         background-attachment: fixed;
+
         min-width: 75rem;
         min-height: 45rem;
+
         max-width: 70rem;
         max-height: 45rem;
       }
