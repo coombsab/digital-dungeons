@@ -1,181 +1,140 @@
 <template>
-  <!-- <section class="container-fluid about-page">
-    <div class="row justify-content-around ">
+  <section class="main-section text-visible">
+    <h1 class="text-center mb-5 pt-md-4 pt-2">Our Amazing Team!</h1>
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Thomas Daily</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/Thomas-Daily" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href=""></a>
-          </div>
-        </div>
-      </div>
+    <!-- SECTION: dev team images and desc -->
+    <div class="my-body">
+      <div class="my-container">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+        <input type="radio" name="slider" id="item-4">
+        <input type="radio" name="slider" id="item-5">
+        <input type="radio" name="slider" id="item-6">
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Abraham Coombs</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/coombsab" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
-              href="https://www.linkedin.com/in/abraham-coombs-33408ab8/"></a>
-          </div>
-        </div>
-      </div>
+        <div class="cards">
+          <!-- Ky Want -->
+          <label class="card" for="item-1" id="member-1">
+            <img
+              src="https://images.unsplash.com/photo-1561389248-231c46a75a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN1dGUlMjBjYXR8ZW58MHx8MHx8&w=1000&q=80"
+              alt="Ky Want">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/Lumine3449" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
+                  href="https://www.linkedin.com/in/kylee-want-559853249/"></a>
+              </div>
+              <span>Ky's description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ipsa, quas
+                dolorum cum amet commodi quasi, quidem tempora veniam sunt autem corrupti nisi explicabo odio unde
+                ratione est necessitatibus vitae maxime aliquid error architecto adipisci! Perferendis ut explicabo,
+                obcaecati similique delectus nostrum praesentium. Ipsam excepturi deleniti quo. Fuga laborum magnam,
+                libero repudiandae nesciunt impedit similique et non quod cupiditate quaerat amet fugit dolore molestiae
+                labore at nobis odio nihil animi. Vitae praesentium odit impedit nostrum fugiat corrupti fuga nihil
+                dolorem explicabo? Earum saepe doloremque similique commodi sint ea cum mollitia, aliquid eveniet vel
+                expedita, veniam nemo recusandae ab sunt explicabo corporis neque sequi? Aliquam nulla, exercitationem
+                deleniti optio voluptatibus porro mollitia fugiat neque labore, doloribus voluptas blanditiis ducimus
+                obcaecati aliquid temporibus? Esse labore harum saepe recusandae nam tempore soluta quasi laboriosam
+                nostrum, magni, placeat ullam minus quidem corporis, excepturi sapiente ducimus culpa nisi ipsam
+                ratione? Culpa ea, cupiditate explicabo repellat molestiae non perferendis dolorum soluta hic tempore!
+                Quo quae nemo dolorem aut accusantium quisquam exercitationem. Ipsum eaque perferendis molestiae
+                possimus vel nulla officiis amet veritatis et vero ad quo quia repellat, dolore ratione necessitatibus
+                placeat doloremque ducimus deserunt! Quisquam fuga laborum temporibus eligendi suscipit, praesentium
+                perferendis facilis fugiat nobis voluptate.</span>
+            </div>
+          </label>
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="../assets/img/me.jpg" alt="">
-          <h4 class="text-shadow2">Jake Neitzell</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/JacobNeitzell" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
-              href="https://www.linkedin.com/in/jacob-neitzell-610a64180/"></a>
-          </div>
-        </div>
-      </div>
+          <!-- Abraham Coombs -->
+          <label class="card" for="item-2" id="member-2">
+            <img src="../assets/img/abraham.jpg" alt="Abraham Coombs">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/coombsab" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
+                  href="https://www.linkedin.com/in/abraham-coombs-33408ab8/"></a>
+              </div>
+              <span>Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. Fuzzy Wuzzy wasn't very fuzzy, was he?</span>
+              <hr>
+              <span>How much wood would a woodchuck chuck if a woodchuck could chuck wood? He would chuck what wood a
+                woodchuck could chuck if a woodchuck could chuck wood!</span>
+            </div>
+          </label>
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Talor Montandon</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Tmontandon"></a>
-          </div>
-        </div>
-      </div>
+          <!-- Jake Neitzell -->
+          <label class="card" for="item-3" id="member-3">
+            <img src="../assets/img/jake-neitzell.jpg" alt="Jake Neitzell">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/JacobNeitzell" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
+                  href="https://www.linkedin.com/in/jacob-neitzell-610a64180/"></a>
+              </div>
+              <span>Hello I am a junior software developer and this is the project I worked on at school in 2 weeks, I
+                am really satisfied with the way the site came together and hope to continue to make it look better and
+                add more functionality. I hope that you will enjoy the digital dungeons site and be able to use it for
+                your campaigns" there is my description</span>
+            </div>
+          </label>
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Jake Paulin</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank" href="https://github.com/Jakeepaulin"></a>
-          </div>
-        </div>
-      </div>
+          <!-- Talor Montandon -->
+          <label class="card" for="item-4" id="member-4">
+            <img
+              src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
+              alt="Talor Montandon">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
+                  href="https://github.com/Tmontandon"></a>
+              </div>
+              <span>Talor's description</span>
+            </div>
+          </label>
 
 
-      <div class="col-md-3 p-md-3 p-2">
-        <div class="card cards elevation-3">
-          <img src="https://thiscatdoesnotexist.com" alt="">
-          <h4 class="text-shadow2">Kylee Want</h4>
-          <div class="card-body rounded text-shadow ">
-            <p>Description</p>
-          </div>
-          <div class="card-text">
-            <a href="https://github.com/Lumine3449" target="_blank" class="mdi mdi-github fs-4 p-1"></a>
-            <a class="mdi mdi-linkedin fs-4 p-1" target="_blank"
-              href="https://www.linkedin.com/in/kylee-want-559853249/"></a>
-          </div>
+          <!-- Thomas Daily -->
+          <label class="card" for="item-5" id="member-5">
+            <img src="https://c1.wallpaperflare.com/preview/108/852/910/cat-mackerel-funny-red.jpg" alt="Thomas Daily">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/Thomas-Daily" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank" href=""></a>
+              </div>
+              <span>Tom's description</span>
+            </div>
+          </label>
+
+
+          <!-- Jake Paulin -->
+          <label class="card" for="item-6" id="member-6">
+            <img
+              src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg"
+              alt="Jake Paulin">
+            <div class="desc">
+              <div class="icons">
+                <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"
+                  title="GitHub"></a>
+                <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
+                  href="https://github.com/Jakeepaulin"></a>
+              </div>
+              <span>Jake's description</span>
+            </div>
+          </label>
+
+
         </div>
       </div>
     </div>
-  </section> -->
-
-
-
-
-  <!-- SECTION: dev team images and desc -->
-  <h1 class="mt-5">Our Amazing Team:</h1>
-
-  <div class="container">
-    <div class="carousel">
-      <input type="radio" id="carousel-1" name="carousel[]" checked>
-      <input type="radio" id="carousel-2" name="carousel[]">
-      <input type="radio" id="carousel-3" name="carousel[]">
-      <input type="radio" id="carousel-4" name="carousel[]">
-      <input type="radio" id="carousel-5" name="carousel[]">
-      <input type="radio" id="carousel-6" name="carousel[]">
-
-
-      <ul class="carousel__items">
-        <!-- Ky Want -->
-        <li class="carousel__item carousel_img"><img
-            src="https://images.unsplash.com/photo-1561389248-231c46a75a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN1dGUlMjBjYXR8ZW58MHx8MHx8&w=1000&q=80"
-            alt="Kylee Want Picture" class="img-fluid rounded">
-        </li>
-
-        <!-- Abraham Coombs -->
-        <li class="carousel__item carousel_img"><img src="../assets/img/abraham.jpg" alt="Abraham Coombs Picture"
-            class="img-fluid rounded"></li>
-
-        <!-- Jake Neitzell -->
-        <li class="carousel__item carousel_img"><img src="../assets/img/jake-neitzell.jpg" alt="Jake Neitzell Picture"
-            class="img-fluid rounded d-flex justify-content-center">
-        </li>
-
-        <!-- Talor Montandon -->
-        <li class="carousel__item carousel_img"><img
-            src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
-            alt="Talor Montandon Picture" class="img-fluid rounded"></li>
-
-        <!-- Thomas Daily -->
-        <li class="carousel__item carousel_img"><img
-            src="https://c1.wallpaperflare.com/preview/108/852/910/cat-mackerel-funny-red.jpg"
-            alt="Thomas Daily Picture" class="img-fluid rounded">
-        </li>
-
-        <!-- Jake Paulin -->
-        <li class="carousel__item carousel_img"><img
-            src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg"
-            alt="Jake Paulin Picture" class="img-fluid rounded">
-        </li>
-      </ul>
-
-
-      <div class="carousel__prev">
-        <label for="carousel-1"></label>
-        <label for="carousel-2"></label>
-        <label for="carousel-3"></label>
-        <label for="carousel-4"></label>
-        <label for="carousel-5"></label>
-        <label for="carousel-6"></label>
-      </div>
-
-      <div class="carousel__next">
-        <label for="carousel-1"></label>
-        <label for="carousel-2"></label>
-        <label for="carousel-3"></label>
-        <label for="carousel-4"></label>
-        <label for="carousel-5"></label>
-        <label for="carousel-6"></label>
-      </div>
-
-      <div class="carousel__nav">
-        <label for="carousel-1"></label>
-        <label for="carousel-2"></label>
-        <label for="carousel-3"></label>
-        <label for="carousel-4"></label>
-        <label for="carousel-5"></label>
-        <label for="carousel-6"></label>
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 
@@ -194,292 +153,180 @@ export default {
 
 
 <style lang="scss" scoped>
-// #region: carousel
-%animation-default {
-  opacity: 1 !important;
-  z-index: 3;
-}
-
-@mixin carousel($items, $animation: 'default') {
-  .carousel {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-
-    >input[type="radio"] {
-      position: absolute;
-      left: 0;
-      opacity: 0;
-      top: 0;
-
-      &:checked {
-
-        ~.carousel__items .carousel__item,
-        ~.carousel__prev>label,
-        ~.carousel__next>label {
-          opacity: 0;
-        }
-      }
-
-      @for $i from 1 through $items {
-        &:nth-child(#{$i}) {
-          &:checked {
-            ~.carousel__items .carousel__item {
-              @if $animation =='default' {
-                &:nth-child(#{$i}) {
-                  opacity: 1;
-                }
-              }
-            }
-
-            ~.carousel__prev {
-              >label {
-                @if $i ==1 {
-                  &:nth-child(#{$items}) {
-                    @extend %animation-default;
-                  }
-                }
-
-                @else if $i ==$items {
-                  &:nth-child(#{$items - 1}) {
-                    @extend %animation-default;
-                  }
-                }
-
-                @else {
-                  &:nth-child(#{$i - 1}) {
-                    @extend %animation-default;
-                  }
-                }
-              }
-            }
-
-            ~.carousel__next {
-              >label {
-                @if $i ==$items {
-                  &:nth-child(1) {
-                    @extend %animation-default;
-                  }
-                }
-
-                @else {
-                  &:nth-child(#{$i + 1}) {
-                    @extend %animation-default;
-                  }
-                }
-              }
-            }
-
-            ~.carousel__nav {
-              >label {
-                &:nth-child(#{$i}) {
-                  background: #ccc;
-                  cursor: default;
-                  pointer-events: none;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &__items {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      width: 100%;
-      height: 600px;
-      position: relative;
-    }
-
-    &__item {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      transition: opacity 1s;
-      -webkit-transition: opacity 2s;
-
-      .carousel_img {
-        // vertical-align: middle;
-        background-color: rgb(36, 36, 36);
-        background-size: cover;
-        background-attachment: fixed;
-
-        min-width: 75rem;
-        min-height: 45rem;
-
-        max-width: 70rem;
-        max-height: 45rem;
-      }
-    }
-
-    &__prev,
-    &__next {
-      >label {
-        border: 1px solid #fff;
-        border-radius: 50%;
-        cursor: pointer;
-        display: block;
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        transition: all .3s ease;
-        -webkit-transition: all .3s ease;
-        opacity: 0;
-        z-index: 2;
-
-        &:hover,
-        &:focus {
-          opacity: .5 !important;
-        }
-
-        &:before,
-        &:after {
-          content: "";
-          position: absolute;
-          width: inherit;
-          height: inherit;
-        }
-
-        &:before {
-          background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
-            linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
-          width: 60%;
-          height: 60%;
-          top: 20%;
-        }
-      }
-    }
-
-    &__prev {
-      >label {
-        left: 2%;
-
-        &:before {
-          left: 35%;
-          top: 20%;
-          transform: rotate(135deg);
-          -webkit-transform: rotate(135deg);
-        }
-      }
-    }
-
-    &__next {
-      >label {
-        right: 2%;
-
-        &:before {
-          left: 10%;
-          transform: rotate(315deg);
-          -webkit-transform: rotate(315deg);
-        }
-      }
-    }
-
-    &__nav {
-      position: absolute;
-      bottom: 3%;
-      left: 0;
-      text-align: center;
-      width: 100%;
-      z-index: 3;
-
-      >label {
-        border: 1px solid #fff;
-        display: inline-block;
-        border-radius: 50%;
-        cursor: pointer;
-        margin: 0 .125%;
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-body {
-  background: #fcfcfc;
-  margin: 0;
-}
-
-.container {
-  width: 900px;
-  min-width: 900px;
-  margin: 50px auto;
-}
-
-@include carousel(6);
-// #endregion
-
-
-
-h1 {
-  color: #fff;
-  font-family: sans-serif;
-  text-align: center;
-  font-weight: normal;
-}
-
-
-// #region: everything else
-.about-page {
+.main-section {
   height: 100vh;
-  overflow-y: auto;
-  padding: 1rem 3.5rem 1rem 3.5rem;
+}
+
+.my-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .4s ease-in;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.my-container {
+  width: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cards {
-  background-color: rgba(36, 1, 43, 0.892);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
 }
 
-
-
-.text-shadow2 {
-  color: rgba(206, 157, 219, 0.888);
-  text-shadow: 1px 1px rgba(51, 48, 48, 0.856), 0px 0px 5px rgb(12, 28, 85);
-  font-weight: bold;
-  letter-spacing: 0.08rem
+.card {
+  position: absolute;
+  width: 60%;
+  height: fit-content;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform 0.75s ease;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5)
 }
 
-
-.text-shadow {
-  color: rgba(209, 215, 221, 0.988);
-  text-shadow: 1px 1px black, 0px 0px 5px rgba(18, 190, 203, 0.921);
-  font-weight: bold;
-  letter-spacing: 0.08rem
+img {
+  width: 100%;
+  max-height: 55vh;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-a {
-  color: rgb(250, 12, 198);
-
-}
-
-.card-body {
-  background-color: rgba(138, 75, 149, 0.464);
+.desc {
+  display: none;
+  padding: 0.5rem;
+  backdrop-filter: blur(8px);
+  max-height: 25vh;
+  overflow-y: auto;
 }
 
 @media (min-width: 768px) {
-  .about-page {
-    height: 100vh;
-    overflow-y: auto;
-    padding: 1rem 5rem 1rem 5rem;
+  .card {
+    width: 80%;
+  }
+
+  .cards {
+    margin-top: 0;
   }
 }
 
-// #endregion
+@media (min-width: 1400px) {
+  img {
+    max-height: 60vh;
+  }
+}
+
+#item-1:checked~.cards #member-3,
+#item-1:checked~.cards #member-4,
+#item-1:checked~.cards #member-5,
+
+#item-2:checked~.cards #member-4,
+#item-2:checked~.cards #member-5,
+#item-2:checked~.cards #member-6,
+
+#item-3:checked~.cards #member-1,
+#item-3:checked~.cards #member-5,
+#item-3:checked~.cards #member-6,
+
+#item-4:checked~.cards #member-1,
+#item-4:checked~.cards #member-2,
+#item-4:checked~.cards #member-6,
+
+#item-5:checked~.cards #member-1,
+#item-5:checked~.cards #member-2,
+#item-5:checked~.cards #member-3,
+
+#item-6:checked~.cards #member-2,
+#item-6:checked~.cards #member-3,
+#item-6:checked~.cards #member-4 {
+  display: none;
+}
+
+// NOTE left this commented out bit in case we want to change the carousel style
+// #item-1:checked~.cards #member-5,
+// #item-2:checked~.cards #member-6,
+// #item-3:checked~.cards #member-1,
+// #item-4:checked~.cards #member-2,
+// #item-5:checked~.cards #member-3,
+// #item-6:checked~.cards #member-4 {
+//   display: block;
+//   transform: translatex(-80%) scale(.5);
+//   opacity: .2;
+//   z-index: 0;
+// }
+
+// #item-1:checked~.cards #member-3,
+// #item-2:checked~.cards #member-4,
+// #item-3:checked~.cards #member-5,
+// #item-4:checked~.cards #member-6,
+// #item-5:checked~.cards #member-1,
+// #item-6:checked~.cards #member-2 {
+//   display: block;
+//   transform: translatex(80%) scale(.5);
+//   opacity: .2;
+//   z-index: 0;
+// }
+
+#item-1:checked~.cards #member-6,
+#item-2:checked~.cards #member-1,
+#item-3:checked~.cards #member-2,
+#item-4:checked~.cards #member-3,
+#item-5:checked~.cards #member-4,
+#item-6:checked~.cards #member-5 {
+  transform: translatex(-40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked~.cards #member-2,
+#item-2:checked~.cards #member-3,
+#item-3:checked~.cards #member-4,
+#item-4:checked~.cards #member-5,
+#item-5:checked~.cards #member-6,
+#item-6:checked~.cards #member-1 {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked~.cards #member-1,
+#item-2:checked~.cards #member-2,
+#item-3:checked~.cards #member-3,
+#item-4:checked~.cards #member-4,
+#item-5:checked~.cards #member-5,
+#item-6:checked~.cards #member-6 {
+  transform: translatex(0) scale(1);
+  width: 80%;
+  opacity: 1;
+  z-index: 1;
+
+  img {
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+  }
+}
+
+#item-1:checked~.cards #member-1>.desc,
+#item-2:checked~.cards #member-2>.desc,
+#item-3:checked~.cards #member-3>.desc,
+#item-4:checked~.cards #member-4>.desc,
+#item-5:checked~.cards #member-5>.desc,
+#item-6:checked~.cards #member-6>.desc {
+  display: block;
+}
 </style>
