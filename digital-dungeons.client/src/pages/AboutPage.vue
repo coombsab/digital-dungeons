@@ -193,18 +193,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.desc-title {
-  position: relative;
-  border-bottom: 2px solid rgba(95, 19, 95, 0.68);
-}
-
-.icons {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
 .main-section {
   height: 100vh;
 }
@@ -256,7 +244,7 @@ input[type=radio] {
 img {
   width: 100%;
   max-height: 55vh;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   object-fit: cover;
 }
 
@@ -264,8 +252,22 @@ img {
   display: none;
   padding: 0.5rem;
   backdrop-filter: blur(8px);
+}
+
+.desc-title {
+  position: relative;
+  border-bottom: 2px solid rgba(95, 19, 95, 0.68);
+}
+
+.desc-body {
   max-height: 25vh;
   overflow-y: auto;
+}
+.icons {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 @media (min-width: 768px) {
