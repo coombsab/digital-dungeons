@@ -84,7 +84,7 @@
                   am really satisfied with the way the site came together and hope to continue to make it look better
                   and
                   add more functionality. I hope that you will enjoy the digital dungeons site and be able to use it for
-                  your campaigns" there is my description</span>
+                  your campaigns"</span>
               </div>
             </div>
           </label>
@@ -263,6 +263,7 @@ img {
   max-height: 25vh;
   overflow-y: auto;
 }
+
 .icons {
   position: absolute;
   width: 100%;
