@@ -92,14 +92,16 @@
 
           <!-- Thomas Daily -->
           <label class="card" for="item-5" id="member-5">
-            <img src="https://c1.wallpaperflare.com/preview/108/852/910/cat-mackerel-funny-red.jpg" alt="Thomas Daily">
+            <img src="../assets/img/ThomasDaily.jpg" alt="Thomas Daily">
             <div class="desc">
               <div class="icons">
                 <a href="https://github.com/Thomas-Daily" target="_blank" class="mdi mdi-github fs-4 p-1"
                   title="GitHub"></a>
                 <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank" href=""></a>
               </div>
-              <span>Tom's description</span>
+              <span>Hi! My name's Tom and I am a junior developer going through CodeWorks. I'm excited to get into the
+                software development workforce and I am excited to see what it is going to hold for me in the future. I
+                know I look like a big guy, but I swear I'm a teddy bear.</span>
             </div>
           </label>
 
