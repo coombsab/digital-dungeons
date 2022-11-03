@@ -30,7 +30,8 @@
               </div>
               <span>Welcome to Digital-Dungeons! Poke around and see our website's features. If you have experience with
                 DnD you may find this website as a useful tool, and if you are new perhaps this website will help to
-                peak your interest. I had a ton of fun building this project and working with my team. Don't forget to
+                peak your interest. I had a ton of fun learning how build this project and working with a team. Don't
+                forget to
                 check out the other members of our team to see their thoughts and experiences about this project too!
               </span>
             </div>
