@@ -15,34 +15,24 @@
 
 
         <div class="cards">
-          <!-- Ky Want -->
+
+          <!-- Talor Montandon -->
           <label class="card" for="item-1" id="member-1">
             <img
-              src="https://images.unsplash.com/photo-1561389248-231c46a75a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN1dGUlMjBjYXR8ZW58MHx8MHx8&w=1000&q=80"
-              alt="Ky Want">
+              src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
+              alt="Talor Montandon">
             <div class="desc">
               <div class="icons">
-                <a href="https://github.com/Lumine3449" target="_blank" class="mdi mdi-github fs-4 p-1"
+                <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"
                   title="GitHub"></a>
                 <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
-                  href="https://www.linkedin.com/in/kylee-want-559853249/"></a>
+                  href="https://www.linkedin.com/in/talor-montandon-92a792254/"></a>
               </div>
-              <span>Ky's description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ipsa, quas
-                dolorum cum amet commodi quasi, quidem tempora veniam sunt autem corrupti nisi explicabo odio unde
-                ratione est necessitatibus vitae maxime aliquid error architecto adipisci! Perferendis ut explicabo,
-                obcaecati similique delectus nostrum praesentium. Ipsam excepturi deleniti quo. Fuga laborum magnam,
-                libero repudiandae nesciunt impedit similique et non quod cupiditate quaerat amet fugit dolore molestiae
-                labore at nobis odio nihil animi. Vitae praesentium odit impedit nostrum fugiat corrupti fuga nihil
-                dolorem explicabo? Earum saepe doloremque similique commodi sint ea cum mollitia, aliquid eveniet vel
-                expedita, veniam nemo recusandae ab sunt explicabo corporis neque sequi? Aliquam nulla, exercitationem
-                deleniti optio voluptatibus porro mollitia fugiat neque labore, doloribus voluptas blanditiis ducimus
-                obcaecati aliquid temporibus? Esse labore harum saepe recusandae nam tempore soluta quasi laboriosam
-                nostrum, magni, placeat ullam minus quidem corporis, excepturi sapiente ducimus culpa nisi ipsam
-                ratione? Culpa ea, cupiditate explicabo repellat molestiae non perferendis dolorum soluta hic tempore!
-                Quo quae nemo dolorem aut accusantium quisquam exercitationem. Ipsum eaque perferendis molestiae
-                possimus vel nulla officiis amet veritatis et vero ad quo quia repellat, dolore ratione necessitatibus
-                placeat doloremque ducimus deserunt! Quisquam fuga laborum temporibus eligendi suscipit, praesentium
-                perferendis facilis fugiat nobis voluptate.</span>
+              <span>Welcome to Digital-Dungeons! Poke around and see our website's features. If you have experience with
+                DnD you may find this website as a useful tool, and if you are new perhaps this website will help to
+                peak your interest. I had a ton of fun building this project and working with my team. Don't forget to
+                check out the other members of our team to see their thoughts and experiences about this project too!
+              </span>
             </div>
           </label>
 
@@ -83,19 +73,19 @@
           </label>
 
 
-          <!-- Talor Montandon -->
+          <!-- Jake Paulin -->
           <label class="card" for="item-4" id="member-4">
             <img
-              src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
-              alt="Talor Montandon">
+              src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg"
+              alt="Jake Paulin">
             <div class="desc">
               <div class="icons">
-                <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4 p-1"
+                <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"
                   title="GitHub"></a>
                 <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
-                  href="https://github.com/Tmontandon"></a>
+                  href="https://github.com/Jakeepaulin"></a>
               </div>
-              <span>Talor's description</span>
+              <span>Jake's description</span>
             </div>
           </label>
 
@@ -114,23 +104,36 @@
           </label>
 
 
-          <!-- Jake Paulin -->
+          <!-- Ky Want -->
           <label class="card" for="item-6" id="member-6">
             <img
-              src="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg"
-              alt="Jake Paulin">
+              src="https://images.unsplash.com/photo-1561389248-231c46a75a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN1dGUlMjBjYXR8ZW58MHx8MHx8&w=1000&q=80"
+              alt="Ky Want">
             <div class="desc">
               <div class="icons">
-                <a href="https://github.com/Jakeepaulin" target="_blank" class="mdi mdi-github fs-4 p-1"
+                <a href="https://github.com/Lumine3449" target="_blank" class="mdi mdi-github fs-4 p-1"
                   title="GitHub"></a>
                 <a class="mdi mdi-linkedin fs-4 p-1" title="LinkedIn" target="_blank"
-                  href="https://github.com/Jakeepaulin"></a>
+                  href="https://www.linkedin.com/in/kylee-want-559853249/"></a>
               </div>
-              <span>Jake's description</span>
+              <span>Ky's description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ipsa, quas
+                dolorum cum amet commodi quasi, quidem tempora veniam sunt autem corrupti nisi explicabo odio unde
+                ratione est necessitatibus vitae maxime aliquid error architecto adipisci! Perferendis ut explicabo,
+                obcaecati similique delectus nostrum praesentium. Ipsam excepturi deleniti quo. Fuga laborum magnam,
+                libero repudiandae nesciunt impedit similique et non quod cupiditate quaerat amet fugit dolore molestiae
+                labore at nobis odio nihil animi. Vitae praesentium odit impedit nostrum fugiat corrupti fuga nihil
+                dolorem explicabo? Earum saepe doloremque similique commodi sint ea cum mollitia, aliquid eveniet vel
+                expedita, veniam nemo recusandae ab sunt explicabo corporis neque sequi? Aliquam nulla, exercitationem
+                deleniti optio voluptatibus porro mollitia fugiat neque labore, doloribus voluptas blanditiis ducimus
+                obcaecati aliquid temporibus? Esse labore harum saepe recusandae nam tempore soluta quasi laboriosam
+                nostrum, magni, placeat ullam minus quidem corporis, excepturi sapiente ducimus culpa nisi ipsam
+                ratione? Culpa ea, cupiditate explicabo repellat molestiae non perferendis dolorum soluta hic tempore!
+                Quo quae nemo dolorem aut accusantium quisquam exercitationem. Ipsum eaque perferendis molestiae
+                possimus vel nulla officiis amet veritatis et vero ad quo quia repellat, dolore ratione necessitatibus
+                placeat doloremque ducimus deserunt! Quisquam fuga laborum temporibus eligendi suscipit, praesentium
+                perferendis facilis fugiat nobis voluptate.</span>
             </div>
           </label>
-
-
         </div>
       </div>
     </div>
