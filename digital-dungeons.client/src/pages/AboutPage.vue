@@ -18,9 +18,7 @@
 
           <!-- Talor Montandon -->
           <label class="card" for="item-1" id="member-1">
-            <img
-              src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg"
-              alt="Talor Montandon">
+            <img src="src/assets/img/TalorM-pfp.png" alt="Talor Montandon">
             <div class="desc">
               <div class="desc-title d-flex justify-content-center">
                 <h3>Talor Montandon</h3>
