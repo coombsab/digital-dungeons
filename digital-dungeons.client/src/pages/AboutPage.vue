@@ -368,6 +368,7 @@ img {
   width: 80%;
   opacity: 1;
   z-index: 1;
+  cursor: default;
 
   img {
     box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
