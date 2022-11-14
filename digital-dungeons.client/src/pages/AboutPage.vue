@@ -26,7 +26,7 @@
                   <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4"
                     title="GitHub"></a>
                   <a class="mdi mdi-linkedin fs-4" title="LinkedIn" target="_blank"
-                    href="https://www.linkedin.com/in/talor-montandon-92a792254/"></a>
+                    href="https://www.linkedin.com/in/tmontandon"></a>
                 </div>
               </div>
               <div class="desc-body p-3">
