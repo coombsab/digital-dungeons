@@ -18,7 +18,7 @@
 
           <!-- Talor Montandon -->
           <label class="card" for="item-1" id="member-1">
-            <img src="src/assets/img/TalorM-pfp.png" alt="Talor Montandon">
+            <img src="../assets/img/TalorM-pfp.png" alt="Talor Montandon">
             <div class="desc">
               <div class="desc-title d-flex justify-content-center">
                 <h3>Talor Montandon</h3>
