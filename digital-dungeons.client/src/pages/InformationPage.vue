@@ -2,7 +2,7 @@
   <div class="information-page">
     <div class="container-fluid">
       <div class="row">
-        <!-- NOTE: Information card modals -->
+        <!-- Information card modals -->
         <SpellModal v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
         <ArmorModal v-if="category == 'armor'" v-for="a in armor" :key="a.slug" :armor="a" />
         <ClassModal v-if="category == 'classes'" v-for="c in classes" :key="c.slug" :dndClass="c" />
@@ -11,7 +11,7 @@
         <WeaponModal v-if="category == 'weapons'" v-for="w in weapons" :key="w.slug" :weapon="w" />
         <MagicItemModal v-if="category == 'magicitems'" v-for="mi in magicitems" :key="mi.slug" :magicitem="mi" />
 
-        <!-- NOTE Buttons -->
+        <!-- Buttons -->
         <div class="col-4 text-center upup d-flex flex-column justify-content-between">
 
           <div>

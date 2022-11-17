@@ -14,12 +14,16 @@
               <h2 class="morphfont">{{ campaign.name }}</h2>
             </div>
           </div>
+
+
           <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
           <div class="col-3 bg-dark p-2 pt-3">
             <div class="bg-secondary p-1 rounded">
               {{ campaign.creator.name }}
             </div>
           </div>
+
+
           <!-- ADD ENCOUNTER -->
           <div class="col-2 pt-2 rounded">
             <button v-if="campaign.creatorId == account.id" class="btn btn-danger" type="button" data-bs-toggle="modal"
@@ -46,6 +50,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="col-6">
             <div class="bg-dark p-2">
               <div class="bg-secondary p-1">
@@ -65,10 +71,17 @@
     </div>
   </div>
 
+
   <!-- MODAL COMPONENT -->
   <CreateEncounterModal />
   <EditCampaignDetailsModal :campaign="campaign" />
 </template>
+
+
+
+
+
+
 
 <script>
 import { computed, onMounted } from "vue";
@@ -118,6 +131,12 @@ export default {
   components: { CreateEncounterModal, EncounterCard, EditCampaignDetailsModal },
 };
 </script>
+
+
+
+
+
+
 
 <style lang="scss" scoped>
 .morphfont {
