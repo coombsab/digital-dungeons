@@ -11,7 +11,7 @@
               <input type="text" class="form-control" placeholder="Search..." id="floatingSearch" v-model="editable">
               <label for="floatingSearch">Search</label>
             </div>
-            <!-- REVIEW: temporary removal. We can put it back in if it's decided that it looks better with the button -->
+            <!-- REVIEW: temporary removal. We can put it back in if it's decided that it looks better with the button. -->
             <!-- <button type="submit" class="form-control" title="Search Current Category"><i
                 class="mdi mdi-magnify"></i></button> -->
           </div>
@@ -92,6 +92,9 @@ export default {
   }
 }
 </script>
+
+
+
 
 
 <style lang="scss" scoped>
