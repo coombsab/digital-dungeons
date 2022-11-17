@@ -4,7 +4,7 @@
 
 
 
-    <!--: dev team images and desc -->
+    <!-- dev team images and desc -->
     <div class="my-body">
       <div class="my-container">
         <input type="radio" name="slider" id="item-1" checked />
