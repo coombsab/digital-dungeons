@@ -1,8 +1,8 @@
 <template>
-  <!-- ANCHOR DISPLAY CARD -->
+  <!-- DISPLAY CARD -->
   <div class="monster-card text-center text-visible selectable elevation-2" title="See Monster Details"
     data-bs-toggle="modal" :data-bs-target="'#monsterModal' + monster.slug" @click=""
-    :style="monster.image ? {backgroundImage: `url(${monster.image})`} : ''">
+    :style="monster.image ? { backgroundImage: `url(${monster.image})` } : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ monster.name }}</span>
     </div>

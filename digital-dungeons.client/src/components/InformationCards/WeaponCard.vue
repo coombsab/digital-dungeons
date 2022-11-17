@@ -1,8 +1,8 @@
 <template>
-  <!-- NOTE DISPLAY CARD -->
+  <!-- DISPLAY CARD -->
   <div class="weapon-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Weapon Details" data-bs-toggle="modal" :data-bs-target="'#weaponModal' + weapon.slug" @click=""
-    :style="weapon.coverImg ? {backgroundImage: `url(${weapon.coverImg})`} : ''">
+    :style="weapon.coverImg ? { backgroundImage: `url(${weapon.coverImg})` } : ''">
     <div class="muted-layer bg-transparent ">
       <span>{{ weapon.name }}</span>
     </div>
@@ -57,6 +57,4 @@ export default {
   align-content: center;
   padding: 0.5rem;
 }
-
-
 </style>

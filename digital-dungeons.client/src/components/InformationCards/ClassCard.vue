@@ -1,8 +1,8 @@
 <template>
-  <!-- NOTE DISPLAY CARD -->
+  <!-- DISPLAY CARD -->
   <div class="dndClass-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See DndClass Details" data-bs-toggle="modal" :data-bs-target="'#dndClassModal' + dndClass.slug" @click=""
-    :style="dndClass.coverImg ? {backgroundImage: `url(${dndClass.coverImg})`} : ''">
+    :style="dndClass.coverImg ? { backgroundImage: `url(${dndClass.coverImg})` } : ''">
     <div class="muted-layer bg-transparent">
       <span>{{ dndClass.name }}</span>
     </div>

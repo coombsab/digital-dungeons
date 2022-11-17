@@ -1,13 +1,15 @@
 <template>
-  <!-- NOTE DISPLAY CARD -->
+  <!-- DISPLAY CARD -->
   <div class="race-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Race Details" data-bs-toggle="modal" :data-bs-target="'#raceModal' + race.slug" @click=""
-    :style="race.coverImg ? {backgroundImage: `url(${race.coverImg})`} : ''">
+    :style="race.coverImg ? { backgroundImage: `url(${race.coverImg})` } : ''">
     <div class="muted-layer bg-transparent ">
       <span>{{ race?.name }}</span>
     </div>
   </div>
 </template>
+
+
 
 
 <script>
@@ -22,6 +24,8 @@ export default {
   },
 };
 </script>
+
+
 
 
 <style lang="scss" scoped>

@@ -69,6 +69,7 @@ import { AppState } from "../AppState"
 import { ref } from "vue";
 import SearchPagination from "../components/SearchPagination.vue";
 import CategoryDropdown from "../components/Information/CategoryDropdown.vue";
+
 import MonsterCard from "../components/InformationCards/MonsterCard.vue";
 import SpellCard from "../components/InformationCards/SpellCard.vue";
 import RaceCard from "../components/InformationCards/RaceCard.vue";
@@ -76,6 +77,7 @@ import ClassCard from "../components/InformationCards/ClassCard.vue";
 import MagicItemCard from "../components/InformationCards/MagicItemCard.vue";
 import WeaponCard from "../components/InformationCards/WeaponCard.vue";
 import ArmorCard from "../components/InformationCards/ArmorCard.vue";
+
 import SpellModal from "../components/InfoCardModals/SpellModal.vue";
 import ArmorModal from "../components/InfoCardModals/ArmorModal.vue";
 import ClassModal from "../components/InfoCardModals/ClassModal.vue";

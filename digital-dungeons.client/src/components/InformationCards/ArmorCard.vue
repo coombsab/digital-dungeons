@@ -1,8 +1,8 @@
 <template>
-  <!-- NOTE DISPLAY CARD -->
+  <!-- DISPLAY CARD -->
   <div class="armor-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Armor Details" data-bs-toggle="modal" :data-bs-target="'#armorModal' + armor.slug" @click=""
-    :style="armor.coverImg ? {backgroundImage: `url(${armor.coverImg})`} : ''">
+    :style="armor.coverImg ? { backgroundImage: `url(${armor.coverImg})` } : ''">
     <div class="muted-layer bg-transparent ">
       <span>{{ armor.name }}</span>
     </div>
