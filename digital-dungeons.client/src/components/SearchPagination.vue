@@ -4,14 +4,14 @@
       <div class="d-flex ps-2 pt-3 pe-2">
 
 
-        <!-- NOTE Search Bar -->
+        <!-- Search Bar -->
         <form class="flex-grow-1" @submit.prevent="handleSubmit()">
           <div class="input-group">
             <div class="form-floating input-width">
               <input type="text" class="form-control" placeholder="Search..." id="floatingSearch" v-model="editable">
               <label for="floatingSearch">Search</label>
             </div>
-            <!-- REVIEW: removed submit button due to lack of functionality. When clicked it simply reset the search, but didn't bring up the requested content. -->
+            <!-- REVIEW: temporary removal. We can put it back in if it's decided that it looks better with the button -->
             <!-- <button type="submit" class="form-control" title="Search Current Category"><i
                 class="mdi mdi-magnify"></i></button> -->
           </div>
@@ -19,7 +19,7 @@
       </div>
 
 
-      <!-- NOTE Pagination Buttons -->
+      <!-- Pagination Buttons -->
       <div class="d-flex justify-content-between align-items-center p-2">
         <button @click="previous(previousPage)" :disabled="!previousPage"
           class="btn-visible text-visible">Previous</button>
@@ -99,12 +99,12 @@ export default {
 //   width: 70%;
 // }
 
-// .btn-visible:disabled,
-// .btn-visible[disabled] {
-//   cursor: auto;
-//   border: none;
-//   filter: brightness(50%);
-// }
+.btn-visible:disabled,
+.btn-visible[disabled] {
+  cursor: auto;
+  border: none;
+  filter: brightness(50%);
+}
 
 
 input[type=text] {
