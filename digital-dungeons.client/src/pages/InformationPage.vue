@@ -58,6 +58,11 @@
     </div>
   </div>
 </template>
+
+
+
+
+
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState"
@@ -115,6 +120,11 @@ export default {
   }
 };
 </script>
+
+
+
+
+
 
 <style lang="scss" scoped>
 .information-page {
