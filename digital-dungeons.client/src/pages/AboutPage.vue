@@ -2,7 +2,9 @@
   <section class="main-section text-visible">
     <h1 class="text-center mb-5 pt-md-4 pt-2">Our Amazing Team!</h1>
 
-    <!-- SECTION: dev team images and desc -->
+
+
+    <!--: dev team images and desc -->
     <div class="my-body">
       <div class="my-container">
         <input type="radio" name="slider" id="item-1" checked />
@@ -11,6 +13,7 @@
         <input type="radio" name="slider" id="item-4" />
         <input type="radio" name="slider" id="item-5" />
         <input type="radio" name="slider" id="item-6" />
+
 
         <div class="cards">
           <!-- Talor Montandon -->
@@ -38,6 +41,8 @@
             </div>
           </label>
 
+
+
           <!-- Abraham Coombs -->
           <label class="card" for="item-2" id="member-2">
             <img src="../assets/img/abraham.jpg" alt="Abraham Coombs" />
@@ -60,6 +65,8 @@
               </div>
             </div>
           </label>
+
+
 
           <!-- Jake Neitzell -->
           <label class="card" for="item-3" id="member-3">
@@ -85,6 +92,8 @@
             </div>
           </label>
 
+
+
           <!-- Jake Paulin -->
           <label class="card" for="item-4" id="member-4">
             <img src="../assets/img/JakeP.png" alt="Jake Paulin" />
@@ -104,6 +113,8 @@
               </div>
             </div>
           </label>
+
+
 
           <!-- Thomas Daily -->
           <label class="card" for="item-5" id="member-5">
@@ -127,6 +138,8 @@
               </div>
             </div>
           </label>
+
+
 
           <!-- Ky Want -->
           <label class="card" for="item-6" id="member-6">
@@ -154,6 +167,8 @@
     </div>
   </section>
 </template>
+
+
 
 
 
