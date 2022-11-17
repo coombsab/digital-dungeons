@@ -2,9 +2,10 @@
   <div class="component">
     <div class="dropdown-center">
       <button class="btn-visible back dropdown-toggle text-visible m-2 fs-4" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">{{category ? (category === 'magicitems' ? 'MAGIC ITEMS' :
-        category.toUpperCase()) :
-        "Select Category"}}</button>
+        aria-expanded="false">{{ category ? (category === 'magicitems' ? 'MAGIC ITEMS' :
+            category.toUpperCase()) :
+            "Select Category"
+        }}</button>
       <ul class="dropdown-menu bg-secondary no-select p-3 text-center">
         <li class="dropdown-item rounded" @click="changeCategory('monsters')">
           <h4>
@@ -41,7 +42,7 @@
             Armor
           </h4>
         </li>
-        <!-- TODO add these searches -->
+        <!-- FIXME add these searches -->
         <!-- <li class="dropdown-item" @click="changeCategory('')">
                 Campaigns
               </li>
@@ -52,6 +53,8 @@
     </div>
   </div>
 </template>
+
+
 
 
 <script>
@@ -79,6 +82,10 @@ export default {
   }
 }
 </script>
+
+
+
+
 
 <style lang="scss" scoped>
 h4 {
