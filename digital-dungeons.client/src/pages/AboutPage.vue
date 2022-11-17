@@ -143,11 +143,9 @@
               </div>
               <div class="desc-body p-3">
                 <span>Hello! My name is Ky and I'm a junior Full Stack Software Developer graduate from CodeWorks. When
-                  I'm not solving problems in the position of a software developer, I am pouring my creative passion
-                  into drawing and
-                  writing for a lengthy Dungeons and Dragons campaign. I love letting my creativity go wild in
-                  everything I do. Leaving a
-                  creative imprint on anything I touch is important to me.</span>
+                  I'm not solving problems as a software developer, I'm pouring my creative passion
+                  into drawing or
+                  writing for a my D&D campaign.</span>
               </div>
             </div>
           </label>
@@ -157,17 +155,13 @@
   </section>
 </template>
 
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
-</script>
+
+
+
 
 <style lang="scss" scoped>
 .main-section {
-  height: 100vh;
+  height: 90vh;
 }
 
 .my-body {
