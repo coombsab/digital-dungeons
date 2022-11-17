@@ -34,10 +34,13 @@
         </div>
         <div class="col-8 bg-transparent">
           <div class="box">
-            <!-- NOTE Search Functionality -->
+            <!-- Search Functionality -->
             <SearchPagination />
-            <!-- NOTE Information Cards -->
-            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-4 align-content-start">
+
+
+
+            <!-- Information Cards -->
+            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-5 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
 
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />

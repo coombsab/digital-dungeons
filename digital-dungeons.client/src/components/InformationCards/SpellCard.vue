@@ -3,6 +3,7 @@
   <div class="spell-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Spell Details" data-bs-toggle="modal" :data-bs-target="'#spellModal' + spell.slug" @click=""
     :style="spell.schoolImg ? { backgroundImage: `url(${spell.schoolImg})` } : ''">
+
     <div class="muted-layer bg-transparent text-visible">
       <span>{{ spell.name }}</span>
     </div>

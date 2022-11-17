@@ -3,11 +3,16 @@
   <div class="weapon-card text-center text-visible selectable elevation-2 animate__animated animate__fadeIn"
     title="See Weapon Details" data-bs-toggle="modal" :data-bs-target="'#weaponModal' + weapon.slug" @click=""
     :style="weapon.coverImg ? { backgroundImage: `url(${weapon.coverImg})` } : ''">
+
     <div class="muted-layer bg-transparent ">
       <span>{{ weapon.name }}</span>
     </div>
   </div>
 </template>
+
+
+
+
 
 <script>
 import { Weapon } from "../../models/Weapon.js";
@@ -21,6 +26,10 @@ export default {
   },
 };
 </script>
+
+
+
+
 
 
 <style lang="scss" scoped>

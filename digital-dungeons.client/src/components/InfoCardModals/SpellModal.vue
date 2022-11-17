@@ -1,12 +1,12 @@
 <template>
-  <!-- NOTE: MODAL -->
+  <!-- MODAL -->
   <div class="modal fade" :id="'spellModal' + spell.slug" tabindex="-1" aria-labelledby="SpellDetailsModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-x1">
 
       <!-- School img -->
       <div class="modal-content text-visible bg-black"
-        :style="spell.schoolImg ? {backgroundImage: `url(${spell.schoolImg})`} : ''">
+        :style="spell.schoolImg ? { backgroundImage: `url(${spell.schoolImg})` } : ''">
 
         <!-- Spell header: name and level -->
         <div class="modal-header bg-transparent-modal">
@@ -18,9 +18,9 @@
             </div>
 
             <div v-if="spell.dnd_class" class="text-lighter">
-              <p><em>{{spell.level}} {{ spell.school}}</em> <span>| {{spell.dnd_class}}</span></p>
+              <p><em>{{ spell.level }} {{ spell.school }}</em> <span>| {{ spell.dnd_class }}</span></p>
             </div>
-            <div v-else><em>{{spell.level}} {{ spell.school}}</em></div>
+            <div v-else><em>{{ spell.level }} {{ spell.school }}</em></div>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
             <!-- Range -->
             <div v-if="spell.range" class="mb-3">
               <strong class="fs-4 text-visible text-shadow-darker">Range: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.range}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.range }}</strong>
             </div>
             <div v-else></div>
 
@@ -40,21 +40,21 @@
             <!-- Casting time -->
             <div v-if="spell.casting_time">
               <strong class="fs-4 text-visible text-shadow-darker">Casting Time: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.casting_time}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.casting_time }}</strong>
             </div>
             <div v-else></div>
 
             <!-- Duration -->
             <div v-if="spell.duration">
               <strong class="fs-4 text-visible text-shadow-darker">Duration: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.duration}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.duration }}</strong>
             </div>
             <div v-else></div>
 
             <!-- Components required -->
             <div v-if="spell.components" class="mb-4">
               <strong class="fs-4 text-visible text-shadow-darker">Components: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.components}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.components }}</strong>
             </div>
             <div v-else></div>
 
@@ -62,7 +62,7 @@
             <!-- Description of the spell -->
             <div v-if="spell.desc" class="mb-3">
               <strong class="fs-4 text-visible text-shadow-darker">Description: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.desc}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.desc }}</strong>
             </div>
             <div v-else></div>
 
@@ -70,7 +70,7 @@
             <!-- At higher levels -->
             <div v-if="spell.higher_level" class="mb-5">
               <strong class="fs-4 text-visible text-shadow-darker">At higher levels: </strong>
-              <strong class="fs-5 text-lighter text-shadow">{{spell.higher_level}}</strong>
+              <strong class="fs-5 text-lighter text-shadow">{{ spell.higher_level }}</strong>
             </div>
             <div v-else></div>
           </div>
