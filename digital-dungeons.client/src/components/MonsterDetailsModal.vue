@@ -122,7 +122,7 @@ export default {
       async addMonster() {
         try {
           props.monster.encounterId = route.params.encounterId;
-          console.log(props.monster);
+          // console.log(props.monster);
           await monstersService.addMonsterToEncounter(props.monster);
           Pop.success(`You added ${props.monster.name} to your encounter`);
         } catch (error) {

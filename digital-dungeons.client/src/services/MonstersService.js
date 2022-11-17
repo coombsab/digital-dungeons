@@ -11,7 +11,7 @@ class MonstersService {
   }
 
   async addMonsterToEncounter(monsterData) {
-    console.log("This is what we made", monsterData);
+    // console.log("This is what we made", monsterData);
     const res = await baseApi.post("/api/monsters", monsterData);
     const monster = new Monster(res.data);
     AppState.activeEncounterMonsters = [
@@ -19,7 +19,7 @@ class MonstersService {
       monster,
     ];
     // console.log(monster);
-    console.log("Hello Appstate", AppState.activeEncounterMonsters);
+    // console.log("Hello Appstate", AppState.activeEncounterMonsters);
   }
 
   async removeMonster(monsterId) {
@@ -33,13 +33,13 @@ class MonstersService {
     const res = await baseApi.put(`api/monsters/${id}`, monsterData);
     // console.log(monsterData);
     const updatedMonster = new Monster(res.data);
-    console.log(res.data);
-    console.log(updatedMonster);
+    // console.log(res.data);
+    // console.log(updatedMonster);
     const index = AppState.activeEncounterMonsters.findIndex((m) => m.id == id);
     AppState.activeEncounterMonsters.splice(index, 1, updatedMonster);
   }
   async rollInitiatives(encounterId) {
-    console.log(encounterId);
+    // console.log(encounterId);
 
     if (AppState.activeEncounterMonsters == 0) {
       throw new Error(

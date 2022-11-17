@@ -95,7 +95,7 @@ export default {
         await encountersService.getEncountersByCampaignId(
           route.params.campaignId
         );
-        console.log("Getting Encounters");
+        // console.log("Getting Encounters");
       } catch (error) {
         Pop.error(error);
       }

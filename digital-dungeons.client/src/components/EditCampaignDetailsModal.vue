@@ -90,7 +90,7 @@ export default {
 
       async editCampaign(id) {
         try {
-          console.log(props.campaign.id, id);
+          // console.log(props.campaign.id, id);
           await campaignsService.editCampaign(editable.value, id);
         } catch (error) {
           Pop.error(error);

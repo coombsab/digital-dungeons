@@ -540,7 +540,7 @@ export default {
       },
       async editMonster(id) {
         try {
-          console.log(props.monster.id, id);
+          // console.log(props.monster.id, id);
           await monstersService.editMonster(editable.value, id);
           this.toggleHidden();
         } catch (error) {

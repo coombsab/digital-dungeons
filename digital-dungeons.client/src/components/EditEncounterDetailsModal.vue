@@ -130,7 +130,7 @@ export default {
 
       async editEncounter(id) {
         try {
-          console.log(props.encounter.id, id);
+          // console.log(props.encounter.id, id);
           await encountersService.editEncounter(editable.value, id);
         } catch (error) {
           Pop.error(error);
