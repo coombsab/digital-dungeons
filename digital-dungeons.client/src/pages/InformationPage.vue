@@ -19,12 +19,12 @@
           </div>
 
           <div>
-            <div class="text-center p-2 py-4 elevation-2 m-2 card glass selectable">
+            <div class="text-center p-2 py-2 elevation-2 m-2 mb-4 card glass selectable">
               <a href="https://www.dndbeyond.com/sources/basic-rules" target="_blank">
                 <h3 class="text-info no-select"><i class="mdi mdi-book"></i> RULES</h3>
               </a>
             </div>
-            <div class="text-center p-2 py-4 elevation-2 m-2 mb-4 card glass selectable">
+            <div class="text-center p-2 py-2 elevation-2 m-2 mb-5 card glass selectable">
               <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/" target="_blank">
                 <h3 class="text-info no-select"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</h3>
               </a>
