@@ -16,7 +16,7 @@
           </div>
 
 
-          <!-- NOTE Cant input Dm's Name because creator of campaign is not populated on campaign -->
+          <!-- NOTE Cant input DM's Name because creator of campaign is not populated on campaign -->
           <div class="col-3 bg-dark p-2 pt-3">
             <div class="bg-secondary p-1 rounded">
               {{ campaign.creator.name }}
