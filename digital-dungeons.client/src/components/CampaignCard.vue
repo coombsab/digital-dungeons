@@ -26,7 +26,8 @@
           class="card-content d-flex flex-column flex-wrap justify-content-around text-center color-shift animate__animated animate__fadeIn">
           <span class="pb-5 fs-4 text-visible">{{ campaign.name }}</span>
           <span class="flex-grow-1 mt-5 desc fs-6" :class="campaign.desc.length > 120 ? 'text-truncate' : ''">{{
-          campaign.desc }}</span>
+              campaign.desc
+          }}</span>
           <!-- <span class="" v-if="campaign.desc.length > 120"><em>Truncated desc as it was too long (> 120
               chars)</em></span> -->
         </div>

@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-floating">
                   <textarea class="form-control textarea-height text-white bg-primary" v-model="editable.desc"
-                    name="description" style="resize: none" placeholder="Descripotion:" maxlength="500"></textarea>
+                    name="description" style="resize: none" placeholder="Description:" maxlength="500"></textarea>
                   <label for="description">Description:</label>
                 </div>
                 <div class="text-end">
@@ -67,6 +67,12 @@
     </div>
   </section>
 </template>
+
+
+
+
+
+
 
 <script>
 import { computed } from "@vue/reactivity";
@@ -120,6 +126,12 @@ export default {
   components: { CampaignCard },
 };
 </script>
+
+
+
+
+
+
 
 <style lang="scss" scoped>
 .campaigns-wrapper {
