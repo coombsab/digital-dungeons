@@ -98,9 +98,9 @@ export default {
 
 
 <style lang="scss" scoped>
-// .input-width {
-//   width: 70%;
-// }
+.input-width {
+  width: 70%;
+}
 
 .btn-visible:disabled,
 .btn-visible[disabled] {
@@ -110,14 +110,14 @@ export default {
 }
 
 
-input[type=text] {
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
+// input[type=text] {
+//   width: 130px;
+//   -webkit-transition: width 0.4s ease-in-out;
+//   transition: width 0.4s ease-in-out;
+// }
 
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-  width: 100%;
-}
+// /* When the input field gets focus, change its width to 100% */
+// input[type=text]:focus {
+//   width: 100%;
+// }
 </style>
