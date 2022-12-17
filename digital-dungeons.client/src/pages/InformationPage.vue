@@ -12,9 +12,9 @@
         <MagicItemModal v-if="category == 'magicitems'" v-for="mi in magicitems" :key="mi.slug" :magicitem="mi" />
 
         <!-- Buttons -->
-        <div class="col-md-4 col-12 text-center upup d-flex flex-column justify-content-between align-items-center first-col">
+        <div class="col-md-4 col-12 text-center upup d-flex flex-column justify-content-between align-items-center mb-2 mb-md-0">
 
-          <div>
+          <div class="sticky-top">
             <CategoryDropdown :category="category" />
           </div>
 
@@ -34,12 +34,12 @@
         <div class="col-md-8 col-12 bg-transparent second-col d-flex flex-column">
           <div class="box">
             <!-- Search Functionality -->
-            <SearchPagination/>
+            <SearchPagination class="sticky-bottom order-1 order-md-0" />
 
 
 
             <!-- Information Cards -->
-            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-md-5 gap-2 align-content-start">
+            <div class="elem2 scrollable p-md-3 p-1 d-flex flex-wrap gap-md-5 gap-2 align-content-start justify-content-center order-0 order-md-1">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
 
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
@@ -149,6 +149,7 @@ button {
 .box {
   display: flex;
   flex-direction: column;
+  height: 75vh;
 }
 
 .elem2 {
