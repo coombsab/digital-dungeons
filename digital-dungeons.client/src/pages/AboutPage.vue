@@ -258,11 +258,11 @@ img {
 
 @media (min-width: 768px) {
   .icons {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 
 @media (min-width: 1400px) {

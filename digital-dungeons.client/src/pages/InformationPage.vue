@@ -12,35 +12,34 @@
         <MagicItemModal v-if="category == 'magicitems'" v-for="mi in magicitems" :key="mi.slug" :magicitem="mi" />
 
         <!-- Buttons -->
-        <div class="col-4 text-center upup d-flex flex-column justify-content-between">
+        <div class="col-md-4 col-12 text-center upup d-flex flex-column justify-content-between align-items-center first-col">
 
           <div>
             <CategoryDropdown :category="category" />
           </div>
 
-          <div>
-            <div class="text-center p-2 py-2 elevation-2 m-2 mb-4 card glass selectable">
+          <div class="link-wrapper">
+            <div class="text-center px-3 py-1 px-md-2 py-md-2 elevation-2 m-md-2 mb-md-4 card glass selectable">
               <a href="https://www.dndbeyond.com/sources/basic-rules" target="_blank">
-                <h3 class="text-info no-select"><i class="mdi mdi-book"></i> RULES</h3>
+                <p class="text-info no-select link-text"><i class="mdi mdi-book"></i> RULES</p>
               </a>
             </div>
-            <div class="text-center p-2 py-2 elevation-2 m-2 mb-5 card glass selectable">
+            <div class="text-center px-3 py-1 px-md-2 py-md-2 elevation-2 m-md-2 mb-md-5 mt-2 card glass selectable">
               <a href="https://www.masterthedungeon.com/game-mechanics-and-dnd/" target="_blank">
-                <h3 class="text-info no-select"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</h3>
+                <p class="text-info no-select link-text"><i class="mdi mdi-book-open-variant"></i> GAME MECHANICS</p>
               </a>
             </div>
           </div>
-
         </div>
-        <div class="col-8 bg-transparent">
+        <div class="col-md-8 col-12 bg-transparent second-col d-flex flex-column">
           <div class="box">
             <!-- Search Functionality -->
-            <SearchPagination />
+            <SearchPagination/>
 
 
 
             <!-- Information Cards -->
-            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-5 align-content-start">
+            <div class="elem2 scrollable p-3 d-flex flex-wrap gap-md-5 gap-2 align-content-start">
               <MonsterCard v-if="category == 'monsters'" v-for="m in monsters" :key="m.slug" :monster="m" />
 
               <SpellCard v-if="category == 'spells'" v-for="s in spells" :key="s.slug" :spell="s" />
@@ -150,7 +149,6 @@ button {
 .box {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .elem2 {
@@ -159,10 +157,6 @@ button {
 
 .scrollable {
   overflow-y: auto;
-}
-
-.upup {
-  margin-top: 18vh;
 }
 
 .glass {
@@ -177,5 +171,35 @@ button {
 .text-woah {
   color: rgb(96, 190, 234) !important;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.644), 0px 0px 5px rgba(18, 34, 50, 0.678);
+}
+
+.link-wrapper {
+  max-width: 80vw;
+}
+
+.link-text {
+  font-size: larger;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+   .upup {
+    margin-top: 18vh;
+  }
+
+  .link-wrapper {
+    width: 100%;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .link-text {
+    font-size: xx-large;
+  }
 }
 </style>
