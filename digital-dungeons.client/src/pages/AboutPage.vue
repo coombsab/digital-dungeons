@@ -20,7 +20,7 @@
           <label class="card" for="item-1" id="member-1">
             <img src="../assets/img/TalorM-pfp.png" alt="Talor Montandon" />
             <div class="desc">
-              <div class="desc-title d-flex justify-content-center">
+              <div class="desc-title d-flex justify-content-md-center justify-content-between px-3 px-md-0">
                 <h3>Talor Montandon</h3>
                 <div class="icons d-flex gap-2 ps-3">
                   <a href="https://github.com/Tmontandon" target="_blank" class="mdi mdi-github fs-4"
@@ -246,13 +246,6 @@ img {
   overflow-y: auto;
 }
 
-.icons {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
 @media (min-width: 768px) {
   .card {
     width: 80%;
@@ -260,6 +253,15 @@ img {
 
   .cards {
     margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .icons {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 }
 

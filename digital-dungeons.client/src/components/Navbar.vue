@@ -43,7 +43,7 @@ export default {
   position: absolute;
   left: 1.25rem;
   top: 5rem;
-  z-index: 1;
+  z-index: 2000;
 }
 
 .offcanvas {
